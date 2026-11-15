@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Singapore Haircut Econometrics: Yearly Trends, Salon Costs &amp; Annual Spend</title>
+  <title>Singapore Haircut &amp; Barber Econometrics: Yearly Trends, Salon Costs &amp; Annual Spend</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <style>
     :root {
@@ -28,15 +28,15 @@
     <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border,var(--border-fallback))]">
       <div>
         <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-[var(--primary,var(--primary-fallback))] uppercase tracking-wider">
-          <span>SG Haircut Econometrics Engine</span>
+          <span>SG Haircut &amp; Barber Econometrics</span>
           <span>•</span>
-          <span>SingStat SSIC 9602 / PIB 2026 &amp; 102 Verified Salons</span>
+          <span>SingStat SSIC 9602 / ACRA 96021 / PIB 2026</span>
         </div>
         <h1 class="text-xl md:text-2xl font-semibold mt-1">
-          Singapore Haircut Yearly Trends, Salon Cost Comparison &amp; Annual Spend by Race, Gender &amp; Age
+          Singapore Yearly Haircut Trends, Salon &amp; Barber Costs &amp; Annual Spend Calculator
         </h1>
         <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] mt-1">
-          Grounded in SingStat SSIC 9602, Population in Brief (2016–2026), HES 2023, PMC trichology hair-growth physics, and 102 geo-verified Singapore outlets (Tiers T1–T4). <a href="webgis/sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open 102-Outlet Spatio-Temporal Leaflet GIS Map →</a>
+          Grounded in SingStat SSIC 9602, ACRA SSIC 96021 (incl. barbers), Population in Brief / M810011 (2016–2026 CMIO), HES 2023, live SLA OneMap &amp; OSM checks, plus a 102-outlet price-audited catalog (T1–T4). <a href="webgis/sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open 102-Outlet Spatio-Temporal Leaflet GIS Map →</a>
         </p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs shrink-0">
@@ -45,15 +45,15 @@
           <div class="text-base font-semibold tabular-nums mt-0.5">S$3.38B</div>
         </div>
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SSIC 9602 Outlets (2024)</div>
-          <div class="text-base font-semibold tabular-nums mt-0.5">11,241</div>
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">ACRA 96021 / Physical Est.</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">~3,930 / 2,819</div>
         </div>
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
           <div class="text-[var(--muted-foreground,var(--muted-fallback))]">2026 Population (PIB)</div>
           <div class="text-base font-semibold tabular-nums mt-0.5">6.21M</div>
         </div>
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Audited Price Range</div>
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Audited Price Sample (n=102)</div>
           <div class="text-base font-semibold tabular-nums mt-0.5">S$5.80–S$280</div>
         </div>
       </div>
@@ -65,10 +65,10 @@
         1. Yearly Trends in Singapore (2016–2026)
       </button>
       <button data-tab="places" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
-        2. Cost at Different Places (102 SG Salons)
+        2. Cost &amp; Outlet Count Reconciliation (Salons + Barbers)
       </button>
       <button data-tab="spend" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
-        3. Annual Money Spent: Race × Gender × Age
+        3. Annual Money Spent &amp; SingStat CMIO / Age Context
       </button>
     </nav>
 
@@ -77,13 +77,11 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <!-- Chart A: SingStat SSIC 9602 Receipts & Establishments -->
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
-          <div class="flex flex-wrap items-start justify-between gap-2">
-            <div>
-              <h2 class="text-base font-semibold">Official SingStat SSIC 9602 Industry Trend (2019–2024)</h2>
-              <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
-                Operating revenue rose <strong class="text-[var(--foreground,var(--fg-fallback))]">+55.5%</strong> (S$2.17B → S$3.38B) and establishments grew <strong class="text-[var(--foreground,var(--fg-fallback))]">+33.0%</strong> (8,453 → 11,241) across Hairdressing, Beauty, Spa &amp; Nail services (2020 not published separately).
-              </p>
-            </div>
+          <div>
+            <h2 class="text-base font-semibold">Official SingStat SSIC 9602 Industry Trend (2019–2024)</h2>
+            <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
+              Operating revenue rose <strong class="text-[var(--foreground,var(--fg-fallback))]">+55.5%</strong> (S$2.17B → S$3.38B) and establishments grew <strong class="text-[var(--foreground,var(--fg-fallback))]">+33.0%</strong> (8,453 → 11,241) across Hairdressing, Barber, Beauty, Spa &amp; Nail services (2020 not published separately).
+            </p>
           </div>
           <div id="ssic-chart-svg" class="w-full overflow-x-auto"></div>
         </div>
@@ -93,7 +91,7 @@
           <div>
             <h2 class="text-base font-semibold">Yearly Haircut Demand Trajectory &amp; Population Base (2016–2026)</h2>
             <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
-              Because SingStat does not count individual haircuts directly, the chart pairs exact <strong class="text-[var(--foreground,var(--fg-fallback))]">Population in Brief (2016–2026)</strong> mid-year populations with your selected cadence assumption to show the macro demand band (increasing post-2021).
+              Because SingStat does not count individual haircuts directly, the chart pairs exact <strong class="text-[var(--foreground,var(--fg-fallback))]">Population in Brief (2016–2026)</strong> mid-year populations with your selected cadence assumption to show the macro demand band.
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-4 text-xs bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
@@ -102,7 +100,7 @@
               <input id="trend-freq" type="range" min="5" max="12" step="0.5" value="8.5" class="accent-[var(--primary,var(--primary-fallback))]" />
               <span id="trend-freq-val" class="font-semibold tabular-nums">8.5 / yr</span>
             </label>
-            <span class="text-[var(--muted-foreground,var(--muted-fallback))]">Est. 2026 SG Haircuts: <strong id="trend-2026-cuts" class="text-[var(--foreground,var(--fg-fallback))] tabular-nums">52.7M</strong></span>
+            <span class="text-[var(--muted-foreground,var(--muted-fallback))]">Est. 2026 SG Haircuts: <strong id="trend-2026-cuts" class="text-[var(--foreground,var(--fg-fallback))] tabular-nums">52.8M</strong></span>
           </div>
           <div id="yearly-cuts-svg" class="w-full overflow-x-auto"></div>
         </div>
@@ -113,13 +111,13 @@
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
           <div class="font-semibold text-sm">Post-2021 Demographic Rebound</div>
           <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
-            Total population dropped from 5.70M (2019) to 5.45M (2021) during COVID border restrictions before climbing <strong>+13.9%</strong> to <strong>6.21M</strong> (June 2026), directly lifting salon footfall.
+            Total population dropped from 5.70M (2019) to 5.45M (2021) during COVID border restrictions before climbing <strong>+13.9%</strong> to <strong>6.21M</strong> (June 2026), directly lifting salon &amp; barber footfall.
           </p>
         </div>
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
           <div class="font-semibold text-sm">Super-Aged Shift (12.4% → 19.5% 65+)</div>
           <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
-            Residents aged 65+ rose every single year from 2016 (12.4%) to 2026 (19.5%; Citizens 21.4%), expanding demand for accessible HDB void-deck &amp; budget neighborhood salons.
+            Residents aged 65+ rose every year from 2016 (12.4%) to 2026 (19.5%; median age 43.6y), expanding demand for accessible HDB void-deck salons &amp; traditional neighbourhood barbers.
           </p>
         </div>
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
@@ -131,21 +129,56 @@
       </div>
     </section>
 
-    <!-- TAB 2: COST AT DIFFERENT PLACES -->
+    <!-- TAB 2: COST AT DIFFERENT PLACES + OUTLET COUNT RECONCILIATION -->
     <section id="tab-places" class="tab-panel hidden space-y-4">
+      <!-- Why Singapore has way more than 102 salons & barbers: Live Reconciliation -->
+      <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-base font-semibold">How Many Hair Salons &amp; Barbers Exist in Singapore? (Live API &amp; Registry Audit)</h2>
+          <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">102 outlets = our price-verified catalog only; islandwide total is ~2,819–3,930</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
+          <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SLA OneMap API (Live Audit)</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5">0 Themes / 1–7 Hits</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">166 OneMap Themes cover civic layers, not retail tenants; Elastic Search returned 7 "HAIR", 3 "BARBER", 1 "SALON" address strings.</p>
+          </div>
+          <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">OpenStreetMap Overpass (Live)</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5">492 Outlets</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">473 nodes + 19 ways across SG tagged <code>shop=hairdresser|barber</code> (volunteer-mapped undercount).</p>
+          </div>
+          <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Google Maps Directory</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5 text-[var(--primary,var(--primary-fallback))]">2,819 Physical</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1"><strong>1,981 hair salons</strong> + <strong>838 barber shops</strong> (incl. kcuts ~70, Clippers ~45, QB House ~35+).</p>
+          </div>
+          <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">ACRA SSIC 96021</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5">~3,930 Live Entities</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">Official 5-digit code for <em>"Hairdressing salons/shops (including barber shops)"</em>.</p>
+          </div>
+          <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SingStat SSIC 9602 (2024)</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5">11,241 Combined</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">Broader 4-digit category combining hair salons, barbers, facial/beauty spas &amp; nail salons.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Tier Comparison Summary -->
       <div id="tier-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs"></div>
 
-      <!-- Filters for 102 Places -->
+      <!-- Filters for 102 Audited Places -->
       <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground,var(--muted-fallback))]">Filter 102 Verified Singapore Outlets</span>
+          <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground,var(--muted-fallback))]">Filter 102 Price-Audited Singapore Salons &amp; Barbers</span>
           <span id="places-count" class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] tabular-nums">Showing 102 / 102 outlets</span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
           <select id="p-tier" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
             <option value="all">All Tiers (T1–T4)</option>
-            <option value="T1">T1 Heartland / HDB / School (16)</option>
+            <option value="T1">T1 Heartland / HDB / Barber (16)</option>
             <option value="T2">T2 Express 10-min Chains (64)</option>
             <option value="T3">T3 Mid-Tier / Orchard / Karva (16)</option>
             <option value="T4">T4 Luxury Director / Boutiques (6)</option>
@@ -159,21 +192,18 @@
             <option value="North">North (7)</option>
           </select>
           <select id="p-feature" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-            <option value="all">All Specialties &amp; Features</option>
+            <option value="all">All Shop Formats &amp; Features</option>
             <option value="hijab">Muslimah Hijab-Private Suite (6)</option>
-            <option value="razor">Traditional Razor Beard Craft (2)</option>
-            <option value="afro">Afro-Coiled / Type 3C–4C Ready</option>
-            <option value="wavy">South Asian / Malay Wavy-Curly Ready</option>
-            <option value="caucasian">Caucasian Fine-Oval Ready</option>
+            <option value="razor">Barber / Traditional Razor Beard Craft (2)</option>
           </select>
           <select id="p-sort" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
             <option value="pm_asc">Sort: Men Price (Low → High)</option>
             <option value="pw_asc">Sort: Women Price (Low → High)</option>
             <option value="pk_asc">Sort: Kid Price (Low → High)</option>
             <option value="rating_desc">Sort: Highest Google Rating</option>
-            <option value="tau_desc">Sort: Longest Cut Durability (τ)</option>
+            <option value="tau_desc">Sort: Queue + Chair Time (Low → High)</option>
           </select>
-          <input id="p-search" type="text" placeholder="Search salon or area (e.g. Bedok, Orchard)..." class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2" />
+          <input id="p-search" type="text" placeholder="Search salon/barber or area (e.g. Bedok, Orchard)..." class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2" />
         </div>
       </div>
 
@@ -182,14 +212,14 @@
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
           <h3 class="text-sm font-semibold">Cash Price vs. True Economic Cost (By Tier)</h3>
           <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
-            Compares ticket price (Men, Women, Kid medians) plus walk-in queue &amp; travel Value of Time at MOM Median income (S$33.32/hr). Notice zero Men/Women spread in T2 express vs. +50% median spread in T4 luxury.
+            Compares audited ticket medians (Men, Women) plus walk-in queue, chair &amp; travel Value of Time at MOM Median income (S$33.32/hr). Notice zero Men/Women spread in T2 express vs. +50% spread in T4 luxury.
           </p>
           <div id="tier-cost-svg" class="w-full overflow-x-auto"></div>
         </div>
 
         <div class="lg:col-span-2 bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
           <div class="flex flex-wrap items-center justify-between gap-2">
-            <h3 class="text-sm font-semibold">Directory of Verified Singapore Haircut Places (2026 Catalog)</h3>
+            <h3 class="text-sm font-semibold">102 Price-Audited Singapore Salons &amp; Barbers (Sample Directory)</h3>
             <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">Queue + Chair mins from catalog baseline</span>
           </div>
           <div id="places-table-wrap" class="overflow-x-auto max-h-[460px] overflow-y-auto scrollbar-thin"></div>
@@ -197,62 +227,79 @@
       </div>
     </section>
 
-    <!-- TAB 3: ANNUAL MONEY SPENT BY RACE x GENDER x AGE -->
+    <!-- TAB 3: TRANSPARENT ANNUAL MONEY SPENT + SINGSTAT CMIO/AGE CONTEXT -->
     <section id="tab-spend" class="tab-panel hidden space-y-4">
+      <!-- Strict Defensibility Notice -->
+      <div class="bg-[var(--card,var(--card-fallback))] border border-sky-500/40 rounded-xl p-4 text-xs space-y-1">
+        <div class="font-semibold text-sm text-[var(--primary,var(--primary-fallback))]">Methodological Note: Why There Are No Biological or Racial Cadence Multipliers Here</div>
+        <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
+          SingStat publishes resident demographics by <strong class="text-[var(--foreground,var(--fg-fallback))]">CMIO (`Chinese 73.9% · Malay 13.5% · Indian 9.0% · Others 3.6%`), Sex &amp; Age</strong> (Table M810011 / Population in Brief 2026) and aggregate SSIC 9602 receipts, <strong class="text-[var(--foreground,var(--fg-fallback))]">not</strong> per-capita haircut spend by race. Trichology papers on curly-hair biomechanics also do not predict annual `S$` spend. Below, you directly control your <strong class="text-[var(--foreground,var(--fg-fallback))]">cut frequency</strong>, <strong class="text-[var(--foreground,var(--fg-fallback))]">gender/child ticket tier</strong>, and any <strong class="text-[var(--foreground,var(--fg-fallback))]">verified Singapore service requirement</strong> (such as Muslimah private suites or unshorn Sikh Kesh).
+        </p>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <!-- Interactive Calculator Controls -->
         <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3 text-xs">
-          <h2 class="text-base font-semibold">Annual Haircut Spend Estimator</h2>
+          <h2 class="text-base font-semibold">Annual Haircut &amp; Barber Spend Calculator</h2>
           <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
-            Estimates annual cash outlay and time opportunity cost using your profile's hair biotype growth velocity (<code>PMC7187942</code> / <code>PMC11733847</code> / <code>PMC6894537</code>), cultural/privacy rules, AGA differential bulk (<code>PMID:11063167</code>), and real SG salon tier prices.
+            Pure arithmetic from our 102 audited salon/barber prices: <strong>Cuts/Year × Audited Tier Ticket + Add-Ons</strong>, plus optional travel/queue Value of Time.
           </p>
 
           <div>
-            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Race / Biotype &amp; Cultural Profile</label>
+            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">SingStat CMIO Group / Cultural Service Rule</label>
             <select id="s-race" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-              <option value="chinese">Chinese (East Asian 78µm, 1.40 cm/mo)</option>
-              <option value="malay_std">Malay (Wavy/Straight 72µm, 1.28 cm/mo)</option>
-              <option value="malay_hijab">Malay Muslimah (Female Hijab-Private Suite / Sah-Solat)</option>
-              <option value="indian_gen">Indian (Wavy/Curly 72µm, 87% Male AGA factor)</option>
-              <option value="indian_sikh">Indian — Sikh Sacred Kesh (Unshorn Faith Practice)</option>
-              <option value="caucasian">Caucasian (Fine Oval 65µm, 1.20 cm/mo)</option>
-              <option value="eurasian">Eurasian (Mixed 1B–3B Wave/Straight, 1.28 cm/mo)</option>
-              <option value="afro">Afro-Coiled (55µm Ribbon, 48% Shrinkage, 0.90 cm/mo)</option>
+              <option value="chinese">Chinese (73.9% of Residents — Standard Pricing)</option>
+              <option value="malay_std">Malay (13.5% of Residents — Standard Salon/Barber)</option>
+              <option value="malay_hijab">Malay Muslimah (Requires Hijab-Private Cabin)</option>
+              <option value="indian_gen">Indian (9.0% of Residents — Standard Salon/Barber)</option>
+              <option value="indian_sikh">Indian — Sikh Sacred Kesh (Unshorn Faith Practice: S$0)</option>
+              <option value="others">Others (3.6% of Residents — Standard Pricing)</option>
             </select>
           </div>
 
           <div class="grid grid-cols-2 gap-2.5">
             <div>
-              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Gender</label>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Service Ticket Gender</label>
               <select id="s-gender" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option value="male">Male (Adult Men Ticket)</option>
+                <option value="female">Female (Adult Women Ticket)</option>
               </select>
             </div>
             <div>
-              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Age Cohort</label>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Age Bracket (Pricing Rule)</label>
               <select id="s-age" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-                <option value="0-12">0–12y (Child)</option>
-                <option value="13-24">13–24y (Youth / NS / MOE)</option>
+                <option value="0-12">0–12y (Uses Child Ticket)</option>
+                <option value="13-24">13–24y (Youth / Student / NS)</option>
                 <option value="25-44" selected>25–44y (Working Adult)</option>
                 <option value="45-64">45–64y (Mature Adult)</option>
-                <option value="65+">65+y (Senior)</option>
+                <option value="65+">65+y (Senior — 19.5% of Residents)</option>
               </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="text-[var(--muted-foreground,var(--muted-fallback))]">Your Cut Frequency (Visits / Year)</label>
+              <span id="s-freq-label" class="font-semibold tabular-nums">12 cuts/yr (Monthly)</span>
+            </div>
+            <input id="s-freq" type="range" min="1" max="24" step="1" value="12" class="w-full accent-[var(--primary,var(--primary-fallback))]" />
+            <div class="flex justify-between text-[10px] text-[var(--muted-foreground,var(--muted-fallback))] mt-0.5">
+              <span>2x/yr (6 mo)</span><span>6x/yr (2 mo)</span><span>12x/yr (Monthly)</span><span>18x/yr (3 wks)</span><span>24x/yr (2 wks)</span>
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-2.5">
             <div>
-              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Salon Tier Choice</label>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Salon / Barber Tier</label>
               <select id="s-tier" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-                <option value="T1">T1 Heartland (S$6–S$35)</option>
+                <option value="T1">T1 Heartland / Barber (S$6–S$35)</option>
                 <option value="T2" selected>T2 Express (S$12–S$16)</option>
                 <option value="T3">T3 Mid-Tier / Karva (S$32–S$76)</option>
                 <option value="T4">T4 Luxury Director (S$68–S$280)</option>
               </select>
             </div>
             <div>
-              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Monthly Income (VOT)</label>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Monthly Income (Time VOT)</label>
               <select id="s-income" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
                 <option value="3164">S$3,164 (20th Pct)</option>
                 <option value="5775" selected>S$5,775 (MOM Median)</option>
@@ -263,21 +310,21 @@
           </div>
 
           <div>
-            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Annual Chemical / Specialist Add-Ons (Optional)</label>
+            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Annual Chemical / Barber / Care Add-Ons</label>
             <select id="s-addon" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
-              <option value="0">Cut Only (No Perm / Color / Braids)</option>
-              <option value="180">Side Down-Perm / Light Color (~S$180/yr)</option>
-              <option value="340">1x Korean Digital Perm / Treatment (~S$340/yr)</option>
-              <option value="520">2x Digital Perm / Braiding / Keratin (~S$520/yr)</option>
+              <option value="0">Cut Only (S$0 add-ons)</option>
+              <option value="120">Beard Trim / Scalp Wash Add-Ons (~S$120/yr)</option>
+              <option value="240">Root Touch-Up / Side Down-Perm (~S$240/yr)</option>
+              <option value="450">Perm / Colour / Keratin Treatments (~S$450/yr)</option>
             </select>
           </div>
         </div>
 
-        <!-- Calculator Output + Cross-Demographic Matrix -->
+        <!-- Calculator Output + Transparent Matrix + Official SingStat CMIO Benchmarks -->
         <div class="lg:col-span-2 space-y-4">
           <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
             <div class="flex flex-wrap items-center justify-between gap-2">
-              <h3 class="text-base font-semibold">Modeled Annual Expenditure Breakdown</h3>
+              <h3 class="text-base font-semibold">Annual Expenditure Breakdown (Exact Arithmetic)</h3>
               <span id="s-tier-badge" class="text-xs px-2.5 py-0.5 rounded-full bg-[var(--secondary,var(--secondary-fallback))]"></span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
@@ -286,7 +333,7 @@
                 <div id="out-cash" class="text-lg font-semibold tabular-nums mt-0.5"></div>
               </div>
               <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
-                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Cuts / Year (Cadence)</div>
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Selected Visits / Yr</div>
                 <div id="out-cuts" class="text-lg font-semibold tabular-nums mt-0.5"></div>
               </div>
               <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
@@ -303,10 +350,40 @@
 
           <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
             <div class="flex flex-wrap items-center justify-between gap-2">
-              <h3 class="text-sm font-semibold">Annual Cash Spend Across Race × Gender × Age (<span id="matrix-tier-label">T2 Express vs. T3/Specialist</span>)</h3>
-              <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">Computed transparently from 102-salon tier medians × biotype-adjusted cut cadence</span>
+              <h3 class="text-sm font-semibold">Annual Cash Spend Across Service Type × Visit Frequency (<span id="matrix-tier-label">T2 Express</span>)</h3>
+              <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">No racial multipliers — pure Visits/yr × 102-outlet tier median</span>
             </div>
             <div id="spend-matrix-wrap" class="overflow-x-auto scrollbar-thin"></div>
+          </div>
+
+          <!-- Verified SingStat 2026 Resident Demographics (M810011 / PIB) -->
+          <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-2 text-xs">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-sm font-semibold">Official SingStat 2026 Resident Demographic Split (Table M810011 / Population in Brief)</h3>
+              <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">4.23M Residents (Citizens + PRs) · Non-residents excluded</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Chinese</div>
+                <div class="text-sm font-semibold tabular-nums mt-0.5">73.9% (~3.13M)</div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Malay</div>
+                <div class="text-sm font-semibold tabular-nums mt-0.5">13.5% (~0.57M)</div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Indian</div>
+                <div class="text-sm font-semibold tabular-nums mt-0.5">9.0% (~0.38M)</div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Others</div>
+                <div class="text-sm font-semibold tabular-nums mt-0.5">3.6% (~0.15M)</div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Aged 65+ (2026)</div>
+                <div class="text-sm font-semibold tabular-nums mt-0.5">19.5% (Med. 43.6y)</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -315,7 +392,7 @@
   </div>
 
   <script>
-    const SALONS = [{"id":"S001","name":"Kcuts @ Capitol Piazza (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":215,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S002","name":"Kcuts @ Suntec City (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S003","name":"Kcuts @ Marina Bay Link Mall (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":15.0,"pw":15.0,"pk":14.0,"rating":4.2,"reviews":145,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S004","name":"Kcuts @ Chinatown Point (kcutsGO)","tier":"T2","region":"Central","area":"Outram","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":192,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S005","name":"Kcuts @ Tiong Bahru Plaza (kcutsGO)","tier":"T2","region":"Central","area":"Bukit Merah","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S006","name":"Kcuts @ Great World (kcutsGO)","tier":"T2","region":"Central","area":"River Valley","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":165,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S007","name":"Kcuts @ Tanglin Mall (kcutsGO)","tier":"T2","region":"Central","area":"Tanglin","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":130,"q":4.0,"chair":10.0,"travel":12.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S008","name":"Kcuts @ Novena Velocity (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":230,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S009","name":"Kcuts @ United Square (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":195,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S010","name":"Kcuts @ Aperia Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":140,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S011","name":"Kcuts @ Kallang Wave Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":155,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S012","name":"Kcuts @ Junction 8 Bishan (kcutsGO)","tier":"T2","region":"Central","area":"Bishan","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":280,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S013","name":"Kcuts @ AMK Hub (kcutsGO)","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":310,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S014","name":"Kcuts @ NEX Serangoon (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":340,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S015","name":"Kcuts @ Heartland Mall Kovan (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":220,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S016","name":"Kcuts @ Hougang Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S017","name":"Kcuts @ Greenwich V (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":115,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S018","name":"Kcuts @ The Seletar Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":205,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S019","name":"Kcuts @ Rivervale Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S020","name":"Kcuts @ Waterway Point Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":320,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S021","name":"Kcuts @ Punggol Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":150,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S022","name":"Kcuts @ Oasis Terraces Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":165,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S023","name":"Kcuts @ Northshore Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":140,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S024","name":"Kcuts @ Bedok Mall (kcutsGO)","tier":"T2","region":"East","area":"Bedok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":290,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S025","name":"Kcuts @ PLQ Mall Paya Lebar (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S026","name":"Kcuts @ KINEX Katong (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S027","name":"Kcuts @ i12 Katong (kcutsGO)","tier":"T2","region":"East","area":"Marine Parade","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":175,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S028","name":"Kcuts @ Tampines 1 (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":305,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S029","name":"Kcuts @ Century Square Tampines (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":240,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S030","name":"Kcuts @ Our Tampines Hub (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":285,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S031","name":"Kcuts @ Eastpoint Mall Simei (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S032","name":"Kcuts @ Changi City Point (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S033","name":"Kcuts @ White Sands Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S034","name":"Kcuts @ Downtown East Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":185,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S035","name":"Kcuts @ Causeway Point Woodlands (kcutsGO)","tier":"T2","region":"North","area":"Woodlands","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":330,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S036","name":"Kcuts @ Northpoint City Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":315,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S037","name":"Kcuts @ Wisteria Mall Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S038","name":"Kcuts @ Sembawang Shopping Centre (kcutsGO)","tier":"T2","region":"North","area":"Sembawang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S039","name":"Kcuts @ Jurong Point (kcutsGO)","tier":"T2","region":"West","area":"Jurong West","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":350,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S040","name":"Kcuts @ Westgate Jurong East (kcutsGO)","tier":"T2","region":"West","area":"Jurong East","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":295,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S041","name":"Kcuts @ Clementi Mall (kcutsGO)","tier":"T2","region":"West","area":"Clementi","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":245,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S042","name":"Kcuts @ Bukit Panjang Plaza (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S043","name":"Kcuts @ Hillion Mall Bukit Panjang (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S044","name":"Kcuts @ HillV2 Hillview (kcutsGO)","tier":"T2","region":"West","area":"Bukit Batok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":135,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S045","name":"Kcuts @ Lot One Choa Chu Kang (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S046","name":"Kcuts @ Yew Tee Point (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S047","name":"QB House @ VivoCity","tier":"T2","region":"Central","area":"Bukit Merah","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":306,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/"},{"id":"S048","name":"QB Premium @ Suntec City","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.2,"reviews":189,"q":10.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.qbpremium.sg/"},{"id":"S049","name":"QB Premium @ 313@Somerset","tier":"T2","region":"Central","area":"Orchard","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":210,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S050","name":"QB Premium @ Bugis Junction","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":240,"q":12.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S051","name":"QB House @ Raffles City","tier":"T2","region":"Central","area":"Downtown Core","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":195,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S052","name":"QB House @ City Square Mall","tier":"T2","region":"Central","area":"Kallang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":220,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S053","name":"QB House @ Square 2 Novena","tier":"T2","region":"Central","area":"Novena","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":180,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S054","name":"QB House @ Toa Payoh Central","tier":"T2","region":"Central","area":"Toa Payoh","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":250,"q":14.0,"chair":10.0,"travel":10.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S055","name":"QB House @ AMK Hub","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":260,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S056","name":"QB House @ NEX Serangoon","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S057","name":"QB House @ MyVillage Serangoon Garden","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":140,"q":10.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S058","name":"QB House @ Hougang 1","tier":"T2","region":"North-East","area":"Hougang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":165,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S059","name":"QB House Kids & Express @ Waterway Point","tier":"T2","region":"North-East","area":"Punggol","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.2,"reviews":160,"q":14.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S060","name":"QB House @ Parkway Parade","tier":"T2","region":"East","area":"Marine Parade","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":230,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S061","name":"QB House @ Tampines Mall","tier":"T2","region":"East","area":"Tampines","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":275,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S062","name":"QB Premium @ JEM Jurong East","tier":"T2","region":"West","area":"Jurong East","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":225,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S063","name":"QB House @ Jurong Point","tier":"T2","region":"West","area":"Jurong West","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S064","name":"QB Premium @ One Holland Village","tier":"T2","region":"Central","area":"Queenstown","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.4,"reviews":130,"q":9.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S065","name":"Kimage Hairdressing School @ Marina Square","tier":"T1","region":"Central","area":"Downtown Core","pm":8.0,"pw":8.0,"pk":8.0,"rating":4.5,"reviews":658,"q":8.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://sch.kimage.com.sg/"},{"id":"S066","name":"KIMarie Hair & Beauty Training Centre @ Square 2","tier":"T1","region":"Central","area":"Novena","pm":9.0,"pw":9.0,"pk":9.0,"rating":4.3,"reviews":190,"q":9.0,"chair":45.0,"travel":14.0,"lead":1.5,"tau":21.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S067","name":"Snip Avenue @ Bedok Town Centre","tier":"T1","region":"East","area":"Bedok","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":142,"q":22.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S068","name":"Snip Avenue @ Toa Payoh Central","tier":"T1","region":"Central","area":"Toa Payoh","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.5,"reviews":128,"q":21.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S069","name":"Snip Avenue @ Jurong West St 91","tier":"T1","region":"West","area":"Jurong West","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":115,"q":20.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S070","name":"eZen Hair, Nail & Beauty @ Bukit Panjang","tier":"T1","region":"West","area":"Bukit Panjang","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":160,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S071","name":"eZen Hair, Nail & Beauty @ Woodlands 888 Plaza","tier":"T1","region":"North","area":"Woodlands","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":145,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S072","name":"Peter & E Hair Studio @ Fernvale Point Sengkang","tier":"T1","region":"North-East","area":"Sengkang","pm":8.0,"pw":10.0,"pk":8.0,"rating":4.3,"reviews":130,"q":12.0,"chair":15.0,"travel":9.0,"lead":0.0,"tau":19.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S073","name":"TenDollar.com Salon @ Pasir Ris West Plaza","tier":"T1","region":"East","area":"Pasir Ris","pm":6.0,"pw":8.0,"pk":6.0,"rating":4.0,"reviews":118,"q":16.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S074","name":"Aoska Unisex Hair Styling @ Yishun Vista Point","tier":"T1","region":"North","area":"Yishun","pm":10.0,"pw":12.0,"pk":8.0,"rating":4.2,"reviews":125,"q":13.0,"chair":16.0,"travel":9.0,"lead":0.0,"tau":19.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S075","name":"New Star Indian Barber @ Little India / Tekka","tier":"T1","region":"Central","area":"Rochor","pm":10.0,"pw":15.0,"pk":8.0,"rating":4.4,"reviews":185,"q":14.0,"chair":22.0,"travel":9.0,"lead":0.1,"tau":21.5,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S076","name":"Dragon Phoenix Unisex Salon @ Toa Payoh HDB Hub","tier":"T1","region":"Central","area":"Toa Payoh","pm":10.0,"pw":18.0,"pk":8.0,"rating":4.3,"reviews":110,"q":15.0,"chair":20.0,"travel":9.0,"lead":0.2,"tau":20.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S077","name":"Pandian Hair Dressing Saloon @ Upper Bukit Timah","tier":"T1","region":"West","area":"Bukit Timah","pm":12.0,"pw":16.0,"pk":8.0,"rating":4.5,"reviews":95,"q":12.0,"chair":20.0,"travel":10.0,"lead":0.1,"tau":22.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://www.asiaone.com/singapore/best-places-get-haircut-singapore-depending-your-budget"},{"id":"S078","name":"New Chapter Hair Salon @ Ubi Ave 1","tier":"T1","region":"East","area":"Geylang","pm":13.0,"pw":13.0,"pk":10.0,"rating":4.9,"reviews":86,"q":9.0,"chair":28.0,"travel":10.0,"lead":1.0,"tau":24.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S079","name":"\"Hair\" by Common Studio @ Queenstown Strathmore","tier":"T1","region":"Central","area":"Queenstown","pm":25.0,"pw":33.0,"pk":18.0,"rating":4.8,"reviews":445,"q":7.0,"chair":35.0,"travel":12.0,"lead":1.5,"tau":26.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://anjiacollection.com/pages/hair-by-common-studio"},{"id":"S080","name":"K Classic Hair Salon @ Old Airport Road","tier":"T1","region":"Central","area":"Kallang","pm":30.0,"pw":35.0,"pk":20.0,"rating":5.0,"reviews":53,"q":7.0,"chair":35.0,"travel":11.0,"lead":1.0,"tau":26.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S081","name":"Keller Hair Studio @ Thomson Plaza","tier":"T3","region":"Central","area":"Bishan","pm":32.0,"pw":40.0,"pk":22.0,"rating":4.7,"reviews":259,"q":8.0,"chair":40.0,"travel":14.0,"lead":1.5,"tau":28.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S082","name":"Salon V @ Punggol Coast / Northshore","tier":"T3","region":"North-East","area":"Punggol","pm":35.0,"pw":45.0,"pk":25.0,"rating":4.9,"reviews":115,"q":7.0,"chair":42.0,"travel":13.0,"lead":2.0,"tau":30.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S083","name":"Hair Loft @ Kovan Heartland","tier":"T3","region":"North-East","area":"Hougang","pm":45.0,"pw":55.0,"pk":28.0,"rating":4.7,"reviews":160,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":30.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S084","name":"Act Point Salon @ Midpoint Orchard","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.9,"reviews":1313,"q":6.0,"chair":45.0,"travel":16.0,"lead":3.5,"tau":34.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.actpoint.com.sg/"},{"id":"S085","name":"Be U Hair Design @ The Centrepoint","tier":"T3","region":"Central","area":"Orchard","pm":42.0,"pw":52.0,"pk":28.0,"rating":4.9,"reviews":700,"q":6.0,"chair":45.0,"travel":16.0,"lead":2.5,"tau":32.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://beuhairdesign.com/"},{"id":"S086","name":"Salon Plus @ Far East Plaza","tier":"T3","region":"Central","area":"Orchard","pm":55.0,"pw":65.0,"pk":35.0,"rating":4.8,"reviews":310,"q":7.0,"chair":45.0,"travel":16.0,"lead":2.0,"tau":31.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://salonplus.com.sg/our-service/haircut/"},{"id":"S087","name":"Number76 Hair Salon @ 268 Orchard","tier":"T3","region":"Central","area":"Orchard","pm":56.0,"pw":76.0,"pk":28.0,"rating":4.6,"reviews":671,"q":5.0,"chair":50.0,"travel":16.0,"lead":3.5,"tau":34.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://sgp.number76.com/price/"},{"id":"S088","name":"Kimage Hair Studio @ Marina Square Cove","tier":"T3","region":"Central","area":"Downtown Core","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.3,"reviews":589,"q":7.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":31.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S089","name":"Kimage Hair Studio @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.4,"reviews":340,"q":7.0,"chair":45.0,"travel":14.0,"lead":2.0,"tau":31.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S090","name":"Apgujeong Hair Studio @ Tampines 1","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":1342,"q":6.0,"chair":48.0,"travel":13.0,"lead":2.5,"tau":33.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S091","name":"Apgujeong Hair Studio @ VivoCity","tier":"T3","region":"Central","area":"Bukit Merah","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":729,"q":6.0,"chair":48.0,"travel":14.0,"lead":2.5,"tau":33.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S092","name":"Pro Trim Hair Salon @ JEM Jurong East","tier":"T3","region":"West","area":"Jurong East","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.5,"reviews":953,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":32.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://stylenabyprotrim.com/pricing/"},{"id":"S093","name":"Karva Salon for Ladies @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":840,"q":5.0,"chair":50.0,"travel":15.0,"lead":3.0,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S094","name":"Karva Salon for Ladies @ Northpoint City","tier":"T3","region":"North","area":"Yishun","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":520,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S095","name":"Karva Salon for Ladies @ Bukit Panjang Plaza","tier":"T3","region":"West","area":"Bukit Panjang","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":410,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/collections/bukit-panjang-plaza"},{"id":"S096","name":"Karva Salon for Ladies @ Century Square Tampines","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":490,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S097","name":"Walking On Sunshine @ Orchard Central","tier":"T4","region":"Central","area":"Orchard","pm":70.0,"pw":120.0,"pk":45.0,"rating":4.8,"reviews":9079,"q":5.0,"chair":60.0,"travel":18.0,"lead":4.5,"tau":38.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.walkingonsunshine.sg/wos-services"},{"id":"S098","name":"Shunji Matsuo Flagship @ 15 Scotts Rd","tier":"T4","region":"Central","area":"Orchard","pm":85.0,"pw":110.0,"pk":55.0,"rating":4.7,"reviews":536,"q":4.0,"chair":60.0,"travel":18.0,"lead":5.0,"tau":39.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.shunjimatsuo.com.sg/pages/japanese-hair-salon-orchard"},{"id":"S099","name":"Miin Hair & Beauty Korean Salon @ Isetan Scotts","tier":"T4","region":"Central","area":"Orchard","pm":68.0,"pw":88.0,"pk":38.0,"rating":4.9,"reviews":796,"q":4.0,"chair":60.0,"travel":18.0,"lead":4.0,"tau":37.5,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://miinhair.com/sg"},{"id":"S100","name":"Expat Hair Studio @ Joo Chiat / Katong","tier":"T4","region":"East","area":"Marine Parade","pm":85.0,"pw":135.0,"pk":55.0,"rating":4.8,"reviews":237,"q":3.0,"chair":60.0,"travel":19.0,"lead":6.0,"tau":41.0,"biotypes":["caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":false,"razor":false,"langs":["en"],"url":"https://expatliving.sg/best-hair-salons-singapore-for-expats/"},{"id":"S101","name":"Chez Vous: HideAway & Private Space @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":199.0,"pw":199.0,"pk":120.0,"rating":4.9,"reviews":2295,"q":2.0,"chair":75.0,"travel":20.0,"lead":10.0,"tau":45.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","zh","ms"],"url":"https://chezvoushair.com/chez-vous-hide-away/"},{"id":"S102","name":"Kim Robinson Luxury Flagship @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":168.0,"pw":280.0,"pk":138.0,"rating":4.7,"reviews":223,"q":2.0,"chair":75.0,"travel":20.0,"lead":14.0,"tau":48.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","zh"],"url":"https://dailyvanity.sg/beauty-reviews/kim-robinson-review/"}];
+    const SALONS = [{"id":"S001","name":"Kcuts @ Capitol Piazza (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":215,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S002","name":"Kcuts @ Suntec City (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S003","name":"Kcuts @ Marina Bay Link Mall (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":15.0,"pw":15.0,"pk":14.0,"rating":4.2,"reviews":145,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S004","name":"Kcuts @ Chinatown Point (kcutsGO)","tier":"T2","region":"Central","area":"Outram","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":192,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S005","name":"Kcuts @ Tiong Bahru Plaza (kcutsGO)","tier":"T2","region":"Central","area":"Bukit Merah","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S006","name":"Kcuts @ Great World (kcutsGO)","tier":"T2","region":"Central","area":"River Valley","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":165,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S007","name":"Kcuts @ Tanglin Mall (kcutsGO)","tier":"T2","region":"Central","area":"Tanglin","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":130,"q":4.0,"chair":10.0,"travel":12.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S008","name":"Kcuts @ Novena Velocity (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":230,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S009","name":"Kcuts @ United Square (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":195,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S010","name":"Kcuts @ Aperia Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":140,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S011","name":"Kcuts @ Kallang Wave Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":155,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S012","name":"Kcuts @ Junction 8 Bishan (kcutsGO)","tier":"T2","region":"Central","area":"Bishan","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":280,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S013","name":"Kcuts @ AMK Hub (kcutsGO)","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":310,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S014","name":"Kcuts @ NEX Serangoon (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":340,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S015","name":"Kcuts @ Heartland Mall Kovan (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":220,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S016","name":"Kcuts @ Hougang Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S017","name":"Kcuts @ Greenwich V (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":115,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S018","name":"Kcuts @ The Seletar Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":205,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S019","name":"Kcuts @ Rivervale Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S020","name":"Kcuts @ Waterway Point Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":320,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S021","name":"Kcuts @ Punggol Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":150,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S022","name":"Kcuts @ Oasis Terraces Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":165,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S023","name":"Kcuts @ Northshore Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":140,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S024","name":"Kcuts @ Bedok Mall (kcutsGO)","tier":"T2","region":"East","area":"Bedok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":290,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S025","name":"Kcuts @ PLQ Mall Paya Lebar (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S026","name":"Kcuts @ KINEX Katong (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S027","name":"Kcuts @ i12 Katong (kcutsGO)","tier":"T2","region":"East","area":"Marine Parade","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":175,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S028","name":"Kcuts @ Tampines 1 (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":305,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S029","name":"Kcuts @ Century Square Tampines (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":240,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S030","name":"Kcuts @ Our Tampines Hub (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":285,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S031","name":"Kcuts @ Eastpoint Mall Simei (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S032","name":"Kcuts @ Changi City Point (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S033","name":"Kcuts @ White Sands Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S034","name":"Kcuts @ Downtown East Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":185,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S035","name":"Kcuts @ Causeway Point Woodlands (kcutsGO)","tier":"T2","region":"North","area":"Woodlands","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":330,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S036","name":"Kcuts @ Northpoint City Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":315,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S037","name":"Kcuts @ Wisteria Mall Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S038","name":"Kcuts @ Sembawang Shopping Centre (kcutsGO)","tier":"T2","region":"North","area":"Sembawang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S039","name":"Kcuts @ Jurong Point (kcutsGO)","tier":"T2","region":"West","area":"Jurong West","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":350,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S040","name":"Kcuts @ Westgate Jurong East (kcutsGO)","tier":"T2","region":"West","area":"Jurong East","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":295,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S041","name":"Kcuts @ Clementi Mall (kcutsGO)","tier":"T2","region":"West","area":"Clementi","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":245,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S042","name":"Kcuts @ Bukit Panjang Plaza (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S043","name":"Kcuts @ Hillion Mall Bukit Panjang (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S044","name":"Kcuts @ HillV2 Hillview (kcutsGO)","tier":"T2","region":"West","area":"Bukit Batok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":135,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S045","name":"Kcuts @ Lot One Choa Chu Kang (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S046","name":"Kcuts @ Yew Tee Point (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S047","name":"QB House @ VivoCity","tier":"T2","region":"Central","area":"Bukit Merah","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":306,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/"},{"id":"S048","name":"QB Premium @ Suntec City","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.2,"reviews":189,"q":10.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.qbpremium.sg/"},{"id":"S049","name":"QB Premium @ 313@Somerset","tier":"T2","region":"Central","area":"Orchard","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":210,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S050","name":"QB Premium @ Bugis Junction","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":240,"q":12.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S051","name":"QB House @ Raffles City","tier":"T2","region":"Central","area":"Downtown Core","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":195,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S052","name":"QB House @ City Square Mall","tier":"T2","region":"Central","area":"Kallang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":220,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S053","name":"QB House @ Square 2 Novena","tier":"T2","region":"Central","area":"Novena","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":180,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S054","name":"QB House @ Toa Payoh Central","tier":"T2","region":"Central","area":"Toa Payoh","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":250,"q":14.0,"chair":10.0,"travel":10.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S055","name":"QB House @ AMK Hub","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":260,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S056","name":"QB House @ NEX Serangoon","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S057","name":"QB House @ MyVillage Serangoon Garden","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":140,"q":10.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S058","name":"QB House @ Hougang 1","tier":"T2","region":"North-East","area":"Hougang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":165,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S059","name":"QB House Kids & Express @ Waterway Point","tier":"T2","region":"North-East","area":"Punggol","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.2,"reviews":160,"q":14.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":19.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S060","name":"QB House @ Parkway Parade","tier":"T2","region":"East","area":"Marine Parade","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":230,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S061","name":"QB House @ Tampines Mall","tier":"T2","region":"East","area":"Tampines","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":275,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S062","name":"QB Premium @ JEM Jurong East","tier":"T2","region":"West","area":"Jurong East","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":225,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S063","name":"QB House @ Jurong Point","tier":"T2","region":"West","area":"Jurong West","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S064","name":"QB Premium @ One Holland Village","tier":"T2","region":"Central","area":"Queenstown","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.4,"reviews":130,"q":9.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S065","name":"Kimage Hairdressing School @ Marina Square","tier":"T1","region":"Central","area":"Downtown Core","pm":8.0,"pw":8.0,"pk":8.0,"rating":4.5,"reviews":658,"q":8.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":22.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://sch.kimage.com.sg/"},{"id":"S066","name":"KIMarie Hair & Beauty Training Centre @ Square 2","tier":"T1","region":"Central","area":"Novena","pm":9.0,"pw":9.0,"pk":9.0,"rating":4.3,"reviews":190,"q":9.0,"chair":45.0,"travel":14.0,"lead":1.5,"tau":21.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S067","name":"Snip Avenue @ Bedok Town Centre","tier":"T1","region":"East","area":"Bedok","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":142,"q":22.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S068","name":"Snip Avenue @ Toa Payoh Central","tier":"T1","region":"Central","area":"Toa Payoh","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.5,"reviews":128,"q":21.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S069","name":"Snip Avenue @ Jurong West St 91","tier":"T1","region":"West","area":"Jurong West","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":115,"q":20.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S070","name":"eZen Hair, Nail & Beauty @ Bukit Panjang","tier":"T1","region":"West","area":"Bukit Panjang","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":160,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S071","name":"eZen Hair, Nail & Beauty @ Woodlands 888 Plaza","tier":"T1","region":"North","area":"Woodlands","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":145,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S072","name":"Peter & E Hair Studio @ Fernvale Point Sengkang","tier":"T1","region":"North-East","area":"Sengkang","pm":8.0,"pw":10.0,"pk":8.0,"rating":4.3,"reviews":130,"q":12.0,"chair":15.0,"travel":9.0,"lead":0.0,"tau":19.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S073","name":"TenDollar.com Salon @ Pasir Ris West Plaza","tier":"T1","region":"East","area":"Pasir Ris","pm":6.0,"pw":8.0,"pk":6.0,"rating":4.0,"reviews":118,"q":16.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S074","name":"Aoska Unisex Hair Styling @ Yishun Vista Point","tier":"T1","region":"North","area":"Yishun","pm":10.0,"pw":12.0,"pk":8.0,"rating":4.2,"reviews":125,"q":13.0,"chair":16.0,"travel":9.0,"lead":0.0,"tau":19.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S075","name":"New Star Indian Barber @ Little India / Tekka","tier":"T1","region":"Central","area":"Rochor","pm":10.0,"pw":15.0,"pk":8.0,"rating":4.4,"reviews":185,"q":14.0,"chair":22.0,"travel":9.0,"lead":0.1,"tau":21.5,"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S076","name":"Dragon Phoenix Unisex Salon @ Toa Payoh HDB Hub","tier":"T1","region":"Central","area":"Toa Payoh","pm":10.0,"pw":18.0,"pk":8.0,"rating":4.3,"reviews":110,"q":15.0,"chair":20.0,"travel":9.0,"lead":0.2,"tau":20.5,"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S077","name":"Pandian Hair Dressing Saloon @ Upper Bukit Timah","tier":"T1","region":"West","area":"Bukit Timah","pm":12.0,"pw":16.0,"pk":8.0,"rating":4.5,"reviews":95,"q":12.0,"chair":20.0,"travel":10.0,"lead":0.1,"tau":22.0,"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://www.asiaone.com/singapore/best-places-get-haircut-singapore-depending-your-budget"},{"id":"S078","name":"New Chapter Hair Salon @ Ubi Ave 1","tier":"T1","region":"East","area":"Geylang","pm":13.0,"pw":13.0,"pk":10.0,"rating":4.9,"reviews":86,"q":9.0,"chair":28.0,"travel":10.0,"lead":1.0,"tau":24.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S079","name":"\"Hair\" by Common Studio @ Queenstown Strathmore","tier":"T1","region":"Central","area":"Queenstown","pm":25.0,"pw":33.0,"pk":18.0,"rating":4.8,"reviews":445,"q":7.0,"chair":35.0,"travel":12.0,"lead":1.5,"tau":26.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://anjiacollection.com/pages/hair-by-common-studio"},{"id":"S080","name":"K Classic Hair Salon @ Old Airport Road","tier":"T1","region":"Central","area":"Kallang","pm":30.0,"pw":35.0,"pk":20.0,"rating":5.0,"reviews":53,"q":7.0,"chair":35.0,"travel":11.0,"lead":1.0,"tau":26.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S081","name":"Keller Hair Studio @ Thomson Plaza","tier":"T3","region":"Central","area":"Bishan","pm":32.0,"pw":40.0,"pk":22.0,"rating":4.7,"reviews":259,"q":8.0,"chair":40.0,"travel":14.0,"lead":1.5,"tau":28.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S082","name":"Salon V @ Punggol Coast / Northshore","tier":"T3","region":"North-East","area":"Punggol","pm":35.0,"pw":45.0,"pk":25.0,"rating":4.9,"reviews":115,"q":7.0,"chair":42.0,"travel":13.0,"lead":2.0,"tau":30.0,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S083","name":"Hair Loft @ Kovan Heartland","tier":"T3","region":"North-East","area":"Hougang","pm":45.0,"pw":55.0,"pk":28.0,"rating":4.7,"reviews":160,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":30.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S084","name":"Act Point Salon @ Midpoint Orchard","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.9,"reviews":1313,"q":6.0,"chair":45.0,"travel":16.0,"lead":3.5,"tau":34.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.actpoint.com.sg/"},{"id":"S085","name":"Be U Hair Design @ The Centrepoint","tier":"T3","region":"Central","area":"Orchard","pm":42.0,"pw":52.0,"pk":28.0,"rating":4.9,"reviews":700,"q":6.0,"chair":45.0,"travel":16.0,"lead":2.5,"tau":32.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://beuhairdesign.com/"},{"id":"S086","name":"Salon Plus @ Far East Plaza","tier":"T3","region":"Central","area":"Orchard","pm":55.0,"pw":65.0,"pk":35.0,"rating":4.8,"reviews":310,"q":7.0,"chair":45.0,"travel":16.0,"lead":2.0,"tau":31.5,"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://salonplus.com.sg/our-service/haircut/"},{"id":"S087","name":"Number76 Hair Salon @ 268 Orchard","tier":"T3","region":"Central","area":"Orchard","pm":56.0,"pw":76.0,"pk":28.0,"rating":4.6,"reviews":671,"q":5.0,"chair":50.0,"travel":16.0,"lead":3.5,"tau":34.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://sgp.number76.com/price/"},{"id":"S088","name":"Kimage Hair Studio @ Marina Square Cove","tier":"T3","region":"Central","area":"Downtown Core","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.3,"reviews":589,"q":7.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":31.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S089","name":"Kimage Hair Studio @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.4,"reviews":340,"q":7.0,"chair":45.0,"travel":14.0,"lead":2.0,"tau":31.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S090","name":"Apgujeong Hair Studio @ Tampines 1","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":1342,"q":6.0,"chair":48.0,"travel":13.0,"lead":2.5,"tau":33.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S091","name":"Apgujeong Hair Studio @ VivoCity","tier":"T3","region":"Central","area":"Bukit Merah","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":729,"q":6.0,"chair":48.0,"travel":14.0,"lead":2.5,"tau":33.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S092","name":"Pro Trim Hair Salon @ JEM Jurong East","tier":"T3","region":"West","area":"Jurong East","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.5,"reviews":953,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":32.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://stylenabyprotrim.com/pricing/"},{"id":"S093","name":"Karva Salon for Ladies @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":840,"q":5.0,"chair":50.0,"travel":15.0,"lead":3.0,"tau":33.0,"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S094","name":"Karva Salon for Ladies @ Northpoint City","tier":"T3","region":"North","area":"Yishun","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":520,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S095","name":"Karva Salon for Ladies @ Bukit Panjang Plaza","tier":"T3","region":"West","area":"Bukit Panjang","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":410,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/collections/bukit-panjang-plaza"},{"id":"S096","name":"Karva Salon for Ladies @ Century Square Tampines","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":490,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S097","name":"Walking On Sunshine @ Orchard Central","tier":"T4","region":"Central","area":"Orchard","pm":70.0,"pw":120.0,"pk":45.0,"rating":4.8,"reviews":9079,"q":5.0,"chair":60.0,"travel":18.0,"lead":4.5,"tau":38.0,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.walkingonsunshine.sg/wos-services"},{"id":"S098","name":"Shunji Matsuo Flagship @ 15 Scotts Rd","tier":"T4","region":"Central","area":"Orchard","pm":85.0,"pw":110.0,"pk":55.0,"rating":4.7,"reviews":536,"q":4.0,"chair":60.0,"travel":18.0,"lead":5.0,"tau":39.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.shunjimatsuo.com.sg/pages/japanese-hair-salon-orchard"},{"id":"S099","name":"Miin Hair & Beauty Korean Salon @ Isetan Scotts","tier":"T4","region":"Central","area":"Orchard","pm":68.0,"pw":88.0,"pk":38.0,"rating":4.9,"reviews":796,"q":4.0,"chair":60.0,"travel":18.0,"lead":4.0,"tau":37.5,"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://miinhair.com/sg"},{"id":"S100","name":"Expat Hair Studio @ Joo Chiat / Katong","tier":"T4","region":"East","area":"Marine Parade","pm":85.0,"pw":135.0,"pk":55.0,"rating":4.8,"reviews":237,"q":3.0,"chair":60.0,"travel":19.0,"lead":6.0,"tau":41.0,"hijab":false,"razor":false,"langs":["en"],"url":"https://expatliving.sg/best-hair-salons-singapore-for-expats/"},{"id":"S101","name":"Chez Vous: HideAway & Private Space @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":199.0,"pw":199.0,"pk":120.0,"rating":4.9,"reviews":2295,"q":2.0,"chair":75.0,"travel":20.0,"lead":10.0,"tau":45.0,"hijab":true,"razor":false,"langs":["en","zh","ms"],"url":"https://chezvoushair.com/chez-vous-hide-away/"},{"id":"S102","name":"Kim Robinson Luxury Flagship @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":168.0,"pw":280.0,"pk":138.0,"rating":4.7,"reviews":223,"q":2.0,"chair":75.0,"travel":20.0,"lead":14.0,"tau":48.0,"hijab":true,"razor":false,"langs":["en","zh"],"url":"https://dailyvanity.sg/beauty-reviews/kim-robinson-review/"}];
     const COLORS = ["#38bdf8", "#10b981", "#f59e0b", "#ec4899", "#a78bfa"];
 
     // Verified SingStat Services Survey SSIC 9602 (Hairdressing, Beauty & Other Personal Care Services)
@@ -343,21 +420,19 @@
     ];
 
     const TIER_META = {
-      T1: {name:"T1 Heartland / HDB / School", desc:"Snip Avenue, local HDB salons, Indian barbers, Kimage school"},
+      T1: {name:"T1 Heartland / HDB / Barber", desc:"Snip Avenue, local HDB salons, Indian barbers, Kimage school"},
       T2: {name:"T2 Express 10-Min Mall Chains", desc:"kcuts (S$14–S$15), QB House (S$12–S$18), QB Premium (S$16)"},
       T3: {name:"T3 Mid-Tier / Karva Private", desc:"Act Point, Number76, Be U, Apgujeong, Karva Muslimah Suites"},
       T4: {name:"T4 Luxury Director / Boutiques", desc:"Walking On Sunshine, Shunji Matsuo, Miin, Expat, HideAway, Kim Robinson"}
     };
 
-    const RACE_PROFILES = {
-      chinese: {label:"Chinese", cmMo:1.40, agaMaleBoost:1.05, note:"78µm round East Asian shaft (1.40 cm/mo fastest linear growth); 61% male AGA (PMID:11063167). Compatible with T1–T4."},
-      malay_std: {label:"Malay", cmMo:1.28, agaMaleBoost:1.03, note:"72µm wavy-curly or straight shaft (1.28 cm/mo, ~22% curl shrinkage). Strong access to razor-fade barbers and T1–T4."},
-      malay_hijab: {label:"Malay Muslimah (Private)", cmMo:1.28, agaMaleBoost:1.00, note:"Requires ladies-only screened private cabin & Sah-Solat care (e.g., Karva T3 S$58 median; HideAway T4 S$199); T1/T2 express open booths excluded unless female-only."},
-      indian_gen: {label:"Indian (General)", cmMo:1.28, agaMaleBoost:1.10, note:"72µm elliptical wavy-curly shaft; Bishan study shows 87% male AGA prevalence (PMID:11063167), driving shorter side-taper cycles or traditional Tekka/Bt Timah barbers."},
-      indian_sikh: {label:"Indian (Sikh Kesh)", cmMo:1.28, agaMaleBoost:1.00, sikh:true, note:"Khalsa unshorn Sacred Kesh (Census 2020: 12,051 resident Sikhs aged 15+): S$0 scalp haircut trims; budget reflects optional beard/scalp oil & home wooden Kangha care."},
-      caucasian: {label:"Caucasian / European", cmMo:1.20, agaMaleBoost:1.08, note:"65µm fine oval shaft (226/cm² high density, 1.20 cm/mo); thinning shears in budget express cuts can trigger frizz, shifting many to scissor-specialist T3/T4 salons."},
-      eurasian: {label:"Eurasian", cmMo:1.28, agaMaleBoost:1.04, note:"Diverse 1B–3B wave/straight profiles; works across T2/T3 scissor & curly-trained stylists."},
-      afro: {label:"Afro-Coiled (3C–4C)", cmMo:0.90, agaMaleBoost:1.00, note:"55µm flattened ribbon shaft with 48% curl shrinkage & slowest linear elongation (0.90 cm/mo, PMC6894537); specialist dry curl cutting or protective braiding sits primarily at T3/T4 price tiers."}
+    const DEMO_CONTEXT = {
+      chinese: {label:"Chinese (CMIO)", note:"Standard salon/barber pricing applies; SingStat does not publish separate Chinese haircut spend."},
+      malay_std: {label:"Malay (CMIO)", note:"Standard salon/barber pricing applies; SingStat does not publish separate Malay haircut spend."},
+      malay_hijab: {label:"Malay Muslimah (Hijab-Private)", hijabPrivate:true, note:"Requires ladies-only screened private cabin (e.g., audited T3 Karva S$58 median or T4 HideAway S$199); open-booth T1/T2 tiers auto-resolve to audited Hijab-Private median."},
+      indian_gen: {label:"Indian (CMIO)", note:"Standard salon/barber pricing applies; SingStat does not publish separate Indian haircut spend."},
+      indian_sikh: {label:"Indian — Sikh Kesh (Unshorn)", sikh:true, note:"Khalsa unshorn Sacred Kesh practice (Census 2020: 12,051 resident Sikhs aged 15+): S$0 scalp haircut fees (optional beard/oil/care add-ons still user-selectable)."},
+      others: {label:"Others (CMIO)", note:"Standard salon/barber pricing applies; SingStat does not publish separate Others haircut spend."}
     };
 
     function median(arr) {
@@ -373,7 +448,6 @@
         pmMed: median(sub.map(x => x.pm)), pmMin: Math.min(...sub.map(x => x.pm)), pmMax: Math.max(...sub.map(x => x.pm)),
         pwMed: median(sub.map(x => x.pw)), pwMin: Math.min(...sub.map(x => x.pw)), pwMax: Math.max(...sub.map(x => x.pw)),
         pkMed: median(sub.map(x => x.pk)), pkMin: Math.min(...sub.map(x => x.pk)), pkMax: Math.max(...sub.map(x => x.pk)),
-        tauAvg: sub.reduce((a,b) => a + b.tau, 0) / sub.length,
         waitAvg: sub.reduce((a,b) => a + b.q + b.chair * 0.45 + b.travel, 0) / sub.length
       };
     }
@@ -451,7 +525,7 @@
       document.getElementById("yearly-cuts-svg").innerHTML = svg2;
     }
 
-    // TAB 2: Cost at Different Places (102 Salons)
+    // TAB 2: Cost at Different Places (102 Price-Audited Outlets)
     function renderPlaces() {
       const tiers = ["T1","T2","T3","T4"];
       const tStats = Object.fromEntries(tiers.map(t => [t, tierStats(t)]));
@@ -510,9 +584,6 @@
         if (fr !== "all" && s.region !== fr) return false;
         if (ff === "hijab" && !s.hijab) return false;
         if (ff === "razor" && !s.razor) return false;
-        if (ff === "afro" && !s.biotypes.includes("afro_coiled_textured")) return false;
-        if (ff === "wavy" && !s.biotypes.includes("south_asian_malay_wavy_curly")) return false;
-        if (ff === "caucasian" && !s.biotypes.includes("caucasian_fine_oval")) return false;
         if (fq && !s.name.toLowerCase().includes(fq) && !s.area.toLowerCase().includes(fq)) return false;
         return true;
       }).sort((a, b) => {
@@ -520,13 +591,13 @@
         if (fs === "pw_asc") return a.pw - b.pw;
         if (fs === "pk_asc") return a.pk - b.pk;
         if (fs === "rating_desc") return b.rating - a.rating;
-        return b.tau - a.tau;
+        return (a.q + a.chair) - (b.q + b.chair);
       });
 
-      document.getElementById("places-count").textContent = `Showing ${filtered.length} / ${SALONS.length} verified outlets`;
+      document.getElementById("places-count").textContent = `Showing ${filtered.length} / ${SALONS.length} audited sample outlets`;
       let th = `<table class="w-full text-xs border-collapse">
         <thead><tr class="border-b border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
-          <th class="text-left py-2 pr-3">Salon / Outlet</th>
+          <th class="text-left py-2 pr-3">Salon / Barber</th>
           <th class="px-2 py-2 text-left">Area (Region)</th>
           <th class="px-2 py-2">Tier</th>
           <th class="px-2 py-2 text-right">Men</th>
@@ -538,7 +609,7 @@
       filtered.forEach(s => {
         const badges = [];
         if (s.hijab) badges.push("Hijab Cabin");
-        if (s.razor) badges.push("Razor Beard");
+        if (s.razor) badges.push("Razor Beard / Barber");
         th += `<tr class="border-b border-[var(--border,var(--border-fallback))]/50 hover:bg-[var(--secondary,var(--secondary-fallback))]/40">
           <td class="py-2 pr-3"><a href="${s.url}" target="_blank" rel="noopener" class="font-medium hover:underline">${s.name}</a>${badges.length ? ` <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20">${badges.join(", ")}</span>` : ""}</td>
           <td class="px-2 py-2 whitespace-nowrap text-[var(--muted-foreground,var(--muted-fallback))]">${s.area} (${s.region})</td>
@@ -554,43 +625,37 @@
       document.getElementById("places-table-wrap").innerHTML = th;
     }
 
-    // TAB 3: Annual Money Spent by Race x Gender x Age
-    function estimateSpend(raceKey, gender, age, tier, income, addon = 0) {
-      const rp = RACE_PROFILES[raceKey];
+    // TAB 3: Transparent User-Frequency Annual Spend Calculator (Zero Racial Multipliers)
+    function estimateSpend(raceKey, gender, age, cutsPerYr, tier, income, addon = 0) {
+      const dc = DEMO_CONTEXT[raceKey];
       const ts = tierStats(tier);
       const votHr = Math.max(6.0, income / 173.33);
 
-      // Sikh Unshorn Sacred Kesh: $0 cut spend
-      if (rp.sikh) {
-        return { cash: 0, cuts: 0, timeHrs: 0, timeCost: 0, full: 0, ticket: 0, note: rp.note };
+      // Sikh Unshorn Sacred Kesh: S$0 haircut tickets (user-selected add-ons like beard/care remain optional)
+      if (dc.sikh) {
+        return {
+          cash: addon, cuts: 0, timeHrs: 0, timeCost: 0, full: addon, ticket: 0,
+          effectiveTier: "Unshorn Kesh", note: `${dc.note} Add-ons: S$${addon}/yr.`
+        };
       }
 
-      // Ticket from 102-salon tier medians (or Karva Muslimah private tier if T1/T2 unavailable for hijab private)
       let ticket = age === "0-12" ? ts.pkMed : (gender === "female" ? ts.pwMed : ts.pmMed);
       let effectiveTier = tier;
       let minsTier = tier;
-      if (raceKey === "malay_hijab" && gender === "female" && (tier === "T1" || tier === "T2")) {
+      if (dc.hijabPrivate && gender === "female" && (tier === "T1" || tier === "T2")) {
         const karva = SALONS.filter(s => s.hijab);
         ticket = median(karva.map(x => x.pw));
         effectiveTier = "Hijab-Private (Karva T3)";
         minsTier = "T3";
       }
 
-      // Base Weibull cadence adjusted for gender, age, biotype growth speed (cm/mo), and AGA factor
-      let baseCutsYr = gender === "male" ? (365 / (ts.tauAvg * 1.15)) : (365 / Math.max(48, ts.tauAvg * 2.1));
-      if (age === "0-12") baseCutsYr *= 0.85;
-      else if (age === "13-24" && gender === "male") baseCutsYr *= 1.15; // MOE / NS freq
-      else if (age === "65+") baseCutsYr *= 0.82;
-
-      const growthFactor = (rp.cmMo / 1.30) * (gender === "male" && (age === "25-44" || age === "45-64") ? rp.agaMaleBoost : 1.0);
-      const cuts = Math.max(3, Math.round(baseCutsYr * growthFactor * 10) / 10);
-      const cash = cuts * ticket + addon;
+      const cash = cutsPerYr * ticket + addon;
       const minsPerVisit = tierStats(minsTier).waitAvg;
-      const timeHrs = (cuts * minsPerVisit) / 60;
+      const timeHrs = (cutsPerYr * minsPerVisit) / 60;
       const timeCost = timeHrs * votHr;
       return {
-        cash, cuts, timeHrs, timeCost, full: cash + timeCost, ticket, effectiveTier,
-        note: `${rp.note} Modeled at ${cuts.toFixed(1)} cuts/yr × S$${ticket.toFixed(2)} (${effectiveTier}) + S$${addon} chemical/specialist add-ons.`
+        cash, cuts: cutsPerYr, timeHrs, timeCost, full: cash + timeCost, ticket, effectiveTier,
+        note: `${dc.note} Exact calculation: ${cutsPerYr} cuts/yr × S$${ticket.toFixed(2)} (${effectiveTier}) + S$${addon} add-ons = S$${Math.round(cash)}/yr cash.`
       };
     }
 
@@ -598,44 +663,50 @@
       const race = document.getElementById("s-race").value;
       const gender = document.getElementById("s-gender").value;
       const age = document.getElementById("s-age").value;
+      const freq = Number(document.getElementById("s-freq").value);
       const tier = document.getElementById("s-tier").value;
       const income = Number(document.getElementById("s-income").value);
       const addon = Number(document.getElementById("s-addon").value);
 
-      const est = estimateSpend(race, gender, age, tier, income, addon);
-      document.getElementById("s-tier-badge").textContent = `${RACE_PROFILES[race].label} • ${gender.toUpperCase()} • ${age}`;
+      const wk = (52 / freq).toFixed(1);
+      document.getElementById("s-freq-label").textContent = `${freq} cuts/yr (every ${wk} wks)`;
+
+      const est = estimateSpend(race, gender, age, freq, tier, income, addon);
+      document.getElementById("s-tier-badge").textContent = `${DEMO_CONTEXT[race].label} • ${gender.toUpperCase()} • ${age}`;
       document.getElementById("out-cash").textContent = `S$${Math.round(est.cash).toLocaleString()}/yr`;
-      document.getElementById("out-cuts").textContent = `${est.cuts.toFixed(1)} cuts`;
+      document.getElementById("out-cuts").textContent = `${est.cuts} cuts`;
       document.getElementById("out-time").textContent = `S$${Math.round(est.timeCost).toLocaleString()}/yr (${est.timeHrs.toFixed(1)}h)`;
       document.getElementById("out-full").textContent = `S$${Math.round(est.full).toLocaleString()}/yr`;
       document.getElementById("out-notes").textContent = est.note;
 
-      // Full Cross-Demographic Comparison Matrix for current Tier vs Budget T2
-      const ages = ["0-12", "13-24", "25-44", "45-64", "65+"];
-      const raceKeys = ["chinese", "malay_std", "malay_hijab", "indian_gen", "indian_sikh", "caucasian", "afro"];
+      // Matrix: Service Ticket Type × Visit Frequency for selected Tier
+      const freqs = [2, 4, 6, 12, 17, 24];
+      const serviceRows = [
+        {label:"Adult Men Ticket (Salon / Barber)", rk:"chinese", gd:"male", ag:"25-44"},
+        {label:"Adult Women Ticket (Standard Salon)", rk:"chinese", gd:"female", ag:"25-44"},
+        {label:"Child Ticket (Age 0–12)", rk:"chinese", gd:"male", ag:"0-12"},
+        {label:"Muslimah Hijab-Private Cabin", rk:"malay_hijab", gd:"female", ag:"25-44"}
+      ];
       document.getElementById("matrix-tier-label").textContent = `${tier} (${TIER_META[tier].name})`;
 
       let html = `<table class="w-full text-xs border-collapse">
         <thead><tr class="border-b border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
-          <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card,var(--card-fallback))]">Race / Cultural Profile</th>
-          <th class="px-2 py-2">Gender</th>
-          ${ages.map(a => `<th class="px-2 py-2 text-right">${a}</th>`).join("")}
+          <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card,var(--card-fallback))]">Service Ticket Category</th>
+          <th class="px-2 py-2 text-right">Per-Cut Median</th>
+          ${freqs.map(f => `<th class="px-2 py-2 text-right">${f}×/yr</th>`).join("")}
         </tr></thead><tbody>`;
 
-      raceKeys.forEach(rk => {
-        ["male", "female"].forEach(gd => {
-          if (rk === "malay_hijab" && gd === "male") return;
-          const r = RACE_PROFILES[rk];
-          html += `<tr class="border-b border-[var(--border,var(--border-fallback))]/50 hover:bg-[var(--secondary,var(--secondary-fallback))]/40">
-            <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card,var(--card-fallback))] whitespace-nowrap">${r.label}</td>
-            <td class="px-2 py-2 text-center capitalize">${gd}</td>
-            ${ages.map(ag => {
-              const e = estimateSpend(rk, gd, ag, tier, income, 0);
-              const hi = (rk === race && gd === gender && ag === age) ? "font-bold text-[var(--primary,var(--primary-fallback))]" : "";
-              return `<td class="px-2 py-2 text-right tabular-nums ${hi}">${e.cash === 0 ? "S$0" : "S$" + Math.round(e.cash)}</td>`;
-            }).join("")}
-          </tr>`;
-        });
+      serviceRows.forEach(sr => {
+        const sample = estimateSpend(sr.rk, sr.gd, sr.ag, freq, tier, income, 0);
+        html += `<tr class="border-b border-[var(--border,var(--border-fallback))]/50 hover:bg-[var(--secondary,var(--secondary-fallback))]/40">
+          <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card,var(--card-fallback))] whitespace-nowrap">${sr.label}</td>
+          <td class="px-2 py-2 text-right tabular-nums text-[var(--muted-foreground,var(--muted-fallback))]">S$${sample.ticket.toFixed(2)}</td>
+          ${freqs.map(f => {
+            const e = estimateSpend(sr.rk, sr.gd, sr.ag, f, tier, income, 0);
+            const hi = (f === freq) ? "font-bold text-[var(--primary,var(--primary-fallback))]" : "";
+            return `<td class="px-2 py-2 text-right tabular-nums ${hi}">S$${Math.round(e.cash).toLocaleString()}</td>`;
+          }).join("")}
+        </tr>`;
       });
       html += `</tbody></table>`;
       document.getElementById("spend-matrix-wrap").innerHTML = html;
@@ -645,7 +716,10 @@
     document.getElementById("trend-freq").addEventListener("input", renderTrends);
     ["p-tier", "p-region", "p-feature", "p-sort"].forEach(id => document.getElementById(id).addEventListener("change", renderPlaces));
     document.getElementById("p-search").addEventListener("input", renderPlaces);
-    ["s-race", "s-gender", "s-age", "s-tier", "s-income", "s-addon"].forEach(id => document.getElementById(id).addEventListener("change", renderSpend));
+    ["s-race", "s-gender", "s-age", "s-freq", "s-tier", "s-income", "s-addon"].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener(id === "s-freq" ? "input" : "change", renderSpend);
+    });
 
     document.querySelectorAll(".tab-btn").forEach(btn => {
       btn.addEventListener("click", () => {
