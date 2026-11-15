@@ -3,273 +3,332 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Singapore Inclusive Hairstyle Guide &amp; Official Demographic Benchmarks</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <title>Singapore Haircut Econometrics: Yearly Trends, Salon Costs &amp; Annual Spend</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <style>
+    :root {
+      --bg-fallback: #0f172a;
+      --card-fallback: #1e293b;
+      --fg-fallback: #f8fafc;
+      --muted-fallback: #94a3b8;
+      --border-fallback: #334155;
+      --primary-fallback: #38bdf8;
+      --primary-fg-fallback: #0f172a;
+      --secondary-fallback: #334155;
+    }
     .tabular-nums { font-variant-numeric: tabular-nums; }
     .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
-    .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border, var(--border-fallback)); border-radius: 9999px; }
   </style>
 </head>
-<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-6">
+<body class="bg-[var(--background,var(--bg-fallback))] text-[var(--foreground,var(--fg-fallback))] antialiased p-4 md:p-6">
   <div class="max-w-7xl mx-auto space-y-5">
 
     <!-- Header -->
-    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border)]">
+    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border,var(--border-fallback))]">
       <div>
-        <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-[var(--primary)] uppercase tracking-wider">
-          <span>SG Haircut Econometrics Engine • Strictly Defensible Data Mode</span>
+        <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-[var(--primary,var(--primary-fallback))] uppercase tracking-wider">
+          <span>SG Haircut Econometrics Engine</span>
           <span>•</span>
-          <span>SingStat / PIB 2026 &amp; SSIC 9602</span>
+          <span>SingStat SSIC 9602 / PIB 2026 &amp; 102 Verified Salons</span>
         </div>
         <h1 class="text-xl md:text-2xl font-semibold mt-1">
-          Singapore Inclusive Hairstyle Taxonomy &amp; Official Demographic Benchmarks
+          Singapore Haircut Yearly Trends, Salon Cost Comparison &amp; Annual Spend by Race, Gender &amp; Age
         </h1>
-        <p class="text-xs text-[var(--muted-foreground)] mt-1">
-          Qualitative morphology, cultural/clinical compatibility, and verified SG salon price bands across 19 inclusive archetypes—paired with official SingStat population, aging, and SSIC 9602 data. Synthetic style percentages and modeled headcounts are excluded.
+        <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] mt-1">
+          Grounded in SingStat SSIC 9602, Population in Brief (2016–2026), HES 2023, PMC trichology hair-growth physics, and 102 geo-verified Singapore outlets (Tiers T1–T4). <a href="sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open 102-Outlet Spatio-Temporal Leaflet GIS Map →</a>
         </p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs shrink-0">
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">2026 Total Pop (PIB)</div>
-          <div class="text-base font-semibold tabular-nums mt-0.5">6.21M</div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SSIC 9602 Revenue (2024)</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">S$3.38B</div>
         </div>
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">2026 Residents 65+</div>
-          <div class="text-base font-semibold tabular-nums mt-0.5">19.5%</div>
-        </div>
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">SSIC 9602 Establishments</div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SSIC 9602 Outlets (2024)</div>
           <div class="text-base font-semibold tabular-nums mt-0.5">11,241</div>
         </div>
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">Qualitative Archetypes</div>
-          <div id="kpi-count" class="text-base font-semibold tabular-nums mt-0.5">19 / 19</div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">2026 Population (PIB)</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">6.21M</div>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Audited Price Range</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">S$5.80–S$280</div>
         </div>
       </div>
     </header>
 
-    <!-- Empirical Scope Notice -->
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2">
-      <span class="text-[var(--muted-foreground)]">
-        <strong class="text-[var(--foreground)]">Methodology Note:</strong> No SingStat, ACRA, or public salon POS dataset measures historical market share (%) by individual haircut name. Quantitative charts in Tabs 3–4 use only official SingStat / Population in Brief / Census / published chain pricing; Tabs 1–2 present qualitative compatibility &amp; observed price bands.
-      </span>
-    </div>
+    <!-- Primary Tab Navigation -->
+    <nav class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3 flex flex-wrap gap-2 text-xs">
+      <button data-tab="trends" class="tab-btn px-3.5 py-2 rounded-lg font-medium bg-[var(--primary,var(--primary-fallback))] text-[var(--primary-foreground,var(--primary-fg-fallback))]">
+        1. Yearly Trends in Singapore (2016–2026)
+      </button>
+      <button data-tab="places" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
+        2. Cost at Different Places (102 SG Salons)
+      </button>
+      <button data-tab="spend" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
+        3. Annual Money Spent: Race × Gender × Age
+      </button>
+    </nav>
 
-    <!-- Filter Bar -->
-    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-      <div class="flex flex-wrap items-center justify-between gap-2">
-        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">Taxonomy Filters (Qualitative Fit)</span>
-        <button id="btn-reset" class="text-xs px-2.5 py-1 rounded-md border border-[var(--border)] hover:bg-[var(--secondary)] transition">
-          Reset Filters
-        </button>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-        <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Gender Suitability</label>
-          <select id="filter-gender" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
-            <option value="all">All Genders (Male, Female, Unisex)</option>
-            <option value="male">Male (+ Unisex)</option>
-            <option value="female">Female (+ Unisex)</option>
-            <option value="unisex">Unisex Only</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Age Cohort Applicability</label>
-          <select id="filter-age" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
-            <option value="all">All Age Groups (0–65+)</option>
-            <option value="0-12">0–12 Years (Infants &amp; Primary)</option>
-            <option value="13-24">13–24 Years (Youth, MOE, NS/BMT)</option>
-            <option value="25-44">25–44 Years (Working Adults)</option>
-            <option value="45-64">45–64 Years (Mature Adults)</option>
-            <option value="65+">65+ Years (Seniors — 19.5% of Residents)</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Community / Biotype Focus</label>
-          <select id="filter-race" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
-            <option value="all">All Communities (Inclusive SG)</option>
-            <option value="chinese">Chinese (73.9% Residents)</option>
-            <option value="malay">Malay / Muslimah (13.5% Residents)</option>
-            <option value="indian">Indian / Sikh (9.0% Residents)</option>
-            <option value="caucasian">Caucasian / Fine-Oval</option>
-            <option value="eurasian">Eurasian</option>
-            <option value="afro">Afro-Coiled / Type 3C–4C</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Category</label>
-          <select id="filter-cat" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
-            <option value="all">All Categories (19 Archetypes)</option>
-            <option value="Express / Everyday">Express / Everyday Functional</option>
-            <option value="Trend / Layered">Current &amp; Heritage Trends</option>
-            <option value="Cultural / Modest">Cultural / Religious Compliance</option>
-            <option value="Institutional / Rite">Institutional &amp; Life Rites</option>
-            <option value="Clinical / Scalp Care">Clinical / Hair-Biotype Care</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Navigation Tabs -->
-      <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)] text-xs">
-        <button data-tab="gallery" class="tab-btn px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)]">
-          1. Inclusive Haircut Taxonomy (19 Styles)
-        </button>
-        <button data-tab="matrix" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          2. Demographic &amp; Biotype Compatibility Matrix
-        </button>
-        <button data-tab="singstat" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          3. Official SingStat Population &amp; Aging (2016–2026)
-        </button>
-        <button data-tab="economics" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          4. SSIC 9602 Economics &amp; Verified Price Ladder
-        </button>
-      </div>
-    </section>
-
-    <!-- TAB 1: Qualitative Gallery -->
-    <section id="tab-gallery" class="tab-panel space-y-4">
-      <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--muted-foreground)]">
-        <span id="gallery-subtitle">Showing all 19 inclusive archetypes with verified price bands and clinical/cultural notes. Click any card for biotype specs &amp; citations.</span>
-      </div>
-      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-    </section>
-
-    <!-- TAB 2: Qualitative Eligibility Matrix -->
-    <section id="tab-matrix" class="tab-panel hidden space-y-4">
-      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-        <div>
-          <h2 class="text-base font-semibold">Qualitative Compatibility Matrix: Age Cohort × Community / Biotype</h2>
-          <p class="text-xs text-[var(--muted-foreground)]">
-            Shows qualitative demographic applicability and structural hair-biotype / cultural drivers rather than unmeasured market share percentages. <span class="font-medium text-[var(--foreground)]">Fit</span> = documented primary cohort; <span class="font-medium text-[var(--foreground)]">—</span> = typically not applicable.
-          </p>
-        </div>
-        <div id="matrix-table-wrap" class="overflow-x-auto scrollbar-thin"></div>
-      </div>
-    </section>
-
-    <!-- TAB 3: Official SingStat Population & Aging -->
-    <section id="tab-singstat" class="tab-panel hidden space-y-4">
+    <!-- TAB 1: YEARLY TRENDS -->
+    <section id="tab-trends" class="tab-panel space-y-4">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-          <h2 class="text-base font-semibold">Singapore Population Trajectory (June 2016–June 2026, Verified)</h2>
-          <p class="text-xs text-[var(--muted-foreground)]">
-            Official <strong class="text-[var(--foreground)]">Population in Brief / SingStat</strong> mid-year counts (millions): Total population dipped to 5.45M in 2021 before reaching 6.21M in June 2026 (3.68M Citizens, 0.55M PRs, 1.98M Non-Residents).
-          </p>
-          <div id="pop-chart-svg" class="w-full overflow-x-auto"></div>
-        </div>
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-          <h2 class="text-base font-semibold">Super-Aged Transition (Residents 65+, 2016–2026) &amp; CMIO Split</h2>
-          <p class="text-xs text-[var(--muted-foreground)]">
-            SingStat share of <strong class="text-[var(--foreground)]">Residents aged 65+</strong> rose from 12.4% (2016) to 19.5% (2026), while Citizens aged 65+ crossed 21.4% (UN super-aged threshold).
-          </p>
-          <div id="aging-chart-svg" class="w-full overflow-x-auto"></div>
-          <div id="cmio-bars" class="pt-3 border-t border-[var(--border)] space-y-2 text-xs"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: SSIC 9602 Economics & Verified Prices -->
-    <section id="tab-economics" class="tab-panel hidden space-y-4">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-4">
-          <h2 class="text-base font-semibold">Official SingStat Industry &amp; Household Benchmarks</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
-              <div class="text-[var(--muted-foreground)]">SSIC 9602 Revenue (2019 vs. Recent)</div>
-              <div class="text-base font-semibold tabular-nums mt-1">S$2.17B → ~S$3.38B</div>
-              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Includes Hairdressing (96021), Beauty/Spas (96022), Nails (96023), Massage (96024).</div>
-            </div>
-            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
-              <div class="text-[var(--muted-foreground)]">SSIC 9602 Corporate Establishments</div>
-              <div class="text-base font-semibold tabular-nums mt-1">11,241 Entities</div>
-              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">SingStat Services Survey structural aggregate (~33% growth over 5–6 yrs; labor 48%–57% of receipts).</div>
-            </div>
-            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
-              <div class="text-[var(--muted-foreground)]">HES 2023 Monthly Household Spend</div>
-              <div class="text-base font-semibold tabular-nums mt-1">S$5,931 / month</div>
-              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Up from S$5,163 (2017/18); hairdressing sits inside <em>Miscellaneous Goods &amp; Services</em>.</div>
-            </div>
-            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
-              <div class="text-[var(--muted-foreground)]">Observed General Cut Cadence</div>
-              <div class="text-base font-semibold tabular-nums mt-1">Men 2–4w • Women 8–16w</div>
-              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Local salon norms; shorter 2–3w for skin fades, longer 8–16w for medium/long trims.</div>
+        <!-- Chart A: SingStat SSIC 9602 Receipts & Establishments -->
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+          <div class="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <h2 class="text-base font-semibold">Official SingStat SSIC 9602 Industry Trend (2019–2024)</h2>
+              <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
+                Operating revenue rose <strong class="text-[var(--foreground,var(--fg-fallback))]">+55.5%</strong> (S$2.17B → S$3.38B) and establishments grew <strong class="text-[var(--foreground,var(--fg-fallback))]">+33.0%</strong> (8,453 → 11,241) across Hairdressing, Beauty, Spa &amp; Nail services (2020 not published separately).
+              </p>
             </div>
           </div>
-          <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3 text-xs space-y-1.5">
-            <div class="font-semibold">What Public Data Does NOT Measure (Excluded by Design)</div>
-            <ul class="list-disc pl-4 text-[var(--muted-foreground)] space-y-1">
-              <li>SingStat does not separate standalone haircut revenue from broader SSIC 9602 beauty/spa receipts.</li>
-              <li>No national census or HES table tracks historical market shares (%) for specific style names (e.g., Hush vs. Butterfly vs. Two-Block).</li>
-              <li>Census 2020 confirms 12,051 resident Sikhs aged 15+ (~12k–15k all ages), validating Sikh <em>Kesh</em> community presence without inventing visit counts.</li>
-            </ul>
-          </div>
+          <div id="ssic-chart-svg" class="w-full overflow-x-auto"></div>
         </div>
 
-        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-          <h2 class="text-base font-semibold">Verified Singapore Haircut &amp; Service Price Ladder (2025–2026)</h2>
-          <p class="text-xs text-[var(--muted-foreground)]">
-            Observed retail price bands across published SG salon menus and express chains (SGD, range bars from min to max published tier).
-          </p>
-          <div id="price-ladder-wrap" class="space-y-2.5"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Detail Modal -->
-    <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-xl w-full p-5 space-y-4 shadow-xl">
-        <div class="flex items-start justify-between gap-3">
+        <!-- Chart B: Population Base + Modeled Haircut Volume Band -->
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
           <div>
-            <span id="modal-id" class="text-xs font-mono text-[var(--primary)]"></span>
-            <h3 id="modal-title" class="text-lg font-semibold mt-0.5"></h3>
+            <h2 class="text-base font-semibold">Yearly Haircut Demand Trajectory &amp; Population Base (2016–2026)</h2>
+            <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
+              Because SingStat does not count individual haircuts directly, the chart pairs exact <strong class="text-[var(--foreground,var(--fg-fallback))]">Population in Brief (2016–2026)</strong> mid-year populations with your selected cadence assumption to show the macro demand band (increasing post-2021).
+            </p>
           </div>
-          <button id="modal-close" class="text-xs px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">Close</button>
+          <div class="flex flex-wrap items-center gap-4 text-xs bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-2.5">
+            <label class="flex items-center gap-2">
+              <span class="text-[var(--muted-foreground,var(--muted-fallback))]">Assumed Mean Visits / Person / Yr:</span>
+              <input id="trend-freq" type="range" min="5" max="12" step="0.5" value="8.5" class="accent-[var(--primary,var(--primary-fallback))]" />
+              <span id="trend-freq-val" class="font-semibold tabular-nums">8.5 / yr</span>
+            </label>
+            <span class="text-[var(--muted-foreground,var(--muted-fallback))]">Est. 2026 SG Haircuts: <strong id="trend-2026-cuts" class="text-[var(--foreground,var(--fg-fallback))] tabular-nums">52.7M</strong></span>
+          </div>
+          <div id="yearly-cuts-svg" class="w-full overflow-x-auto"></div>
         </div>
-        <p id="modal-context" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
-        <div id="modal-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs"></div>
-        <div id="modal-source" class="text-xs pt-2 border-t border-[var(--border)]"></div>
       </div>
-    </div>
+
+      <!-- Bottom Row: Resident Aging + HES Context -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
+          <div class="font-semibold text-sm">Post-2021 Demographic Rebound</div>
+          <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
+            Total population dropped from 5.70M (2019) to 5.45M (2021) during COVID border restrictions before climbing <strong>+13.9%</strong> to <strong>6.21M</strong> (June 2026), directly lifting salon footfall.
+          </p>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
+          <div class="font-semibold text-sm">Super-Aged Shift (12.4% → 19.5% 65+)</div>
+          <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
+            Residents aged 65+ rose every single year from 2016 (12.4%) to 2026 (19.5%; Citizens 21.4%), expanding demand for accessible HDB void-deck &amp; budget neighborhood salons.
+          </p>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-1.5">
+          <div class="font-semibold text-sm">Household Spend Context (HES 2023)</div>
+          <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
+            SingStat Household Expenditure Survey (2023) places average resident household spending at <strong>S$5,931/mo</strong> (vs. S$5,163 in 2017/18), grouping personal care under <em>Misc. Goods &amp; Services</em>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: COST AT DIFFERENT PLACES -->
+    <section id="tab-places" class="tab-panel hidden space-y-4">
+      <!-- Tier Comparison Summary -->
+      <div id="tier-cards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs"></div>
+
+      <!-- Filters for 102 Places -->
+      <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground,var(--muted-fallback))]">Filter 102 Verified Singapore Outlets</span>
+          <span id="places-count" class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] tabular-nums">Showing 102 / 102 outlets</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
+          <select id="p-tier" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+            <option value="all">All Tiers (T1–T4)</option>
+            <option value="T1">T1 Heartland / HDB / School (16)</option>
+            <option value="T2">T2 Express 10-min Chains (64)</option>
+            <option value="T3">T3 Mid-Tier / Orchard / Karva (16)</option>
+            <option value="T4">T4 Luxury Director / Boutiques (6)</option>
+          </select>
+          <select id="p-region" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+            <option value="all">All 5 Regions</option>
+            <option value="Central">Central (42)</option>
+            <option value="North-East">North-East (19)</option>
+            <option value="East">East (19)</option>
+            <option value="West">West (15)</option>
+            <option value="North">North (7)</option>
+          </select>
+          <select id="p-feature" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+            <option value="all">All Specialties &amp; Features</option>
+            <option value="hijab">Muslimah Hijab-Private Suite (6)</option>
+            <option value="razor">Traditional Razor Beard Craft (2)</option>
+            <option value="afro">Afro-Coiled / Type 3C–4C Ready</option>
+            <option value="wavy">South Asian / Malay Wavy-Curly Ready</option>
+            <option value="caucasian">Caucasian Fine-Oval Ready</option>
+          </select>
+          <select id="p-sort" class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+            <option value="pm_asc">Sort: Men Price (Low → High)</option>
+            <option value="pw_asc">Sort: Women Price (Low → High)</option>
+            <option value="pk_asc">Sort: Kid Price (Low → High)</option>
+            <option value="rating_desc">Sort: Highest Google Rating</option>
+            <option value="tau_desc">Sort: Longest Cut Durability (τ)</option>
+          </select>
+          <input id="p-search" type="text" placeholder="Search salon or area (e.g. Bedok, Orchard)..." class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2" />
+        </div>
+      </div>
+
+      <!-- Price Spread Chart + Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+          <h3 class="text-sm font-semibold">Cash Price vs. True Economic Cost (By Tier)</h3>
+          <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
+            Compares ticket price (Men, Women, Kid medians) plus walk-in queue &amp; travel Value of Time at MOM Median income (S$33.32/hr). Notice zero Men/Women spread in T2 express vs. +50% median spread in T4 luxury.
+          </p>
+          <div id="tier-cost-svg" class="w-full overflow-x-auto"></div>
+        </div>
+
+        <div class="lg:col-span-2 bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-sm font-semibold">Directory of Verified Singapore Haircut Places (2026 Catalog)</h3>
+            <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">Queue + Chair mins from catalog baseline</span>
+          </div>
+          <div id="places-table-wrap" class="overflow-x-auto max-h-[460px] overflow-y-auto scrollbar-thin"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ANNUAL MONEY SPENT BY RACE x GENDER x AGE -->
+    <section id="tab-spend" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <!-- Interactive Calculator Controls -->
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3 text-xs">
+          <h2 class="text-base font-semibold">Annual Haircut Spend Estimator</h2>
+          <p class="text-[var(--muted-foreground,var(--muted-fallback))]">
+            Estimates annual cash outlay and time opportunity cost using your profile's hair biotype growth velocity (<code>PMC7187942</code> / <code>PMC11733847</code> / <code>PMC6894537</code>), cultural/privacy rules, AGA differential bulk (<code>PMID:11063167</code>), and real SG salon tier prices.
+          </p>
+
+          <div>
+            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Race / Biotype &amp; Cultural Profile</label>
+            <select id="s-race" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+              <option value="chinese">Chinese (East Asian 78µm, 1.40 cm/mo)</option>
+              <option value="malay_std">Malay (Wavy/Straight 72µm, 1.28 cm/mo)</option>
+              <option value="malay_hijab">Malay Muslimah (Female Hijab-Private Suite / Sah-Solat)</option>
+              <option value="indian_gen">Indian (Wavy/Curly 72µm, 87% Male AGA factor)</option>
+              <option value="indian_sikh">Indian — Sikh Sacred Kesh (Unshorn Faith Practice)</option>
+              <option value="caucasian">Caucasian (Fine Oval 65µm, 1.20 cm/mo)</option>
+              <option value="eurasian">Eurasian (Mixed 1B–3B Wave/Straight, 1.28 cm/mo)</option>
+              <option value="afro">Afro-Coiled (55µm Ribbon, 48% Shrinkage, 0.90 cm/mo)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Gender</label>
+              <select id="s-gender" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Age Cohort</label>
+              <select id="s-age" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+                <option value="0-12">0–12y (Child)</option>
+                <option value="13-24">13–24y (Youth / NS / MOE)</option>
+                <option value="25-44" selected>25–44y (Working Adult)</option>
+                <option value="45-64">45–64y (Mature Adult)</option>
+                <option value="65+">65+y (Senior)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Salon Tier Choice</label>
+              <select id="s-tier" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+                <option value="T1">T1 Heartland (S$6–S$35)</option>
+                <option value="T2" selected>T2 Express (S$12–S$16)</option>
+                <option value="T3">T3 Mid-Tier / Karva (S$32–S$76)</option>
+                <option value="T4">T4 Luxury Director (S$68–S$280)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Monthly Income (VOT)</label>
+              <select id="s-income" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+                <option value="3164">S$3,164 (20th Pct)</option>
+                <option value="5775" selected>S$5,775 (MOM Median)</option>
+                <option value="9038">S$9,038 (Degree Med.)</option>
+                <option value="18000">S$18,000 (Executive)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-[var(--muted-foreground,var(--muted-fallback))] mb-1">Annual Chemical / Specialist Add-Ons (Optional)</label>
+            <select id="s-addon" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+              <option value="0">Cut Only (No Perm / Color / Braids)</option>
+              <option value="180">Side Down-Perm / Light Color (~S$180/yr)</option>
+              <option value="340">1x Korean Digital Perm / Treatment (~S$340/yr)</option>
+              <option value="520">2x Digital Perm / Braiding / Keratin (~S$520/yr)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Calculator Output + Cross-Demographic Matrix -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-base font-semibold">Modeled Annual Expenditure Breakdown</h3>
+              <span id="s-tier-badge" class="text-xs px-2.5 py-0.5 rounded-full bg-[var(--secondary,var(--secondary-fallback))]"></span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Annual Cash Spend</div>
+                <div id="out-cash" class="text-lg font-semibold tabular-nums mt-0.5"></div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Cuts / Year (Cadence)</div>
+                <div id="out-cuts" class="text-lg font-semibold tabular-nums mt-0.5"></div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Annual Time Cost (VOT)</div>
+                <div id="out-time" class="text-lg font-semibold tabular-nums mt-0.5"></div>
+              </div>
+              <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
+                <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Full Economic Spend</div>
+                <div id="out-full" class="text-lg font-semibold tabular-nums mt-0.5 text-[var(--primary,var(--primary-fallback))]"></div>
+              </div>
+            </div>
+            <p id="out-notes" class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] leading-relaxed bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3"></p>
+          </div>
+
+          <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h3 class="text-sm font-semibold">Annual Cash Spend Across Race × Gender × Age (<span id="matrix-tier-label">T2 Express vs. T3/Specialist</span>)</h3>
+              <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">Computed transparently from 102-salon tier medians × biotype-adjusted cut cadence</span>
+            </div>
+            <div id="spend-matrix-wrap" class="overflow-x-auto scrollbar-thin"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 
   <script>
-    const CHART_COLORS = [
-      "var(--chart-1, #3b82f6)",
-      "var(--chart-2, #10b981)",
-      "var(--chart-3, #f59e0b)",
-      "var(--chart-4, #ec4899)",
-      "var(--chart-5, #8b5cf6)",
-      "#06b6d4",
-      "#f97316"
+    const SALONS = [{"id":"S001","name":"Kcuts @ Capitol Piazza (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":215,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S002","name":"Kcuts @ Suntec City (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S003","name":"Kcuts @ Marina Bay Link Mall (kcutsGO)","tier":"T2","region":"Central","area":"Downtown Core","pm":15.0,"pw":15.0,"pk":14.0,"rating":4.2,"reviews":145,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S004","name":"Kcuts @ Chinatown Point (kcutsGO)","tier":"T2","region":"Central","area":"Outram","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":192,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S005","name":"Kcuts @ Tiong Bahru Plaza (kcutsGO)","tier":"T2","region":"Central","area":"Bukit Merah","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S006","name":"Kcuts @ Great World (kcutsGO)","tier":"T2","region":"Central","area":"River Valley","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":165,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S007","name":"Kcuts @ Tanglin Mall (kcutsGO)","tier":"T2","region":"Central","area":"Tanglin","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":130,"q":4.0,"chair":10.0,"travel":12.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S008","name":"Kcuts @ Novena Velocity (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":230,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S009","name":"Kcuts @ United Square (kcutsGO)","tier":"T2","region":"Central","area":"Novena","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":195,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S010","name":"Kcuts @ Aperia Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":140,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S011","name":"Kcuts @ Kallang Wave Mall (kcutsGO)","tier":"T2","region":"Central","area":"Kallang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":155,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S012","name":"Kcuts @ Junction 8 Bishan (kcutsGO)","tier":"T2","region":"Central","area":"Bishan","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":280,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S013","name":"Kcuts @ AMK Hub (kcutsGO)","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":310,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S014","name":"Kcuts @ NEX Serangoon (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":340,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S015","name":"Kcuts @ Heartland Mall Kovan (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":220,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S016","name":"Kcuts @ Hougang Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Hougang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S017","name":"Kcuts @ Greenwich V (kcutsGO)","tier":"T2","region":"North-East","area":"Serangoon","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":115,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S018","name":"Kcuts @ The Seletar Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":205,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S019","name":"Kcuts @ Rivervale Mall (kcutsGO)","tier":"T2","region":"North-East","area":"Sengkang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":180,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S020","name":"Kcuts @ Waterway Point Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":320,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S021","name":"Kcuts @ Punggol Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":150,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S022","name":"Kcuts @ Oasis Terraces Punggol (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":165,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S023","name":"Kcuts @ Northshore Plaza (kcutsGO)","tier":"T2","region":"North-East","area":"Punggol","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":140,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S024","name":"Kcuts @ Bedok Mall (kcutsGO)","tier":"T2","region":"East","area":"Bedok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":290,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S025","name":"Kcuts @ PLQ Mall Paya Lebar (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S026","name":"Kcuts @ KINEX Katong (kcutsGO)","tier":"T2","region":"East","area":"Geylang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S027","name":"Kcuts @ i12 Katong (kcutsGO)","tier":"T2","region":"East","area":"Marine Parade","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":175,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S028","name":"Kcuts @ Tampines 1 (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":305,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S029","name":"Kcuts @ Century Square Tampines (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":240,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S030","name":"Kcuts @ Our Tampines Hub (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":285,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S031","name":"Kcuts @ Eastpoint Mall Simei (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S032","name":"Kcuts @ Changi City Point (kcutsGO)","tier":"T2","region":"East","area":"Tampines","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.2,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S033","name":"Kcuts @ White Sands Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S034","name":"Kcuts @ Downtown East Pasir Ris (kcutsGO)","tier":"T2","region":"East","area":"Pasir Ris","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":185,"q":5.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S035","name":"Kcuts @ Causeway Point Woodlands (kcutsGO)","tier":"T2","region":"North","area":"Woodlands","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":330,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S036","name":"Kcuts @ Northpoint City Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":315,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S037","name":"Kcuts @ Wisteria Mall Yishun (kcutsGO)","tier":"T2","region":"North","area":"Yishun","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":145,"q":4.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S038","name":"Kcuts @ Sembawang Shopping Centre (kcutsGO)","tier":"T2","region":"North","area":"Sembawang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":160,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S039","name":"Kcuts @ Jurong Point (kcutsGO)","tier":"T2","region":"West","area":"Jurong West","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":350,"q":6.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S040","name":"Kcuts @ Westgate Jurong East (kcutsGO)","tier":"T2","region":"West","area":"Jurong East","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":295,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S041","name":"Kcuts @ Clementi Mall (kcutsGO)","tier":"T2","region":"West","area":"Clementi","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":245,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S042","name":"Kcuts @ Bukit Panjang Plaza (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":210,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://b2blistsg.com/chain/kcuts"},{"id":"S043","name":"Kcuts @ Hillion Mall Bukit Panjang (kcutsGO)","tier":"T2","region":"West","area":"Bukit Panjang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":190,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S044","name":"Kcuts @ HillV2 Hillview (kcutsGO)","tier":"T2","region":"West","area":"Bukit Batok","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.4,"reviews":135,"q":4.0,"chair":10.0,"travel":11.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S045","name":"Kcuts @ Lot One Choa Chu Kang (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":260,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S046","name":"Kcuts @ Yew Tee Point (kcutsGO)","tier":"T2","region":"West","area":"Choa Chu Kang","pm":14.0,"pw":14.0,"pk":14.0,"rating":4.3,"reviews":175,"q":5.0,"chair":10.0,"travel":10.0,"lead":0.02,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://k-cuts.com/kcutsgo/"},{"id":"S047","name":"QB House @ VivoCity","tier":"T2","region":"Central","area":"Bukit Merah","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":306,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/"},{"id":"S048","name":"QB Premium @ Suntec City","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.2,"reviews":189,"q":10.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.qbpremium.sg/"},{"id":"S049","name":"QB Premium @ 313@Somerset","tier":"T2","region":"Central","area":"Orchard","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":210,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S050","name":"QB Premium @ Bugis Junction","tier":"T2","region":"Central","area":"Downtown Core","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":240,"q":12.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S051","name":"QB House @ Raffles City","tier":"T2","region":"Central","area":"Downtown Core","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":195,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S052","name":"QB House @ City Square Mall","tier":"T2","region":"Central","area":"Kallang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":220,"q":13.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S053","name":"QB House @ Square 2 Novena","tier":"T2","region":"Central","area":"Novena","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":180,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S054","name":"QB House @ Toa Payoh Central","tier":"T2","region":"Central","area":"Toa Payoh","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":250,"q":14.0,"chair":10.0,"travel":10.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S055","name":"QB House @ AMK Hub","tier":"T2","region":"North-East","area":"Ang Mo Kio","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":260,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S056","name":"QB House @ NEX Serangoon","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S057","name":"QB House @ MyVillage Serangoon Garden","tier":"T2","region":"North-East","area":"Serangoon","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.4,"reviews":140,"q":10.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S058","name":"QB House @ Hougang 1","tier":"T2","region":"North-East","area":"Hougang","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":165,"q":12.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S059","name":"QB House Kids & Express @ Waterway Point","tier":"T2","region":"North-East","area":"Punggol","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.2,"reviews":160,"q":14.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":19.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S060","name":"QB House @ Parkway Parade","tier":"T2","region":"East","area":"Marine Parade","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":230,"q":14.0,"chair":10.0,"travel":12.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S061","name":"QB House @ Tampines Mall","tier":"T2","region":"East","area":"Tampines","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":275,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S062","name":"QB Premium @ JEM Jurong East","tier":"T2","region":"West","area":"Jurong East","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.3,"reviews":225,"q":11.0,"chair":15.0,"travel":11.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S063","name":"QB House @ Jurong Point","tier":"T2","region":"West","area":"Jurong West","pm":12.0,"pw":12.0,"pk":12.0,"rating":4.3,"reviews":290,"q":15.0,"chair":10.0,"travel":11.0,"lead":0.0,"tau":18.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S064","name":"QB Premium @ One Holland Village","tier":"T2","region":"Central","area":"Queenstown","pm":16.0,"pw":16.0,"pk":15.0,"rating":4.4,"reviews":130,"q":9.0,"chair":15.0,"travel":12.0,"lead":0.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://qbhouse.co/sg/outlet/"},{"id":"S065","name":"Kimage Hairdressing School @ Marina Square","tier":"T1","region":"Central","area":"Downtown Core","pm":8.0,"pw":8.0,"pk":8.0,"rating":4.5,"reviews":658,"q":8.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":22.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://sch.kimage.com.sg/"},{"id":"S066","name":"KIMarie Hair & Beauty Training Centre @ Square 2","tier":"T1","region":"Central","area":"Novena","pm":9.0,"pw":9.0,"pk":9.0,"rating":4.3,"reviews":190,"q":9.0,"chair":45.0,"travel":14.0,"lead":1.5,"tau":21.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S067","name":"Snip Avenue @ Bedok Town Centre","tier":"T1","region":"East","area":"Bedok","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":142,"q":22.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S068","name":"Snip Avenue @ Toa Payoh Central","tier":"T1","region":"Central","area":"Toa Payoh","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.5,"reviews":128,"q":21.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S069","name":"Snip Avenue @ Jurong West St 91","tier":"T1","region":"West","area":"Jurong West","pm":6.8,"pw":6.8,"pk":5.8,"rating":3.6,"reviews":115,"q":20.0,"chair":12.0,"travel":9.0,"lead":0.0,"tau":16.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S070","name":"eZen Hair, Nail & Beauty @ Bukit Panjang","tier":"T1","region":"West","area":"Bukit Panjang","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":160,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S071","name":"eZen Hair, Nail & Beauty @ Woodlands 888 Plaza","tier":"T1","region":"North","area":"Woodlands","pm":8.0,"pw":8.0,"pk":6.0,"rating":4.1,"reviews":145,"q":15.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S072","name":"Peter & E Hair Studio @ Fernvale Point Sengkang","tier":"T1","region":"North-East","area":"Sengkang","pm":8.0,"pw":10.0,"pk":8.0,"rating":4.3,"reviews":130,"q":12.0,"chair":15.0,"travel":9.0,"lead":0.0,"tau":19.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S073","name":"TenDollar.com Salon @ Pasir Ris West Plaza","tier":"T1","region":"East","area":"Pasir Ris","pm":6.0,"pw":8.0,"pk":6.0,"rating":4.0,"reviews":118,"q":16.0,"chair":14.0,"travel":9.0,"lead":0.0,"tau":18.0,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S074","name":"Aoska Unisex Hair Styling @ Yishun Vista Point","tier":"T1","region":"North","area":"Yishun","pm":10.0,"pw":12.0,"pk":8.0,"rating":4.2,"reviews":125,"q":13.0,"chair":16.0,"travel":9.0,"lead":0.0,"tau":19.5,"biotypes":["east_asian_coarse_straight"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S075","name":"New Star Indian Barber @ Little India / Tekka","tier":"T1","region":"Central","area":"Rochor","pm":10.0,"pw":15.0,"pk":8.0,"rating":4.4,"reviews":185,"q":14.0,"chair":22.0,"travel":9.0,"lead":0.1,"tau":21.5,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S076","name":"Dragon Phoenix Unisex Salon @ Toa Payoh HDB Hub","tier":"T1","region":"Central","area":"Toa Payoh","pm":10.0,"pw":18.0,"pk":8.0,"rating":4.3,"reviews":110,"q":15.0,"chair":20.0,"travel":9.0,"lead":0.2,"tau":20.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["zh","en"],"url":"https://blog.moneysmart.sg/budgeting/cheap-haircut-singapore-barber-shop/"},{"id":"S077","name":"Pandian Hair Dressing Saloon @ Upper Bukit Timah","tier":"T1","region":"West","area":"Bukit Timah","pm":12.0,"pw":16.0,"pk":8.0,"rating":4.5,"reviews":95,"q":12.0,"chair":20.0,"travel":10.0,"lead":0.1,"tau":22.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":false,"razor":true,"langs":["en","ta","ms"],"url":"https://www.asiaone.com/singapore/best-places-get-haircut-singapore-depending-your-budget"},{"id":"S078","name":"New Chapter Hair Salon @ Ubi Ave 1","tier":"T1","region":"East","area":"Geylang","pm":13.0,"pw":13.0,"pk":10.0,"rating":4.9,"reviews":86,"q":9.0,"chair":28.0,"travel":10.0,"lead":1.0,"tau":24.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S079","name":"\"Hair\" by Common Studio @ Queenstown Strathmore","tier":"T1","region":"Central","area":"Queenstown","pm":25.0,"pw":33.0,"pk":18.0,"rating":4.8,"reviews":445,"q":7.0,"chair":35.0,"travel":12.0,"lead":1.5,"tau":26.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://anjiacollection.com/pages/hair-by-common-studio"},{"id":"S080","name":"K Classic Hair Salon @ Old Airport Road","tier":"T1","region":"Central","area":"Kallang","pm":30.0,"pw":35.0,"pk":20.0,"rating":5.0,"reviews":53,"q":7.0,"chair":35.0,"travel":11.0,"lead":1.0,"tau":26.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S081","name":"Keller Hair Studio @ Thomson Plaza","tier":"T3","region":"Central","area":"Bishan","pm":32.0,"pw":40.0,"pk":22.0,"rating":4.7,"reviews":259,"q":8.0,"chair":40.0,"travel":14.0,"lead":1.5,"tau":28.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S082","name":"Salon V @ Punggol Coast / Northshore","tier":"T3","region":"North-East","area":"Punggol","pm":35.0,"pw":45.0,"pk":25.0,"rating":4.9,"reviews":115,"q":7.0,"chair":42.0,"travel":13.0,"lead":2.0,"tau":30.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S083","name":"Hair Loft @ Kovan Heartland","tier":"T3","region":"North-East","area":"Hougang","pm":45.0,"pw":55.0,"pk":28.0,"rating":4.7,"reviews":160,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":30.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://glamingo.ai/sg/blogs/haircut-price-singapore/"},{"id":"S084","name":"Act Point Salon @ Midpoint Orchard","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.9,"reviews":1313,"q":6.0,"chair":45.0,"travel":16.0,"lead":3.5,"tau":34.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"http://www.actpoint.com.sg/"},{"id":"S085","name":"Be U Hair Design @ The Centrepoint","tier":"T3","region":"Central","area":"Orchard","pm":42.0,"pw":52.0,"pk":28.0,"rating":4.9,"reviews":700,"q":6.0,"chair":45.0,"travel":16.0,"lead":2.5,"tau":32.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://beuhairdesign.com/"},{"id":"S086","name":"Salon Plus @ Far East Plaza","tier":"T3","region":"Central","area":"Orchard","pm":55.0,"pw":65.0,"pk":35.0,"rating":4.8,"reviews":310,"q":7.0,"chair":45.0,"travel":16.0,"lead":2.0,"tau":31.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh","ms"],"url":"https://salonplus.com.sg/our-service/haircut/"},{"id":"S087","name":"Number76 Hair Salon @ 268 Orchard","tier":"T3","region":"Central","area":"Orchard","pm":56.0,"pw":76.0,"pk":28.0,"rating":4.6,"reviews":671,"q":5.0,"chair":50.0,"travel":16.0,"lead":3.5,"tau":34.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://sgp.number76.com/price/"},{"id":"S088","name":"Kimage Hair Studio @ Marina Square Cove","tier":"T3","region":"Central","area":"Downtown Core","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.3,"reviews":589,"q":7.0,"chair":45.0,"travel":15.0,"lead":2.0,"tau":31.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S089","name":"Kimage Hair Studio @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.4,"reviews":340,"q":7.0,"chair":45.0,"travel":14.0,"lead":2.0,"tau":31.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.kimage.com.sg/"},{"id":"S090","name":"Apgujeong Hair Studio @ Tampines 1","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":1342,"q":6.0,"chair":48.0,"travel":13.0,"lead":2.5,"tau":33.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S091","name":"Apgujeong Hair Studio @ VivoCity","tier":"T3","region":"Central","area":"Bukit Merah","pm":48.0,"pw":58.0,"pk":32.0,"rating":4.8,"reviews":729,"q":6.0,"chair":48.0,"travel":14.0,"lead":2.5,"tau":33.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://apgujeonghair.com/"},{"id":"S092","name":"Pro Trim Hair Salon @ JEM Jurong East","tier":"T3","region":"West","area":"Jurong East","pm":45.0,"pw":55.0,"pk":30.0,"rating":4.5,"reviews":953,"q":7.0,"chair":45.0,"travel":13.0,"lead":2.0,"tau":32.0,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://stylenabyprotrim.com/pricing/"},{"id":"S093","name":"Karva Salon for Ladies @ Plaza Singapura","tier":"T3","region":"Central","area":"Orchard","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":840,"q":5.0,"chair":50.0,"travel":15.0,"lead":3.0,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S094","name":"Karva Salon for Ladies @ Northpoint City","tier":"T3","region":"North","area":"Yishun","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":520,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S095","name":"Karva Salon for Ladies @ Bukit Panjang Plaza","tier":"T3","region":"West","area":"Bukit Panjang","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":410,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/collections/bukit-panjang-plaza"},{"id":"S096","name":"Karva Salon for Ladies @ Century Square Tampines","tier":"T3","region":"East","area":"Tampines","pm":48.0,"pw":58.0,"pk":38.0,"rating":4.8,"reviews":490,"q":5.0,"chair":50.0,"travel":13.0,"lead":2.5,"tau":33.0,"biotypes":["south_asian_malay_wavy_curly","east_asian_coarse_straight","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","ms"],"url":"https://karva.sg/"},{"id":"S097","name":"Walking On Sunshine @ Orchard Central","tier":"T4","region":"Central","area":"Orchard","pm":70.0,"pw":120.0,"pk":45.0,"rating":4.8,"reviews":9079,"q":5.0,"chair":60.0,"travel":18.0,"lead":4.5,"tau":38.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.walkingonsunshine.sg/wos-services"},{"id":"S098","name":"Shunji Matsuo Flagship @ 15 Scotts Rd","tier":"T4","region":"Central","area":"Orchard","pm":85.0,"pw":110.0,"pk":55.0,"rating":4.7,"reviews":536,"q":4.0,"chair":60.0,"travel":18.0,"lead":5.0,"tau":39.5,"biotypes":["east_asian_coarse_straight","south_asian_malay_wavy_curly"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://www.shunjimatsuo.com.sg/pages/japanese-hair-salon-orchard"},{"id":"S099","name":"Miin Hair & Beauty Korean Salon @ Isetan Scotts","tier":"T4","region":"Central","area":"Orchard","pm":68.0,"pw":88.0,"pk":38.0,"rating":4.9,"reviews":796,"q":4.0,"chair":60.0,"travel":18.0,"lead":4.0,"tau":37.5,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval"],"hijab":false,"razor":false,"langs":["en","zh"],"url":"https://miinhair.com/sg"},{"id":"S100","name":"Expat Hair Studio @ Joo Chiat / Katong","tier":"T4","region":"East","area":"Marine Parade","pm":85.0,"pw":135.0,"pk":55.0,"rating":4.8,"reviews":237,"q":3.0,"chair":60.0,"travel":19.0,"lead":6.0,"tau":41.0,"biotypes":["caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":false,"razor":false,"langs":["en"],"url":"https://expatliving.sg/best-hair-salons-singapore-for-expats/"},{"id":"S101","name":"Chez Vous: HideAway & Private Space @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":199.0,"pw":199.0,"pk":120.0,"rating":4.9,"reviews":2295,"q":2.0,"chair":75.0,"travel":20.0,"lead":10.0,"tau":45.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","zh","ms"],"url":"https://chezvoushair.com/chez-vous-hide-away/"},{"id":"S102","name":"Kim Robinson Luxury Flagship @ Ngee Ann City","tier":"T4","region":"Central","area":"Orchard","pm":168.0,"pw":280.0,"pk":138.0,"rating":4.7,"reviews":223,"q":2.0,"chair":75.0,"travel":20.0,"lead":14.0,"tau":48.0,"biotypes":["east_asian_coarse_straight","caucasian_fine_oval","south_asian_malay_wavy_curly","afro_coiled_textured"],"hijab":true,"razor":false,"langs":["en","zh"],"url":"https://dailyvanity.sg/beauty-reviews/kim-robinson-review/"}];
+    const COLORS = ["#38bdf8", "#10b981", "#f59e0b", "#ec4899", "#a78bfa"];
+
+    // Verified SingStat Services Survey SSIC 9602 (Hairdressing, Beauty & Other Personal Care Services)
+    const SSIC_9602 = [
+      {yr:"2019", est:8453, revM:2173.8},
+      {yr:"2021", est:9499, revM:2333.6},
+      {yr:"2022", est:9330, revM:2642.5},
+      {yr:"2023", est:10744, revM:3394.0},
+      {yr:"2024", est:11241, revM:3381.1}
     ];
 
-    // 19 Inclusive Qualitative Archetypes (Verified attributes & price bands only; zero synthetic % or headcounts)
-    const STYLES = [
-      {id:"H19", name:"Everyday Express & Classic Functional Trim", category:"Express / Everyday", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["chinese","malay","indian","caucasian","eurasian","afro"], price:"S$6.80–S$18", cadence:"Men 2–4 wks • Women 8–16 wks", biotype:"All shafts (straight to coiled); 10-min dry cut or basic wash/trim", ctx:"Utilitarian daily baseline missing from trend lists: Snip Avenue (S$6.80–S$10), kcuts (S$14–S$15), QB House (S$18, Kids <7y S$25), and neighbourhood unisex barbers.", srcLabel:"QB House / kcuts / Snip Avenue published pricing", srcUrl:"https://www.k-cuts.com/", icon:"everyday"},
-      {id:"H01", name:"Korean Two-Block + Side Down Perm", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian","eurasian"], price:"S$45–S$75 cut (+ down perm)", cadence:"3–4 wks trim • 6–8 wks perm", biotype:"Coarse round East Asian shafts (mitigates side ear-sticking)", ctx:"Disconnected short sides/nape with fuller layered crown; Korean salons frequently pair with chemical side down-perm so stiff Asian side hair lies flat.", srcLabel:"Korean salon SG guides (Platinum Cutz / Head Editor)", srcUrl:"https://platinumcutz.sg/blog/korean-hairstyle-men-singapore", icon:"twoblock"},
-      {id:"H02", name:"Low/Mid Skin Fade + Textured French Crop", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44","45-64"], races:["malay","indian","chinese","caucasian","afro"], price:"S$25–S$55 (modern barber)", cadence:"2–3 wks fade upkeep", biotype:"All textures; short clipped nape improves heat/humidity comfort", ctx:"High-ventilation tropical cut popular across modern Singapore barbershops; short textured fringe balances crown texture while skin taper keeps neck cool.", srcLabel:"SG Barbershop Guides (Orange & Teal / Make The Cut)", srcUrl:"https://orangeandteal.sg/gen-z-haircuts-singapore/", icon:"fade"},
-      {id:"H03", name:"Korean Hush Cut (Soft Feather Layers + Airy Bangs)", category:"Trend / Layered", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","eurasian"], price:"S$55–S$90+ (Korean/mall salon)", cadence:"8–12 wks shape trim", biotype:"Fine-to-thick straight/wavy; internal debulking reduces heavy triangle bulk", ctx:"Seamless face-framing internal layering without harsh steps; local stylists note anti-frizz serum helps hold feathery tips in SG outdoor humidity.", srcLabel:"Miin Hair SG / Chez Vous Hair", srcUrl:"https://miinhair.com/sg/blog/hush-cut", icon:"hush"},
-      {id:"H04", name:"Butterfly Cut + C/S-Curl Digital Perm", category:"Trend / Layered", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","caucasian"], price:"S$55–S$90 cut • S$250–S$438 perm", cadence:"10–16 wks trim • 4–6 mo perm", biotype:"Medium-to-long straight/wavy; large-barrel waves resist flat humidity droop", ctx:"Two-tier chin-to-collarbone layers giving short-cut volume around the face with long cascading length, commonly bundled with Korean setting/digital perms.", srcLabel:"Chez Vous / You Are My Sunshine / J. Seoul pricing", srcUrl:"https://chezvoushair.com/korean-perm-hair-trends/", icon:"butterfly"},
-      {id:"H05", name:"Unisex Wolf Cut / Modern Shag & Mullet", category:"Trend / Layered", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$40–S$75+", cadence:"4–8 wks shape reset", biotype:"Wavy & textured shafts; messy piecey finish tolerates humidity", ctx:"Hybrid of 1970s shag crown volume and tapered mullet length; suited to tropical wind/humidity because natural texture reinforces the cut.", srcLabel:"Orange & Teal SG style guide", srcUrl:"https://orangeandteal.sg/mullet-men-singapore/", icon:"wolf"},
-      {id:"H06", name:"Muslimah Hijab-Under-Cap Breathable Bob/Lob + Sah-Solat", category:"Cultural / Modest", gender:"female", age_groups:["13-24","25-44","45-64","65+"], races:["malay","indian"], price:"S$35–S$85 (private salon suite)", cadence:"8–12 wks cut + scalp care", biotype:"Wavy/coiled under tudung; reduces bun tension and moisture trap", ctx:"Delivered in screened ladies-only rooms/suites (e.g., Karva, Pearlista) with water-permeable (Sah-Solat) scalp care and lighter chin/lob bulk to prevent tudung traction.", srcLabel:"TopSecret SG Muslimah Salon Directory", srcUrl:"https://topsecret.com.sg/blogs/haircare/top-10-muslimah-friendly-hair-salons-in-singapore", icon:"hijab"},
-      {id:"H07", name:"Postpartum Blunt Collarbone Lob + Curtain Fringe", category:"Clinical / Scalp Care", gender:"female", age_groups:["25-44"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$35–S$70+ (mall/salon)", cadence:"8–12 wks trim", biotype:"Postpartum telogen shedding (~Months 3–6); blunt ends preserve visual fullness", ctx:"Clinical styling strategy to minimize detangling traction and conceal temporary temple shedding with soft curtain bangs as new baby hairs grow out.", srcLabel:"Clinical Telogen Effluvium haircare guidance", srcUrl:"https://www.herabeauty.sg/", icon:"lob"},
-      {id:"H08", name:"SAF BMT No. 1 Buzz Cut (0–1 Guard Tekong Standard)", category:"Institutional / Rite", gender:"male", age_groups:["13-24"], races:["chinese","malay","indian","eurasian"], price:"S$2–S$12 (camp / HDB barber)", cadence:"2 wks camp inspection", biotype:"All textures; uniform short guard minimizes helmet/beret sweat", ctx:"Enlistment requirement for Full-Time National Servicemen entering Basic Military Training on Pulau Tekong.", srcLabel:"SAF BMT / r/NationalServiceSG guidelines", srcUrl:"https://www.reddit.com/r/NationalServiceSG/comments/dtdhqi/approved_haircuts_after_bmt/", icon:"buzz"},
-      {id:"H09", name:"MOE Schoolboy Taper & Schoolgirl Collar Bob", category:"Institutional / Rite", gender:"unisex", age_groups:["0-12","13-24"], races:["chinese","malay","indian","eurasian"], price:"S$8–S$18 (HDB / Express)", cadence:"3–5 wks (boys) • 8–12 wks (girls)", biotype:"All textures; disciplined perimeter above collar, ears, and brows", ctx:"Reflects primary and secondary school neatness rules (sloped back/sides, tied or above-collar hair, no dyeing) served predominantly by heartland & express outlets.", srcLabel:"MOE school rules & Singapore heritage records", srcUrl:"https://remembersingapore.org/2013/01/18/singapore-campaigns-of-the-past/", icon:"school"},
-      {id:"H10", name:"Heritage Short Back & Sides ('Operation Snip Snip' Lineage)", category:"Institutional / Rite", gender:"male", age_groups:["25-44","45-64","65+"], races:["chinese","malay","indian","eurasian"], price:"S$8–S$15 (HDB / traditional barber)", cadence:"3–4 wks trim", biotype:"Clean scissor-over-comb taper suited to all straight/wavy shafts", ctx:"Historical Singapore baseline formalized during the 1972 Ministry of Home Affairs anti-long-hair campaign ('males with long hair attended to last'); enduring preference among older generations.", srcLabel:"NLB / Remember Singapore historical archives", srcUrl:"https://remembersingapore.org/2013/01/18/singapore-campaigns-of-the-past/", icon:"shortback"},
-      {id:"H11", name:"1990s 'Aaron Kwok' 60/40 Curtain Flow Revival", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], price:"S$35–S$70", cadence:"4–6 wks layering", biotype:"Straight-to-wavy medium length; side sweep softens broad forehead", ctx:"Iconic 1990s East/Southeast Asian center-or-60/40 parted fringe revived in the 2020s as the K-pop 'Comma' and middle-part curtain cut.", srcLabel:"Platinum Cutz SG Men's Style Guide", srcUrl:"https://platinumcutz.sg/blog/korean-hairstyle-men-singapore", icon:"curtain"},
-      {id:"H12", name:"2000s J-Rock / F4 Razor-Textured Spikes & Straight Rebonding", category:"Trend / Layered", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], price:"S$45–S$200+ (with chemical rebonding)", cadence:"4–8 wks cut / 6–9 mo rebond", biotype:"Heavy razor texturizing or thermal straightening; higher cuticle stress", ctx:"Retro 2000s Far East Plaza aesthetic (Gatsby wax spikes for men; pin-straight rebonding for women), today largely displaced by softer internal layering and C-curls.", srcLabel:"Chez Vous Hair retrospective", srcUrl:"https://chezvoushair.com/most-searched-hair-trends-on-tiktok-you-must-not-try-instead-try-these-alternatives/", icon:"spiky"},
-      {id:"H13", name:"2010s Classic Undercut Pompadour + Straight-Razor Beard", category:"Trend / Layered", gender:"male", age_groups:["25-44","45-64"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$45–S$85 (gentleman barbershop)", cadence:"2–4 wks cut + beard line-up", biotype:"Oval/round shafts styled with matte clay or oil pomade against humidity", ctx:"Anchored Singapore's 2010s heritage barber revival (Sultans of Shave, Hounds of the Baskervilles) combining sharp temple tapers, crown length, and wet-shave grooming.", srcLabel:"Sultans of Shave service menu", srcUrl:"https://sultansofshave.com/", icon:"pomp"},
-      {id:"H14", name:"Rëzo / Deva Dry Curl-by-Curl Sculpted Halo (Type 2B–4C)", category:"Clinical / Scalp Care", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64"], races:["indian","malay","caucasian","afro","eurasian"], price:"S$90–S$160+ (curl specialist)", cadence:"8–14 wks dry shaping", biotype:"Elliptical & curved follicles (PMC6894537); moisture causes coil shrinkage", ctx:"Cut dry curl-by-curl without thinning shears so natural bounce and variable wet-to-dry shrinkage are preserved instead of creating frizzy bulk.", srcLabel:"Hera Beauty Curl Studio / PMC6894537 biophysics", srcUrl:"https://www.herabeauty.sg/curly-hair-salon-singapore/", icon:"curly"},
-      {id:"H15", name:"Protective Cornrows, Box Braids, Twists & Loc Maintenance", category:"Clinical / Scalp Care", gender:"unisex", age_groups:["13-24","25-44","45-64"], races:["afro","indian","malay","eurasian"], price:"S$80–S$250+ (specialist studio)", cadence:"6–10 wks takedown / retwist", biotype:"High-curvature coiled hair; low-tension parting protects marginal follicles", ctx:"Protective low-manipulation styles designed to lock moisture and reduce daily breakage while monitoring root tension to prevent traction alopecia.", srcLabel:"PMC6894537 Curly Hair Structural Review", srcUrl:"https://pmc.ncbi.nlm.nih.gov/articles/PMC6894537/", icon:"braids"},
-      {id:"H16", name:"Sikh Unshorn Sacred Kesh (Jura + Dastar / Patka Care)", category:"Cultural / Modest", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["indian"], price:"Home care / specialist beard & scalp", cadence:"Daily Kangha combing + wash", biotype:"Unshorn full-length hair (Census 2020: 12,051 resident Sikhs aged 15+)", ctx:"Khalsa article of faith where hair remains uncut; grooming centers on wooden Kangha detangling, loose Jura topknot placement to avoid frontal traction, and scalp airflow under turban/patka.", srcLabel:"SingStat Census 2020 / Harmony Circle SG", srcUrl:"https://www.harmonycircle.sg/resources/baby-birth/", icon:"kesh"},
-      {id:"H17", name:"Heartland Senior 'Ah Ma' Cold-Wave Roller Perm", category:"Cultural / Modest", gender:"female", age_groups:["65+"], races:["chinese","malay","indian","eurasian"], price:"S$30–S$60 (HDB void-deck salon)", cadence:"8–12 wks set/perm cycle", biotype:"Fine thinning senior hair; tight cold-wave curls create lift at vertex", ctx:"Long-standing staple of HDB heartland salons serving Singapore's rapidly growing 65+ resident cohort (19.5% in 2026) with compact, low-effort crown volume.", srcLabel:"PIB 2026 Senior Demographics / Bishan AGA study", srcUrl:"https://www.singstat.gov.sg", icon:"ahma"},
-      {id:"H18", name:"Infant Ceremonial First Shave (Man Yue / Cukur Jambul / Mundan)", category:"Institutional / Rite", gender:"unisex", age_groups:["0-12"], races:["chinese","malay","indian"], price:"Family rite or S$25–S$48 mobile", cadence:"One-time cultural milestone", biotype:"Fine infant hair undergoing normal 8–12 wk neonatal occipital telogen shift", ctx:"Shared multicultural Singapore newborn milestone across Chinese (Day 30 Full Moon), Malay (Day 7–44 Cukur Jambul), and Hindu (Months 4–36 Mundan) families.", srcLabel:"Harmony Circle SG / Mummy Baby Care", srcUrl:"https://mummybabycare.com.sg/baby-first-haircut-singapore/", icon:"infant"}
-    ];
-
-    // Verified Population in Brief / SingStat June mid-year series (2016–2026)
-    const PIB_SERIES = [
+    // Verified Population in Brief / SingStat mid-year series (millions) & Residents 65+ (%)
+    const PIB_POP = [
       {yr:"2016", tot:5.61, res:3.93, cit:3.41, age65:12.4},
       {yr:"2017", tot:5.61, res:3.97, cit:3.44, age65:13.0},
       {yr:"2018", tot:5.64, res:4.00, cit:3.47, age65:13.7},
@@ -283,318 +342,326 @@
       {yr:"2026", tot:6.21, res:4.23, cit:3.68, age65:19.5}
     ];
 
-    const CMIO_2026 = [
-      {label:"Chinese", pct:73.9, col:CHART_COLORS[0]},
-      {label:"Malay", pct:13.5, col:CHART_COLORS[1]},
-      {label:"Indian", pct:9.0, col:CHART_COLORS[2]},
-      {label:"Others (incl. Caucasian, Eurasian, etc.)", pct:3.6, col:CHART_COLORS[4]}
-    ];
+    const TIER_META = {
+      T1: {name:"T1 Heartland / HDB / School", desc:"Snip Avenue, local HDB salons, Indian barbers, Kimage school"},
+      T2: {name:"T2 Express 10-Min Mall Chains", desc:"kcuts (S$14–S$15), QB House (S$12–S$18), QB Premium (S$16)"},
+      T3: {name:"T3 Mid-Tier / Karva Private", desc:"Act Point, Number76, Be U, Apgujeong, Karva Muslimah Suites"},
+      T4: {name:"T4 Luxury Director / Boutiques", desc:"Walking On Sunshine, Shunji Matsuo, Miin, Expat, HideAway, Kim Robinson"}
+    };
 
-    const PRICE_LADDER = [
-      {label:"Snip Avenue (Basic Cut)", min:6.8, max:15, note:"Budget full-service heartland chain"},
-      {label:"HDB / Traditional Barber", min:8, max:15, note:"Unisex / uncle neighborhood trims"},
-      {label:"kcuts Express (10-min)", min:14, max:15, note:"Flat-rate automated kiosk & air wash"},
-      {label:"QB House Express", min:18, max:25, note:"S$18 adult; S$25 kids <7y at selected outlets"},
-      {label:"Modern Fade Barbershop", min:25, max:55, note:"Skin fade, crop, consultation"},
-      {label:"Mall / Neighborhood Ladies Cut", min:35, max:70, note:"Includes wash & blow-dry"},
-      {label:"Korean Salon (Men Ala-Carte)", min:45, max:75, note:"Two-block & styling cut"},
-      {label:"Korean Salon (Ladies Ala-Carte)", min:55, max:90, note:"Hush / Butterfly (higher for Directors)"},
-      {label:"Korean Digital Perm (Setting)", min:250, max:438, note:"S$258–358 short/med; S$330–438 long"}
-    ];
+    const RACE_PROFILES = {
+      chinese: {label:"Chinese", cmMo:1.40, agaMaleBoost:1.05, note:"78µm round East Asian shaft (1.40 cm/mo fastest linear growth); 61% male AGA (PMID:11063167). Compatible with T1–T4."},
+      malay_std: {label:"Malay", cmMo:1.28, agaMaleBoost:1.03, note:"72µm wavy-curly or straight shaft (1.28 cm/mo, ~22% curl shrinkage). Strong access to razor-fade barbers and T1–T4."},
+      malay_hijab: {label:"Malay Muslimah (Private)", cmMo:1.28, agaMaleBoost:1.00, note:"Requires ladies-only screened private cabin & Sah-Solat care (e.g., Karva T3 S$58 median; HideAway T4 S$199); T1/T2 express open booths excluded unless female-only."},
+      indian_gen: {label:"Indian (General)", cmMo:1.28, agaMaleBoost:1.10, note:"72µm elliptical wavy-curly shaft; Bishan study shows 87% male AGA prevalence (PMID:11063167), driving shorter side-taper cycles or traditional Tekka/Bt Timah barbers."},
+      indian_sikh: {label:"Indian (Sikh Kesh)", cmMo:1.28, agaMaleBoost:1.00, sikh:true, note:"Khalsa unshorn Sacred Kesh (Census 2020: 12,051 resident Sikhs aged 15+): S$0 scalp haircut trims; budget reflects optional beard/scalp oil & home wooden Kangha care."},
+      caucasian: {label:"Caucasian / European", cmMo:1.20, agaMaleBoost:1.08, note:"65µm fine oval shaft (226/cm² high density, 1.20 cm/mo); thinning shears in budget express cuts can trigger frizz, shifting many to scissor-specialist T3/T4 salons."},
+      eurasian: {label:"Eurasian", cmMo:1.28, agaMaleBoost:1.04, note:"Diverse 1B–3B wave/straight profiles; works across T2/T3 scissor & curly-trained stylists."},
+      afro: {label:"Afro-Coiled (3C–4C)", cmMo:0.90, agaMaleBoost:1.00, note:"55µm flattened ribbon shaft with 48% curl shrinkage & slowest linear elongation (0.90 cm/mo, PMC6894537); specialist dry curl cutting or protective braiding sits primarily at T3/T4 price tiers."}
+    };
 
-    function hairSVG(icon, colorIdx = 0) {
-      const accent = CHART_COLORS[colorIdx % CHART_COLORS.length];
-      const baseHead = `<circle cx="32" cy="36" r="14" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.55"/>`;
-      let hair = "";
-      switch (icon) {
-        case "everyday":
-          hair = `<path d="M18 33 C19 19, 45 19, 46 33 L44 26 L20 26 Z" fill="${accent}" opacity="0.8"/><path d="M46 16 L54 24 M54 16 L46 24" stroke="${accent}" stroke-width="1.8" stroke-linecap="round"/>`;
-          break;
-        case "twoblock":
-          hair = `<path d="M18 33 C17 18, 47 18, 46 33 L43 31 L38 28 L33 32 L26 28 L21 31 Z" fill="${accent}" opacity="0.88"/><path d="M18 33 L18 39 M46 33 L46 39" stroke="${accent}" stroke-width="2" opacity="0.5"/>`;
-          break;
-        case "fade":
-          hair = `<path d="M20 26 C22 17, 42 17, 44 26 L44 29 L20 29 Z" fill="${accent}" opacity="0.9"/><path d="M18 30 L20 35 M46 30 L44 35" stroke="${accent}" stroke-width="1.5" stroke-dasharray="2 2"/>`;
-          break;
-        case "hush":
-          hair = `<path d="M16 34 C16 14, 48 14, 48 34 L51 54 L43 50 L40 56 L35 51 M16 34 L13 54 L21 50 L24 56 L29 51" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M22 25 Q32 29 42 25" stroke="${accent}" stroke-width="2.5" fill="none"/>`;
-          break;
-        case "butterfly":
-          hair = `<path d="M15 35 C15 14, 49 14, 49 35 C53 45, 50 56, 44 55 C41 48, 44 42, 46 36 M15 35 C11 45, 14 56, 20 55 C23 48, 20 42, 18 36" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M20 22 Q32 16 44 22" stroke="${accent}" stroke-width="3" fill="none"/>`;
-          break;
-        case "wolf":
-          hair = `<path d="M17 31 L14 23 L21 21 L25 14 L32 19 L39 14 L43 21 L50 23 L47 31 L51 48 L44 45 L42 54 L36 47 M17 31 L13 48 L20 45 L22 54 L28 47" fill="none" stroke="${accent}" stroke-width="2.6" stroke-linejoin="round"/>`;
-          break;
-        case "hijab":
-          hair = `<path d="M15 36 C15 15, 49 15, 49 36 C51 48, 45 55, 32 56 C19 55, 13 48, 15 36 Z" fill="${accent}" opacity="0.22" stroke="${accent}" stroke-width="2.4"/><path d="M21 30 C23 23, 41 23, 43 30" stroke="${accent}" stroke-width="2" fill="none"/>`;
-          break;
-        case "lob":
-          hair = `<path d="M17 33 C17 16, 47 16, 47 33 L48 48 L42 48 M17 33 L16 48 L22 48" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M24 23 L30 28 M40 23 L34 28" stroke="${accent}" stroke-width="2"/>`;
-          break;
-        case "buzz":
-          hair = `<path d="M19 32 C19 19, 45 19, 45 32" fill="none" stroke="${accent}" stroke-width="3.2" stroke-dasharray="1.5 1.8"/>`;
-          break;
-        case "school":
-          hair = `<path d="M18 32 C19 19, 45 19, 46 32 L42 27 L22 27 Z" fill="${accent}" opacity="0.82"/>`;
-          break;
-        case "shortback":
-          hair = `<path d="M19 31 C19 19, 45 19, 45 31 L39 26 L21 26 Z" fill="${accent}" opacity="0.75"/><path d="M22 24 L42 21" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>`;
-          break;
-        case "curtain":
-          hair = `<path d="M17 34 C17 17, 47 17, 47 34 C42 24, 34 24, 32 30 C30 24, 22 24, 17 34 Z" fill="${accent}" opacity="0.88"/>`;
-          break;
-        case "spiky":
-          hair = `<path d="M17 31 L14 21 L22 22 L25 11 L32 18 L39 11 L42 22 L50 21 L47 31 L42 25 L22 25 Z" fill="${accent}" opacity="0.9"/>`;
-          break;
-        case "pomp":
-          hair = `<path d="M19 32 C18 20, 26 11, 39 14 C47 16, 46 25, 45 32 L41 25 L22 25 Z" fill="${accent}" opacity="0.9"/><path d="M23 44 Q32 52 41 44" stroke="${accent}" stroke-width="2.5" fill="none"/>`;
-          break;
-        case "curly":
-          hair = `<path d="M15 35 C10 28, 14 18, 22 17 C25 11, 39 11, 42 17 C50 18, 54 28, 49 35 C52 42, 46 49, 41 46 M15 35 C12 42, 18 49, 23 46" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>`;
-          break;
-        case "braids":
-          hair = `<path d="M20 24 L14 52 M25 21 L20 54 M32 19 L32 24 M39 21 L44 54 M44 24 L50 52" stroke="${accent}" stroke-width="2.6" stroke-dasharray="4 2" stroke-linecap="round"/>`;
-          break;
-        case "kesh":
-          hair = `<path d="M18 31 C18 16, 46 16, 46 31 L43 27 L21 27 Z" fill="${accent}" opacity="0.85"/><circle cx="32" cy="14" r="5" fill="${accent}" opacity="0.95"/><path d="M23 44 Q32 53 41 44" stroke="${accent}" stroke-width="2.2" fill="none"/>`;
-          break;
-        case "ahma":
-          hair = `<circle cx="20" cy="24" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="27" cy="18" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="37" cy="18" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="44" cy="24" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/>`;
-          break;
-        case "infant":
-          hair = `<path d="M29 19 Q32 12 35 19" stroke="${accent}" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="27" cy="35" r="1.4" fill="currentColor"/><circle cx="37" cy="35" r="1.4" fill="currentColor"/><path d="M29 41 Q32 44 35 41" stroke="currentColor" stroke-width="1.5" fill="none"/>`;
-          break;
-      }
-      return `<svg viewBox="0 0 64 64" class="w-14 h-14 shrink-0 text-[var(--foreground)]">${baseHead}${hair}</svg>`;
+    function median(arr) {
+      const s = [...arr].sort((a,b) => a - b);
+      const m = Math.floor(s.length / 2);
+      return s.length % 2 ? s[m] : (s[m-1] + s[m]) / 2;
     }
 
-    const state = { gender: "all", age: "all", race: "all", cat: "all", activeTab: "gallery" };
-
-    function getFilteredStyles() {
-      return STYLES.filter(s => {
-        if (state.gender !== "all") {
-          if (state.gender === "unisex" && s.gender !== "unisex") return false;
-          if (state.gender !== "unisex" && s.gender !== state.gender && s.gender !== "unisex") return false;
-        }
-        if (state.age !== "all" && !s.age_groups.includes(state.age)) return false;
-        if (state.race !== "all" && !s.races.includes(state.race)) return false;
-        if (state.cat !== "all" && s.category !== state.cat) return false;
-        return true;
-      });
+    function tierStats(tier) {
+      const sub = SALONS.filter(s => s.tier === tier);
+      return {
+        n: sub.length,
+        pmMed: median(sub.map(x => x.pm)), pmMin: Math.min(...sub.map(x => x.pm)), pmMax: Math.max(...sub.map(x => x.pm)),
+        pwMed: median(sub.map(x => x.pw)), pwMin: Math.min(...sub.map(x => x.pw)), pwMax: Math.max(...sub.map(x => x.pw)),
+        pkMed: median(sub.map(x => x.pk)), pkMin: Math.min(...sub.map(x => x.pk)), pkMax: Math.max(...sub.map(x => x.pk)),
+        tauAvg: sub.reduce((a,b) => a + b.tau, 0) / sub.length,
+        waitAvg: sub.reduce((a,b) => a + b.q + b.chair * 0.45 + b.travel, 0) / sub.length
+      };
     }
 
-    function renderAll() {
-      const list = getFilteredStyles();
-      document.getElementById("kpi-count").textContent = `${list.length} / ${STYLES.length}`;
-      renderGallery(list);
-      renderMatrix(list);
-      renderSingStat();
-      renderEconomics();
-    }
+    // TAB 1: Render Yearly Trends
+    function renderTrends() {
+      const freq = Number(document.getElementById("trend-freq").value);
+      document.getElementById("trend-freq-val").textContent = freq.toFixed(1) + " / yr";
+      document.getElementById("trend-2026-cuts").textContent = (6.21 * freq).toFixed(1) + "M";
 
-    function renderGallery(list) {
-      const grid = document.getElementById("gallery-grid");
-      document.getElementById("gallery-subtitle").textContent =
-        `Showing ${list.length} of ${STYLES.length} inclusive archetypes. Click any card for biotype notes & citation.`;
-
-      if (!list.length) {
-        grid.innerHTML = `<div class="col-span-full bg-[var(--card)] border border-[var(--border)] rounded-xl p-8 text-center text-sm text-[var(--muted-foreground)]">No archetype matches all selected filters. Try resetting one filter.</div>`;
-        return;
-      }
-
-      grid.innerHTML = list.map((s, i) => `
-        <div onclick="openModal('${s.id}')" class="cursor-pointer bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] rounded-xl p-4 flex flex-col justify-between gap-3 transition">
-          <div class="flex items-start gap-3">
-            <div class="p-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)]">
-              ${hairSVG(s.icon, i)}
-            </div>
-            <div class="min-w-0 flex-1">
-              <div class="flex flex-wrap items-center justify-between gap-1.5">
-                <span class="text-[11px] font-mono text-[var(--muted-foreground)]">${s.id} • ${s.gender.toUpperCase()}</span>
-                <span class="text-[11px] px-2 py-0.5 rounded-full bg-[var(--secondary)] text-[var(--foreground)]">${s.category}</span>
-              </div>
-              <h3 class="text-sm font-semibold leading-snug mt-1">${s.name}</h3>
-            </div>
-          </div>
-
-          <p class="text-xs text-[var(--muted-foreground)] line-clamp-2">${s.ctx}</p>
-
-          <div class="pt-2 border-t border-[var(--border)] text-xs space-y-1.5">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[var(--muted-foreground)]">Observed SG Price</span>
-              <span class="font-semibold tabular-nums">${s.price}</span>
-            </div>
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-[var(--muted-foreground)]">Typical Cadence</span>
-              <span class="font-medium">${s.cadence}</span>
-            </div>
-            <div class="flex flex-wrap gap-1 pt-0.5">
-              ${s.age_groups.map(a => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)]">${a}</span>`).join("")}
-              ${s.races.map(r => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-[var(--secondary)] capitalize">${r}</span>`).join("")}
-            </div>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderMatrix(list) {
-      const ages = ["0-12", "13-24", "25-44", "45-64", "65+"];
-      const races = ["chinese", "malay", "indian", "caucasian", "eurasian", "afro"];
-      let html = `<table class="w-full text-xs border-collapse">
-        <thead>
-          <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
-            <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card)]">Archetype</th>
-            <th class="px-2 py-2">Category</th>
-            ${ages.map(a => `<th class="px-2 py-2 text-center">${a}</th>`).join("")}
-            ${races.map(r => `<th class="px-2 py-2 text-center capitalize">${r}</th>`).join("")}
-            <th class="px-3 py-2 text-left">Observed Price</th>
-          </tr>
-        </thead><tbody>`;
-
-      list.forEach(s => {
-        html += `<tr class="border-b border-[var(--border)]/60 hover:bg-[var(--secondary)]/40">
-          <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card)] whitespace-nowrap">${s.id} ${s.name.split('(')[0].trim()}</td>
-          <td class="px-2 py-2 text-center whitespace-nowrap text-[11px] text-[var(--muted-foreground)]">${s.category}</td>
-          ${ages.map(a => `<td class="px-2 py-2 text-center">${s.age_groups.includes(a) ? `<span class="inline-block px-1.5 py-0.5 rounded bg-blue-500/20 font-medium">Fit</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}</td>`).join("")}
-          ${races.map(r => `<td class="px-2 py-2 text-center">${s.races.includes(r) ? `<span class="inline-block px-1.5 py-0.5 rounded bg-emerald-500/20 font-medium">Fit</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}</td>`).join("")}
-          <td class="px-3 py-2 whitespace-nowrap tabular-nums">${s.price}</td>
-        </tr>`;
-      });
-      html += `</tbody></table>`;
-      document.getElementById("matrix-table-wrap").innerHTML = html;
-    }
-
-    function renderSingStat() {
-      // Chart 1: Population Trajectory 2016–2026 (Millions)
-      const W = 520, H = 250, ml = 46, mr = 20, mt = 18, mb = 32;
+      // Chart A: SSIC 9602 Operating Revenue (bars) + Establishments (line)
+      const W = 520, H = 250, ml = 50, mr = 46, mt = 20, mb = 32;
       const pw = W - ml - mr, ph = H - mt - mb;
       let svg1 = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
-      [3.0, 4.0, 5.0, 6.0].forEach(v => {
-        const y = mt + ph - ((v - 3.0) / 3.5) * ph;
-        svg1 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
-        svg1 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v.toFixed(1)}M</text>`;
+      [2000, 2500, 3000, 3500].forEach(v => {
+        const y = mt + ph - ((v - 1800) / 1900) * ph;
+        svg1 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border, #334155)" stroke-dasharray="3 3"/>`;
+        svg1 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground, #94a3b8)">S$${(v/1000).toFixed(1)}B</text>`;
       });
-      PIB_SERIES.forEach((d, i) => {
-        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
-        svg1 += `<text x="${x}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
+      const bw = 46;
+      const linePts = [];
+      SSIC_9602.forEach((d, i) => {
+        const cx = ml + (i + 0.5) * (pw / SSIC_9602.length);
+        const yBar = mt + ph - ((d.revM - 1800) / 1900) * ph;
+        const hBar = mt + ph - yBar;
+        svg1 += `<rect x="${(cx - bw/2).toFixed(1)}" y="${yBar.toFixed(1)}" width="${bw}" height="${hBar.toFixed(1)}" rx="4" fill="${COLORS[0]}" opacity="0.82"><title>${d.yr}: S$${d.revM.toFixed(1)}M revenue • ${d.est.toLocaleString()} outlets</title></rect>`;
+        svg1 += `<text x="${cx.toFixed(1)}" y="${(yBar - 5).toFixed(1)}" text-anchor="middle" fill="var(--foreground, #f8fafc)" font-size="10">S$${(d.revM/1000).toFixed(2)}B</text>`;
+        svg1 += `<text x="${cx.toFixed(1)}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground, #94a3b8)">${d.yr}</text>`;
+        const yEst = mt + ph - ((d.est - 7500) / 4500) * ph;
+        linePts.push([cx, yEst, d]);
       });
-      [["tot", "Total Pop", CHART_COLORS[0]], ["res", "Residents", CHART_COLORS[1]], ["cit", "Citizens", CHART_COLORS[2]]].forEach(([key, label, col]) => {
-        const pts = PIB_SERIES.map((d, i) => `${(ml + (i / (PIB_SERIES.length - 1)) * pw).toFixed(1)},${(mt + ph - ((d[key] - 3.0) / 3.5) * ph).toFixed(1)}`).join(" ");
-        svg1 += `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${pts}"/>`;
-        PIB_SERIES.forEach((d, i) => {
-          const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
-          const y = mt + ph - ((d[key] - 3.0) / 3.5) * ph;
-          svg1 += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${col}"><title>${d.yr} ${label}: ${d[key]}M</title></circle>`;
+      svg1 += `<polyline fill="none" stroke="${COLORS[2]}" stroke-width="2.4" points="${linePts.map(p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ")}"/>`;
+      linePts.forEach(([cx, yEst, d]) => {
+        svg1 += `<circle cx="${cx.toFixed(1)}" cy="${yEst.toFixed(1)}" r="4" fill="${COLORS[2]}"><title>${d.yr} Outlets: ${d.est.toLocaleString()}</title></circle>`;
+      });
+      svg1 += `<text x="${W - 4}" y="${mt + 8}" text-anchor="end" fill="${COLORS[2]}" font-size="10">11.2k est.</text>`;
+      svg1 += `</svg>
+      <div class="flex flex-wrap gap-4 text-xs pt-1 text-[var(--muted-foreground,var(--muted-fallback))]">
+        <span class="flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm inline-block" style="background:${COLORS[0]}"></span>Operating Revenue (S$M)</span>
+        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${COLORS[2]}"></span>Registered Establishments (8,453 → 11,241)</span>
+      </div>`;
+      document.getElementById("ssic-chart-svg").innerHTML = svg1;
+
+      // Chart B: Yearly Haircut Sensitivity Band (2016–2026) from PIB Population
+      let svg2 = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
+      [25, 45, 65, 85].forEach(v => {
+        const y = mt + ph - ((v - 20) / 68) * ph;
+        svg2 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border, #334155)" stroke-dasharray="3 3"/>`;
+        svg2 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground, #94a3b8)">${v}M</text>`;
+      });
+      const highPts = [], lowPts = [], midPts = [];
+      PIB_POP.forEach((d, i) => {
+        const x = ml + (i / (PIB_POP.length - 1)) * pw;
+        const low = d.tot * Math.max(4.5, freq - 2.0);
+        const mid = d.tot * freq;
+        const high = d.tot * Math.min(13.5, freq + 2.0);
+        const yL = mt + ph - ((low - 20) / 68) * ph;
+        const yM = mt + ph - ((mid - 20) / 68) * ph;
+        const yH = mt + ph - ((high - 20) / 68) * ph;
+        lowPts.push(`${x.toFixed(1)},${yL.toFixed(1)}`);
+        midPts.push([x, yM, mid, d]);
+        highPts.push(`${x.toFixed(1)},${yH.toFixed(1)}`);
+        svg2 += `<text x="${x.toFixed(1)}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground, #94a3b8)">${d.yr.slice(2)}</text>`;
+      });
+      svg2 += `<polygon fill="${COLORS[1]}" opacity="0.18" points="${highPts.join(" ")} ${[...lowPts].reverse().join(" ")}"/>`;
+      svg2 += `<polyline fill="none" stroke="${COLORS[1]}" stroke-width="2.6" points="${midPts.map(p => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ")}"/>`;
+      midPts.forEach(([x, yM, mid, d]) => {
+        svg2 += `<circle cx="${x.toFixed(1)}" cy="${yM.toFixed(1)}" r="3.6" fill="${COLORS[1]}"><title>${d.yr}: Pop ${d.tot}M × ${freq}/yr = ${mid.toFixed(1)}M cuts (65+: ${d.age65}%)</title></circle>`;
+      });
+      svg2 += `</svg>
+      <div class="flex flex-wrap gap-4 text-xs pt-1 text-[var(--muted-foreground,var(--muted-fallback))]">
+        <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${COLORS[1]}"></span>Selected Cadence (${freq.toFixed(1)}/yr × PIB Pop)</span>
+        <span class="flex items-center gap-1.5"><span class="w-3 h-2.5 rounded-sm inline-block opacity-40" style="background:${COLORS[1]}"></span>±2.0 Cuts/yr Uncertainty Band</span>
+      </div>`;
+      document.getElementById("yearly-cuts-svg").innerHTML = svg2;
+    }
+
+    // TAB 2: Cost at Different Places (102 Salons)
+    function renderPlaces() {
+      const tiers = ["T1","T2","T3","T4"];
+      const tStats = Object.fromEntries(tiers.map(t => [t, tierStats(t)]));
+      document.getElementById("tier-cards").innerHTML = tiers.map((t, i) => {
+        const s = tStats[t], m = TIER_META[t];
+        return `
+          <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3.5 space-y-1.5">
+            <div class="flex justify-between items-center"><span class="font-semibold" style="color:${COLORS[i]}">${m.name}</span><span class="text-[11px] font-mono text-[var(--muted-foreground,var(--muted-fallback))]">n=${s.n}</span></div>
+            <div class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">${m.desc}</div>
+            <div class="grid grid-cols-3 gap-1 pt-1.5 border-t border-[var(--border,var(--border-fallback))] tabular-nums text-[11px]">
+              <div><span class="text-[var(--muted-foreground,var(--muted-fallback))] block">Men</span><strong>S$${s.pmMin}–${s.pmMax}</strong></div>
+              <div><span class="text-[var(--muted-foreground,var(--muted-fallback))] block">Women</span><strong>S$${s.pwMin}–${s.pwMax}</strong></div>
+              <div><span class="text-[var(--muted-foreground,var(--muted-fallback))] block">Kid</span><strong>S$${s.pkMin}–${s.pkMax}</strong></div>
+            </div>
+          </div>`;
+      }).join("");
+
+      // Tier Cost Bar Chart (Men vs Women median + VOT)
+      const W = 380, H = 240, ml = 36, mr = 14, mt = 18, mb = 34;
+      const pw = W - ml - mr, ph = H - mt - mb;
+      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
+      [0, 50, 100, 150].forEach(v => {
+        const y = mt + ph - (v / 160) * ph;
+        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border, #334155)" stroke-dasharray="3 3"/>`;
+        svg += `<text x="${ml - 5}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground, #94a3b8)">$${v}</text>`;
+      });
+      tiers.forEach((t, i) => {
+        const s = tStats[t];
+        const vot = (s.waitAvg / 60) * 33.32;
+        const gx = ml + (i + 0.5) * (pw / 4);
+        const items = [[s.pmMed, COLORS[0], -18, "Men"], [s.pwMed, COLORS[3], 0, "Women"], [s.pmMed + vot, COLORS[2], 18, "Men+VOT"]];
+        items.forEach(([val, col, dx, lbl]) => {
+          const capped = Math.min(155, val);
+          const y = mt + ph - (capped / 160) * ph;
+          svg += `<rect x="${(gx + dx - 7).toFixed(1)}" y="${y.toFixed(1)}" width="14" height="${(mt + ph - y).toFixed(1)}" rx="2" fill="${col}"><title>${t} ${lbl} Median: S$${val.toFixed(2)}</title></rect>`;
+        });
+        svg += `<text x="${gx.toFixed(1)}" y="${H - 12}" text-anchor="middle" fill="var(--muted-foreground, #94a3b8)">${t} (n=${s.n})</text>`;
+      });
+      svg += `</svg>
+      <div class="flex flex-wrap gap-3 text-xs pt-1 text-[var(--muted-foreground,var(--muted-fallback))]">
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm inline-block" style="background:${COLORS[0]}"></span>Men Median</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm inline-block" style="background:${COLORS[3]}"></span>Women Median</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm inline-block" style="background:${COLORS[2]}"></span>Men + Time VOT</span>
+      </div>`;
+      document.getElementById("tier-cost-svg").innerHTML = svg;
+
+      // Filter & sort table
+      const ft = document.getElementById("p-tier").value;
+      const fr = document.getElementById("p-region").value;
+      const ff = document.getElementById("p-feature").value;
+      const fs = document.getElementById("p-sort").value;
+      const fq = document.getElementById("p-search").value.trim().toLowerCase();
+
+      const filtered = SALONS.filter(s => {
+        if (ft !== "all" && s.tier !== ft) return false;
+        if (fr !== "all" && s.region !== fr) return false;
+        if (ff === "hijab" && !s.hijab) return false;
+        if (ff === "razor" && !s.razor) return false;
+        if (ff === "afro" && !s.biotypes.includes("afro_coiled_textured")) return false;
+        if (ff === "wavy" && !s.biotypes.includes("south_asian_malay_wavy_curly")) return false;
+        if (ff === "caucasian" && !s.biotypes.includes("caucasian_fine_oval")) return false;
+        if (fq && !s.name.toLowerCase().includes(fq) && !s.area.toLowerCase().includes(fq)) return false;
+        return true;
+      }).sort((a, b) => {
+        if (fs === "pm_asc") return a.pm - b.pm;
+        if (fs === "pw_asc") return a.pw - b.pw;
+        if (fs === "pk_asc") return a.pk - b.pk;
+        if (fs === "rating_desc") return b.rating - a.rating;
+        return b.tau - a.tau;
+      });
+
+      document.getElementById("places-count").textContent = `Showing ${filtered.length} / ${SALONS.length} verified outlets`;
+      let th = `<table class="w-full text-xs border-collapse">
+        <thead><tr class="border-b border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
+          <th class="text-left py-2 pr-3">Salon / Outlet</th>
+          <th class="px-2 py-2 text-left">Area (Region)</th>
+          <th class="px-2 py-2">Tier</th>
+          <th class="px-2 py-2 text-right">Men</th>
+          <th class="px-2 py-2 text-right">Women</th>
+          <th class="px-2 py-2 text-right">Kid</th>
+          <th class="px-2 py-2 text-right">Queue+Chair</th>
+          <th class="px-2 py-2 text-right">Rating</th>
+        </tr></thead><tbody>`;
+      filtered.forEach(s => {
+        const badges = [];
+        if (s.hijab) badges.push("Hijab Cabin");
+        if (s.razor) badges.push("Razor Beard");
+        th += `<tr class="border-b border-[var(--border,var(--border-fallback))]/50 hover:bg-[var(--secondary,var(--secondary-fallback))]/40">
+          <td class="py-2 pr-3"><a href="${s.url}" target="_blank" rel="noopener" class="font-medium hover:underline">${s.name}</a>${badges.length ? ` <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20">${badges.join(", ")}</span>` : ""}</td>
+          <td class="px-2 py-2 whitespace-nowrap text-[var(--muted-foreground,var(--muted-fallback))]">${s.area} (${s.region})</td>
+          <td class="px-2 py-2 text-center font-mono">${s.tier}</td>
+          <td class="px-2 py-2 text-right tabular-nums">S$${s.pm.toFixed(0)}</td>
+          <td class="px-2 py-2 text-right tabular-nums">S$${s.pw.toFixed(0)}</td>
+          <td class="px-2 py-2 text-right tabular-nums">S$${s.pk.toFixed(0)}</td>
+          <td class="px-2 py-2 text-right tabular-nums text-[var(--muted-foreground,var(--muted-fallback))]">${(s.q + s.chair).toFixed(0)}m</td>
+          <td class="px-2 py-2 text-right tabular-nums">★ ${s.rating.toFixed(1)}</td>
+        </tr>`;
+      });
+      th += `</tbody></table>`;
+      document.getElementById("places-table-wrap").innerHTML = th;
+    }
+
+    // TAB 3: Annual Money Spent by Race x Gender x Age
+    function estimateSpend(raceKey, gender, age, tier, income, addon = 0) {
+      const rp = RACE_PROFILES[raceKey];
+      const ts = tierStats(tier);
+      const votHr = Math.max(6.0, income / 173.33);
+
+      // Sikh Unshorn Sacred Kesh: $0 cut spend
+      if (rp.sikh) {
+        return { cash: 0, cuts: 0, timeHrs: 0, timeCost: 0, full: 0, ticket: 0, note: rp.note };
+      }
+
+      // Ticket from 102-salon tier medians (or Karva Muslimah private tier if T1/T2 unavailable for hijab private)
+      let ticket = age === "0-12" ? ts.pkMed : (gender === "female" ? ts.pwMed : ts.pmMed);
+      let effectiveTier = tier;
+      let minsTier = tier;
+      if (raceKey === "malay_hijab" && gender === "female" && (tier === "T1" || tier === "T2")) {
+        const karva = SALONS.filter(s => s.hijab);
+        ticket = median(karva.map(x => x.pw));
+        effectiveTier = "Hijab-Private (Karva T3)";
+        minsTier = "T3";
+      }
+
+      // Base Weibull cadence adjusted for gender, age, biotype growth speed (cm/mo), and AGA factor
+      let baseCutsYr = gender === "male" ? (365 / (ts.tauAvg * 1.15)) : (365 / Math.max(48, ts.tauAvg * 2.1));
+      if (age === "0-12") baseCutsYr *= 0.85;
+      else if (age === "13-24" && gender === "male") baseCutsYr *= 1.15; // MOE / NS freq
+      else if (age === "65+") baseCutsYr *= 0.82;
+
+      const growthFactor = (rp.cmMo / 1.30) * (gender === "male" && (age === "25-44" || age === "45-64") ? rp.agaMaleBoost : 1.0);
+      const cuts = Math.max(3, Math.round(baseCutsYr * growthFactor * 10) / 10);
+      const cash = cuts * ticket + addon;
+      const minsPerVisit = tierStats(minsTier).waitAvg;
+      const timeHrs = (cuts * minsPerVisit) / 60;
+      const timeCost = timeHrs * votHr;
+      return {
+        cash, cuts, timeHrs, timeCost, full: cash + timeCost, ticket, effectiveTier,
+        note: `${rp.note} Modeled at ${cuts.toFixed(1)} cuts/yr × S$${ticket.toFixed(2)} (${effectiveTier}) + S$${addon} chemical/specialist add-ons.`
+      };
+    }
+
+    function renderSpend() {
+      const race = document.getElementById("s-race").value;
+      const gender = document.getElementById("s-gender").value;
+      const age = document.getElementById("s-age").value;
+      const tier = document.getElementById("s-tier").value;
+      const income = Number(document.getElementById("s-income").value);
+      const addon = Number(document.getElementById("s-addon").value);
+
+      const est = estimateSpend(race, gender, age, tier, income, addon);
+      document.getElementById("s-tier-badge").textContent = `${RACE_PROFILES[race].label} • ${gender.toUpperCase()} • ${age}`;
+      document.getElementById("out-cash").textContent = `S$${Math.round(est.cash).toLocaleString()}/yr`;
+      document.getElementById("out-cuts").textContent = `${est.cuts.toFixed(1)} cuts`;
+      document.getElementById("out-time").textContent = `S$${Math.round(est.timeCost).toLocaleString()}/yr (${est.timeHrs.toFixed(1)}h)`;
+      document.getElementById("out-full").textContent = `S$${Math.round(est.full).toLocaleString()}/yr`;
+      document.getElementById("out-notes").textContent = est.note;
+
+      // Full Cross-Demographic Comparison Matrix for current Tier vs Budget T2
+      const ages = ["0-12", "13-24", "25-44", "45-64", "65+"];
+      const raceKeys = ["chinese", "malay_std", "malay_hijab", "indian_gen", "indian_sikh", "caucasian", "afro"];
+      document.getElementById("matrix-tier-label").textContent = `${tier} (${TIER_META[tier].name})`;
+
+      let html = `<table class="w-full text-xs border-collapse">
+        <thead><tr class="border-b border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
+          <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card,var(--card-fallback))]">Race / Cultural Profile</th>
+          <th class="px-2 py-2">Gender</th>
+          ${ages.map(a => `<th class="px-2 py-2 text-right">${a}</th>`).join("")}
+        </tr></thead><tbody>`;
+
+      raceKeys.forEach(rk => {
+        ["male", "female"].forEach(gd => {
+          if (rk === "malay_hijab" && gd === "male") return;
+          const r = RACE_PROFILES[rk];
+          html += `<tr class="border-b border-[var(--border,var(--border-fallback))]/50 hover:bg-[var(--secondary,var(--secondary-fallback))]/40">
+            <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card,var(--card-fallback))] whitespace-nowrap">${r.label}</td>
+            <td class="px-2 py-2 text-center capitalize">${gd}</td>
+            ${ages.map(ag => {
+              const e = estimateSpend(rk, gd, ag, tier, income, 0);
+              const hi = (rk === race && gd === gender && ag === age) ? "font-bold text-[var(--primary,var(--primary-fallback))]" : "";
+              return `<td class="px-2 py-2 text-right tabular-nums ${hi}">${e.cash === 0 ? "S$0" : "S$" + Math.round(e.cash)}</td>`;
+            }).join("")}
+          </tr>`;
         });
       });
-      svg1 += `</svg>
-      <div class="flex flex-wrap gap-4 text-xs pt-1 text-[var(--muted-foreground)]">
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[0]}"></span>Total Pop (5.61M → 6.21M)</span>
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[1]}"></span>Residents (3.93M → 4.23M)</span>
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[2]}"></span>Citizens (3.41M → 3.68M)</span>
-      </div>`;
-      document.getElementById("pop-chart-svg").innerHTML = svg1;
-
-      // Chart 2: Resident 65+ % (2016–2026)
-      let svg2 = `<svg viewBox="0 0 ${W} ${H - 35}" class="w-full h-auto text-xs">`;
-      [12, 16, 20].forEach(v => {
-        const y = mt + (H - 35 - mt - mb) - ((v - 10) / 12) * (H - 35 - mt - mb);
-        svg2 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
-        svg2 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v}%</text>`;
-      });
-      PIB_SERIES.forEach((d, i) => {
-        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
-        svg2 += `<text x="${x}" y="${H - 45}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
-      });
-      const ph2 = H - 35 - mt - mb;
-      const pts2 = PIB_SERIES.map((d, i) => `${(ml + (i / (PIB_SERIES.length - 1)) * pw).toFixed(1)},${(mt + ph2 - ((d.age65 - 10) / 12) * ph2).toFixed(1)}`).join(" ");
-      svg2 += `<polyline fill="none" stroke="${CHART_COLORS[3]}" stroke-width="2.6" points="${pts2}"/>`;
-      PIB_SERIES.forEach((d, i) => {
-        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
-        const y = mt + ph2 - ((d.age65 - 10) / 12) * ph2;
-        svg2 += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.6" fill="${CHART_COLORS[3]}"><title>${d.yr} Residents 65+: ${d.age65}%</title></circle>`;
-      });
-      svg2 += `</svg>`;
-      document.getElementById("aging-chart-svg").innerHTML = svg2;
-
-      document.getElementById("cmio-bars").innerHTML = `<div class="font-medium">2026 Resident Ethnic Breakdown (CMIO — Population in Brief 2026)</div>` +
-        CMIO_2026.map(c => `
-          <div class="space-y-1">
-            <div class="flex justify-between"><span>${c.label}</span><span class="tabular-nums font-semibold">${c.pct}%</span></div>
-            <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${c.pct}%; background:${c.col}"></div></div>
-          </div>
-        `).join("");
+      html += `</tbody></table>`;
+      document.getElementById("spend-matrix-wrap").innerHTML = html;
     }
 
-    function renderEconomics() {
-      const maxPrice = 440;
-      document.getElementById("price-ladder-wrap").innerHTML = PRICE_LADDER.map((p, idx) => {
-        const leftPct = (p.min / maxPrice) * 100;
-        const widthPct = Math.max(1.8, ((p.max - p.min) / maxPrice) * 100);
-        const col = CHART_COLORS[idx % CHART_COLORS.length];
-        return `
-          <div class="space-y-1 text-xs">
-            <div class="flex justify-between gap-2">
-              <span class="font-medium">${p.label}</span>
-              <span class="tabular-nums font-semibold shrink-0">S$${p.min}–S$${p.max}</span>
-            </div>
-            <div class="relative h-2.5 rounded bg-[var(--secondary)] overflow-hidden">
-              <div class="absolute top-0 h-full rounded" style="left:${leftPct.toFixed(1)}%; width:${widthPct.toFixed(1)}%; background:${col}"></div>
-            </div>
-            <div class="text-[11px] text-[var(--muted-foreground)]">${p.note}</div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    function openModal(id) {
-      const s = STYLES.find(x => x.id === id);
-      if (!s) return;
-      document.getElementById("modal-id").textContent = `${s.id} • ${s.category} • ${s.gender.toUpperCase()}`;
-      document.getElementById("modal-title").textContent = s.name;
-      document.getElementById("modal-context").textContent = s.ctx;
-      document.getElementById("modal-specs").innerHTML = `
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Observed SG Price Tier</div><div class="font-semibold mt-0.5">${s.price}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Typical Care Cadence</div><div class="font-semibold mt-0.5">${s.cadence}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Eligible Age Cohorts</div><div class="font-semibold mt-0.5">${s.age_groups.join(', ')}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Biotype &amp; Mechanics</div><div class="font-medium mt-0.5">${s.biotype}</div></div>
-      `;
-      document.getElementById("modal-source").innerHTML = `Primary Reference: <a href="${s.srcUrl}" target="_blank" rel="noopener" class="underline text-[var(--primary)]">${s.srcLabel}</a>`;
-      document.getElementById("detail-modal").classList.remove("hidden");
-    }
-
-    document.getElementById("filter-gender").addEventListener("change", e => { state.gender = e.target.value; renderAll(); });
-    document.getElementById("filter-age").addEventListener("change", e => { state.age = e.target.value; renderAll(); });
-    document.getElementById("filter-race").addEventListener("change", e => { state.race = e.target.value; renderAll(); });
-    document.getElementById("filter-cat").addEventListener("change", e => { state.cat = e.target.value; renderAll(); });
-
-    document.getElementById("btn-reset").addEventListener("click", () => {
-      state.gender = "all"; state.age = "all"; state.race = "all"; state.cat = "all";
-      document.getElementById("filter-gender").value = "all";
-      document.getElementById("filter-age").value = "all";
-      document.getElementById("filter-race").value = "all";
-      document.getElementById("filter-cat").value = "all";
-      renderAll();
-    });
-
-    document.getElementById("modal-close").addEventListener("click", () => document.getElementById("detail-modal").classList.add("hidden"));
-    document.getElementById("detail-modal").addEventListener("click", e => {
-      if (e.target.id === "detail-modal") document.getElementById("detail-modal").classList.add("hidden");
-    });
+    // Event listeners
+    document.getElementById("trend-freq").addEventListener("input", renderTrends);
+    ["p-tier", "p-region", "p-feature", "p-sort"].forEach(id => document.getElementById(id).addEventListener("change", renderPlaces));
+    document.getElementById("p-search").addEventListener("input", renderPlaces);
+    ["s-race", "s-gender", "s-age", "s-tier", "s-income", "s-addon"].forEach(id => document.getElementById(id).addEventListener("change", renderSpend));
 
     document.querySelectorAll(".tab-btn").forEach(btn => {
       btn.addEventListener("click", () => {
-        state.activeTab = btn.dataset.tab;
+        const target = btn.dataset.tab;
         document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
-        document.getElementById("tab-" + state.activeTab).classList.remove("hidden");
+        document.getElementById("tab-" + target).classList.remove("hidden");
         document.querySelectorAll(".tab-btn").forEach(b => {
-          b.className = "tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]";
+          b.className = "tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]";
         });
-        btn.className = "tab-btn px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)]";
+        btn.className = "tab-btn px-3.5 py-2 rounded-lg font-medium bg-[var(--primary,var(--primary-fallback))] text-[var(--primary-foreground,var(--primary-fg-fallback))]";
       });
     });
 
-    renderAll();
+    renderTrends();
+    renderPlaces();
+    renderSpend();
   </script>
 </body>
 </html>

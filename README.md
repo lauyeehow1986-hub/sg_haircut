@@ -1,16 +1,13 @@
-# Singapore Haircut Econometrics & Spatio-Temporal GIS Engine
+# Singapore Haircut Econometrics & Spatio-Temporal Salon Dashboard
 
-An interactive Singapore salon econometrics, clinical trichology, and demographic analysis toolkit built around **defensible official benchmarks** and a **qualitative 19-archetype inclusive hairstyle taxonomy**.
+Live GitHub Pages site: **https://lauyeehow1986-hub.github.io/sg_haircut/**
 
-## Visual Explorers
-- **`webgis/sg_haircut_gis_explorer.html`** — Spatio-temporal 102-outlet Singapore salon GIS visualizer, queue vs. reservation opportunity cost, and Bayesian post-cut loop simulator.
-- **`webgis/sg_hairstyle_demographics_explorer.html`** — Refactored **Strictly Defensible Data** explorer:
-  1. **19 Inclusive Qualitative Archetypes** (`H01`–`H19`, adding `H19` Everyday Express & Classic Functional Trim) with biotype mechanics (`PMC6894537`), cultural/institutional compliance, typical maintenance cadence ranges, and verified SG price bands.
-  2. **Qualitative Demographic & Biotype Compatibility Matrix** (Age × Community × Observed Price — intentionally omits unmeasured `%` style shares).
-  3. **Official SingStat / Population in Brief (2016–2026)** demographic series (`5.61M` → `6.21M` total pop, `12.4%` → `19.5%` residents `65+`, `21.4%` citizens `65+` super-aged threshold, CMIO `73.9% / 13.5% / 9.0% / 3.6%`, Census 2020 `12,051` Sikhs `15+`).
-  4. **SSIC 9602 Industry & HES 2023 Economics + Verified Price Ladder** (`11,241` establishments, `~S$2.17B` in `2019` → `~S$3.38B` recent revenue across Hairdressing/Beauty/Spa/Nail services; `S$6.80` *Snip Avenue* to `S$438` Korean digital perms).
+## What Is Included
+- **`index.html`** (and **`webgis/sg_hairstyle_demographics_explorer.html`**) — Defensible empirical dashboard covering:
+  1. **Yearly Trend in Singapore (`2016–2026`):** Official **SingStat SSIC 9602** Services Survey operating revenue (`S$2,173.8M` in `2019` → `S$3,381.1M` in `2024`, `+55.5%`) and establishment count (`8,453` → `11,241`, `+33.0%`), paired with **Population in Brief (`2016–2026`)** mid-year population (`5.61M` → `5.45M` → `6.21M`), Resident `65+` aging (`12.4%` → `19.5%`), `HES 2023` (`S$5,931/mo`), and an interactive annual haircut demand sensitivity curve.
+  2. **Cost of Haircuts at Different Places (`102` Verified SG Salons):** Searchable, filterable directory across `T1` Heartland/School (`S$5.80–S$35`), `T2` Express 10-min Mall Chains (*kcuts*, *QB House*, *QB Premium*, `S$12–S$16`), `T3` Mid-Tier & *Karva* Hijab-Private Suites (`S$22–S$76`), and `T4` Luxury Director Sanctuaries (*Walking On Sunshine*, *Shunji Matsuo*, *Miin*, *Expat*, *Chez Vous: HideAway*, *Kim Robinson*, `S$38–S$280`), comparing ticket cost and queue/travel Value of Time (`S$33.32/hr` MOM Median).
+  3. **Annual Money Spent Considering Race × Gender × Age:** Interactive annual spend calculator and demographic comparison matrix combining real tier medians with published hair-biotype growth rates (`PMC7187942`, `PMC11733847`, `PMC6894537`), Singapore AGA studies (`PMID:11063167`), Muslimah hijab-private routing, and Sikh Sacred *Kesh* (`Census 2020`: `12,051` aged `15+`).
+- **`webgis/sg_haircut_gis_explorer.html`** — Interactive Leaflet Spatio-Temporal Map across the 102 Singapore outlets.
 
-## Data Provenance Policy
-- **Empirical Data:** Demographic totals, aging curves, CMIO proportions, Census 2020 Sikh figures, SSIC 9602 totals, HES 2023 spending (`S$5,931/mo`), and published chain/salon prices come from official SingStat / NPTD *Population in Brief* releases and published retail menus.
-- **Heuristic Priors:** In `skills/sg-haircut-econometrics-engine/scripts/haircut_sheaf_graph_and_loop_engine.py`, offline `eras_pct`, offline search indices, and the `0.42` scaling factor remain explicitly flagged under `data_provenance` as uncalibrated scenario priors unless live SingStat/SerpApi feeds are connected.
-- **Credentials & Local Configs:** `.antigravity/`, `mcp_config.json`, `mcp.json`, and `.env*` are excluded via `.gitignore`.
+## Privacy & Credentials
+- Local Antigravity MCP configurations and credentials (`.antigravity/`, `mcp_config.json`, `mcp.json`, `.env*`) are excluded via `.gitignore`.
