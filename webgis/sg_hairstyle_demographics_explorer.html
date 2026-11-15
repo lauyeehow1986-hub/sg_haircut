@@ -36,7 +36,7 @@
           Singapore Yearly Haircut Trends, Salon &amp; Barber Costs &amp; Annual Spend Calculator
         </h1>
         <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))] mt-1">
-          Grounded in SingStat SSIC 9602, ACRA SSIC 96021 (incl. barbers), Population in Brief / M810011 (2016–2026 CMIO), HES 2023, live SLA OneMap &amp; OSM checks, plus a 102-outlet price-audited catalog (T1–T4). <a href="sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open 102-Outlet Spatio-Temporal Leaflet GIS Map →</a>
+          Grounded in SingStat SSIC 9602, ACRA SSIC 96021 (incl. barbers), Population in Brief / M810011 (2016–2026 CMIO), HES 2023, live SLA OneMap &amp; OSM checks, plus a 102-outlet price-audited catalog (T1–T4). <a href="sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open Islandwide GIS Map (ACRA SSIC 96021 + OSM + Audited Salons &amp; Barbers) →</a>
         </p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs shrink-0">
@@ -135,18 +135,18 @@
       <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
         <div class="flex flex-wrap items-center justify-between gap-2">
           <h2 class="text-base font-semibold">How Many Hair Salons &amp; Barbers Exist in Singapore? (Live API &amp; Registry Audit)</h2>
-          <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">102 outlets = our price-verified catalog only; islandwide total is ~2,819–3,930</span>
+          <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">102 outlets = price-verified sample only · <a href="sg_haircut_gis_explorer.html" class="underline text-[#38bdf8] font-medium">Open all 4,520 ACRA + OSM + Audited pins on the GIS Map →</a></span>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 text-xs">
           <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
             <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SLA OneMap API (Live Audit)</div>
             <div class="text-base font-semibold tabular-nums mt-0.5">0 Themes / 1–7 Hits</div>
-            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">166 OneMap Themes cover civic layers, not retail tenants; Elastic Search returned 7 "HAIR", 3 "BARBER", 1 "SALON" address strings.</p>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">166 OneMap Themes cover civic layers, not retail tenants; Elastic Search returned 7 "HAIR", 3 "BARBER", 1 "SALON" address strings (used for geocoding 3,927 ACRA postcodes).</p>
           </div>
           <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
             <div class="text-[var(--muted-foreground,var(--muted-fallback))]">OpenStreetMap Overpass (Live)</div>
-            <div class="text-base font-semibold tabular-nums mt-0.5">492 Outlets</div>
-            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">473 nodes + 19 ways across SG tagged <code>shop=hairdresser|barber</code> (volunteer-mapped undercount).</p>
+            <div class="text-base font-semibold tabular-nums mt-0.5">491 Shopfront Pins</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">491 physical SG outlets mapped on OSM (plus 1 supply shop excluded) plotted on the islandwide GIS map.</p>
           </div>
           <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
             <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Google Maps Directory</div>
@@ -154,9 +154,9 @@
             <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1"><strong>1,981 hair salons</strong> + <strong>838 barber shops</strong> (incl. kcuts ~70, Clippers ~45, QB House ~35+).</p>
           </div>
           <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
-            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">ACRA SSIC 96021</div>
-            <div class="text-base font-semibold tabular-nums mt-0.5">~3,930 Live Entities</div>
-            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">Official 5-digit code for <em>"Hairdressing salons/shops (including barber shops)"</em>.</p>
+            <div class="text-[var(--muted-foreground,var(--muted-fallback))]">ACRA SSIC 96021 (Live Registry)</div>
+            <div class="text-base font-semibold tabular-nums mt-0.5">3,933 Live Entities</div>
+            <p class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))] mt-1">Exact live count across all 27 Data.gov.sg ACRA files (3,927 geocoded onto the GIS map).</p>
           </div>
           <div class="bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg p-3">
             <div class="text-[var(--muted-foreground,var(--muted-fallback))]">SingStat SSIC 9602 (2024)</div>
