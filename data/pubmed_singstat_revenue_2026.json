@@ -1,0 +1,517 @@
+{
+  "meta": {
+    "anchor_default_weeks": 5.0,
+    "anchor_default_cuts_yr": 10.4,
+    "residents_2026": 4231524,
+    "non_residents_est": 1976976,
+    "total_pop_2026": 6208500,
+    "implied_resident_births_yr": 27039,
+    "calibration_scalar_k": 11.3331,
+    "denominators": {
+      "acra_96021": 3933,
+      "google_retail": 2819,
+      "ssic_9602": 11241
+    }
+  },
+  "tickets": {
+    "median_express": {
+      "men": 14.0,
+      "women": 14.0,
+      "kid": 14.0
+    },
+    "tier_blend": {
+      "men": 20.5,
+      "women": 24.47,
+      "kid": 16.35
+    },
+    "tier_weights": {
+      "T1": 0.35,
+      "T2": 0.45,
+      "T3": 0.15,
+      "T4": 0.05
+    }
+  },
+  "cuts_5wk": {
+    "res_total": 24003667,
+    "res_kid": 3131391,
+    "res_men": 14058828,
+    "res_women": 6813448,
+    "nr_men": 11090835,
+    "nr_women": 3202701,
+    "all_total": 38297203
+  },
+  "by_gender": [
+    {
+      "sex": "Male",
+      "pop": 2055406,
+      "pop_pct": 48.6,
+      "cuts": 16241869,
+      "cuts_pct": 67.7,
+      "avg_cuts": 7.9
+    },
+    {
+      "sex": "Female",
+      "pop": 2176118,
+      "pop_pct": 51.4,
+      "cuts": 7761798,
+      "cuts_pct": 32.3,
+      "avg_cuts": 3.57
+    }
+  ],
+  "by_race": [
+    {
+      "race": "Chinese",
+      "bio_idx": 1.0,
+      "pop": 3126446,
+      "pop_pct": 73.9,
+      "cuts": 17939100,
+      "cuts_pct": 74.7,
+      "avg_cuts": 5.74,
+      "male_avg": 7.96,
+      "female_avg": 3.66,
+      "male_20_39": 10.56,
+      "female_20_39": 4.33
+    },
+    {
+      "race": "Malay",
+      "bio_idx": 0.98,
+      "pop": 572788,
+      "pop_pct": 13.5,
+      "cuts": 3217415,
+      "cuts_pct": 13.4,
+      "avg_cuts": 5.62,
+      "male_avg": 8.16,
+      "female_avg": 3.12,
+      "male_20_39": 10.37,
+      "female_20_39": 3.48
+    },
+    {
+      "race": "Indian",
+      "bio_idx": 0.946,
+      "pop": 381873,
+      "pop_pct": 9.0,
+      "cuts": 2061004,
+      "cuts_pct": 8.6,
+      "avg_cuts": 5.4,
+      "male_avg": 7.26,
+      "female_avg": 3.47,
+      "male_20_39": 9.4,
+      "female_20_39": 3.97
+    },
+    {
+      "race": "Others",
+      "bio_idx": 0.9,
+      "pop": 150417,
+      "pop_pct": 3.6,
+      "cuts": 786147,
+      "cuts_pct": 3.3,
+      "avg_cuts": 5.23,
+      "male_avg": 7.45,
+      "female_avg": 3.47,
+      "male_20_39": 9.56,
+      "female_20_39": 3.9
+    }
+  ],
+  "by_age": [
+    {
+      "cohort": "0\u20134 Preschool & Infants",
+      "pop": 158984,
+      "pop_pct": 3.8,
+      "cuts": 641502,
+      "cuts_pct": 2.7,
+      "avg_cuts": 4.04,
+      "male_avg": 5.21,
+      "female_avg": 2.79
+    },
+    {
+      "cohort": "5\u201314 School Children",
+      "pop": 405305,
+      "pop_pct": 9.6,
+      "cuts": 2489889,
+      "cuts_pct": 10.4,
+      "avg_cuts": 6.14,
+      "male_avg": 8.48,
+      "female_avg": 3.7
+    },
+    {
+      "cohort": "15\u201319 Teens / Tertiary / NS",
+      "pop": 209735,
+      "pop_pct": 5.0,
+      "cuts": 1517865,
+      "cuts_pct": 6.3,
+      "avg_cuts": 7.24,
+      "male_avg": 10.31,
+      "female_avg": 4.05
+    },
+    {
+      "cohort": "20\u201339 Prime Adults (Anchor)",
+      "pop": 1124396,
+      "pop_pct": 26.6,
+      "cuts": 8120631,
+      "cuts_pct": 33.8,
+      "avg_cuts": 7.22,
+      "male_avg": 10.4,
+      "female_avg": 4.16
+    },
+    {
+      "cohort": "40\u201359 Midlife Adults",
+      "pop": 1210555,
+      "pop_pct": 28.6,
+      "cuts": 6822867,
+      "cuts_pct": 28.4,
+      "avg_cuts": 5.64,
+      "male_avg": 7.84,
+      "female_avg": 3.62
+    },
+    {
+      "cohort": "60\u201379 Seniors",
+      "pop": 965453,
+      "pop_pct": 22.8,
+      "cuts": 3978171,
+      "cuts_pct": 16.6,
+      "avg_cuts": 4.12,
+      "male_avg": 5.29,
+      "female_avg": 3.02
+    },
+    {
+      "cohort": "80+ Oldest-Old",
+      "pop": 157096,
+      "pop_pct": 3.7,
+      "cuts": 432743,
+      "cuts_pct": 1.8,
+      "avg_cuts": 2.75,
+      "male_avg": 3.34,
+      "female_avg": 2.38
+    }
+  ],
+  "pubmed_studies": [
+    {
+      "pmid": "16187948",
+      "cite": "Loussouarn et al. (2005)",
+      "journal": "Int J Dermatol",
+      "scope": "Race velocity",
+      "finding": "Asian 411 \u00b1 43 \u00b5m/day (1.000\u00d7), Caucasian 367 \u00b1 56 \u00b5m/day (0.893\u00d7), African 280 \u00b1 50 \u00b5m/day (0.681\u00d7)."
+    },
+    {
+      "pmid": "11531795",
+      "cite": "Loussouarn (2001)",
+      "journal": "Br J Dermatol",
+      "scope": "Sex invariance & curl",
+      "finding": "African 256 \u00b1 44 vs Caucasian 396 \u00b1 55 \u00b5m/day; zero significant linear growth difference by gender or scalp site."
+    },
+    {
+      "pmid": "25065943",
+      "cite": "Liu et al. (2014)",
+      "journal": "Int J Cosmet Sci",
+      "scope": "Chinese 1-yr phototrichogram",
+      "finding": "N=41 Chinese adults: confirms fastest terminal growth rate among studied ethnic groups with minor Aug\u2013Sep seasonal telogen bump."
+    },
+    {
+      "pmid": "27019510",
+      "cite": "Loussouarn et al. (2016)",
+      "journal": "Eur J Dermatol",
+      "scope": "Multi-ethnic N=2,249",
+      "finding": "Ages 18\u201335 across 24 groups: Asian hair shows thickest diameter and fastest growth; Caucasian highest density."
+    },
+    {
+      "pmid": "29543618",
+      "cite": "Ingprasert et al. (2018)",
+      "journal": "Dermatol Surg",
+      "scope": "SE Asian women (N=101)",
+      "finding": "Donor density 98.9\u2013152.2 hairs/cm\u00b2 and thick shaft diameter 76.8\u201381.1 \u00b5m; declines with age."
+    },
+    {
+      "pmid": "37667034",
+      "cite": "Ruiz et al. (2024)",
+      "journal": "Pediatr Res",
+      "scope": "Infants & preschoolers (N=266)",
+      "finding": "Infants <1y grow slower (287.9 \u00b1 60.7 \u00b5m/day) vs 3y (345.1 \u00b5m/day); Asian kids (355.6 \u00b5m/d) > White (332.1, p=0.016); sex p=0.71."
+    },
+    {
+      "pmid": "24185569",
+      "cite": "Kim et al. (2013)",
+      "journal": "Eur J Dermatol",
+      "scope": "East Asian aging (N=1,357)",
+      "finding": "Ages 10\u201369 phototrichogram: no gender gap in density/thickness; density peaks in 20s then declines; greying spikes >40y."
+    },
+    {
+      "pmid": "17161939",
+      "cite": "Tajima et al. (2007)",
+      "journal": "J Dermatol Sci",
+      "scope": "Age >40 slowdown (N=159)",
+      "finding": "Diameter rises age 10\u219240, then both anagen ratio and anagen growth rate decline significantly after the 40s."
+    },
+    {
+      "pmid": "22524482",
+      "cite": "Robbins et al. (2012)",
+      "journal": "Br J Dermatol",
+      "scope": "Lifespan peak (N=1,414)",
+      "finding": "Density peaks 20\u201330y, parietal diameter rises to 40\u201345y, composite hair mass peaks ~35y."
+    },
+    {
+      "pmid": "14965792",
+      "cite": "Van Neste (2004)",
+      "journal": "Eur J Dermatol",
+      "scope": "Age & white hair paradox",
+      "finding": "Pigmented hair slows with age (0.34\u20130.35 mm/day) while unpigmented white hair grows ~10% faster (0.38 mm/day, p=0.0001)."
+    },
+    {
+      "pmid": "8003330",
+      "cite": "Courtois et al. (1994)",
+      "journal": "Skin Pharmacol",
+      "scope": "15-yr longitudinal cycle",
+      "finding": "Aging progressively shortens anagen duration, thins shafts, and prolongs telogen-to-anagen latency (~10,000 cycles tracked)."
+    },
+    {
+      "pmid": "11063167",
+      "cite": "Tang et al. (2000)",
+      "journal": "Singapore Med J",
+      "scope": "SG Male AGA (Bishan East, N=254)",
+      "finding": "63% overall male AGA (32% aged 17\u201326 \u2192 100% aged 80s); Indian 87% vs Chinese 61%; 74% of treatment-seekers use non-medical centers."
+    },
+    {
+      "pmid": "12520829",
+      "cite": "Goh (2002)",
+      "journal": "Ann Acad Med Singap",
+      "scope": "NSC SG AGA clinic (N=256)",
+      "finding": "Mean presentation age 33.7y (31.2 mo prior loss); 96.4% distressed, 90.5% cosmetic demand across Chinese/Malay/Indian patients."
+    },
+    {
+      "pmid": "20105167",
+      "cite": "Wang et al. (2010)",
+      "journal": "Br J Dermatol",
+      "scope": "Chinese M/F AGA (N=15,257)",
+      "finding": "Female AGA age-curve: 1.3% (18\u201329), 2.3% (30\u201339), 5.4% (40\u201349), 7.5% (50\u201359), 10.3% (60\u201369), 11.8% (70+); overall M 21.3%, F 6.0%."
+    },
+    {
+      "pmid": "24981717",
+      "cite": "Ishino et al. (2014)",
+      "journal": "Br J Dermatol",
+      "scope": "Crown vs occipital (n=369)",
+      "finding": "AGA depletes thick >80 \u00b5m vertex hairs into <40 \u00b5m vellus hairs while sides/occipital perimeter preserve growth."
+    },
+    {
+      "pmid": "23682615",
+      "cite": "Gizlenti & Ekmekci (2014)",
+      "journal": "JEADV",
+      "scope": "Postpartum TE (N=116)",
+      "finding": "Pregnancy prolongs anagen; significant month-4 postpartum anagen drop & telogen spike (p=0.045/0.038), normalizing by year 1."
+    },
+    {
+      "pmid": "39462180",
+      "cite": "Hirose et al. (2024)",
+      "journal": "BMJ Open",
+      "scope": "Postpartum psychological distress",
+      "finding": "N=331 mothers: heavy postpartum hair loss carries AOR=4.58 for GAD-2 anxiety, reinforcing scalp-care demand."
+    },
+    {
+      "pmid": "33541773",
+      "cite": "Chien Yin et al. (2021)",
+      "journal": "J Dermatol Sci",
+      "scope": "NSC Singapore TE review",
+      "finding": "Summarizes clinical precipitants, cycle disruption, and absence of targeted pharmacotherapy for telogen effluvium."
+    }
+  ],
+  "pubmed_gaps": [
+    "No standalone phototrichogram linear velocity (um/day) clinical trial exists on Singapore Malays or Singapore Indians; SE Asian donor-site data (PMID 29543618) and South Asian clinical AGA cohorts (PMID 11063167, 39312769) anchor our proxy parameters.",
+    "Gender haircut frequency divergence (~7.90 vs ~3.57 cuts/yr) is primarily behavioral (style-length tolerance) + higher male AGA/SS16 short-cut norms, because healthy human linear velocity shows zero significant gender difference (PMID 11531795, 37667034, 24185569)."
+  ],
+  "ssic_9602_pnl": [
+    {
+      "yr": "2019",
+      "est": 8453,
+      "rev_m": 2173.8,
+      "exp_m": 2069.0,
+      "gos_m": 142.2,
+      "va_m": 1297.6,
+      "rev_per_est": 257163,
+      "exp_per_est": 244765,
+      "gos_per_est": 16822,
+      "va_per_est": 153508,
+      "margin_pct": 6.5
+    },
+    {
+      "yr": "2020",
+      "est": 8889,
+      "rev_m": 1919.7,
+      "exp_m": 2114.0,
+      "gos_m": -130.2,
+      "va_m": 810.0,
+      "rev_per_est": 215964,
+      "exp_per_est": 237822,
+      "gos_per_est": -14647,
+      "va_per_est": 91124,
+      "margin_pct": -6.8
+    },
+    {
+      "yr": "2021",
+      "est": 9499,
+      "rev_m": 2333.6,
+      "exp_m": 2590.7,
+      "gos_m": -159.0,
+      "va_m": 978.5,
+      "rev_per_est": 245668,
+      "exp_per_est": 272734,
+      "gos_per_est": -16739,
+      "va_per_est": 103011,
+      "margin_pct": -6.8
+    },
+    {
+      "yr": "2022",
+      "est": 9330,
+      "rev_m": 2642.5,
+      "exp_m": 2811.9,
+      "gos_m": -71.1,
+      "va_m": 1292.4,
+      "rev_per_est": 283226,
+      "exp_per_est": 301383,
+      "gos_per_est": -7621,
+      "va_per_est": 138521,
+      "margin_pct": -2.7
+    },
+    {
+      "yr": "2023",
+      "est": 10744,
+      "rev_m": 3394.0,
+      "exp_m": 3240.6,
+      "gos_m": 275.4,
+      "va_m": 1952.0,
+      "rev_per_est": 315897,
+      "exp_per_est": 301620,
+      "gos_per_est": 25633,
+      "va_per_est": 181683,
+      "margin_pct": 8.1
+    },
+    {
+      "yr": "2024",
+      "est": 11241,
+      "rev_m": 3381.1,
+      "exp_m": 3634.8,
+      "gos_m": -104.1,
+      "va_m": 1898.9,
+      "rev_per_est": 300783,
+      "exp_per_est": 323352,
+      "gos_per_est": -9261,
+      "va_per_est": 168926,
+      "margin_pct": -3.1
+    }
+  ],
+  "ssic_9602_formations_cessations": [
+    {
+      "yr": "2019",
+      "formations": 1539,
+      "cessations": 1209,
+      "net": 330
+    },
+    {
+      "yr": "2020",
+      "formations": 1578,
+      "cessations": 1006,
+      "net": 572
+    },
+    {
+      "yr": "2021",
+      "formations": 1785,
+      "cessations": 1149,
+      "net": 636
+    },
+    {
+      "yr": "2022",
+      "formations": 1754,
+      "cessations": 1227,
+      "net": 527
+    },
+    {
+      "yr": "2023",
+      "formations": 1808,
+      "cessations": 1287,
+      "net": 521
+    },
+    {
+      "yr": "2024",
+      "formations": 1866,
+      "cessations": 1377,
+      "net": 489
+    },
+    {
+      "yr": "2025",
+      "formations": 2162,
+      "cessations": 1647,
+      "net": 515
+    }
+  ],
+  "acra_comparison": {
+    "ssic_96021": {
+      "cumulative": 15564,
+      "active": 3933,
+      "exited_pct": 74.7,
+      "active_pre2020": 2104,
+      "active_2020_2026": 1829,
+      "barber_pre": {
+        "count": 64,
+        "pct": 3.0
+      },
+      "barber_post": {
+        "count": 149,
+        "pct": 8.1
+      },
+      "barber_all": {
+        "count": 213,
+        "pct": 5.4
+      },
+      "scalp_all": {
+        "count": 46,
+        "pct": 1.2
+      },
+      "beauty_all": {
+        "count": 709,
+        "pct": 18.0
+      },
+      "perm_pre": {
+        "count": 32,
+        "pct": 1.5
+      },
+      "perm_post": {
+        "count": 9,
+        "pct": 0.5
+      }
+    },
+    "ssic_96022": {
+      "cumulative": 25835,
+      "active": 7155,
+      "exited_pct": 72.3,
+      "active_pre2020": 3531,
+      "active_2020_2026": 3624,
+      "barber_pre": {
+        "count": 13,
+        "pct": 0.4
+      },
+      "barber_post": {
+        "count": 19,
+        "pct": 0.5
+      },
+      "barber_all": {
+        "count": 32,
+        "pct": 0.4
+      },
+      "scalp_all": {
+        "count": 136,
+        "pct": 1.9
+      },
+      "beauty_all": {
+        "count": 3787,
+        "pct": 52.9
+      },
+      "perm_pre": {
+        "count": 17,
+        "pct": 0.5
+      },
+      "perm_post": {
+        "count": 5,
+        "pct": 0.1
+      }
+    },
+    "dual_overlap": 739,
+    "active_union": 10349
+  }
+}

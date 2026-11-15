@@ -1,0 +1,1429 @@
+{
+  "source_note": "Extracted from live SingStat M810011 (2026 End-June), M810091 (2025 ASFR), M601481 (SSIC 9602 2019-2024), M085851/M085861 (2019-2025), and Data.gov.sg ACRA SSIC 96021 & 96022.",
+  "total_pop_2026": 6208500,
+  "resident_cells_2026": [
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "0 - 4 Years",
+      "pop_2026": 19341,
+      "pop_2025": 19835,
+      "pop_2020": 19848
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "5 - 9 Years",
+      "pop_2026": 20382,
+      "pop_2025": 20122,
+      "pop_2020": 16472
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "10 - 14 Years",
+      "pop_2026": 17264,
+      "pop_2025": 16573,
+      "pop_2020": 16655
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "15 - 19 Years",
+      "pop_2026": 16501,
+      "pop_2025": 16819,
+      "pop_2020": 19135
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "20 - 24 Years",
+      "pop_2026": 18378,
+      "pop_2025": 19261,
+      "pop_2020": 22587
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "25 - 29 Years",
+      "pop_2026": 22308,
+      "pop_2025": 22617,
+      "pop_2020": 24997
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "30 - 34 Years",
+      "pop_2026": 24587,
+      "pop_2025": 25052,
+      "pop_2020": 22569
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "35 - 39 Years",
+      "pop_2026": 23654,
+      "pop_2025": 22657,
+      "pop_2020": 18808
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "40 - 44 Years",
+      "pop_2026": 19453,
+      "pop_2025": 18722,
+      "pop_2020": 13994
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "45 - 49 Years",
+      "pop_2026": 14596,
+      "pop_2025": 13822,
+      "pop_2020": 15502
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "50 - 54 Years",
+      "pop_2026": 14676,
+      "pop_2025": 15111,
+      "pop_2020": 17630
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "55 - 59 Years",
+      "pop_2026": 15877,
+      "pop_2025": 16967,
+      "pop_2020": 20654
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "60 - 64 Years",
+      "pop_2026": 19459,
+      "pop_2025": 19518,
+      "pop_2020": 17180
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "65 - 69 Years",
+      "pop_2026": 16470,
+      "pop_2025": 15790,
+      "pop_2020": 11546
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "70 - 74 Years",
+      "pop_2026": 10925,
+      "pop_2025": 10091,
+      "pop_2020": 7014
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "75 - 79 Years",
+      "pop_2026": 6252,
+      "pop_2025": 5649,
+      "pop_2020": 2970
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "80 - 84 Years",
+      "pop_2026": 2151,
+      "pop_2025": 2062,
+      "pop_2020": 2192
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "85 - 89 Years",
+      "pop_2026": 1266,
+      "pop_2025": 1227,
+      "pop_2020": 1095
+    },
+    {
+      "race": "Malay",
+      "sex": "Male",
+      "age": "90 Years & Over",
+      "pop_2026": 575,
+      "pop_2025": 586,
+      "pop_2020": 484
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "0 - 4 Years",
+      "pop_2026": 18058,
+      "pop_2025": 18745,
+      "pop_2020": 18820
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "5 - 9 Years",
+      "pop_2026": 19448,
+      "pop_2025": 19145,
+      "pop_2020": 15598
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "10 - 14 Years",
+      "pop_2026": 16394,
+      "pop_2025": 15699,
+      "pop_2020": 15817
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "15 - 19 Years",
+      "pop_2026": 15622,
+      "pop_2025": 15988,
+      "pop_2020": 17883
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "20 - 24 Years",
+      "pop_2026": 17451,
+      "pop_2025": 18054,
+      "pop_2020": 21226
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "25 - 29 Years",
+      "pop_2026": 20976,
+      "pop_2025": 21460,
+      "pop_2020": 23671
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "30 - 34 Years",
+      "pop_2026": 23932,
+      "pop_2025": 24154,
+      "pop_2020": 22045
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "35 - 39 Years",
+      "pop_2026": 23170,
+      "pop_2025": 22383,
+      "pop_2020": 18911
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "40 - 44 Years",
+      "pop_2026": 19558,
+      "pop_2025": 19064,
+      "pop_2020": 15288
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "45 - 49 Years",
+      "pop_2026": 15914,
+      "pop_2025": 15302,
+      "pop_2020": 16508
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "50 - 54 Years",
+      "pop_2026": 15958,
+      "pop_2025": 16341,
+      "pop_2020": 18799
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "55 - 59 Years",
+      "pop_2026": 17343,
+      "pop_2025": 18338,
+      "pop_2020": 21158
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "60 - 64 Years",
+      "pop_2026": 20639,
+      "pop_2025": 20475,
+      "pop_2020": 17643
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "65 - 69 Years",
+      "pop_2026": 17491,
+      "pop_2025": 16699,
+      "pop_2020": 12820
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "70 - 74 Years",
+      "pop_2026": 12620,
+      "pop_2025": 11705,
+      "pop_2020": 8260
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "75 - 79 Years",
+      "pop_2026": 7970,
+      "pop_2025": 7174,
+      "pop_2020": 4045
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "80 - 84 Years",
+      "pop_2026": 3109,
+      "pop_2025": 3023,
+      "pop_2020": 3055
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "85 - 89 Years",
+      "pop_2026": 1947,
+      "pop_2025": 1886,
+      "pop_2020": 1866
+    },
+    {
+      "race": "Malay",
+      "sex": "Female",
+      "age": "90 Years & Over",
+      "pop_2026": 1073,
+      "pop_2025": 1018,
+      "pop_2020": 753
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "0 - 4 Years",
+      "pop_2026": 52388,
+      "pop_2025": 54974,
+      "pop_2020": 62421
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "5 - 9 Years",
+      "pop_2026": 65726,
+      "pop_2025": 67984,
+      "pop_2020": 70791
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "10 - 14 Years",
+      "pop_2026": 74451,
+      "pop_2025": 73145,
+      "pop_2020": 70928
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "15 - 19 Years",
+      "pop_2026": 72485,
+      "pop_2025": 72804,
+      "pop_2020": 74493
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "20 - 24 Years",
+      "pop_2026": 72430,
+      "pop_2025": 75536,
+      "pop_2020": 87309
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "25 - 29 Years",
+      "pop_2026": 94559,
+      "pop_2025": 94862,
+      "pop_2020": 103369
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "30 - 34 Years",
+      "pop_2026": 114308,
+      "pop_2025": 114939,
+      "pop_2020": 106485
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "35 - 39 Years",
+      "pop_2026": 117585,
+      "pop_2025": 112670,
+      "pop_2020": 104060
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "40 - 44 Years",
+      "pop_2026": 106747,
+      "pop_2025": 107090,
+      "pop_2020": 104362
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "45 - 49 Years",
+      "pop_2026": 105498,
+      "pop_2025": 105188,
+      "pop_2020": 110281
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "50 - 54 Years",
+      "pop_2026": 108187,
+      "pop_2025": 109358,
+      "pop_2020": 106051
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "55 - 59 Years",
+      "pop_2026": 102652,
+      "pop_2025": 103788,
+      "pop_2020": 114766
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "60 - 64 Years",
+      "pop_2026": 110240,
+      "pop_2025": 111100,
+      "pop_2020": 110715
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "65 - 69 Years",
+      "pop_2026": 106515,
+      "pop_2025": 105363,
+      "pop_2020": 92021
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "70 - 74 Years",
+      "pop_2026": 88593,
+      "pop_2025": 85080,
+      "pop_2020": 67776
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "75 - 79 Years",
+      "pop_2026": 64772,
+      "pop_2025": 59584,
+      "pop_2020": 35191
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "80 - 84 Years",
+      "pop_2026": 28593,
+      "pop_2025": 27680,
+      "pop_2020": 24009
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "85 - 89 Years",
+      "pop_2026": 17622,
+      "pop_2025": 15968,
+      "pop_2020": 11349
+    },
+    {
+      "race": "Chinese",
+      "sex": "Male",
+      "age": "90 Years & Over",
+      "pop_2026": 7479,
+      "pop_2025": 7003,
+      "pop_2020": 4967
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "0 - 4 Years",
+      "pop_2026": 49752,
+      "pop_2025": 52169,
+      "pop_2020": 60058
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "5 - 9 Years",
+      "pop_2026": 63027,
+      "pop_2025": 65304,
+      "pop_2020": 66704
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "10 - 14 Years",
+      "pop_2026": 70271,
+      "pop_2025": 69042,
+      "pop_2020": 67631
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "15 - 19 Years",
+      "pop_2026": 69120,
+      "pop_2025": 69538,
+      "pop_2020": 71081
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "20 - 24 Years",
+      "pop_2026": 70071,
+      "pop_2025": 73053,
+      "pop_2020": 83744
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "25 - 29 Years",
+      "pop_2026": 93815,
+      "pop_2025": 94059,
+      "pop_2020": 105382
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "30 - 34 Years",
+      "pop_2026": 120289,
+      "pop_2025": 121303,
+      "pop_2020": 114650
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "35 - 39 Years",
+      "pop_2026": 127630,
+      "pop_2025": 122786,
+      "pop_2020": 115053
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "40 - 44 Years",
+      "pop_2026": 117960,
+      "pop_2025": 118706,
+      "pop_2020": 116766
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "45 - 49 Years",
+      "pop_2026": 118680,
+      "pop_2025": 118022,
+      "pop_2020": 122098
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "50 - 54 Years",
+      "pop_2026": 120877,
+      "pop_2025": 121775,
+      "pop_2020": 114093
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "55 - 59 Years",
+      "pop_2026": 113362,
+      "pop_2025": 112869,
+      "pop_2020": 116221
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "60 - 64 Years",
+      "pop_2026": 114595,
+      "pop_2025": 114372,
+      "pop_2020": 113310
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "65 - 69 Years",
+      "pop_2026": 111389,
+      "pop_2025": 110612,
+      "pop_2020": 95076
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "70 - 74 Years",
+      "pop_2026": 95570,
+      "pop_2025": 91555,
+      "pop_2020": 74542
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "75 - 79 Years",
+      "pop_2026": 75446,
+      "pop_2025": 69765,
+      "pop_2020": 43128
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "80 - 84 Years",
+      "pop_2026": 38186,
+      "pop_2025": 37679,
+      "pop_2020": 32997
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "85 - 89 Years",
+      "pop_2026": 28204,
+      "pop_2025": 25594,
+      "pop_2020": 19797
+    },
+    {
+      "race": "Chinese",
+      "sex": "Female",
+      "age": "90 Years & Over",
+      "pop_2026": 17372,
+      "pop_2025": 16756,
+      "pop_2020": 13094
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "0 - 4 Years",
+      "pop_2026": 7191,
+      "pop_2025": 7255,
+      "pop_2020": 8074
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "5 - 9 Years",
+      "pop_2026": 9572,
+      "pop_2025": 10035,
+      "pop_2020": 10827
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "10 - 14 Years",
+      "pop_2026": 11702,
+      "pop_2025": 11702,
+      "pop_2020": 13172
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "15 - 19 Years",
+      "pop_2026": 13316,
+      "pop_2025": 13472,
+      "pop_2020": 12054
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "20 - 24 Years",
+      "pop_2026": 12456,
+      "pop_2025": 12184,
+      "pop_2020": 11170
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "25 - 29 Years",
+      "pop_2026": 11738,
+      "pop_2025": 11493,
+      "pop_2020": 11531
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "30 - 34 Years",
+      "pop_2026": 12145,
+      "pop_2025": 12259,
+      "pop_2020": 11486
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "35 - 39 Years",
+      "pop_2026": 12978,
+      "pop_2025": 12709,
+      "pop_2020": 14298
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "40 - 44 Years",
+      "pop_2026": 14770,
+      "pop_2025": 15426,
+      "pop_2020": 18122
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "45 - 49 Years",
+      "pop_2026": 17749,
+      "pop_2025": 17906,
+      "pop_2020": 18577
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "50 - 54 Years",
+      "pop_2026": 17958,
+      "pop_2025": 17982,
+      "pop_2020": 15643
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "55 - 59 Years",
+      "pop_2026": 15283,
+      "pop_2025": 14953,
+      "pop_2020": 13131
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "60 - 64 Years",
+      "pop_2026": 12772,
+      "pop_2025": 12372,
+      "pop_2020": 10646
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "65 - 69 Years",
+      "pop_2026": 10221,
+      "pop_2025": 9773,
+      "pop_2020": 7139
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "70 - 74 Years",
+      "pop_2026": 6751,
+      "pop_2025": 6299,
+      "pop_2020": 4705
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "75 - 79 Years",
+      "pop_2026": 4335,
+      "pop_2025": 3901,
+      "pop_2020": 2047
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "80 - 84 Years",
+      "pop_2026": 1509,
+      "pop_2025": 1471,
+      "pop_2020": 1309
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "85 - 89 Years",
+      "pop_2026": 857,
+      "pop_2025": 806,
+      "pop_2020": 879
+    },
+    {
+      "race": "Indian",
+      "sex": "Male",
+      "age": "90 Years & Over",
+      "pop_2026": 835,
+      "pop_2025": 832,
+      "pop_2020": 755
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "0 - 4 Years",
+      "pop_2026": 6688,
+      "pop_2025": 6676,
+      "pop_2020": 7568
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "5 - 9 Years",
+      "pop_2026": 8555,
+      "pop_2025": 8985,
+      "pop_2020": 10598
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "10 - 14 Years",
+      "pop_2026": 11225,
+      "pop_2025": 11612,
+      "pop_2020": 13098
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "15 - 19 Years",
+      "pop_2026": 13350,
+      "pop_2025": 13441,
+      "pop_2020": 11918
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "20 - 24 Years",
+      "pop_2026": 12494,
+      "pop_2025": 12172,
+      "pop_2020": 11146
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "25 - 29 Years",
+      "pop_2026": 11629,
+      "pop_2025": 11474,
+      "pop_2020": 11816
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "30 - 34 Years",
+      "pop_2026": 12384,
+      "pop_2025": 12616,
+      "pop_2020": 12334
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "35 - 39 Years",
+      "pop_2026": 14169,
+      "pop_2025": 14105,
+      "pop_2020": 16133
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "40 - 44 Years",
+      "pop_2026": 16681,
+      "pop_2025": 17239,
+      "pop_2020": 16061
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "45 - 49 Years",
+      "pop_2026": 16794,
+      "pop_2025": 16218,
+      "pop_2020": 13543
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "50 - 54 Years",
+      "pop_2026": 13926,
+      "pop_2025": 13452,
+      "pop_2020": 11832
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "55 - 59 Years",
+      "pop_2026": 11590,
+      "pop_2025": 11564,
+      "pop_2020": 11624
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "60 - 64 Years",
+      "pop_2026": 11366,
+      "pop_2025": 11221,
+      "pop_2020": 9805
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "65 - 69 Years",
+      "pop_2026": 9699,
+      "pop_2025": 9370,
+      "pop_2020": 7438
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "70 - 74 Years",
+      "pop_2026": 7324,
+      "pop_2025": 6912,
+      "pop_2020": 5396
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "75 - 79 Years",
+      "pop_2026": 5302,
+      "pop_2025": 4787,
+      "pop_2020": 2604
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "80 - 84 Years",
+      "pop_2026": 2169,
+      "pop_2025": 2111,
+      "pop_2020": 2152
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "85 - 89 Years",
+      "pop_2026": 1553,
+      "pop_2025": 1520,
+      "pop_2020": 1124
+    },
+    {
+      "race": "Indian",
+      "sex": "Female",
+      "age": "90 Years & Over",
+      "pop_2026": 837,
+      "pop_2025": 793,
+      "pop_2020": 519
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "0 - 4 Years",
+      "pop_2026": 2724,
+      "pop_2025": 2861,
+      "pop_2020": 3045
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "5 - 9 Years",
+      "pop_2026": 3940,
+      "pop_2025": 3987,
+      "pop_2020": 3639
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "10 - 14 Years",
+      "pop_2026": 4264,
+      "pop_2025": 4100,
+      "pop_2020": 4212
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "15 - 19 Years",
+      "pop_2026": 4430,
+      "pop_2025": 4370,
+      "pop_2020": 4186
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "20 - 24 Years",
+      "pop_2026": 4146,
+      "pop_2025": 4109,
+      "pop_2020": 3551
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "25 - 29 Years",
+      "pop_2026": 3651,
+      "pop_2025": 3494,
+      "pop_2020": 2485
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "30 - 34 Years",
+      "pop_2026": 3241,
+      "pop_2025": 3091,
+      "pop_2020": 2482
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "35 - 39 Years",
+      "pop_2026": 3900,
+      "pop_2025": 3816,
+      "pop_2020": 4191
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "40 - 44 Years",
+      "pop_2026": 5292,
+      "pop_2025": 5455,
+      "pop_2020": 6323
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "45 - 49 Years",
+      "pop_2026": 6596,
+      "pop_2025": 6752,
+      "pop_2020": 7330
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "50 - 54 Years",
+      "pop_2026": 7235,
+      "pop_2025": 7241,
+      "pop_2020": 6059
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "55 - 59 Years",
+      "pop_2026": 5964,
+      "pop_2025": 5732,
+      "pop_2020": 4409
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "60 - 64 Years",
+      "pop_2026": 4350,
+      "pop_2025": 4055,
+      "pop_2020": 2930
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "65 - 69 Years",
+      "pop_2026": 2758,
+      "pop_2025": 2588,
+      "pop_2020": 1903
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "70 - 74 Years",
+      "pop_2026": 1769,
+      "pop_2025": 1644,
+      "pop_2020": 1324
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "75 - 79 Years",
+      "pop_2026": 1206,
+      "pop_2025": 1081,
+      "pop_2020": 565
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "80 - 84 Years",
+      "pop_2026": 460,
+      "pop_2025": 427,
+      "pop_2020": 376
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "85 - 89 Years",
+      "pop_2026": 242,
+      "pop_2025": 250,
+      "pop_2020": 199
+    },
+    {
+      "race": "Others",
+      "sex": "Male",
+      "age": "90 Years & Over",
+      "pop_2026": 155,
+      "pop_2025": 145,
+      "pop_2020": 106
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "0 - 4 Years",
+      "pop_2026": 2842,
+      "pop_2025": 3035,
+      "pop_2020": 3242
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "5 - 9 Years",
+      "pop_2026": 4198,
+      "pop_2025": 4251,
+      "pop_2020": 4108
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "10 - 14 Years",
+      "pop_2026": 4886,
+      "pop_2025": 4704,
+      "pop_2020": 4880
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "15 - 19 Years",
+      "pop_2026": 4911,
+      "pop_2025": 4962,
+      "pop_2020": 4484
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "20 - 24 Years",
+      "pop_2026": 4376,
+      "pop_2025": 4317,
+      "pop_2020": 3804
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "25 - 29 Years",
+      "pop_2026": 4311,
+      "pop_2025": 4276,
+      "pop_2020": 3746
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "30 - 34 Years",
+      "pop_2026": 6320,
+      "pop_2025": 6422,
+      "pop_2020": 5747
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "35 - 39 Years",
+      "pop_2026": 9315,
+      "pop_2025": 8999,
+      "pop_2020": 8061
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "40 - 44 Years",
+      "pop_2026": 10307,
+      "pop_2025": 10070,
+      "pop_2020": 8375
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "45 - 49 Years",
+      "pop_2026": 9173,
+      "pop_2025": 8805,
+      "pop_2020": 7901
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "50 - 54 Years",
+      "pop_2026": 7839,
+      "pop_2025": 7718,
+      "pop_2020": 5961
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "55 - 59 Years",
+      "pop_2026": 6060,
+      "pop_2025": 5572,
+      "pop_2020": 3867
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "60 - 64 Years",
+      "pop_2026": 3806,
+      "pop_2025": 3562,
+      "pop_2020": 2397
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "65 - 69 Years",
+      "pop_2026": 2430,
+      "pop_2025": 2224,
+      "pop_2020": 1453
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "70 - 74 Years",
+      "pop_2026": 1462,
+      "pop_2025": 1331,
+      "pop_2020": 991
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "75 - 79 Years",
+      "pop_2026": 956,
+      "pop_2025": 879,
+      "pop_2020": 440
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "80 - 84 Years",
+      "pop_2026": 360,
+      "pop_2025": 357,
+      "pop_2020": 423
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "85 - 89 Years",
+      "pop_2026": 308,
+      "pop_2025": 299,
+      "pop_2020": 277
+    },
+    {
+      "race": "Others",
+      "sex": "Female",
+      "age": "90 Years & Over",
+      "pop_2026": 234,
+      "pop_2025": 227,
+      "pop_2020": 197
+    }
+  ],
+  "asfr_2025_per_1000": {
+    "15 - 19 Years": 1.3,
+    "20 - 24 Years": 8.7,
+    "25 - 29 Years": 38.1,
+    "30 - 34 Years": 69.7,
+    "35 - 39 Years": 46.0,
+    "40 - 44 Years": 9.5,
+    "45 - 49 Years": 0.5
+  },
+  "ssic_9602_pnl": [
+    {
+      "yr": "2019",
+      "est": 8453,
+      "rev_m": 2173.8,
+      "exp_m": 2069.0,
+      "gos_m": 142.2,
+      "va_m": 1297.6,
+      "rev_per_est": 257163,
+      "exp_per_est": 244765,
+      "gos_per_est": 16822,
+      "va_per_est": 153508,
+      "margin_pct": 6.5
+    },
+    {
+      "yr": "2020",
+      "est": 8889,
+      "rev_m": 1919.7,
+      "exp_m": 2114.0,
+      "gos_m": -130.2,
+      "va_m": 810.0,
+      "rev_per_est": 215964,
+      "exp_per_est": 237822,
+      "gos_per_est": -14647,
+      "va_per_est": 91124,
+      "margin_pct": -6.8
+    },
+    {
+      "yr": "2021",
+      "est": 9499,
+      "rev_m": 2333.6,
+      "exp_m": 2590.7,
+      "gos_m": -159.0,
+      "va_m": 978.5,
+      "rev_per_est": 245668,
+      "exp_per_est": 272734,
+      "gos_per_est": -16739,
+      "va_per_est": 103011,
+      "margin_pct": -6.8
+    },
+    {
+      "yr": "2022",
+      "est": 9330,
+      "rev_m": 2642.5,
+      "exp_m": 2811.9,
+      "gos_m": -71.1,
+      "va_m": 1292.4,
+      "rev_per_est": 283226,
+      "exp_per_est": 301383,
+      "gos_per_est": -7621,
+      "va_per_est": 138521,
+      "margin_pct": -2.7
+    },
+    {
+      "yr": "2023",
+      "est": 10744,
+      "rev_m": 3394.0,
+      "exp_m": 3240.6,
+      "gos_m": 275.4,
+      "va_m": 1952.0,
+      "rev_per_est": 315897,
+      "exp_per_est": 301620,
+      "gos_per_est": 25633,
+      "va_per_est": 181683,
+      "margin_pct": 8.1
+    },
+    {
+      "yr": "2024",
+      "est": 11241,
+      "rev_m": 3381.1,
+      "exp_m": 3634.8,
+      "gos_m": -104.1,
+      "va_m": 1898.9,
+      "rev_per_est": 300783,
+      "exp_per_est": 323352,
+      "gos_per_est": -9261,
+      "va_per_est": 168926,
+      "margin_pct": -3.1
+    }
+  ],
+  "ssic_9602_formations_cessations": [
+    {
+      "yr": "2019",
+      "formations": 1539,
+      "cessations": 1209,
+      "net": 330
+    },
+    {
+      "yr": "2020",
+      "formations": 1578,
+      "cessations": 1006,
+      "net": 572
+    },
+    {
+      "yr": "2021",
+      "formations": 1785,
+      "cessations": 1149,
+      "net": 636
+    },
+    {
+      "yr": "2022",
+      "formations": 1754,
+      "cessations": 1227,
+      "net": 527
+    },
+    {
+      "yr": "2023",
+      "formations": 1808,
+      "cessations": 1287,
+      "net": 521
+    },
+    {
+      "yr": "2024",
+      "formations": 1866,
+      "cessations": 1377,
+      "net": 489
+    },
+    {
+      "yr": "2025",
+      "formations": 2162,
+      "cessations": 1647,
+      "net": 515
+    }
+  ],
+  "acra_comparison": {
+    "ssic_96021": {
+      "cumulative": 15564,
+      "active": 3933,
+      "exited_pct": 74.7,
+      "active_pre2020": 2104,
+      "active_2020_2026": 1829,
+      "barber_pre": {
+        "count": 64,
+        "pct": 3.0
+      },
+      "barber_post": {
+        "count": 149,
+        "pct": 8.1
+      },
+      "barber_all": {
+        "count": 213,
+        "pct": 5.4
+      },
+      "scalp_all": {
+        "count": 46,
+        "pct": 1.2
+      },
+      "beauty_all": {
+        "count": 709,
+        "pct": 18.0
+      },
+      "perm_pre": {
+        "count": 32,
+        "pct": 1.5
+      },
+      "perm_post": {
+        "count": 9,
+        "pct": 0.5
+      }
+    },
+    "ssic_96022": {
+      "cumulative": 25835,
+      "active": 7155,
+      "exited_pct": 72.3,
+      "active_pre2020": 3531,
+      "active_2020_2026": 3624,
+      "barber_pre": {
+        "count": 13,
+        "pct": 0.4
+      },
+      "barber_post": {
+        "count": 19,
+        "pct": 0.5
+      },
+      "barber_all": {
+        "count": 32,
+        "pct": 0.4
+      },
+      "scalp_all": {
+        "count": 136,
+        "pct": 1.9
+      },
+      "beauty_all": {
+        "count": 3787,
+        "pct": 52.9
+      },
+      "perm_pre": {
+        "count": 17,
+        "pct": 0.5
+      },
+      "perm_post": {
+        "count": 5,
+        "pct": 0.1
+      }
+    },
+    "dual_overlap": 739,
+    "active_union": 10349
+  }
+}
