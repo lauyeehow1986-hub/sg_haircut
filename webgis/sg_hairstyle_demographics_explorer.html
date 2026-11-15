@@ -398,8 +398,16 @@
           Population baselines use <strong class="text-white">Data.gov.sg / SingStat Census</strong> (<code>d_d95ae740...</code> Age/Sex by Planning Area &amp; Subzone, <code>d_4e150bbd...</code> HH Income) + live <strong class="text-white">SingStat MCP <code>M810771</code></strong> Planning Region updates through <strong class="text-white">End-June 2026</strong> (<strong class="text-white"><code>M810091</code> 2025 TFR: 0.87</strong>).
         </div>
         <div class="text-[11px] text-slate-400">
-          <em>Honest Coverage Notes:</em> Multi-outlet express chains sometimes register HQ postcodes on ACRA; all 4,520 pins are included alongside an OSM/HDB breakdown. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited pins (`102`) show exact Google ratings &amp; review counts inline, while all `4,520` pins include 1-tap Google Maps &amp; Reviews search links.
+          <em>Honest Coverage Notes:</em> Multi-outlet express chains sometimes register HQ postcodes on ACRA; all 4,520 pins are included alongside an OSM/HDB breakdown. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited pins (<strong>102</strong>) show exact Google ratings &amp; review counts inline, while all <strong>4,520</strong> pins include 1-tap Google Maps &amp; Reviews search links.
         </div>
+        <details class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80">
+          <summary class="cursor-pointer font-semibold text-sky-300 hover:underline">Methodological Caveats &amp; Metric Definitions (Click to expand)</summary>
+          <ul class="list-disc pl-4 mt-1.5 space-y-1">
+            <li><strong>Spec./10k Youth (= 10,000 × Spec Pins / Pop 0–14):</strong> Uses Census 2020 residents aged <code>0–14</code> as the denominator (e.g., Punggol: <code>42,900</code>). On un-audited ACRA/OSM pins (which lack service menus), specialist counts use a name-keyword regex (<code>studio</code>, <code>kid</code>, <code>scalp</code>, <code>curl</code>, <code>hijab</code>, <code>korean</code>, etc.), while audited pins use T3/T4/Hijab/Curly attributes. <em>Caveats:</em> generic <code>"Studio"</code> names count toward specialist totals (e.g., 9 in Punggol = <code>2.1/10k</code>), and dual-listed ACRA + OSM storefronts are not geometrically deduplicated — meaning true dedicated pediatric/specialist capacity is often lower than the headline ratio.</li>
+            <li><strong>Official HDB vs. Non-HDB (2,162 vs. 2,358):</strong> Matched by block + normalized street in Data.gov.sg HDB Property Info (<code>d_17f5382f...</code>) and SLA OneMap HDB buildings (plus <code>&lt;=25m</code> mall-excluded proximity for OSM). ACRA HDB matches reflect registered block addresses (shophouses or home-based entities), not retail zoning audits.</li>
+            <li><strong>Gap Scores &amp; Subzone Vintage:</strong> Aging Gap weights <code>%65+</code> (45%), <code>log10(65+ pop)</code> (30%), and low-income HH <code>&lt;S$4k</code> (25%, defaulted to 34% at subzone level) against all-4,520 and HDB outlet density; Youth Gap weights <code>%0–14</code> (58%) and <code>log10(0–4 pop)</code> (42%) against total and specialist density per 10k youth. Census 2020 subzone demographics predate post-2021 Tengah &amp; Punggol North BTO inflows.</li>
+          </ul>
+        </details>
       </div>
 
       <!-- Tab 4 KPIs -->
