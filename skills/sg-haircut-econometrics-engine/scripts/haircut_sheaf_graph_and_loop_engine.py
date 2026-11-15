@@ -773,6 +773,10 @@ def query_universal_hairstyle_popularity_and_combinatorial_taxonomy(
         "eras": eras,
         "filtered_archetype_count": len(matched),
         "styles": matched,
+        "data_provenance": {
+            "empirical_basis": "Qualitative morphological specs, institutional/cultural norms (MOE, SAF, NLB Operation Snip Snip, Sikh Kesh, Muslimah Sah-Solat), and clinical biotype physics (PMC6894537).",
+            "heuristic_priors_notice": "Historical eras_pct (1970s-2026) arrays are author-calibrated heuristic priors rather than empirical salon POS or SingStat census shares.",
+        },
         "recommended_live_apis_for_real_time_popularity": {
             "1_google_trends_serpapi_pytrends": "Query geo='SG' interest_over_time (2004-2026) for style keywords ('hush cut', 'two block haircut', 'wolf cut', 'skin fade', 'down perm', 'curly hair salon singapore').",
             "2_singstat_tablebuilder_demographic_weights": "API https://tablebuilder.singstat.gov.sg/api/table/tabledata/M810011 to weight popularity shares by exact SG Resident Population across Age x Sex x Ethnic Group.",
@@ -809,12 +813,20 @@ SINGSTAT_2026_POPULATION_TENSOR: Dict[str, Any] = {
         "65+": 0.195,
     },
     "ethnic_group_shares": {
-        "chinese": 0.743,
+        "chinese": 0.739,
         "malay": 0.135,
         "indian": 0.090,
-        "eurasian": 0.012,
-        "caucasian": 0.015,
+        "eurasian": 0.014,
+        "caucasian": 0.017,
         "afro": 0.005,
+    },
+    "verified_ssic_9602_and_census_benchmarks": {
+        "ssic_9602_establishments": 11241,
+        "ssic_9602_operating_revenue_2019_sgd": 2173800000,
+        "ssic_9602_operating_revenue_latest_sgd": 3381100000,
+        "hes_2023_avg_monthly_household_spend_sgd": 5931,
+        "census_2020_sikhs_aged_15plus": 12051,
+        "note": "SingStat SSIC 9602 aggregates Hairdressing (96021), Beauty/Spas (96022), Nails (96023), and Massage/Reflexology (96024); standalone haircut revenue is not published separately.",
     },
     "google_trends_sg_2026_index": {
         "H01": 94,  # Korean Two-Block + Side Down Perm
@@ -965,6 +977,11 @@ def compute_singstat_and_google_trends_hairstyle_headcount_demand(
         "include_non_residents": include_non_residents,
         "total_annual_haircut_visits_across_matched_styles": total_annual_visits,
         "total_annual_salon_gtv_sgd_across_matched_styles": total_annual_gtv_sgd,
+        "verified_ssic_9602_and_census_benchmarks": SINGSTAT_2026_POPULATION_TENSOR["verified_ssic_9602_and_census_benchmarks"],
+        "data_provenance": {
+            "empirical_official_inputs": "Population totals (6.21M), resident age/CMIO shares, births, and SSIC 9602 sector benchmarks come from SingStat / Population in Brief 2026 / Census 2020.",
+            "heuristic_priors_warning": "When offline, per-style adopter headcounts, annual visits, and GTV use uncalibrated heuristic priors (eras_pct, offline Trends index, and 0.42 coverage scaling), covering only canonical archetypes rather than 100% of everyday utilitarian cuts.",
+        },
         "hairstyle_headcount_demand_ranking": rows,
         "citations": SINGSTAT_2026_POPULATION_TENSOR["citations"],
     }

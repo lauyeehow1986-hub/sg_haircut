@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Singapore Inclusive Hairstyle & Demographic Explorer (1970s–2026)</title>
+  <title>Singapore Inclusive Hairstyle Guide &amp; Official Demographic Benchmarks</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     .tabular-nums { font-variant-numeric: tabular-nums; }
@@ -17,49 +17,56 @@
     <!-- Header -->
     <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border)]">
       <div>
-        <div class="flex items-center gap-2 text-xs font-medium text-[var(--primary)] uppercase tracking-wider">
-          <span>SG Haircut Econometrics Engine</span>
+        <div class="flex flex-wrap items-center gap-2 text-xs font-medium text-[var(--primary)] uppercase tracking-wider">
+          <span>SG Haircut Econometrics Engine • Strictly Defensible Data Mode</span>
           <span>•</span>
-          <span>SingStat M810001 / M810011 &amp; 14,400 6D Taxonomy</span>
+          <span>SingStat / PIB 2026 &amp; SSIC 9602</span>
         </div>
         <h1 class="text-xl md:text-2xl font-semibold mt-1">
-          Singapore Inclusive Hairstyle Popularity &amp; Demographic Explorer (1970s–2026)
+          Singapore Inclusive Hairstyle Taxonomy &amp; Official Demographic Benchmarks
         </h1>
         <p class="text-xs text-[var(--muted-foreground)] mt-1">
-          18 canonical inclusive archetypes calibrated to Singapore’s 6.21M population (4.23M Residents + 1.98M Non-Residents), multi-ethnic hair biotypes (1A–4C), and 7 historical eras.
+          Qualitative morphology, cultural/clinical compatibility, and verified SG salon price bands across 19 inclusive archetypes—paired with official SingStat population, aging, and SSIC 9602 data. Synthetic style percentages and modeled headcounts are excluded.
         </p>
       </div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs shrink-0">
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">2026 Total Visits</div>
-          <div id="kpi-visits" class="text-base font-semibold tabular-nums mt-0.5">29.99M</div>
+          <div class="text-[var(--muted-foreground)]">2026 Total Pop (PIB)</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">6.21M</div>
         </div>
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">2026 Salon GTV</div>
-          <div id="kpi-gtv" class="text-base font-semibold tabular-nums mt-0.5">S$1.56B</div>
+          <div class="text-[var(--muted-foreground)]">2026 Residents 65+</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">19.5%</div>
         </div>
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">Matched Styles</div>
-          <div id="kpi-count" class="text-base font-semibold tabular-nums mt-0.5">18 / 18</div>
+          <div class="text-[var(--muted-foreground)]">SSIC 9602 Establishments</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">11,241</div>
         </div>
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
-          <div class="text-[var(--muted-foreground)]">6D Permutations</div>
-          <div class="text-base font-semibold tabular-nums mt-0.5">14,400</div>
+          <div class="text-[var(--muted-foreground)]">Qualitative Archetypes</div>
+          <div id="kpi-count" class="text-base font-semibold tabular-nums mt-0.5">19 / 19</div>
         </div>
       </div>
     </header>
 
-    <!-- Demographic Filter Bar -->
+    <!-- Empirical Scope Notice -->
+    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl px-4 py-2.5 text-xs flex flex-wrap items-center justify-between gap-2">
+      <span class="text-[var(--muted-foreground)]">
+        <strong class="text-[var(--foreground)]">Methodology Note:</strong> No SingStat, ACRA, or public salon POS dataset measures historical market share (%) by individual haircut name. Quantitative charts in Tabs 3–4 use only official SingStat / Population in Brief / Census / published chain pricing; Tabs 1–2 present qualitative compatibility &amp; observed price bands.
+      </span>
+    </div>
+
+    <!-- Filter Bar -->
     <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
       <div class="flex flex-wrap items-center justify-between gap-2">
-        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">Demographic &amp; Era Filters</span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">Taxonomy Filters (Qualitative Fit)</span>
         <button id="btn-reset" class="text-xs px-2.5 py-1 rounded-md border border-[var(--border)] hover:bg-[var(--secondary)] transition">
-          Reset All Filters
+          Reset Filters
         </button>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
         <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Gender Presentation</label>
+          <label class="block text-[var(--muted-foreground)] mb-1">Gender Suitability</label>
           <select id="filter-gender" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
             <option value="all">All Genders (Male, Female, Unisex)</option>
             <option value="male">Male (+ Unisex)</option>
@@ -68,199 +75,241 @@
           </select>
         </div>
         <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Age Cohort (SingStat)</label>
+          <label class="block text-[var(--muted-foreground)] mb-1">Age Cohort Applicability</label>
           <select id="filter-age" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
             <option value="all">All Age Groups (0–65+)</option>
             <option value="0-12">0–12 Years (Infants &amp; Primary)</option>
             <option value="13-24">13–24 Years (Youth, MOE, NS/BMT)</option>
-            <option value="25-44">25–44 Years (Prime Working Adults)</option>
+            <option value="25-44">25–44 Years (Working Adults)</option>
             <option value="45-64">45–64 Years (Mature Adults)</option>
             <option value="65+">65+ Years (Seniors — 19.5% of Residents)</option>
           </select>
         </div>
         <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">Race / Cultural Community</label>
+          <label class="block text-[var(--muted-foreground)] mb-1">Community / Biotype Focus</label>
           <select id="filter-race" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
             <option value="all">All Communities (Inclusive SG)</option>
-            <option value="chinese">Chinese (74.3%)</option>
-            <option value="malay">Malay / Muslimah (13.5%)</option>
-            <option value="indian">Indian / Sikh (9.0%)</option>
-            <option value="caucasian">Caucasian / Fine-Oval (1.5%)</option>
-            <option value="eurasian">Eurasian (1.2%)</option>
-            <option value="afro">Afro-Coiled / Type 3C–4C (0.5%)</option>
+            <option value="chinese">Chinese (73.9% Residents)</option>
+            <option value="malay">Malay / Muslimah (13.5% Residents)</option>
+            <option value="indian">Indian / Sikh (9.0% Residents)</option>
+            <option value="caucasian">Caucasian / Fine-Oval</option>
+            <option value="eurasian">Eurasian</option>
+            <option value="afro">Afro-Coiled / Type 3C–4C</option>
           </select>
         </div>
         <div>
-          <label class="block text-[var(--muted-foreground)] mb-1">
-            Focus Era: <span id="era-label" class="font-semibold text-[var(--foreground)]">2024-2026</span>
-          </label>
-          <input id="filter-era" type="range" min="0" max="6" value="6" class="w-full accent-[var(--primary)] mt-1.5" />
-          <div class="flex justify-between text-[11px] text-[var(--muted-foreground)] mt-0.5">
-            <span>1970s</span><span>90s</span><span>10s</span><span>2026</span>
-          </div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Category</label>
+          <select id="filter-cat" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
+            <option value="all">All Categories (19 Archetypes)</option>
+            <option value="Express / Everyday">Express / Everyday Functional</option>
+            <option value="Trend / Layered">Current &amp; Heritage Trends</option>
+            <option value="Cultural / Modest">Cultural / Religious Compliance</option>
+            <option value="Institutional / Rite">Institutional &amp; Life Rites</option>
+            <option value="Clinical / Scalp Care">Clinical / Hair-Biotype Care</option>
+          </select>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)] text-xs">
         <button data-tab="gallery" class="tab-btn px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)]">
-          1. Inclusive Haircut Gallery (18 Styles)
+          1. Inclusive Haircut Taxonomy (19 Styles)
         </button>
-        <button data-tab="timeline" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          2. Popularity Over Time (1970s–2026)
+        <button data-tab="matrix" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          2. Demographic &amp; Biotype Compatibility Matrix
         </button>
-        <button data-tab="demographics" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          3. Age × Gender × Race Matrix
+        <button data-tab="singstat" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          3. Official SingStat Population &amp; Aging (2016–2026)
         </button>
-        <button data-tab="macro" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
-          4. 10-Year Macro Volume (2016–2026)
+        <button data-tab="economics" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          4. SSIC 9602 Economics &amp; Verified Price Ladder
         </button>
       </div>
     </section>
 
-    <!-- TAB 1: Gallery -->
+    <!-- TAB 1: Qualitative Gallery -->
     <section id="tab-gallery" class="tab-panel space-y-4">
       <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--muted-foreground)]">
-        <span id="gallery-subtitle">Showing all 18 inclusive hairstyles sorted by focus-era popularity. Click any card to inspect its full 1970s–2026 curve.</span>
-        <div class="flex items-center gap-2">
-          <span>Sort by:</span>
-          <select id="sort-by" class="bg-[var(--card)] border border-[var(--border)] rounded-md px-2 py-1 text-[var(--foreground)]">
-            <option value="era_pct">Focus Era Popularity (%)</option>
-            <option value="adopters">2026 Active Adopters</option>
-            <option value="visits">2026 Annual Visits</option>
-            <option value="gtv">2026 Annual GTV (SGD)</option>
-            <option value="tau">Shortest Rebook Cycle (τ)</option>
-          </select>
-        </div>
+        <span id="gallery-subtitle">Showing all 19 inclusive archetypes with verified price bands and clinical/cultural notes. Click any card for biotype specs &amp; citations.</span>
       </div>
       <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
     </section>
 
-    <!-- TAB 2: Timeline -->
-    <section id="tab-timeline" class="tab-panel hidden space-y-4">
-      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 class="text-base font-semibold">Historical Popularity Trajectories Across 7 Eras (1970s–2026)</h2>
-            <p class="text-xs text-[var(--muted-foreground)]">Cohort popularity share (%) within eligible demographic segments. Hover points for exact figures; click legend items to toggle styles.</p>
-          </div>
-          <div class="flex gap-2 text-xs">
-            <button id="btn-top6" class="px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">Top 6 Rising/Peak</button>
-            <button id="btn-showall-lines" class="px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">All Filtered</button>
-          </div>
-        </div>
-        <div id="timeline-svg-wrap" class="w-full overflow-x-auto"></div>
-        <div id="timeline-legend" class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)] text-xs"></div>
-      </div>
-    </section>
-
-    <!-- TAB 3: Demographics Heatmap Matrix -->
-    <section id="tab-demographics" class="tab-panel hidden space-y-4">
+    <!-- TAB 2: Qualitative Eligibility Matrix -->
+    <section id="tab-matrix" class="tab-panel hidden space-y-4">
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
         <div>
-          <h2 class="text-base font-semibold">Demographic Inclusivity Matrix: Style × Age Cohort × Race × Gender</h2>
+          <h2 class="text-base font-semibold">Qualitative Compatibility Matrix: Age Cohort × Community / Biotype</h2>
           <p class="text-xs text-[var(--muted-foreground)]">
-            Cells show the style’s popularity share in the selected focus era (<span class="font-semibold text-[var(--foreground)]" id="matrix-era-name">2024-2026</span>) if that demographic slice is eligible, highlighting inclusive coverage across Malay/Muslimah, Indian/Sikh, Chinese, Caucasian, Eurasian, and Afro-Coiled communities.
+            Shows qualitative demographic applicability and structural hair-biotype / cultural drivers rather than unmeasured market share percentages. <span class="font-medium text-[var(--foreground)]">Fit</span> = documented primary cohort; <span class="font-medium text-[var(--foreground)]">—</span> = typically not applicable.
           </p>
         </div>
         <div id="matrix-table-wrap" class="overflow-x-auto scrollbar-thin"></div>
       </div>
     </section>
 
-    <!-- TAB 4: 10-Year Macro Volume -->
-    <section id="tab-macro" class="tab-panel hidden space-y-4">
+    <!-- TAB 3: Official SingStat Population & Aging -->
+    <section id="tab-singstat" class="tab-panel hidden space-y-4">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-          <h2 class="text-base font-semibold">10-Year Haircut Volume Trajectory (2016–2026)</h2>
+          <h2 class="text-base font-semibold">Singapore Population Trajectory (June 2016–June 2026, Verified)</h2>
           <p class="text-xs text-[var(--muted-foreground)]">
-            Derived from live SingStat TableBuilder (M810001 &amp; M810011) annual populations and Weibull frequency rates. Notice the 2020–2021 COVID dip and 2022–2026 surge (<code class="font-mono text-[var(--foreground)]">27.09M → 29.99M</code> Total; <code class="font-mono text-[var(--foreground)]">19.10M → 20.55M</code> Residents).
+            Official <strong class="text-[var(--foreground)]">Population in Brief / SingStat</strong> mid-year counts (millions): Total population dipped to 5.45M in 2021 before reaching 6.21M in June 2026 (3.68M Citizens, 0.55M PRs, 1.98M Non-Residents).
           </p>
-          <div id="macro-trend-svg" class="w-full overflow-x-auto"></div>
+          <div id="pop-chart-svg" class="w-full overflow-x-auto"></div>
         </div>
         <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-          <h2 class="text-base font-semibold">2026 Annual Visits vs. Market GTV (Top Styles)</h2>
+          <h2 class="text-base font-semibold">Super-Aged Transition (Residents 65+, 2016–2026) &amp; CMIO Split</h2>
           <p class="text-xs text-[var(--muted-foreground)]">
-            High-frequency cuts (<em>Skin Fade</em> 16d, <em>Two-Block</em> 24d) dominate visit volume, while chemical/layer services (<em>Butterfly Digital Perm</em>, <em>Hush Cut</em>) lead SGD revenue.
+            SingStat share of <strong class="text-[var(--foreground)]">Residents aged 65+</strong> rose from 12.4% (2016) to 19.5% (2026), while Citizens aged 65+ crossed 21.4% (UN super-aged threshold).
           </p>
-          <div id="macro-bar-svg" class="w-full overflow-x-auto"></div>
+          <div id="aging-chart-svg" class="w-full overflow-x-auto"></div>
+          <div id="cmio-bars" class="pt-3 border-t border-[var(--border)] space-y-2 text-xs"></div>
         </div>
       </div>
     </section>
 
-    <!-- Style Detail Modal -->
+    <!-- TAB 4: SSIC 9602 Economics & Verified Prices -->
+    <section id="tab-economics" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-4">
+          <h2 class="text-base font-semibold">Official SingStat Industry &amp; Household Benchmarks</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
+              <div class="text-[var(--muted-foreground)]">SSIC 9602 Revenue (2019 vs. Recent)</div>
+              <div class="text-base font-semibold tabular-nums mt-1">S$2.17B → ~S$3.38B</div>
+              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Includes Hairdressing (96021), Beauty/Spas (96022), Nails (96023), Massage (96024).</div>
+            </div>
+            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
+              <div class="text-[var(--muted-foreground)]">SSIC 9602 Corporate Establishments</div>
+              <div class="text-base font-semibold tabular-nums mt-1">11,241 Entities</div>
+              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">SingStat Services Survey structural aggregate (~33% growth over 5–6 yrs; labor 48%–57% of receipts).</div>
+            </div>
+            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
+              <div class="text-[var(--muted-foreground)]">HES 2023 Monthly Household Spend</div>
+              <div class="text-base font-semibold tabular-nums mt-1">S$5,931 / month</div>
+              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Up from S$5,163 (2017/18); hairdressing sits inside <em>Miscellaneous Goods &amp; Services</em>.</div>
+            </div>
+            <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3">
+              <div class="text-[var(--muted-foreground)]">Observed General Cut Cadence</div>
+              <div class="text-base font-semibold tabular-nums mt-1">Men 2–4w • Women 8–16w</div>
+              <div class="text-[11px] text-[var(--muted-foreground)] mt-1">Local salon norms; shorter 2–3w for skin fades, longer 8–16w for medium/long trims.</div>
+            </div>
+          </div>
+          <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-3 text-xs space-y-1.5">
+            <div class="font-semibold">What Public Data Does NOT Measure (Excluded by Design)</div>
+            <ul class="list-disc pl-4 text-[var(--muted-foreground)] space-y-1">
+              <li>SingStat does not separate standalone haircut revenue from broader SSIC 9602 beauty/spa receipts.</li>
+              <li>No national census or HES table tracks historical market shares (%) for specific style names (e.g., Hush vs. Butterfly vs. Two-Block).</li>
+              <li>Census 2020 confirms 12,051 resident Sikhs aged 15+ (~12k–15k all ages), validating Sikh <em>Kesh</em> community presence without inventing visit counts.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <h2 class="text-base font-semibold">Verified Singapore Haircut &amp; Service Price Ladder (2025–2026)</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            Observed retail price bands across published SG salon menus and express chains (SGD, range bars from min to max published tier).
+          </p>
+          <div id="price-ladder-wrap" class="space-y-2.5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detail Modal -->
     <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-2xl w-full p-5 space-y-4 shadow-xl">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-xl w-full p-5 space-y-4 shadow-xl">
         <div class="flex items-start justify-between gap-3">
           <div>
             <span id="modal-id" class="text-xs font-mono text-[var(--primary)]"></span>
-            <h3 id="modal-title" class="text-lg font-semibold"></h3>
+            <h3 id="modal-title" class="text-lg font-semibold mt-0.5"></h3>
           </div>
           <button id="modal-close" class="text-xs px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">Close</button>
         </div>
         <p id="modal-context" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
-        <div id="modal-chart" class="w-full"></div>
-        <div id="modal-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs"></div>
+        <div id="modal-specs" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs"></div>
+        <div id="modal-source" class="text-xs pt-2 border-t border-[var(--border)]"></div>
       </div>
     </div>
 
   </div>
 
   <script>
-    const ERAS = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020-2023", "2024-2026"];
     const CHART_COLORS = [
       "var(--chart-1, #3b82f6)",
       "var(--chart-2, #10b981)",
       "var(--chart-3, #f59e0b)",
       "var(--chart-4, #ec4899)",
       "var(--chart-5, #8b5cf6)",
-      "var(--chart-6, #06b6d4)",
-      "#ef4444",
-      "#84cc16",
-      "#f97316",
-      "#14b8a6"
+      "#06b6d4",
+      "#f97316"
     ];
 
+    // 19 Inclusive Qualitative Archetypes (Verified attributes & price bands only; zero synthetic % or headcounts)
     const STYLES = [
-      {id:"H01", name:"Korean Two-Block + Side Down Perm", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian","eurasian"], tau:24, eras:[0,0,1,3,18,34,38], adopters:211862, visits:3222421, ticket:48, gtv:154676208, trends:94, ctx:"Dominant SG male office & Gen-Z cut; solves 78μm East Asian porcupine ear-sticking via thioglycolate side down-perm.", icon:"twoblock"},
-      {id:"H02", name:"Low/Mid Skin Fade + Textured French Crop", gender:"male", age_groups:["13-24","25-44","45-64"], races:["malay","indian","chinese","caucasian","afro"], tau:16, eras:[2,3,5,8,22,29,31], adopters:265351, visits:6052656, ticket:32, gtv:193684992, trends:91, ctx:"High-humidity champ & Norwood II–IV temple concealer; popularized by Malay/Indian master barbers.", icon:"fade"},
-      {id:"H03", name:"Korean Hush Cut (Soft Feather Layers + Airy Bangs)", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","eurasian"], tau:44, eras:[0,0,2,4,8,24,39], adopters:353931, visits:2937627, ticket:68, gtv:199758636, trends:98, ctx:"#1 requested women's style in SG (2024–2026); seamless internal weight removal prevents triangle bulk in 82% RH.", icon:"hush"},
-      {id:"H04", name:"Butterfly Cut + C/S-Curl Digital Perm", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","caucasian"], tau:48, eras:[0,0,3,6,19,31,33], adopters:296329, visits:2252100, ticket:145, gtv:326554500, trends:89, ctx:"Two-tier crown + collarbone layering paired with Korean S-curl digital perm for low-maintenance daily volume.", icon:"butterfly"},
-      {id:"H05", name:"Unisex Wolf Cut / Modern Faded or Permed Mullet", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian","caucasian","eurasian"], tau:28, eras:[4,14,3,2,3,18,22], adopters:251590, visits:3280734, ticket:45, gtv:147633030, trends:82, ctx:"Gen-Z expressive staple across Bugis/Haji Lane & polytechnics; short crown shag with tapered sides and nape.", icon:"wolf"},
-      {id:"H06", name:"Muslimah Hijab-Under-Cap Breathable Bob/Lob + Sah-Solat", gender:"female", age_groups:["13-24","25-44","45-64","65+"], races:["malay","indian"], tau:38, eras:[8,12,18,24,29,34,37], adopters:97002, visits:932189, ticket:62, gtv:57795718, trends:86, ctx:"Engineered at ladies-only suites (Karva, Pearlista) to prevent tudung bun traction alopecia and trap less scalp heat.", icon:"hijab"},
-      {id:"H07", name:"Postpartum Blunt-Perimeter Lob + Curtain Fringe", gender:"female", age_groups:["25-44"], races:["chinese","malay","indian","caucasian","eurasian"], tau:32, eras:[5,7,10,14,21,27,30], adopters:8959, visits:102222, ticket:58, gtv:5928876, trends:77, ctx:"Clinical choice for Months 3–9 Postpartum Telogen Effluvium; removes gravitational pull and conceals temple regrowth.", icon:"lob"},
-      {id:"H08", name:"SAF BMT No. 1 Buzz Cut (0–1 Guard Tekong Standard)", gender:"male", age_groups:["13-24"], races:["chinese","malay","indian","eurasian"], tau:14, eras:[24,22,20,19,18,17,17], adopters:27606, visits:719688, ticket:10, gtv:7196880, trends:65, ctx:"Mandatory Singapore National Service enlistment rite of passage since 1967; constant demographic floor among 18–20yo males.", icon:"buzz"},
-      {id:"H09", name:"MOE Schoolboy High-Slope Taper & Schoolgirl Collar Bob", gender:"unisex", age_groups:["0-12","13-24"], races:["chinese","malay","indian","eurasian"], tau:21, eras:[38,35,32,29,26,24,23], adopters:140765, visits:2446496, ticket:12, gtv:29357952, trends:72, ctx:"Grounded in 1970s MOE discipline rules ('above collar, off ears, above eyebrow'); staple of S$6–S$12 HDB barbers.", icon:"school"},
-      {id:"H10", name:"1970s Classic Short Back & Sides ('Operation Snip Snip')", gender:"male", age_groups:["25-44","45-64","65+"], races:["chinese","malay","indian","eurasian"], tau:25, eras:[68,46,31,22,16,13,12], adopters:103056, visits:1504618, ticket:10, gtv:15046180, trends:48, ctx:"Enforced during SG's 1970–1976 anti-long-hair campaign ('Males with long hair attended to last'); still favored by seniors.", icon:"shortback"},
-      {id:"H11", name:"1990s 'Aaron Kwok' 60/40 Curtain Flow Revival", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], tau:30, eras:[2,6,48,14,6,22,25], adopters:134551, visits:1637486, ticket:42, gtv:68774412, trends:79, ctx:"Dominated 1990s SG Mandopop era, crashed in 2000s, and surged back in 2021–2026 as the K-pop Comma/Curtain revival.", icon:"curtain"},
-      {id:"H12", name:"2000s J-Rock / F4 Spiky Mullet & Pin Rebonding", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], tau:28, eras:[0,2,12,54,15,5,4], adopters:40386, visits:526633, ticket:55, gtv:28964815, trends:22, ctx:"Defined 2000–2009 Far East Plaza youth culture: aggressive feather-razor spikes for men, pin-straight rebonding for women.", icon:"spiky"},
-      {id:"H13", name:"2010s Hipster Slick-Back Pompadour + Straight-Razor Beard", gender:"male", age_groups:["25-44","45-64"], races:["chinese","malay","indian","caucasian","eurasian"], tau:19, eras:[3,4,4,7,44,19,14], adopters:91215, visits:1752240, ticket:52, gtv:91116480, trends:54, ctx:"Sparked Singapore's 2013–2019 gentleman barbershop boom (Sultans of Shave, Hounds of the Baskervilles).", icon:"pomp"},
-      {id:"H14", name:"Rëzo / Deva Dry Curl-by-Curl Sculpted Halo (Type 2B–4C)", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64"], races:["indian","malay","caucasian","afro","eurasian"], tau:52, eras:[2,3,4,6,12,24,32], adopters:168486, visits:1182772, ticket:118, gtv:139567096, trends:84, ctx:"Dry coil-by-coil apex cutting (Hera, Curlyland) respecting 15–48% wet-to-dry curl shrinkage without thinning-shear frizz.", icon:"curly"},
-      {id:"H15", name:"Protective Cornrows, Box Braids, Twists & Dreadlocs", gender:"unisex", age_groups:["13-24","25-44","45-64"], races:["afro","indian","malay","eurasian"], tau:42, eras:[1,2,3,5,8,14,18], adopters:74937, visits:651203, ticket:95, gtv:61864285, trends:68, ctx:"Serves Singapore's Afro-textured & street-culture communities; focuses on root tension control to prevent traction alopecia.", icon:"braids"},
-      {id:"H16", name:"Sikh Unshorn Sacred Kesh (Jura + Dastar/Patka Care)", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["indian"], tau:60, eras:[100,100,100,100,100,100,100], adopters:11000, visits:66880, ticket:28, gtv:1872640, trends:75, ctx:"Khalsa article of faith (~12,500 SG Sikhs); emphasizes wooden Kangha detangling, anti-traction Jura placement, and scalp care.", icon:"kesh"},
-      {id:"H17", name:"Heartland Senior 'Ah Ma' Cold-Wave Roller Perm", gender:"female", age_groups:["65+"], races:["chinese","malay","indian","eurasian"], tau:56, eras:[42,55,49,44,39,36,35], adopters:85611, visits:558184, ticket:38, gtv:21210992, trends:70, ctx:"Staple of HDB void-deck salons (Toa Payoh, AMK, Bedok); tight cold-wave curls mask age-related Ludwig vertex thinning for 8+ weeks.", icon:"ahma"},
-      {id:"H18", name:"Infant Ceremonial First Shave (Man Yue / Cukur Jambul / Mundan)", gender:"unisex", age_groups:["0-12"], races:["chinese","malay","indian"], tau:35, eras:[78,74,68,62,58,55,54], adopters:16127, visits:168205, ticket:28, gtv:4709740, trends:64, ctx:"Multicultural SG birth ritual (Day 7–44 Malay, Day 30 Chinese, Mo 4–36 Hindu); coincides with 8–12wk neonatal telogen shedding.", icon:"infant"}
+      {id:"H19", name:"Everyday Express & Classic Functional Trim", category:"Express / Everyday", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["chinese","malay","indian","caucasian","eurasian","afro"], price:"S$6.80–S$18", cadence:"Men 2–4 wks • Women 8–16 wks", biotype:"All shafts (straight to coiled); 10-min dry cut or basic wash/trim", ctx:"Utilitarian daily baseline missing from trend lists: Snip Avenue (S$6.80–S$10), kcuts (S$14–S$15), QB House (S$18, Kids <7y S$25), and neighbourhood unisex barbers.", srcLabel:"QB House / kcuts / Snip Avenue published pricing", srcUrl:"https://www.k-cuts.com/", icon:"everyday"},
+      {id:"H01", name:"Korean Two-Block + Side Down Perm", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian","eurasian"], price:"S$45–S$75 cut (+ down perm)", cadence:"3–4 wks trim • 6–8 wks perm", biotype:"Coarse round East Asian shafts (mitigates side ear-sticking)", ctx:"Disconnected short sides/nape with fuller layered crown; Korean salons frequently pair with chemical side down-perm so stiff Asian side hair lies flat.", srcLabel:"Korean salon SG guides (Platinum Cutz / Head Editor)", srcUrl:"https://platinumcutz.sg/blog/korean-hairstyle-men-singapore", icon:"twoblock"},
+      {id:"H02", name:"Low/Mid Skin Fade + Textured French Crop", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44","45-64"], races:["malay","indian","chinese","caucasian","afro"], price:"S$25–S$55 (modern barber)", cadence:"2–3 wks fade upkeep", biotype:"All textures; short clipped nape improves heat/humidity comfort", ctx:"High-ventilation tropical cut popular across modern Singapore barbershops; short textured fringe balances crown texture while skin taper keeps neck cool.", srcLabel:"SG Barbershop Guides (Orange & Teal / Make The Cut)", srcUrl:"https://orangeandteal.sg/gen-z-haircuts-singapore/", icon:"fade"},
+      {id:"H03", name:"Korean Hush Cut (Soft Feather Layers + Airy Bangs)", category:"Trend / Layered", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","eurasian"], price:"S$55–S$90+ (Korean/mall salon)", cadence:"8–12 wks shape trim", biotype:"Fine-to-thick straight/wavy; internal debulking reduces heavy triangle bulk", ctx:"Seamless face-framing internal layering without harsh steps; local stylists note anti-frizz serum helps hold feathery tips in SG outdoor humidity.", srcLabel:"Miin Hair SG / Chez Vous Hair", srcUrl:"https://miinhair.com/sg/blog/hush-cut", icon:"hush"},
+      {id:"H04", name:"Butterfly Cut + C/S-Curl Digital Perm", category:"Trend / Layered", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","caucasian"], price:"S$55–S$90 cut • S$250–S$438 perm", cadence:"10–16 wks trim • 4–6 mo perm", biotype:"Medium-to-long straight/wavy; large-barrel waves resist flat humidity droop", ctx:"Two-tier chin-to-collarbone layers giving short-cut volume around the face with long cascading length, commonly bundled with Korean setting/digital perms.", srcLabel:"Chez Vous / You Are My Sunshine / J. Seoul pricing", srcUrl:"https://chezvoushair.com/korean-perm-hair-trends/", icon:"butterfly"},
+      {id:"H05", name:"Unisex Wolf Cut / Modern Shag & Mullet", category:"Trend / Layered", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$40–S$75+", cadence:"4–8 wks shape reset", biotype:"Wavy & textured shafts; messy piecey finish tolerates humidity", ctx:"Hybrid of 1970s shag crown volume and tapered mullet length; suited to tropical wind/humidity because natural texture reinforces the cut.", srcLabel:"Orange & Teal SG style guide", srcUrl:"https://orangeandteal.sg/mullet-men-singapore/", icon:"wolf"},
+      {id:"H06", name:"Muslimah Hijab-Under-Cap Breathable Bob/Lob + Sah-Solat", category:"Cultural / Modest", gender:"female", age_groups:["13-24","25-44","45-64","65+"], races:["malay","indian"], price:"S$35–S$85 (private salon suite)", cadence:"8–12 wks cut + scalp care", biotype:"Wavy/coiled under tudung; reduces bun tension and moisture trap", ctx:"Delivered in screened ladies-only rooms/suites (e.g., Karva, Pearlista) with water-permeable (Sah-Solat) scalp care and lighter chin/lob bulk to prevent tudung traction.", srcLabel:"TopSecret SG Muslimah Salon Directory", srcUrl:"https://topsecret.com.sg/blogs/haircare/top-10-muslimah-friendly-hair-salons-in-singapore", icon:"hijab"},
+      {id:"H07", name:"Postpartum Blunt Collarbone Lob + Curtain Fringe", category:"Clinical / Scalp Care", gender:"female", age_groups:["25-44"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$35–S$70+ (mall/salon)", cadence:"8–12 wks trim", biotype:"Postpartum telogen shedding (~Months 3–6); blunt ends preserve visual fullness", ctx:"Clinical styling strategy to minimize detangling traction and conceal temporary temple shedding with soft curtain bangs as new baby hairs grow out.", srcLabel:"Clinical Telogen Effluvium haircare guidance", srcUrl:"https://www.herabeauty.sg/", icon:"lob"},
+      {id:"H08", name:"SAF BMT No. 1 Buzz Cut (0–1 Guard Tekong Standard)", category:"Institutional / Rite", gender:"male", age_groups:["13-24"], races:["chinese","malay","indian","eurasian"], price:"S$2–S$12 (camp / HDB barber)", cadence:"2 wks camp inspection", biotype:"All textures; uniform short guard minimizes helmet/beret sweat", ctx:"Enlistment requirement for Full-Time National Servicemen entering Basic Military Training on Pulau Tekong.", srcLabel:"SAF BMT / r/NationalServiceSG guidelines", srcUrl:"https://www.reddit.com/r/NationalServiceSG/comments/dtdhqi/approved_haircuts_after_bmt/", icon:"buzz"},
+      {id:"H09", name:"MOE Schoolboy Taper & Schoolgirl Collar Bob", category:"Institutional / Rite", gender:"unisex", age_groups:["0-12","13-24"], races:["chinese","malay","indian","eurasian"], price:"S$8–S$18 (HDB / Express)", cadence:"3–5 wks (boys) • 8–12 wks (girls)", biotype:"All textures; disciplined perimeter above collar, ears, and brows", ctx:"Reflects primary and secondary school neatness rules (sloped back/sides, tied or above-collar hair, no dyeing) served predominantly by heartland & express outlets.", srcLabel:"MOE school rules & Singapore heritage records", srcUrl:"https://remembersingapore.org/2013/01/18/singapore-campaigns-of-the-past/", icon:"school"},
+      {id:"H10", name:"Heritage Short Back & Sides ('Operation Snip Snip' Lineage)", category:"Institutional / Rite", gender:"male", age_groups:["25-44","45-64","65+"], races:["chinese","malay","indian","eurasian"], price:"S$8–S$15 (HDB / traditional barber)", cadence:"3–4 wks trim", biotype:"Clean scissor-over-comb taper suited to all straight/wavy shafts", ctx:"Historical Singapore baseline formalized during the 1972 Ministry of Home Affairs anti-long-hair campaign ('males with long hair attended to last'); enduring preference among older generations.", srcLabel:"NLB / Remember Singapore historical archives", srcUrl:"https://remembersingapore.org/2013/01/18/singapore-campaigns-of-the-past/", icon:"shortback"},
+      {id:"H11", name:"1990s 'Aaron Kwok' 60/40 Curtain Flow Revival", category:"Trend / Layered", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], price:"S$35–S$70", cadence:"4–6 wks layering", biotype:"Straight-to-wavy medium length; side sweep softens broad forehead", ctx:"Iconic 1990s East/Southeast Asian center-or-60/40 parted fringe revived in the 2020s as the K-pop 'Comma' and middle-part curtain cut.", srcLabel:"Platinum Cutz SG Men's Style Guide", srcUrl:"https://platinumcutz.sg/blog/korean-hairstyle-men-singapore", icon:"curtain"},
+      {id:"H12", name:"2000s J-Rock / F4 Razor-Textured Spikes & Straight Rebonding", category:"Trend / Layered", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], price:"S$45–S$200+ (with chemical rebonding)", cadence:"4–8 wks cut / 6–9 mo rebond", biotype:"Heavy razor texturizing or thermal straightening; higher cuticle stress", ctx:"Retro 2000s Far East Plaza aesthetic (Gatsby wax spikes for men; pin-straight rebonding for women), today largely displaced by softer internal layering and C-curls.", srcLabel:"Chez Vous Hair retrospective", srcUrl:"https://chezvoushair.com/most-searched-hair-trends-on-tiktok-you-must-not-try-instead-try-these-alternatives/", icon:"spiky"},
+      {id:"H13", name:"2010s Classic Undercut Pompadour + Straight-Razor Beard", category:"Trend / Layered", gender:"male", age_groups:["25-44","45-64"], races:["chinese","malay","indian","caucasian","eurasian"], price:"S$45–S$85 (gentleman barbershop)", cadence:"2–4 wks cut + beard line-up", biotype:"Oval/round shafts styled with matte clay or oil pomade against humidity", ctx:"Anchored Singapore's 2010s heritage barber revival (Sultans of Shave, Hounds of the Baskervilles) combining sharp temple tapers, crown length, and wet-shave grooming.", srcLabel:"Sultans of Shave service menu", srcUrl:"https://sultansofshave.com/", icon:"pomp"},
+      {id:"H14", name:"Rëzo / Deva Dry Curl-by-Curl Sculpted Halo (Type 2B–4C)", category:"Clinical / Scalp Care", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64"], races:["indian","malay","caucasian","afro","eurasian"], price:"S$90–S$160+ (curl specialist)", cadence:"8–14 wks dry shaping", biotype:"Elliptical & curved follicles (PMC6894537); moisture causes coil shrinkage", ctx:"Cut dry curl-by-curl without thinning shears so natural bounce and variable wet-to-dry shrinkage are preserved instead of creating frizzy bulk.", srcLabel:"Hera Beauty Curl Studio / PMC6894537 biophysics", srcUrl:"https://www.herabeauty.sg/curly-hair-salon-singapore/", icon:"curly"},
+      {id:"H15", name:"Protective Cornrows, Box Braids, Twists & Loc Maintenance", category:"Clinical / Scalp Care", gender:"unisex", age_groups:["13-24","25-44","45-64"], races:["afro","indian","malay","eurasian"], price:"S$80–S$250+ (specialist studio)", cadence:"6–10 wks takedown / retwist", biotype:"High-curvature coiled hair; low-tension parting protects marginal follicles", ctx:"Protective low-manipulation styles designed to lock moisture and reduce daily breakage while monitoring root tension to prevent traction alopecia.", srcLabel:"PMC6894537 Curly Hair Structural Review", srcUrl:"https://pmc.ncbi.nlm.nih.gov/articles/PMC6894537/", icon:"braids"},
+      {id:"H16", name:"Sikh Unshorn Sacred Kesh (Jura + Dastar / Patka Care)", category:"Cultural / Modest", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["indian"], price:"Home care / specialist beard & scalp", cadence:"Daily Kangha combing + wash", biotype:"Unshorn full-length hair (Census 2020: 12,051 resident Sikhs aged 15+)", ctx:"Khalsa article of faith where hair remains uncut; grooming centers on wooden Kangha detangling, loose Jura topknot placement to avoid frontal traction, and scalp airflow under turban/patka.", srcLabel:"SingStat Census 2020 / Harmony Circle SG", srcUrl:"https://www.harmonycircle.sg/resources/baby-birth/", icon:"kesh"},
+      {id:"H17", name:"Heartland Senior 'Ah Ma' Cold-Wave Roller Perm", category:"Cultural / Modest", gender:"female", age_groups:["65+"], races:["chinese","malay","indian","eurasian"], price:"S$30–S$60 (HDB void-deck salon)", cadence:"8–12 wks set/perm cycle", biotype:"Fine thinning senior hair; tight cold-wave curls create lift at vertex", ctx:"Long-standing staple of HDB heartland salons serving Singapore's rapidly growing 65+ resident cohort (19.5% in 2026) with compact, low-effort crown volume.", srcLabel:"PIB 2026 Senior Demographics / Bishan AGA study", srcUrl:"https://www.singstat.gov.sg", icon:"ahma"},
+      {id:"H18", name:"Infant Ceremonial First Shave (Man Yue / Cukur Jambul / Mundan)", category:"Institutional / Rite", gender:"unisex", age_groups:["0-12"], races:["chinese","malay","indian"], price:"Family rite or S$25–S$48 mobile", cadence:"One-time cultural milestone", biotype:"Fine infant hair undergoing normal 8–12 wk neonatal occipital telogen shift", ctx:"Shared multicultural Singapore newborn milestone across Chinese (Day 30 Full Moon), Malay (Day 7–44 Cukur Jambul), and Hindu (Months 4–36 Mundan) families.", srcLabel:"Harmony Circle SG / Mummy Baby Care", srcUrl:"https://mummybabycare.com.sg/baby-first-haircut-singapore/", icon:"infant"}
     ];
 
-    const MACRO_10YR = [
-      {yr:"2016", cit:16.56, res:19.10, tot:27.09, age65:12.40},
-      {yr:"2017", cit:16.70, res:19.26, tot:27.11, age65:13.03},
-      {yr:"2018", cit:16.86, res:19.40, tot:27.24, age65:13.72},
-      {yr:"2019", cit:17.00, res:19.55, tot:27.55, age65:14.45},
-      {yr:"2020", cit:17.11, res:19.64, tot:27.47, age65:15.19},
-      {yr:"2021", cit:16.99, res:19.36, tot:26.35, age65:16.03},
-      {yr:"2022", cit:17.26, res:19.78, tot:27.23, age65:16.65},
-      {yr:"2023", cit:17.54, res:20.15, tot:28.59, age65:17.30},
-      {yr:"2024", cit:17.66, res:20.30, tot:29.17, age65:18.03},
-      {yr:"2025", cit:17.78, res:20.42, tot:29.52, age65:18.78},
-      {yr:"2026", cit:17.90, res:20.55, tot:29.99, age65:19.50}
+    // Verified Population in Brief / SingStat June mid-year series (2016–2026)
+    const PIB_SERIES = [
+      {yr:"2016", tot:5.61, res:3.93, cit:3.41, age65:12.4},
+      {yr:"2017", tot:5.61, res:3.97, cit:3.44, age65:13.0},
+      {yr:"2018", tot:5.64, res:4.00, cit:3.47, age65:13.7},
+      {yr:"2019", tot:5.70, res:4.03, cit:3.50, age65:14.4},
+      {yr:"2020", tot:5.69, res:4.04, cit:3.52, age65:15.2},
+      {yr:"2021", tot:5.45, res:3.99, cit:3.50, age65:16.0},
+      {yr:"2022", tot:5.64, res:4.07, cit:3.55, age65:16.6},
+      {yr:"2023", tot:5.92, res:4.15, cit:3.61, age65:17.3},
+      {yr:"2024", tot:6.04, res:4.18, cit:3.64, age65:18.0},
+      {yr:"2025", tot:6.11, res:4.20, cit:3.66, age65:18.8},
+      {yr:"2026", tot:6.21, res:4.23, cit:3.68, age65:19.5}
     ];
 
-    // Custom minimalist SVG haircut silhouette generator
+    const CMIO_2026 = [
+      {label:"Chinese", pct:73.9, col:CHART_COLORS[0]},
+      {label:"Malay", pct:13.5, col:CHART_COLORS[1]},
+      {label:"Indian", pct:9.0, col:CHART_COLORS[2]},
+      {label:"Others (incl. Caucasian, Eurasian, etc.)", pct:3.6, col:CHART_COLORS[4]}
+    ];
+
+    const PRICE_LADDER = [
+      {label:"Snip Avenue (Basic Cut)", min:6.8, max:15, note:"Budget full-service heartland chain"},
+      {label:"HDB / Traditional Barber", min:8, max:15, note:"Unisex / uncle neighborhood trims"},
+      {label:"kcuts Express (10-min)", min:14, max:15, note:"Flat-rate automated kiosk & air wash"},
+      {label:"QB House Express", min:18, max:25, note:"S$18 adult; S$25 kids <7y at selected outlets"},
+      {label:"Modern Fade Barbershop", min:25, max:55, note:"Skin fade, crop, consultation"},
+      {label:"Mall / Neighborhood Ladies Cut", min:35, max:70, note:"Includes wash & blow-dry"},
+      {label:"Korean Salon (Men Ala-Carte)", min:45, max:75, note:"Two-block & styling cut"},
+      {label:"Korean Salon (Ladies Ala-Carte)", min:55, max:90, note:"Hush / Butterfly (higher for Directors)"},
+      {label:"Korean Digital Perm (Setting)", min:250, max:438, note:"S$258–358 short/med; S$330–438 long"}
+    ];
+
     function hairSVG(icon, colorIdx = 0) {
       const accent = CHART_COLORS[colorIdx % CHART_COLORS.length];
       const baseHead = `<circle cx="32" cy="36" r="14" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.55"/>`;
       let hair = "";
       switch (icon) {
+        case "everyday":
+          hair = `<path d="M18 33 C19 19, 45 19, 46 33 L44 26 L20 26 Z" fill="${accent}" opacity="0.8"/><path d="M46 16 L54 24 M54 16 L46 24" stroke="${accent}" stroke-width="1.8" stroke-linecap="round"/>`;
+          break;
         case "twoblock":
           hair = `<path d="M18 33 C17 18, 47 18, 46 33 L43 31 L38 28 L33 32 L26 28 L21 31 Z" fill="${accent}" opacity="0.88"/><path d="M18 33 L18 39 M46 33 L46 39" stroke="${accent}" stroke-width="2" opacity="0.5"/>`;
           break;
@@ -319,16 +368,7 @@
       return `<svg viewBox="0 0 64 64" class="w-14 h-14 shrink-0 text-[var(--foreground)]">${baseHead}${hair}</svg>`;
     }
 
-    const state = {
-      gender: "all",
-      age: "all",
-      race: "all",
-      eraIdx: 6,
-      sortBy: "era_pct",
-      activeTab: "gallery",
-      hiddenLines: new Set(),
-      onlyTop6: false,
-    };
+    const state = { gender: "all", age: "all", race: "all", cat: "all", activeTab: "gallery" };
 
     function getFilteredStyles() {
       return STYLES.filter(s => {
@@ -338,81 +378,40 @@
         }
         if (state.age !== "all" && !s.age_groups.includes(state.age)) return false;
         if (state.race !== "all" && !s.races.includes(state.race)) return false;
+        if (state.cat !== "all" && s.category !== state.cat) return false;
         return true;
       });
     }
 
-    function fmtNum(n) {
-      if (n >= 1e9) return "S$" + (n / 1e9).toFixed(2) + "B";
-      if (n >= 1e6) return (n / 1e6).toFixed(2) + "M";
-      if (n >= 1e3) return (n / 1e3).toFixed(1) + "k";
-      return String(n);
-    }
-
-    function sparklineSVG(eras, idx) {
-      const w = 120, h = 28, pad = 3;
-      const max = Math.max(100, ...eras);
-      const pts = eras.map((v, i) => {
-        const x = pad + (i / 6) * (w - 2 * pad);
-        const y = h - pad - (v / max) * (h - 2 * pad);
-        return `${x.toFixed(1)},${y.toFixed(1)}`;
-      }).join(" ");
-      const cx = pad + (state.eraIdx / 6) * (w - 2 * pad);
-      const cy = h - pad - (eras[state.eraIdx] / max) * (h - 2 * pad);
-      const col = CHART_COLORS[idx % CHART_COLORS.length];
-      return `<svg viewBox="0 0 ${w} ${h}" class="w-28 h-7">
-        <polyline fill="none" stroke="${col}" stroke-width="2" points="${pts}" />
-        <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="3.2" fill="${col}" />
-      </svg>`;
-    }
-
     function renderAll() {
       const list = getFilteredStyles();
-      document.getElementById("era-label").textContent = ERAS[state.eraIdx];
-      document.getElementById("matrix-era-name").textContent = ERAS[state.eraIdx];
-
-      const totVisits = list.reduce((a, b) => a + b.visits, 0);
-      const totGTV = list.reduce((a, b) => a + b.gtv, 0);
-      document.getElementById("kpi-visits").textContent = (totVisits / 1e6).toFixed(2) + "M";
-      document.getElementById("kpi-gtv").textContent = totGTV >= 1e9 ? "S$" + (totGTV / 1e9).toFixed(2) + "B" : "S$" + (totGTV / 1e6).toFixed(1) + "M";
       document.getElementById("kpi-count").textContent = `${list.length} / ${STYLES.length}`;
-
       renderGallery(list);
-      renderTimeline(list);
       renderMatrix(list);
-      renderMacro(list);
+      renderSingStat();
+      renderEconomics();
     }
 
     function renderGallery(list) {
-      const sorted = [...list].sort((a, b) => {
-        if (state.sortBy === "era_pct") return b.eras[state.eraIdx] - a.eras[state.eraIdx];
-        if (state.sortBy === "adopters") return b.adopters - a.adopters;
-        if (state.sortBy === "visits") return b.visits - a.visits;
-        if (state.sortBy === "gtv") return b.gtv - a.gtv;
-        return a.tau - b.tau;
-      });
       const grid = document.getElementById("gallery-grid");
       document.getElementById("gallery-subtitle").textContent =
-        `Showing ${sorted.length} of 18 inclusive hairstyles for ${ERAS[state.eraIdx]}. Click any card for full era breakdown.`;
+        `Showing ${list.length} of ${STYLES.length} inclusive archetypes. Click any card for biotype notes & citation.`;
 
-      if (!sorted.length) {
-        grid.innerHTML = `<div class="col-span-full bg-[var(--card)] border border-[var(--border)] rounded-xl p-8 text-center text-sm text-[var(--muted-foreground)]">No canonical style matches that exact filter intersection. Try widening one filter.</div>`;
+      if (!list.length) {
+        grid.innerHTML = `<div class="col-span-full bg-[var(--card)] border border-[var(--border)] rounded-xl p-8 text-center text-sm text-[var(--muted-foreground)]">No archetype matches all selected filters. Try resetting one filter.</div>`;
         return;
       }
 
-      grid.innerHTML = sorted.map((s, i) => {
-        const pct = s.eras[state.eraIdx];
-        const col = CHART_COLORS[i % CHART_COLORS.length];
-        return `
+      grid.innerHTML = list.map((s, i) => `
         <div onclick="openModal('${s.id}')" class="cursor-pointer bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] rounded-xl p-4 flex flex-col justify-between gap-3 transition">
           <div class="flex items-start gap-3">
             <div class="p-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)]">
               ${hairSVG(s.icon, i)}
             </div>
             <div class="min-w-0 flex-1">
-              <div class="flex items-center justify-between gap-2">
+              <div class="flex flex-wrap items-center justify-between gap-1.5">
                 <span class="text-[11px] font-mono text-[var(--muted-foreground)]">${s.id} • ${s.gender.toUpperCase()}</span>
-                <span class="text-xs font-semibold tabular-nums px-2 py-0.5 rounded-full bg-[var(--secondary)]">${pct}% share</span>
+                <span class="text-[11px] px-2 py-0.5 rounded-full bg-[var(--secondary)] text-[var(--foreground)]">${s.category}</span>
               </div>
               <h3 class="text-sm font-semibold leading-snug mt-1">${s.name}</h3>
             </div>
@@ -420,236 +419,164 @@
 
           <p class="text-xs text-[var(--muted-foreground)] line-clamp-2">${s.ctx}</p>
 
-          <div class="space-y-1.5">
-            <div class="w-full h-1.5 rounded-full bg-[var(--secondary)] overflow-hidden">
-              <div class="h-full rounded-full" style="width:${pct}%; background:${col}"></div>
+          <div class="pt-2 border-t border-[var(--border)] text-xs space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[var(--muted-foreground)]">Observed SG Price</span>
+              <span class="font-semibold tabular-nums">${s.price}</span>
             </div>
-            <div class="flex flex-wrap gap-1 text-[11px]">
-              ${s.age_groups.map(a => `<span class="px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)]">${a}</span>`).join("")}
-              ${s.races.map(r => `<span class="px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)] text-[var(--muted-foreground)]">${r}</span>`).join("")}
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[var(--muted-foreground)]">Typical Cadence</span>
+              <span class="font-medium">${s.cadence}</span>
+            </div>
+            <div class="flex flex-wrap gap-1 pt-0.5">
+              ${s.age_groups.map(a => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)]">${a}</span>`).join("")}
+              ${s.races.map(r => `<span class="text-[10px] px-1.5 py-0.5 rounded bg-[var(--secondary)] capitalize">${r}</span>`).join("")}
             </div>
           </div>
-
-          <div class="pt-2 border-t border-[var(--border)] flex items-center justify-between text-xs tabular-nums">
-            <div>
-              <div class="font-medium">${fmtNum(s.adopters)} adopters • ${fmtNum(s.visits)} visits/yr</div>
-              <div class="text-[11px] text-[var(--muted-foreground)]">τ = ${s.tau}d • Avg S$${s.ticket} • Trends ${s.trends}</div>
-            </div>
-            ${sparklineSVG(s.eras, i)}
-          </div>
-        </div>`;
-      }).join("");
-    }
-
-    function renderTimeline(list) {
-      let plotList = [...list].sort((a, b) => b.eras[state.eraIdx] - a.eras[state.eraIdx]);
-      if (state.onlyTop6) plotList = plotList.slice(0, 6);
-
-      const W = 820, H = 360, ml = 46, mr = 24, mt = 20, mb = 36;
-      const pw = W - ml - mr, ph = H - mt - mb;
-      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full min-w-[620px] h-auto text-xs">`;
-
-      // Grid lines
-      [0, 20, 40, 60, 80, 100].forEach(val => {
-        const y = mt + ph - (val / 100) * ph;
-        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
-        svg += `<text x="${ml - 8}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${val}%</text>`;
-      });
-
-      // X labels & focus marker
-      ERAS.forEach((era, i) => {
-        const x = ml + (i / 6) * pw;
-        if (i === state.eraIdx) {
-          svg += `<line x1="${x}" y1="${mt}" x2="${x}" y2="${H - mb}" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
-        }
-        svg += `<text x="${x}" y="${H - 12}" text-anchor="middle" fill="${i === state.eraIdx ? 'var(--primary)' : 'var(--muted-foreground)'}" font-weight="${i === state.eraIdx ? '700' : '400'}">${era}</text>`;
-      });
-
-      // Lines
-      plotList.forEach((s, idx) => {
-        if (state.hiddenLines.has(s.id)) return;
-        const col = CHART_COLORS[idx % CHART_COLORS.length];
-        const pts = s.eras.map((v, i) => {
-          const x = ml + (i / 6) * pw;
-          const y = mt + ph - (v / 100) * ph;
-          return `${x.toFixed(1)},${y.toFixed(1)}`;
-        }).join(" ");
-        svg += `<polyline fill="none" stroke="${col}" stroke-width="2.4" points="${pts}"/>`;
-        s.eras.forEach((v, i) => {
-          const x = ml + (i / 6) * pw;
-          const y = mt + ph - (v / 100) * ph;
-          svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.8" fill="${col}"><title>${s.id} ${s.name} (${ERAS[i]}): ${v}%</title></circle>`;
-        });
-      });
-      svg += `</svg>`;
-      document.getElementById("timeline-svg-wrap").innerHTML = svg;
-
-      document.getElementById("timeline-legend").innerHTML = plotList.map((s, idx) => {
-        const col = CHART_COLORS[idx % CHART_COLORS.length];
-        const off = state.hiddenLines.has(s.id);
-        return `<button onclick="toggleLine('${s.id}')" class="px-2 py-1 rounded-md border border-[var(--border)] flex items-center gap-1.5 ${off ? 'opacity-40' : ''}">
-          <span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${col}"></span>
-          <span>${s.id}: ${s.name.split('(')[0].trim()}</span>
-        </button>`;
-      }).join("");
+        </div>
+      `).join("");
     }
 
     function renderMatrix(list) {
       const ages = ["0-12", "13-24", "25-44", "45-64", "65+"];
       const races = ["chinese", "malay", "indian", "caucasian", "eurasian", "afro"];
-
       let html = `<table class="w-full text-xs border-collapse">
         <thead>
           <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
-            <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card)]">Hairstyle</th>
-            <th class="px-2 py-2">Gender</th>
+            <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card)]">Archetype</th>
+            <th class="px-2 py-2">Category</th>
             ${ages.map(a => `<th class="px-2 py-2 text-center">${a}</th>`).join("")}
             ${races.map(r => `<th class="px-2 py-2 text-center capitalize">${r}</th>`).join("")}
+            <th class="px-3 py-2 text-left">Observed Price</th>
           </tr>
         </thead><tbody>`;
 
       list.forEach(s => {
-        const pct = s.eras[state.eraIdx];
-        const alpha = Math.max(0.14, pct / 100);
         html += `<tr class="border-b border-[var(--border)]/60 hover:bg-[var(--secondary)]/40">
           <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card)] whitespace-nowrap">${s.id} ${s.name.split('(')[0].trim()}</td>
-          <td class="px-2 py-2 text-center capitalize">${s.gender}</td>
-          ${ages.map(a => {
-            const ok = s.age_groups.includes(a);
-            return `<td class="px-2 py-2 text-center tabular-nums">
-              ${ok ? `<span class="inline-block px-1.5 py-0.5 rounded font-medium" style="background: rgba(59,130,246,${alpha.toFixed(2)})">${pct}%</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}
-            </td>`;
-          }).join("")}
-          ${races.map(r => {
-            const ok = s.races.includes(r);
-            return `<td class="px-2 py-2 text-center tabular-nums">
-              ${ok ? `<span class="inline-block px-1.5 py-0.5 rounded font-medium" style="background: rgba(16,185,129,${alpha.toFixed(2)})">${pct}%</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}
-            </td>`;
-          }).join("")}
+          <td class="px-2 py-2 text-center whitespace-nowrap text-[11px] text-[var(--muted-foreground)]">${s.category}</td>
+          ${ages.map(a => `<td class="px-2 py-2 text-center">${s.age_groups.includes(a) ? `<span class="inline-block px-1.5 py-0.5 rounded bg-blue-500/20 font-medium">Fit</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}</td>`).join("")}
+          ${races.map(r => `<td class="px-2 py-2 text-center">${s.races.includes(r) ? `<span class="inline-block px-1.5 py-0.5 rounded bg-emerald-500/20 font-medium">Fit</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}</td>`).join("")}
+          <td class="px-3 py-2 whitespace-nowrap tabular-nums">${s.price}</td>
         </tr>`;
       });
       html += `</tbody></table>`;
       document.getElementById("matrix-table-wrap").innerHTML = html;
     }
 
-    function renderMacro(list) {
-      // 10-year trend line SVG
-      const W = 520, H = 260, ml = 46, mr = 20, mt = 20, mb = 32;
+    function renderSingStat() {
+      // Chart 1: Population Trajectory 2016–2026 (Millions)
+      const W = 520, H = 250, ml = 46, mr = 20, mt = 18, mb = 32;
       const pw = W - ml - mr, ph = H - mt - mb;
-      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
-      [15, 20, 25, 30].forEach(val => {
-        const y = mt + ph - ((val - 12) / 20) * ph;
-        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
-        svg += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${val}M</text>`;
+      let svg1 = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
+      [3.0, 4.0, 5.0, 6.0].forEach(v => {
+        const y = mt + ph - ((v - 3.0) / 3.5) * ph;
+        svg1 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
+        svg1 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v.toFixed(1)}M</text>`;
       });
-      MACRO_10YR.forEach((d, i) => {
-        const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
-        svg += `<text x="${x}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
+      PIB_SERIES.forEach((d, i) => {
+        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
+        svg1 += `<text x="${x}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
       });
       [["tot", "Total Pop", CHART_COLORS[0]], ["res", "Residents", CHART_COLORS[1]], ["cit", "Citizens", CHART_COLORS[2]]].forEach(([key, label, col]) => {
-        const pts = MACRO_10YR.map((d, i) => {
-          const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
-          const y = mt + ph - ((d[key] - 12) / 20) * ph;
-          return `${x.toFixed(1)},${y.toFixed(1)}`;
-        }).join(" ");
-        svg += `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${pts}"/>`;
-        MACRO_10YR.forEach((d, i) => {
-          const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
-          const y = mt + ph - ((d[key] - 12) / 20) * ph;
-          svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${col}"><title>${d.yr} ${label}: ${d[key]}M cuts (65+ share: ${d.age65}%)</title></circle>`;
+        const pts = PIB_SERIES.map((d, i) => `${(ml + (i / (PIB_SERIES.length - 1)) * pw).toFixed(1)},${(mt + ph - ((d[key] - 3.0) / 3.5) * ph).toFixed(1)}`).join(" ");
+        svg1 += `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${pts}"/>`;
+        PIB_SERIES.forEach((d, i) => {
+          const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
+          const y = mt + ph - ((d[key] - 3.0) / 3.5) * ph;
+          svg1 += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${col}"><title>${d.yr} ${label}: ${d[key]}M</title></circle>`;
         });
       });
-      svg += `</svg>
-      <div class="flex gap-4 text-xs pt-1 text-[var(--muted-foreground)]">
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[0]}"></span>Total Pop (27.09M → 29.99M)</span>
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[1]}"></span>Residents (19.10M → 20.55M)</span>
-        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[2]}"></span>Citizens (16.56M → 17.90M)</span>
+      svg1 += `</svg>
+      <div class="flex flex-wrap gap-4 text-xs pt-1 text-[var(--muted-foreground)]">
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[0]}"></span>Total Pop (5.61M → 6.21M)</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[1]}"></span>Residents (3.93M → 4.23M)</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[2]}"></span>Citizens (3.41M → 3.68M)</span>
       </div>`;
-      document.getElementById("macro-trend-svg").innerHTML = svg;
+      document.getElementById("pop-chart-svg").innerHTML = svg1;
 
-      // Top 8 bars by annual visits & GTV
-      const top = [...list].sort((a, b) => b.visits - a.visits).slice(0, 8);
-      const maxV = Math.max(1, ...top.map(s => s.visits));
-      const maxG = Math.max(1, ...top.map(s => s.gtv));
-      document.getElementById("macro-bar-svg").innerHTML = `<div class="space-y-2.5 text-xs">
-        ${top.map((s, idx) => `
+      // Chart 2: Resident 65+ % (2016–2026)
+      let svg2 = `<svg viewBox="0 0 ${W} ${H - 35}" class="w-full h-auto text-xs">`;
+      [12, 16, 20].forEach(v => {
+        const y = mt + (H - 35 - mt - mb) - ((v - 10) / 12) * (H - 35 - mt - mb);
+        svg2 += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
+        svg2 += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v}%</text>`;
+      });
+      PIB_SERIES.forEach((d, i) => {
+        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
+        svg2 += `<text x="${x}" y="${H - 45}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
+      });
+      const ph2 = H - 35 - mt - mb;
+      const pts2 = PIB_SERIES.map((d, i) => `${(ml + (i / (PIB_SERIES.length - 1)) * pw).toFixed(1)},${(mt + ph2 - ((d.age65 - 10) / 12) * ph2).toFixed(1)}`).join(" ");
+      svg2 += `<polyline fill="none" stroke="${CHART_COLORS[3]}" stroke-width="2.6" points="${pts2}"/>`;
+      PIB_SERIES.forEach((d, i) => {
+        const x = ml + (i / (PIB_SERIES.length - 1)) * pw;
+        const y = mt + ph2 - ((d.age65 - 10) / 12) * ph2;
+        svg2 += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.6" fill="${CHART_COLORS[3]}"><title>${d.yr} Residents 65+: ${d.age65}%</title></circle>`;
+      });
+      svg2 += `</svg>`;
+      document.getElementById("aging-chart-svg").innerHTML = svg2;
+
+      document.getElementById("cmio-bars").innerHTML = `<div class="font-medium">2026 Resident Ethnic Breakdown (CMIO — Population in Brief 2026)</div>` +
+        CMIO_2026.map(c => `
           <div class="space-y-1">
-            <div class="flex justify-between font-medium">
-              <span class="truncate pr-2">${s.id} ${s.name.split('(')[0].trim()}</span>
-              <span class="tabular-nums shrink-0">${(s.visits / 1e6).toFixed(2)}M visits • S$${(s.gtv / 1e6).toFixed(1)}M</span>
-            </div>
-            <div class="grid grid-cols-2 gap-1.5">
-              <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${(s.visits / maxV * 100).toFixed(1)}%; background:${CHART_COLORS[0]}"></div></div>
-              <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${(s.gtv / maxG * 100).toFixed(1)}%; background:${CHART_COLORS[1]}"></div></div>
-            </div>
+            <div class="flex justify-between"><span>${c.label}</span><span class="tabular-nums font-semibold">${c.pct}%</span></div>
+            <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${c.pct}%; background:${c.col}"></div></div>
           </div>
-        `).join("")}
-        <div class="flex gap-4 pt-1 text-[var(--muted-foreground)]">
-          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded inline-block" style="background:${CHART_COLORS[0]}"></span>Annual Visits</span>
-          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded inline-block" style="background:${CHART_COLORS[1]}"></span>Annual Salon GTV (SGD)</span>
-        </div>
-      </div>`;
+        `).join("");
     }
 
-    function toggleLine(id) {
-      if (state.hiddenLines.has(id)) state.hiddenLines.delete(id);
-      else state.hiddenLines.add(id);
-      renderTimeline(getFilteredStyles());
+    function renderEconomics() {
+      const maxPrice = 440;
+      document.getElementById("price-ladder-wrap").innerHTML = PRICE_LADDER.map((p, idx) => {
+        const leftPct = (p.min / maxPrice) * 100;
+        const widthPct = Math.max(1.8, ((p.max - p.min) / maxPrice) * 100);
+        const col = CHART_COLORS[idx % CHART_COLORS.length];
+        return `
+          <div class="space-y-1 text-xs">
+            <div class="flex justify-between gap-2">
+              <span class="font-medium">${p.label}</span>
+              <span class="tabular-nums font-semibold shrink-0">S$${p.min}–S$${p.max}</span>
+            </div>
+            <div class="relative h-2.5 rounded bg-[var(--secondary)] overflow-hidden">
+              <div class="absolute top-0 h-full rounded" style="left:${leftPct.toFixed(1)}%; width:${widthPct.toFixed(1)}%; background:${col}"></div>
+            </div>
+            <div class="text-[11px] text-[var(--muted-foreground)]">${p.note}</div>
+          </div>
+        `;
+      }).join("");
     }
 
     function openModal(id) {
       const s = STYLES.find(x => x.id === id);
       if (!s) return;
-      document.getElementById("modal-id").textContent = `${s.id} • ${s.gender.toUpperCase()} • Ages: ${s.age_groups.join(', ')} • Races: ${s.races.join(', ')}`;
+      document.getElementById("modal-id").textContent = `${s.id} • ${s.category} • ${s.gender.toUpperCase()}`;
       document.getElementById("modal-title").textContent = s.name;
       document.getElementById("modal-context").textContent = s.ctx;
-
-      const W = 520, H = 170, ml = 38, mr = 16, mt = 14, mb = 28;
-      const pw = W - ml - mr, ph = H - mt - mb;
-      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
-      [0, 50, 100].forEach(v => {
-        const y = mt + ph - (v / 100) * ph;
-        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
-        svg += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v}%</text>`;
-      });
-      const pts = s.eras.map((v, i) => `${(ml + (i / 6) * pw).toFixed(1)},${(mt + ph - (v / 100) * ph).toFixed(1)}`).join(" ");
-      svg += `<polyline fill="none" stroke="var(--primary)" stroke-width="2.6" points="${pts}"/>`;
-      s.eras.forEach((v, i) => {
-        const x = ml + (i / 6) * pw, y = mt + ph - (v / 100) * ph;
-        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="var(--primary)"/>`;
-        svg += `<text x="${x.toFixed(1)}" y="${y - 8}" text-anchor="middle" fill="var(--foreground)" font-size="10">${v}%</text>`;
-        svg += `<text x="${x.toFixed(1)}" y="${H - 8}" text-anchor="middle" fill="var(--muted-foreground)" font-size="10">${ERAS[i]}</text>`;
-      });
-      svg += `</svg>`;
-      document.getElementById("modal-chart").innerHTML = svg;
-
-      document.getElementById("modal-stats").innerHTML = `
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Adopters</div><div class="font-semibold tabular-nums">${s.adopters.toLocaleString()}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Annual Visits</div><div class="font-semibold tabular-nums">${s.visits.toLocaleString()}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Weibull τ / Ticket</div><div class="font-semibold tabular-nums">${s.tau}d • S$${s.ticket}</div></div>
-        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Annual GTV</div><div class="font-semibold tabular-nums">S$${(s.gtv / 1e6).toFixed(2)}M</div></div>
+      document.getElementById("modal-specs").innerHTML = `
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Observed SG Price Tier</div><div class="font-semibold mt-0.5">${s.price}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Typical Care Cadence</div><div class="font-semibold mt-0.5">${s.cadence}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Eligible Age Cohorts</div><div class="font-semibold mt-0.5">${s.age_groups.join(', ')}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Biotype &amp; Mechanics</div><div class="font-medium mt-0.5">${s.biotype}</div></div>
       `;
+      document.getElementById("modal-source").innerHTML = `Primary Reference: <a href="${s.srcUrl}" target="_blank" rel="noopener" class="underline text-[var(--primary)]">${s.srcLabel}</a>`;
       document.getElementById("detail-modal").classList.remove("hidden");
     }
 
-    // Event wiring
     document.getElementById("filter-gender").addEventListener("change", e => { state.gender = e.target.value; renderAll(); });
     document.getElementById("filter-age").addEventListener("change", e => { state.age = e.target.value; renderAll(); });
     document.getElementById("filter-race").addEventListener("change", e => { state.race = e.target.value; renderAll(); });
-    document.getElementById("filter-era").addEventListener("input", e => { state.eraIdx = Number(e.target.value); renderAll(); });
-    document.getElementById("sort-by").addEventListener("change", e => { state.sortBy = e.target.value; renderAll(); });
+    document.getElementById("filter-cat").addEventListener("change", e => { state.cat = e.target.value; renderAll(); });
 
     document.getElementById("btn-reset").addEventListener("click", () => {
-      state.gender = "all"; state.age = "all"; state.race = "all"; state.eraIdx = 6; state.hiddenLines.clear(); state.onlyTop6 = false;
+      state.gender = "all"; state.age = "all"; state.race = "all"; state.cat = "all";
       document.getElementById("filter-gender").value = "all";
       document.getElementById("filter-age").value = "all";
       document.getElementById("filter-race").value = "all";
-      document.getElementById("filter-era").value = "6";
+      document.getElementById("filter-cat").value = "all";
       renderAll();
     });
 
-    document.getElementById("btn-top6").addEventListener("click", () => { state.onlyTop6 = true; renderTimeline(getFilteredStyles()); });
-    document.getElementById("btn-showall-lines").addEventListener("click", () => { state.onlyTop6 = false; state.hiddenLines.clear(); renderTimeline(getFilteredStyles()); });
     document.getElementById("modal-close").addEventListener("click", () => document.getElementById("detail-modal").classList.add("hidden"));
     document.getElementById("detail-modal").addEventListener("click", e => {
       if (e.target.id === "detail-modal") document.getElementById("detail-modal").classList.add("hidden");
