@@ -122,7 +122,7 @@
 
       <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col">
         <div class="flex items-center justify-between pb-2 border-b border-slate-800 text-xs">
-          <h2 class="font-semibold">Matching Locations (Top 150 Shown)</h2>
+          <h2 class="font-semibold">Matching Locations (<span id="list-shown-count">All</span>)</h2>
           <span id="list-barber-count" class="text-slate-400 tabular-nums"></span>
         </div>
         <div id="results-list" class="overflow-y-auto max-h-[520px] divide-y divide-slate-800/70 text-xs mt-1"></div>
@@ -260,7 +260,13 @@
       document.getElementById("list-barber-count").textContent = `${barbers.toLocaleString()} barber-tagged`;
 
       const listEl = document.getElementById("results-list");
-      listEl.innerHTML = filtered.slice(0, 150).map((p, idx) => {
+      const listShownEl = document.getElementById("list-shown-count");
+      window.__curFiltered = filtered;
+      window.__curMarkers = markers;
+      window.__renderSeq = (window.__renderSeq || 0) + 1;
+      const mySeq = window.__renderSeq;
+
+      function rowHtml(p, idx) {
         const tagCol = p.src === "acra" ? "text-amber-300" : (p.src === "osm" ? "text-cyan-300" : "text-emerald-300");
         const revTag = p.src === "audited" ? `★ ${p.rating.toFixed(1)} (${(p.reviews || 0).toLocaleString()})` : "Reviews ↗";
         const sub = p.src === "audited"
@@ -275,16 +281,50 @@
           </button>
           <a href="${googleReviewsUrl(p)}" target="_blank" rel="noopener" class="shrink-0 text-[10px] px-1.5 py-1 rounded bg-slate-800 border border-slate-700 text-amber-300 hover:bg-slate-700">${revTag}</a>
         </div>`;
-      }).join("");
+      }
 
-      listEl.querySelectorAll(".loc-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const p = filtered[Number(btn.dataset.i)];
-          map.setView([p.lat, p.lng], 17);
-          const mk = markers[Number(btn.dataset.i)];
+      if (!window.__listClickBound) {
+        window.__listClickBound = true;
+        listEl.addEventListener("click", (e) => {
+          const btn = e.target.closest && e.target.closest(".loc-btn");
+          if (!btn) return;
+          const i = Number(btn.dataset.i);
+          const p = window.__curFiltered[i];
+          const mk = window.__curMarkers[i];
+          if (p) map.setView([p.lat, p.lng], 17);
           if (mk) mk.openPopup();
         });
-      });
+      }
+
+      const firstChunk = Math.min(250, filtered.length);
+      listEl.innerHTML = filtered.slice(0, firstChunk).map((p, idx) => rowHtml(p, idx)).join("");
+      listShownEl.textContent = filtered.length === 0 ? "0" : `${firstChunk.toLocaleString()} / ${filtered.length.toLocaleString()}`;
+
+      let cursor = firstChunk;
+      function appendBatch() {
+        if (window.__renderSeq !== mySeq || cursor >= filtered.length) return;
+        const end = Math.min(cursor + 450, filtered.length);
+        let chunk = "";
+        for (let i = cursor; i < end; i++) chunk += rowHtml(filtered[i], i);
+        listEl.insertAdjacentHTML("beforeend", chunk);
+        cursor = end;
+        listShownEl.textContent = cursor >= filtered.length
+          ? `All ${filtered.length.toLocaleString()}`
+          : `${cursor.toLocaleString()} / ${filtered.length.toLocaleString()}`;
+        if (cursor < filtered.length) {
+          if (typeof requestAnimationFrame === "function") requestAnimationFrame(appendBatch);
+          else appendBatch();
+        }
+      }
+      if (cursor < filtered.length) {
+        if (typeof requestAnimationFrame === "function") {
+          requestAnimationFrame(appendBatch);
+        } else {
+          appendBatch();
+        }
+      } else {
+        listShownEl.textContent = `All ${filtered.length.toLocaleString()}`;
+      }
     }
 
     ["f-src", "f-kind", "f-ssic"].forEach(id => document.getElementById(id).addEventListener("change", render));
