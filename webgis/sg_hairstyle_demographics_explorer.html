@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Singapore Inclusive Hairstyle & Demographic Explorer (1970s–2026)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+    .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-6">
+  <div class="max-w-7xl mx-auto space-y-5">
+
+    <!-- Header -->
+    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-4 border-b border-[var(--border)]">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-medium text-[var(--primary)] uppercase tracking-wider">
+          <span>SG Haircut Econometrics Engine</span>
+          <span>•</span>
+          <span>SingStat M810001 / M810011 &amp; 14,400 6D Taxonomy</span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-semibold mt-1">
+          Singapore Inclusive Hairstyle Popularity &amp; Demographic Explorer (1970s–2026)
+        </h1>
+        <p class="text-xs text-[var(--muted-foreground)] mt-1">
+          18 canonical inclusive archetypes calibrated to Singapore’s 6.21M population (4.23M Residents + 1.98M Non-Residents), multi-ethnic hair biotypes (1A–4C), and 7 historical eras.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs shrink-0">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground)]">2026 Total Visits</div>
+          <div id="kpi-visits" class="text-base font-semibold tabular-nums mt-0.5">29.99M</div>
+        </div>
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground)]">2026 Salon GTV</div>
+          <div id="kpi-gtv" class="text-base font-semibold tabular-nums mt-0.5">S$1.56B</div>
+        </div>
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground)]">Matched Styles</div>
+          <div id="kpi-count" class="text-base font-semibold tabular-nums mt-0.5">18 / 18</div>
+        </div>
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-lg px-3 py-2">
+          <div class="text-[var(--muted-foreground)]">6D Permutations</div>
+          <div class="text-base font-semibold tabular-nums mt-0.5">14,400</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Demographic Filter Bar -->
+    <section class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted-foreground)]">Demographic &amp; Era Filters</span>
+        <button id="btn-reset" class="text-xs px-2.5 py-1 rounded-md border border-[var(--border)] hover:bg-[var(--secondary)] transition">
+          Reset All Filters
+        </button>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Gender Presentation</label>
+          <select id="filter-gender" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
+            <option value="all">All Genders (Male, Female, Unisex)</option>
+            <option value="male">Male (+ Unisex)</option>
+            <option value="female">Female (+ Unisex)</option>
+            <option value="unisex">Unisex Only</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Age Cohort (SingStat)</label>
+          <select id="filter-age" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
+            <option value="all">All Age Groups (0–65+)</option>
+            <option value="0-12">0–12 Years (Infants &amp; Primary)</option>
+            <option value="13-24">13–24 Years (Youth, MOE, NS/BMT)</option>
+            <option value="25-44">25–44 Years (Prime Working Adults)</option>
+            <option value="45-64">45–64 Years (Mature Adults)</option>
+            <option value="65+">65+ Years (Seniors — 19.5% of Residents)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">Race / Cultural Community</label>
+          <select id="filter-race" class="w-full bg-[var(--background)] border border-[var(--border)] rounded-lg px-2.5 py-2">
+            <option value="all">All Communities (Inclusive SG)</option>
+            <option value="chinese">Chinese (74.3%)</option>
+            <option value="malay">Malay / Muslimah (13.5%)</option>
+            <option value="indian">Indian / Sikh (9.0%)</option>
+            <option value="caucasian">Caucasian / Fine-Oval (1.5%)</option>
+            <option value="eurasian">Eurasian (1.2%)</option>
+            <option value="afro">Afro-Coiled / Type 3C–4C (0.5%)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-[var(--muted-foreground)] mb-1">
+            Focus Era: <span id="era-label" class="font-semibold text-[var(--foreground)]">2024-2026</span>
+          </label>
+          <input id="filter-era" type="range" min="0" max="6" value="6" class="w-full accent-[var(--primary)] mt-1.5" />
+          <div class="flex justify-between text-[11px] text-[var(--muted-foreground)] mt-0.5">
+            <span>1970s</span><span>90s</span><span>10s</span><span>2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)] text-xs">
+        <button data-tab="gallery" class="tab-btn px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)]">
+          1. Inclusive Haircut Gallery (18 Styles)
+        </button>
+        <button data-tab="timeline" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          2. Popularity Over Time (1970s–2026)
+        </button>
+        <button data-tab="demographics" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          3. Age × Gender × Race Matrix
+        </button>
+        <button data-tab="macro" class="tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]">
+          4. 10-Year Macro Volume (2016–2026)
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 1: Gallery -->
+    <section id="tab-gallery" class="tab-panel space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--muted-foreground)]">
+        <span id="gallery-subtitle">Showing all 18 inclusive hairstyles sorted by focus-era popularity. Click any card to inspect its full 1970s–2026 curve.</span>
+        <div class="flex items-center gap-2">
+          <span>Sort by:</span>
+          <select id="sort-by" class="bg-[var(--card)] border border-[var(--border)] rounded-md px-2 py-1 text-[var(--foreground)]">
+            <option value="era_pct">Focus Era Popularity (%)</option>
+            <option value="adopters">2026 Active Adopters</option>
+            <option value="visits">2026 Annual Visits</option>
+            <option value="gtv">2026 Annual GTV (SGD)</option>
+            <option value="tau">Shortest Rebook Cycle (τ)</option>
+          </select>
+        </div>
+      </div>
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- TAB 2: Timeline -->
+    <section id="tab-timeline" class="tab-panel hidden space-y-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-base font-semibold">Historical Popularity Trajectories Across 7 Eras (1970s–2026)</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Cohort popularity share (%) within eligible demographic segments. Hover points for exact figures; click legend items to toggle styles.</p>
+          </div>
+          <div class="flex gap-2 text-xs">
+            <button id="btn-top6" class="px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">Top 6 Rising/Peak</button>
+            <button id="btn-showall-lines" class="px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">All Filtered</button>
+          </div>
+        </div>
+        <div id="timeline-svg-wrap" class="w-full overflow-x-auto"></div>
+        <div id="timeline-legend" class="flex flex-wrap gap-2 pt-2 border-t border-[var(--border)] text-xs"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: Demographics Heatmap Matrix -->
+    <section id="tab-demographics" class="tab-panel hidden space-y-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+        <div>
+          <h2 class="text-base font-semibold">Demographic Inclusivity Matrix: Style × Age Cohort × Race × Gender</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            Cells show the style’s popularity share in the selected focus era (<span class="font-semibold text-[var(--foreground)]" id="matrix-era-name">2024-2026</span>) if that demographic slice is eligible, highlighting inclusive coverage across Malay/Muslimah, Indian/Sikh, Chinese, Caucasian, Eurasian, and Afro-Coiled communities.
+          </p>
+        </div>
+        <div id="matrix-table-wrap" class="overflow-x-auto scrollbar-thin"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: 10-Year Macro Volume -->
+    <section id="tab-macro" class="tab-panel hidden space-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <h2 class="text-base font-semibold">10-Year Haircut Volume Trajectory (2016–2026)</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            Derived from live SingStat TableBuilder (M810001 &amp; M810011) annual populations and Weibull frequency rates. Notice the 2020–2021 COVID dip and 2022–2026 surge (<code class="font-mono text-[var(--foreground)]">27.09M → 29.99M</code> Total; <code class="font-mono text-[var(--foreground)]">19.10M → 20.55M</code> Residents).
+          </p>
+          <div id="macro-trend-svg" class="w-full overflow-x-auto"></div>
+        </div>
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
+          <h2 class="text-base font-semibold">2026 Annual Visits vs. Market GTV (Top Styles)</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">
+            High-frequency cuts (<em>Skin Fade</em> 16d, <em>Two-Block</em> 24d) dominate visit volume, while chemical/layer services (<em>Butterfly Digital Perm</em>, <em>Hush Cut</em>) lead SGD revenue.
+          </p>
+          <div id="macro-bar-svg" class="w-full overflow-x-auto"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Style Detail Modal -->
+    <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl max-w-2xl w-full p-5 space-y-4 shadow-xl">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span id="modal-id" class="text-xs font-mono text-[var(--primary)]"></span>
+            <h3 id="modal-title" class="text-lg font-semibold"></h3>
+          </div>
+          <button id="modal-close" class="text-xs px-2.5 py-1 rounded border border-[var(--border)] hover:bg-[var(--secondary)]">Close</button>
+        </div>
+        <p id="modal-context" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
+        <div id="modal-chart" class="w-full"></div>
+        <div id="modal-stats" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const ERAS = ["1970s", "1980s", "1990s", "2000s", "2010s", "2020-2023", "2024-2026"];
+    const CHART_COLORS = [
+      "var(--chart-1, #3b82f6)",
+      "var(--chart-2, #10b981)",
+      "var(--chart-3, #f59e0b)",
+      "var(--chart-4, #ec4899)",
+      "var(--chart-5, #8b5cf6)",
+      "var(--chart-6, #06b6d4)",
+      "#ef4444",
+      "#84cc16",
+      "#f97316",
+      "#14b8a6"
+    ];
+
+    const STYLES = [
+      {id:"H01", name:"Korean Two-Block + Side Down Perm", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian","eurasian"], tau:24, eras:[0,0,1,3,18,34,38], adopters:211862, visits:3222421, ticket:48, gtv:154676208, trends:94, ctx:"Dominant SG male office & Gen-Z cut; solves 78μm East Asian porcupine ear-sticking via thioglycolate side down-perm.", icon:"twoblock"},
+      {id:"H02", name:"Low/Mid Skin Fade + Textured French Crop", gender:"male", age_groups:["13-24","25-44","45-64"], races:["malay","indian","chinese","caucasian","afro"], tau:16, eras:[2,3,5,8,22,29,31], adopters:265351, visits:6052656, ticket:32, gtv:193684992, trends:91, ctx:"High-humidity champ & Norwood II–IV temple concealer; popularized by Malay/Indian master barbers.", icon:"fade"},
+      {id:"H03", name:"Korean Hush Cut (Soft Feather Layers + Airy Bangs)", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","eurasian"], tau:44, eras:[0,0,2,4,8,24,39], adopters:353931, visits:2937627, ticket:68, gtv:199758636, trends:98, ctx:"#1 requested women's style in SG (2024–2026); seamless internal weight removal prevents triangle bulk in 82% RH.", icon:"hush"},
+      {id:"H04", name:"Butterfly Cut + C/S-Curl Digital Perm", gender:"female", age_groups:["13-24","25-44","45-64"], races:["chinese","malay","indian","caucasian"], tau:48, eras:[0,0,3,6,19,31,33], adopters:296329, visits:2252100, ticket:145, gtv:326554500, trends:89, ctx:"Two-tier crown + collarbone layering paired with Korean S-curl digital perm for low-maintenance daily volume.", icon:"butterfly"},
+      {id:"H05", name:"Unisex Wolf Cut / Modern Faded or Permed Mullet", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian","caucasian","eurasian"], tau:28, eras:[4,14,3,2,3,18,22], adopters:251590, visits:3280734, ticket:45, gtv:147633030, trends:82, ctx:"Gen-Z expressive staple across Bugis/Haji Lane & polytechnics; short crown shag with tapered sides and nape.", icon:"wolf"},
+      {id:"H06", name:"Muslimah Hijab-Under-Cap Breathable Bob/Lob + Sah-Solat", gender:"female", age_groups:["13-24","25-44","45-64","65+"], races:["malay","indian"], tau:38, eras:[8,12,18,24,29,34,37], adopters:97002, visits:932189, ticket:62, gtv:57795718, trends:86, ctx:"Engineered at ladies-only suites (Karva, Pearlista) to prevent tudung bun traction alopecia and trap less scalp heat.", icon:"hijab"},
+      {id:"H07", name:"Postpartum Blunt-Perimeter Lob + Curtain Fringe", gender:"female", age_groups:["25-44"], races:["chinese","malay","indian","caucasian","eurasian"], tau:32, eras:[5,7,10,14,21,27,30], adopters:8959, visits:102222, ticket:58, gtv:5928876, trends:77, ctx:"Clinical choice for Months 3–9 Postpartum Telogen Effluvium; removes gravitational pull and conceals temple regrowth.", icon:"lob"},
+      {id:"H08", name:"SAF BMT No. 1 Buzz Cut (0–1 Guard Tekong Standard)", gender:"male", age_groups:["13-24"], races:["chinese","malay","indian","eurasian"], tau:14, eras:[24,22,20,19,18,17,17], adopters:27606, visits:719688, ticket:10, gtv:7196880, trends:65, ctx:"Mandatory Singapore National Service enlistment rite of passage since 1967; constant demographic floor among 18–20yo males.", icon:"buzz"},
+      {id:"H09", name:"MOE Schoolboy High-Slope Taper & Schoolgirl Collar Bob", gender:"unisex", age_groups:["0-12","13-24"], races:["chinese","malay","indian","eurasian"], tau:21, eras:[38,35,32,29,26,24,23], adopters:140765, visits:2446496, ticket:12, gtv:29357952, trends:72, ctx:"Grounded in 1970s MOE discipline rules ('above collar, off ears, above eyebrow'); staple of S$6–S$12 HDB barbers.", icon:"school"},
+      {id:"H10", name:"1970s Classic Short Back & Sides ('Operation Snip Snip')", gender:"male", age_groups:["25-44","45-64","65+"], races:["chinese","malay","indian","eurasian"], tau:25, eras:[68,46,31,22,16,13,12], adopters:103056, visits:1504618, ticket:10, gtv:15046180, trends:48, ctx:"Enforced during SG's 1970–1976 anti-long-hair campaign ('Males with long hair attended to last'); still favored by seniors.", icon:"shortback"},
+      {id:"H11", name:"1990s 'Aaron Kwok' 60/40 Curtain Flow Revival", gender:"male", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], tau:30, eras:[2,6,48,14,6,22,25], adopters:134551, visits:1637486, ticket:42, gtv:68774412, trends:79, ctx:"Dominated 1990s SG Mandopop era, crashed in 2000s, and surged back in 2021–2026 as the K-pop Comma/Curtain revival.", icon:"curtain"},
+      {id:"H12", name:"2000s J-Rock / F4 Spiky Mullet & Pin Rebonding", gender:"unisex", age_groups:["13-24","25-44"], races:["chinese","malay","indian"], tau:28, eras:[0,2,12,54,15,5,4], adopters:40386, visits:526633, ticket:55, gtv:28964815, trends:22, ctx:"Defined 2000–2009 Far East Plaza youth culture: aggressive feather-razor spikes for men, pin-straight rebonding for women.", icon:"spiky"},
+      {id:"H13", name:"2010s Hipster Slick-Back Pompadour + Straight-Razor Beard", gender:"male", age_groups:["25-44","45-64"], races:["chinese","malay","indian","caucasian","eurasian"], tau:19, eras:[3,4,4,7,44,19,14], adopters:91215, visits:1752240, ticket:52, gtv:91116480, trends:54, ctx:"Sparked Singapore's 2013–2019 gentleman barbershop boom (Sultans of Shave, Hounds of the Baskervilles).", icon:"pomp"},
+      {id:"H14", name:"Rëzo / Deva Dry Curl-by-Curl Sculpted Halo (Type 2B–4C)", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64"], races:["indian","malay","caucasian","afro","eurasian"], tau:52, eras:[2,3,4,6,12,24,32], adopters:168486, visits:1182772, ticket:118, gtv:139567096, trends:84, ctx:"Dry coil-by-coil apex cutting (Hera, Curlyland) respecting 15–48% wet-to-dry curl shrinkage without thinning-shear frizz.", icon:"curly"},
+      {id:"H15", name:"Protective Cornrows, Box Braids, Twists & Dreadlocs", gender:"unisex", age_groups:["13-24","25-44","45-64"], races:["afro","indian","malay","eurasian"], tau:42, eras:[1,2,3,5,8,14,18], adopters:74937, visits:651203, ticket:95, gtv:61864285, trends:68, ctx:"Serves Singapore's Afro-textured & street-culture communities; focuses on root tension control to prevent traction alopecia.", icon:"braids"},
+      {id:"H16", name:"Sikh Unshorn Sacred Kesh (Jura + Dastar/Patka Care)", gender:"unisex", age_groups:["0-12","13-24","25-44","45-64","65+"], races:["indian"], tau:60, eras:[100,100,100,100,100,100,100], adopters:11000, visits:66880, ticket:28, gtv:1872640, trends:75, ctx:"Khalsa article of faith (~12,500 SG Sikhs); emphasizes wooden Kangha detangling, anti-traction Jura placement, and scalp care.", icon:"kesh"},
+      {id:"H17", name:"Heartland Senior 'Ah Ma' Cold-Wave Roller Perm", gender:"female", age_groups:["65+"], races:["chinese","malay","indian","eurasian"], tau:56, eras:[42,55,49,44,39,36,35], adopters:85611, visits:558184, ticket:38, gtv:21210992, trends:70, ctx:"Staple of HDB void-deck salons (Toa Payoh, AMK, Bedok); tight cold-wave curls mask age-related Ludwig vertex thinning for 8+ weeks.", icon:"ahma"},
+      {id:"H18", name:"Infant Ceremonial First Shave (Man Yue / Cukur Jambul / Mundan)", gender:"unisex", age_groups:["0-12"], races:["chinese","malay","indian"], tau:35, eras:[78,74,68,62,58,55,54], adopters:16127, visits:168205, ticket:28, gtv:4709740, trends:64, ctx:"Multicultural SG birth ritual (Day 7–44 Malay, Day 30 Chinese, Mo 4–36 Hindu); coincides with 8–12wk neonatal telogen shedding.", icon:"infant"}
+    ];
+
+    const MACRO_10YR = [
+      {yr:"2016", cit:16.56, res:19.10, tot:27.09, age65:12.40},
+      {yr:"2017", cit:16.70, res:19.26, tot:27.11, age65:13.03},
+      {yr:"2018", cit:16.86, res:19.40, tot:27.24, age65:13.72},
+      {yr:"2019", cit:17.00, res:19.55, tot:27.55, age65:14.45},
+      {yr:"2020", cit:17.11, res:19.64, tot:27.47, age65:15.19},
+      {yr:"2021", cit:16.99, res:19.36, tot:26.35, age65:16.03},
+      {yr:"2022", cit:17.26, res:19.78, tot:27.23, age65:16.65},
+      {yr:"2023", cit:17.54, res:20.15, tot:28.59, age65:17.30},
+      {yr:"2024", cit:17.66, res:20.30, tot:29.17, age65:18.03},
+      {yr:"2025", cit:17.78, res:20.42, tot:29.52, age65:18.78},
+      {yr:"2026", cit:17.90, res:20.55, tot:29.99, age65:19.50}
+    ];
+
+    // Custom minimalist SVG haircut silhouette generator
+    function hairSVG(icon, colorIdx = 0) {
+      const accent = CHART_COLORS[colorIdx % CHART_COLORS.length];
+      const baseHead = `<circle cx="32" cy="36" r="14" fill="none" stroke="currentColor" stroke-width="1.8" opacity="0.55"/>`;
+      let hair = "";
+      switch (icon) {
+        case "twoblock":
+          hair = `<path d="M18 33 C17 18, 47 18, 46 33 L43 31 L38 28 L33 32 L26 28 L21 31 Z" fill="${accent}" opacity="0.88"/><path d="M18 33 L18 39 M46 33 L46 39" stroke="${accent}" stroke-width="2" opacity="0.5"/>`;
+          break;
+        case "fade":
+          hair = `<path d="M20 26 C22 17, 42 17, 44 26 L44 29 L20 29 Z" fill="${accent}" opacity="0.9"/><path d="M18 30 L20 35 M46 30 L44 35" stroke="${accent}" stroke-width="1.5" stroke-dasharray="2 2"/>`;
+          break;
+        case "hush":
+          hair = `<path d="M16 34 C16 14, 48 14, 48 34 L51 54 L43 50 L40 56 L35 51 M16 34 L13 54 L21 50 L24 56 L29 51" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M22 25 Q32 29 42 25" stroke="${accent}" stroke-width="2.5" fill="none"/>`;
+          break;
+        case "butterfly":
+          hair = `<path d="M15 35 C15 14, 49 14, 49 35 C53 45, 50 56, 44 55 C41 48, 44 42, 46 36 M15 35 C11 45, 14 56, 20 55 C23 48, 20 42, 18 36" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M20 22 Q32 16 44 22" stroke="${accent}" stroke-width="3" fill="none"/>`;
+          break;
+        case "wolf":
+          hair = `<path d="M17 31 L14 23 L21 21 L25 14 L32 19 L39 14 L43 21 L50 23 L47 31 L51 48 L44 45 L42 54 L36 47 M17 31 L13 48 L20 45 L22 54 L28 47" fill="none" stroke="${accent}" stroke-width="2.6" stroke-linejoin="round"/>`;
+          break;
+        case "hijab":
+          hair = `<path d="M15 36 C15 15, 49 15, 49 36 C51 48, 45 55, 32 56 C19 55, 13 48, 15 36 Z" fill="${accent}" opacity="0.22" stroke="${accent}" stroke-width="2.4"/><path d="M21 30 C23 23, 41 23, 43 30" stroke="${accent}" stroke-width="2" fill="none"/>`;
+          break;
+        case "lob":
+          hair = `<path d="M17 33 C17 16, 47 16, 47 33 L48 48 L42 48 M17 33 L16 48 L22 48" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/><path d="M24 23 L30 28 M40 23 L34 28" stroke="${accent}" stroke-width="2"/>`;
+          break;
+        case "buzz":
+          hair = `<path d="M19 32 C19 19, 45 19, 45 32" fill="none" stroke="${accent}" stroke-width="3.2" stroke-dasharray="1.5 1.8"/>`;
+          break;
+        case "school":
+          hair = `<path d="M18 32 C19 19, 45 19, 46 32 L42 27 L22 27 Z" fill="${accent}" opacity="0.82"/>`;
+          break;
+        case "shortback":
+          hair = `<path d="M19 31 C19 19, 45 19, 45 31 L39 26 L21 26 Z" fill="${accent}" opacity="0.75"/><path d="M22 24 L42 21" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>`;
+          break;
+        case "curtain":
+          hair = `<path d="M17 34 C17 17, 47 17, 47 34 C42 24, 34 24, 32 30 C30 24, 22 24, 17 34 Z" fill="${accent}" opacity="0.88"/>`;
+          break;
+        case "spiky":
+          hair = `<path d="M17 31 L14 21 L22 22 L25 11 L32 18 L39 11 L42 22 L50 21 L47 31 L42 25 L22 25 Z" fill="${accent}" opacity="0.9"/>`;
+          break;
+        case "pomp":
+          hair = `<path d="M19 32 C18 20, 26 11, 39 14 C47 16, 46 25, 45 32 L41 25 L22 25 Z" fill="${accent}" opacity="0.9"/><path d="M23 44 Q32 52 41 44" stroke="${accent}" stroke-width="2.5" fill="none"/>`;
+          break;
+        case "curly":
+          hair = `<path d="M15 35 C10 28, 14 18, 22 17 C25 11, 39 11, 42 17 C50 18, 54 28, 49 35 C52 42, 46 49, 41 46 M15 35 C12 42, 18 49, 23 46" fill="none" stroke="${accent}" stroke-width="3" stroke-linecap="round"/>`;
+          break;
+        case "braids":
+          hair = `<path d="M20 24 L14 52 M25 21 L20 54 M32 19 L32 24 M39 21 L44 54 M44 24 L50 52" stroke="${accent}" stroke-width="2.6" stroke-dasharray="4 2" stroke-linecap="round"/>`;
+          break;
+        case "kesh":
+          hair = `<path d="M18 31 C18 16, 46 16, 46 31 L43 27 L21 27 Z" fill="${accent}" opacity="0.85"/><circle cx="32" cy="14" r="5" fill="${accent}" opacity="0.95"/><path d="M23 44 Q32 53 41 44" stroke="${accent}" stroke-width="2.2" fill="none"/>`;
+          break;
+        case "ahma":
+          hair = `<circle cx="20" cy="24" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="27" cy="18" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="37" cy="18" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/><circle cx="44" cy="24" r="5" fill="none" stroke="${accent}" stroke-width="2.4"/>`;
+          break;
+        case "infant":
+          hair = `<path d="M29 19 Q32 12 35 19" stroke="${accent}" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="27" cy="35" r="1.4" fill="currentColor"/><circle cx="37" cy="35" r="1.4" fill="currentColor"/><path d="M29 41 Q32 44 35 41" stroke="currentColor" stroke-width="1.5" fill="none"/>`;
+          break;
+      }
+      return `<svg viewBox="0 0 64 64" class="w-14 h-14 shrink-0 text-[var(--foreground)]">${baseHead}${hair}</svg>`;
+    }
+
+    const state = {
+      gender: "all",
+      age: "all",
+      race: "all",
+      eraIdx: 6,
+      sortBy: "era_pct",
+      activeTab: "gallery",
+      hiddenLines: new Set(),
+      onlyTop6: false,
+    };
+
+    function getFilteredStyles() {
+      return STYLES.filter(s => {
+        if (state.gender !== "all") {
+          if (state.gender === "unisex" && s.gender !== "unisex") return false;
+          if (state.gender !== "unisex" && s.gender !== state.gender && s.gender !== "unisex") return false;
+        }
+        if (state.age !== "all" && !s.age_groups.includes(state.age)) return false;
+        if (state.race !== "all" && !s.races.includes(state.race)) return false;
+        return true;
+      });
+    }
+
+    function fmtNum(n) {
+      if (n >= 1e9) return "S$" + (n / 1e9).toFixed(2) + "B";
+      if (n >= 1e6) return (n / 1e6).toFixed(2) + "M";
+      if (n >= 1e3) return (n / 1e3).toFixed(1) + "k";
+      return String(n);
+    }
+
+    function sparklineSVG(eras, idx) {
+      const w = 120, h = 28, pad = 3;
+      const max = Math.max(100, ...eras);
+      const pts = eras.map((v, i) => {
+        const x = pad + (i / 6) * (w - 2 * pad);
+        const y = h - pad - (v / max) * (h - 2 * pad);
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      }).join(" ");
+      const cx = pad + (state.eraIdx / 6) * (w - 2 * pad);
+      const cy = h - pad - (eras[state.eraIdx] / max) * (h - 2 * pad);
+      const col = CHART_COLORS[idx % CHART_COLORS.length];
+      return `<svg viewBox="0 0 ${w} ${h}" class="w-28 h-7">
+        <polyline fill="none" stroke="${col}" stroke-width="2" points="${pts}" />
+        <circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="3.2" fill="${col}" />
+      </svg>`;
+    }
+
+    function renderAll() {
+      const list = getFilteredStyles();
+      document.getElementById("era-label").textContent = ERAS[state.eraIdx];
+      document.getElementById("matrix-era-name").textContent = ERAS[state.eraIdx];
+
+      const totVisits = list.reduce((a, b) => a + b.visits, 0);
+      const totGTV = list.reduce((a, b) => a + b.gtv, 0);
+      document.getElementById("kpi-visits").textContent = (totVisits / 1e6).toFixed(2) + "M";
+      document.getElementById("kpi-gtv").textContent = totGTV >= 1e9 ? "S$" + (totGTV / 1e9).toFixed(2) + "B" : "S$" + (totGTV / 1e6).toFixed(1) + "M";
+      document.getElementById("kpi-count").textContent = `${list.length} / ${STYLES.length}`;
+
+      renderGallery(list);
+      renderTimeline(list);
+      renderMatrix(list);
+      renderMacro(list);
+    }
+
+    function renderGallery(list) {
+      const sorted = [...list].sort((a, b) => {
+        if (state.sortBy === "era_pct") return b.eras[state.eraIdx] - a.eras[state.eraIdx];
+        if (state.sortBy === "adopters") return b.adopters - a.adopters;
+        if (state.sortBy === "visits") return b.visits - a.visits;
+        if (state.sortBy === "gtv") return b.gtv - a.gtv;
+        return a.tau - b.tau;
+      });
+      const grid = document.getElementById("gallery-grid");
+      document.getElementById("gallery-subtitle").textContent =
+        `Showing ${sorted.length} of 18 inclusive hairstyles for ${ERAS[state.eraIdx]}. Click any card for full era breakdown.`;
+
+      if (!sorted.length) {
+        grid.innerHTML = `<div class="col-span-full bg-[var(--card)] border border-[var(--border)] rounded-xl p-8 text-center text-sm text-[var(--muted-foreground)]">No canonical style matches that exact filter intersection. Try widening one filter.</div>`;
+        return;
+      }
+
+      grid.innerHTML = sorted.map((s, i) => {
+        const pct = s.eras[state.eraIdx];
+        const col = CHART_COLORS[i % CHART_COLORS.length];
+        return `
+        <div onclick="openModal('${s.id}')" class="cursor-pointer bg-[var(--card)] border border-[var(--border)] hover:border-[var(--primary)] rounded-xl p-4 flex flex-col justify-between gap-3 transition">
+          <div class="flex items-start gap-3">
+            <div class="p-1.5 rounded-lg bg-[var(--background)] border border-[var(--border)]">
+              ${hairSVG(s.icon, i)}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-mono text-[var(--muted-foreground)]">${s.id} • ${s.gender.toUpperCase()}</span>
+                <span class="text-xs font-semibold tabular-nums px-2 py-0.5 rounded-full bg-[var(--secondary)]">${pct}% share</span>
+              </div>
+              <h3 class="text-sm font-semibold leading-snug mt-1">${s.name}</h3>
+            </div>
+          </div>
+
+          <p class="text-xs text-[var(--muted-foreground)] line-clamp-2">${s.ctx}</p>
+
+          <div class="space-y-1.5">
+            <div class="w-full h-1.5 rounded-full bg-[var(--secondary)] overflow-hidden">
+              <div class="h-full rounded-full" style="width:${pct}%; background:${col}"></div>
+            </div>
+            <div class="flex flex-wrap gap-1 text-[11px]">
+              ${s.age_groups.map(a => `<span class="px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)]">${a}</span>`).join("")}
+              ${s.races.map(r => `<span class="px-1.5 py-0.5 rounded bg-[var(--background)] border border-[var(--border)] text-[var(--muted-foreground)]">${r}</span>`).join("")}
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-[var(--border)] flex items-center justify-between text-xs tabular-nums">
+            <div>
+              <div class="font-medium">${fmtNum(s.adopters)} adopters • ${fmtNum(s.visits)} visits/yr</div>
+              <div class="text-[11px] text-[var(--muted-foreground)]">τ = ${s.tau}d • Avg S$${s.ticket} • Trends ${s.trends}</div>
+            </div>
+            ${sparklineSVG(s.eras, i)}
+          </div>
+        </div>`;
+      }).join("");
+    }
+
+    function renderTimeline(list) {
+      let plotList = [...list].sort((a, b) => b.eras[state.eraIdx] - a.eras[state.eraIdx]);
+      if (state.onlyTop6) plotList = plotList.slice(0, 6);
+
+      const W = 820, H = 360, ml = 46, mr = 24, mt = 20, mb = 36;
+      const pw = W - ml - mr, ph = H - mt - mb;
+      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full min-w-[620px] h-auto text-xs">`;
+
+      // Grid lines
+      [0, 20, 40, 60, 80, 100].forEach(val => {
+        const y = mt + ph - (val / 100) * ph;
+        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
+        svg += `<text x="${ml - 8}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${val}%</text>`;
+      });
+
+      // X labels & focus marker
+      ERAS.forEach((era, i) => {
+        const x = ml + (i / 6) * pw;
+        if (i === state.eraIdx) {
+          svg += `<line x1="${x}" y1="${mt}" x2="${x}" y2="${H - mb}" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+        }
+        svg += `<text x="${x}" y="${H - 12}" text-anchor="middle" fill="${i === state.eraIdx ? 'var(--primary)' : 'var(--muted-foreground)'}" font-weight="${i === state.eraIdx ? '700' : '400'}">${era}</text>`;
+      });
+
+      // Lines
+      plotList.forEach((s, idx) => {
+        if (state.hiddenLines.has(s.id)) return;
+        const col = CHART_COLORS[idx % CHART_COLORS.length];
+        const pts = s.eras.map((v, i) => {
+          const x = ml + (i / 6) * pw;
+          const y = mt + ph - (v / 100) * ph;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(" ");
+        svg += `<polyline fill="none" stroke="${col}" stroke-width="2.4" points="${pts}"/>`;
+        s.eras.forEach((v, i) => {
+          const x = ml + (i / 6) * pw;
+          const y = mt + ph - (v / 100) * ph;
+          svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.8" fill="${col}"><title>${s.id} ${s.name} (${ERAS[i]}): ${v}%</title></circle>`;
+        });
+      });
+      svg += `</svg>`;
+      document.getElementById("timeline-svg-wrap").innerHTML = svg;
+
+      document.getElementById("timeline-legend").innerHTML = plotList.map((s, idx) => {
+        const col = CHART_COLORS[idx % CHART_COLORS.length];
+        const off = state.hiddenLines.has(s.id);
+        return `<button onclick="toggleLine('${s.id}')" class="px-2 py-1 rounded-md border border-[var(--border)] flex items-center gap-1.5 ${off ? 'opacity-40' : ''}">
+          <span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${col}"></span>
+          <span>${s.id}: ${s.name.split('(')[0].trim()}</span>
+        </button>`;
+      }).join("");
+    }
+
+    function renderMatrix(list) {
+      const ages = ["0-12", "13-24", "25-44", "45-64", "65+"];
+      const races = ["chinese", "malay", "indian", "caucasian", "eurasian", "afro"];
+
+      let html = `<table class="w-full text-xs border-collapse">
+        <thead>
+          <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)]">
+            <th class="text-left py-2 pr-3 sticky left-0 bg-[var(--card)]">Hairstyle</th>
+            <th class="px-2 py-2">Gender</th>
+            ${ages.map(a => `<th class="px-2 py-2 text-center">${a}</th>`).join("")}
+            ${races.map(r => `<th class="px-2 py-2 text-center capitalize">${r}</th>`).join("")}
+          </tr>
+        </thead><tbody>`;
+
+      list.forEach(s => {
+        const pct = s.eras[state.eraIdx];
+        const alpha = Math.max(0.14, pct / 100);
+        html += `<tr class="border-b border-[var(--border)]/60 hover:bg-[var(--secondary)]/40">
+          <td class="py-2 pr-3 font-medium sticky left-0 bg-[var(--card)] whitespace-nowrap">${s.id} ${s.name.split('(')[0].trim()}</td>
+          <td class="px-2 py-2 text-center capitalize">${s.gender}</td>
+          ${ages.map(a => {
+            const ok = s.age_groups.includes(a);
+            return `<td class="px-2 py-2 text-center tabular-nums">
+              ${ok ? `<span class="inline-block px-1.5 py-0.5 rounded font-medium" style="background: rgba(59,130,246,${alpha.toFixed(2)})">${pct}%</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}
+            </td>`;
+          }).join("")}
+          ${races.map(r => {
+            const ok = s.races.includes(r);
+            return `<td class="px-2 py-2 text-center tabular-nums">
+              ${ok ? `<span class="inline-block px-1.5 py-0.5 rounded font-medium" style="background: rgba(16,185,129,${alpha.toFixed(2)})">${pct}%</span>` : `<span class="text-[var(--muted-foreground)]/30">—</span>`}
+            </td>`;
+          }).join("")}
+        </tr>`;
+      });
+      html += `</tbody></table>`;
+      document.getElementById("matrix-table-wrap").innerHTML = html;
+    }
+
+    function renderMacro(list) {
+      // 10-year trend line SVG
+      const W = 520, H = 260, ml = 46, mr = 20, mt = 20, mb = 32;
+      const pw = W - ml - mr, ph = H - mt - mb;
+      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
+      [15, 20, 25, 30].forEach(val => {
+        const y = mt + ph - ((val - 12) / 20) * ph;
+        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
+        svg += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${val}M</text>`;
+      });
+      MACRO_10YR.forEach((d, i) => {
+        const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
+        svg += `<text x="${x}" y="${H - 10}" text-anchor="middle" fill="var(--muted-foreground)">${d.yr.slice(2)}</text>`;
+      });
+      [["tot", "Total Pop", CHART_COLORS[0]], ["res", "Residents", CHART_COLORS[1]], ["cit", "Citizens", CHART_COLORS[2]]].forEach(([key, label, col]) => {
+        const pts = MACRO_10YR.map((d, i) => {
+          const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
+          const y = mt + ph - ((d[key] - 12) / 20) * ph;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(" ");
+        svg += `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${pts}"/>`;
+        MACRO_10YR.forEach((d, i) => {
+          const x = ml + (i / (MACRO_10YR.length - 1)) * pw;
+          const y = mt + ph - ((d[key] - 12) / 20) * ph;
+          svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="${col}"><title>${d.yr} ${label}: ${d[key]}M cuts (65+ share: ${d.age65}%)</title></circle>`;
+        });
+      });
+      svg += `</svg>
+      <div class="flex gap-4 text-xs pt-1 text-[var(--muted-foreground)]">
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[0]}"></span>Total Pop (27.09M → 29.99M)</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[1]}"></span>Residents (19.10M → 20.55M)</span>
+        <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full inline-block" style="background:${CHART_COLORS[2]}"></span>Citizens (16.56M → 17.90M)</span>
+      </div>`;
+      document.getElementById("macro-trend-svg").innerHTML = svg;
+
+      // Top 8 bars by annual visits & GTV
+      const top = [...list].sort((a, b) => b.visits - a.visits).slice(0, 8);
+      const maxV = Math.max(1, ...top.map(s => s.visits));
+      const maxG = Math.max(1, ...top.map(s => s.gtv));
+      document.getElementById("macro-bar-svg").innerHTML = `<div class="space-y-2.5 text-xs">
+        ${top.map((s, idx) => `
+          <div class="space-y-1">
+            <div class="flex justify-between font-medium">
+              <span class="truncate pr-2">${s.id} ${s.name.split('(')[0].trim()}</span>
+              <span class="tabular-nums shrink-0">${(s.visits / 1e6).toFixed(2)}M visits • S$${(s.gtv / 1e6).toFixed(1)}M</span>
+            </div>
+            <div class="grid grid-cols-2 gap-1.5">
+              <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${(s.visits / maxV * 100).toFixed(1)}%; background:${CHART_COLORS[0]}"></div></div>
+              <div class="h-2 rounded bg-[var(--secondary)] overflow-hidden"><div class="h-full rounded" style="width:${(s.gtv / maxG * 100).toFixed(1)}%; background:${CHART_COLORS[1]}"></div></div>
+            </div>
+          </div>
+        `).join("")}
+        <div class="flex gap-4 pt-1 text-[var(--muted-foreground)]">
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded inline-block" style="background:${CHART_COLORS[0]}"></span>Annual Visits</span>
+          <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded inline-block" style="background:${CHART_COLORS[1]}"></span>Annual Salon GTV (SGD)</span>
+        </div>
+      </div>`;
+    }
+
+    function toggleLine(id) {
+      if (state.hiddenLines.has(id)) state.hiddenLines.delete(id);
+      else state.hiddenLines.add(id);
+      renderTimeline(getFilteredStyles());
+    }
+
+    function openModal(id) {
+      const s = STYLES.find(x => x.id === id);
+      if (!s) return;
+      document.getElementById("modal-id").textContent = `${s.id} • ${s.gender.toUpperCase()} • Ages: ${s.age_groups.join(', ')} • Races: ${s.races.join(', ')}`;
+      document.getElementById("modal-title").textContent = s.name;
+      document.getElementById("modal-context").textContent = s.ctx;
+
+      const W = 520, H = 170, ml = 38, mr = 16, mt = 14, mb = 28;
+      const pw = W - ml - mr, ph = H - mt - mb;
+      let svg = `<svg viewBox="0 0 ${W} ${H}" class="w-full h-auto text-xs">`;
+      [0, 50, 100].forEach(v => {
+        const y = mt + ph - (v / 100) * ph;
+        svg += `<line x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}" stroke="var(--border)" stroke-dasharray="3 3"/>`;
+        svg += `<text x="${ml - 6}" y="${y + 4}" text-anchor="end" fill="var(--muted-foreground)">${v}%</text>`;
+      });
+      const pts = s.eras.map((v, i) => `${(ml + (i / 6) * pw).toFixed(1)},${(mt + ph - (v / 100) * ph).toFixed(1)}`).join(" ");
+      svg += `<polyline fill="none" stroke="var(--primary)" stroke-width="2.6" points="${pts}"/>`;
+      s.eras.forEach((v, i) => {
+        const x = ml + (i / 6) * pw, y = mt + ph - (v / 100) * ph;
+        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4" fill="var(--primary)"/>`;
+        svg += `<text x="${x.toFixed(1)}" y="${y - 8}" text-anchor="middle" fill="var(--foreground)" font-size="10">${v}%</text>`;
+        svg += `<text x="${x.toFixed(1)}" y="${H - 8}" text-anchor="middle" fill="var(--muted-foreground)" font-size="10">${ERAS[i]}</text>`;
+      });
+      svg += `</svg>`;
+      document.getElementById("modal-chart").innerHTML = svg;
+
+      document.getElementById("modal-stats").innerHTML = `
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Adopters</div><div class="font-semibold tabular-nums">${s.adopters.toLocaleString()}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Annual Visits</div><div class="font-semibold tabular-nums">${s.visits.toLocaleString()}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">Weibull τ / Ticket</div><div class="font-semibold tabular-nums">${s.tau}d • S$${s.ticket}</div></div>
+        <div class="bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5"><div class="text-[var(--muted-foreground)]">2026 Annual GTV</div><div class="font-semibold tabular-nums">S$${(s.gtv / 1e6).toFixed(2)}M</div></div>
+      `;
+      document.getElementById("detail-modal").classList.remove("hidden");
+    }
+
+    // Event wiring
+    document.getElementById("filter-gender").addEventListener("change", e => { state.gender = e.target.value; renderAll(); });
+    document.getElementById("filter-age").addEventListener("change", e => { state.age = e.target.value; renderAll(); });
+    document.getElementById("filter-race").addEventListener("change", e => { state.race = e.target.value; renderAll(); });
+    document.getElementById("filter-era").addEventListener("input", e => { state.eraIdx = Number(e.target.value); renderAll(); });
+    document.getElementById("sort-by").addEventListener("change", e => { state.sortBy = e.target.value; renderAll(); });
+
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      state.gender = "all"; state.age = "all"; state.race = "all"; state.eraIdx = 6; state.hiddenLines.clear(); state.onlyTop6 = false;
+      document.getElementById("filter-gender").value = "all";
+      document.getElementById("filter-age").value = "all";
+      document.getElementById("filter-race").value = "all";
+      document.getElementById("filter-era").value = "6";
+      renderAll();
+    });
+
+    document.getElementById("btn-top6").addEventListener("click", () => { state.onlyTop6 = true; renderTimeline(getFilteredStyles()); });
+    document.getElementById("btn-showall-lines").addEventListener("click", () => { state.onlyTop6 = false; state.hiddenLines.clear(); renderTimeline(getFilteredStyles()); });
+    document.getElementById("modal-close").addEventListener("click", () => document.getElementById("detail-modal").classList.add("hidden"));
+    document.getElementById("detail-modal").addEventListener("click", e => {
+      if (e.target.id === "detail-modal") document.getElementById("detail-modal").classList.add("hidden");
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        state.activeTab = btn.dataset.tab;
+        document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
+        document.getElementById("tab-" + state.activeTab).classList.remove("hidden");
+        document.querySelectorAll(".tab-btn").forEach(b => {
+          b.className = "tab-btn px-3 py-1.5 rounded-lg font-medium border border-[var(--border)] text-[var(--muted-foreground)]";
+        });
+        btn.className = "tab-btn px-3 py-1.5 rounded-lg font-medium bg-[var(--primary)] text-[var(--primary-foreground)]";
+      });
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>

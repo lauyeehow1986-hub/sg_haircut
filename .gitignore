@@ -1,0 +1,16 @@
+# Local MCP configs & credentials (never commit API keys, emails, or passwords)
+.antigravity/
+mcp_config.json
+mcp.json
+.env
+.env.*
+*.key
+*.pem
+
+# Python / cache / OS artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.DS_Store
+Thumbs.db
