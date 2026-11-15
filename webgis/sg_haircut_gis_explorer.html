@@ -134,19 +134,30 @@
       ? `(${COUNTS.acra_unlocated.toLocaleString()} live ACRA records lacked valid 6-digit OneMap-resolvable postal codes and are omitted from map pins.)`
       : "";
 
-    const map = L.map("map").setView([1.3521, 103.8198], 12);
-    const darkTiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-      attribution: "&copy; OpenStreetMap &copy; CARTO", maxZoom: 19
+    const map = L.map("map", { minZoom: 11, maxZoom: 19 }).setView([1.3521, 103.8198], 12);
+    const onemapDefault = L.tileLayer("https://www.onemap.gov.sg/maps/tiles/Default/{z}/{x}/{y}.png", {
+      attribution: "Map data &copy; SLA OneMap Singapore", minZoom: 11, maxZoom: 19
     }).addTo(map);
-    const onemapTiles = L.tileLayer("https://www.onemap.gov.sg/maps/tiles/Default/{z}/{x}/{y}.png", {
-      attribution: "Map data &copy; SLA OneMap Singapore", maxZoom: 19
+    const onemapNight = L.tileLayer("https://www.onemap.gov.sg/maps/tiles/Night/{z}/{x}/{y}.png", {
+      attribution: "Map data &copy; SLA OneMap Singapore", minZoom: 11, maxZoom: 19
     });
-    L.control.layers({ "Dark Canvas": darkTiles, "SLA OneMap Basemap": onemapTiles }).addTo(map);
+    const onemapGrey = L.tileLayer("https://www.onemap.gov.sg/maps/tiles/Grey/{z}/{x}/{y}.png", {
+      attribution: "Map data &copy; SLA OneMap Singapore", minZoom: 11, maxZoom: 19
+    });
+    const osmTiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap contributors", minZoom: 11, maxZoom: 19
+    });
+    L.control.layers({
+      "SLA OneMap (Buildings & Streets)": onemapDefault,
+      "SLA OneMap Night (Dark + Buildings)": onemapNight,
+      "SLA OneMap Grey": onemapGrey,
+      "OpenStreetMap Streets": osmTiles
+    }).addTo(map);
 
     const cluster = L.markerClusterGroup({ chunkedLoading: true, maxClusterRadius: 45, spiderfyOnMaxZoom: true });
     map.addLayer(cluster);
 
-    const SRC_COLOR = { acra: "#fbbf24", osm: "#22d3ee", audited: "#34d399" };
+    const SRC_COLOR = { acra: "#d97706", osm: "#0284c7", audited: "#059669" };
 
     function makePopup(p) {
       if (p.src === "audited") {
