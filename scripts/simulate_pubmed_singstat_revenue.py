@@ -205,11 +205,29 @@ def run_simulation() -> dict:
     res_kid_cuts = round(sum(v[2] for (r, s, a), v in cell_cuts.items() if a in kid_ages))
     res_men_cuts = round(sum(v[2] for (r, s, a), v in cell_cuts.items() if s == "Male" and a not in kid_ages))
     res_wom_cuts = round(sum(v[2] for (r, s, a), v in cell_cuts.items() if s == "Female" and a not in kid_ages))
+    all_total_cuts = round(tot_cuts_res + nr_m_cuts + nr_f_cuts)
+
+    # Tab 3 Personal Calculator lookup (exact population-weighted rates matching s-race, s-gender, s-age)
+    tab3_age_map = {
+        "0-12": ["0 - 4 Years", "5 - 9 Years", "10 - 14 Years"],
+        "13-24": ["15 - 19 Years", "20 - 24 Years"],
+        "25-44": ["25 - 29 Years", "30 - 34 Years", "35 - 39 Years", "40 - 44 Years"],
+        "45-64": ["45 - 49 Years", "50 - 54 Years", "55 - 59 Years", "60 - 64 Years"],
+        "65+": ["65 - 69 Years", "70 - 74 Years", "75 - 79 Years", "80 - 84 Years", "85 - 89 Years", "90 Years & Over"],
+    }
+    tab3_lookup = {}
+    for rc in ("Chinese", "Malay", "Indian", "Others"):
+        for sx_k, sx_v in (("male", "Male"), ("female", "Female")):
+            for ak, ag_list in tab3_age_map.items():
+                p_sub = sum(cell_cuts[(rc, sx_v, a)][0] for a in ag_list)
+                c_sub = sum(cell_cuts[(rc, sx_v, a)][2] for a in ag_list)
+                tab3_lookup[f"{rc.lower()}|{sx_k}|{ak}"] = round(c_sub / p_sub, 2)
 
     output = {
         "meta": {
             "anchor_default_weeks": 5.0,
             "anchor_default_cuts_yr": 10.40,
+            "all_pop_mean_cuts_yr": round(all_total_cuts / tot_pop, 2),
             "residents_2026": tot_res,
             "non_residents_est": nr_pop,
             "total_pop_2026": tot_pop,
@@ -232,8 +250,9 @@ def run_simulation() -> dict:
             "res_women": res_wom_cuts,
             "nr_men": nr_m_cuts,
             "nr_women": nr_f_cuts,
-            "all_total": round(tot_cuts_res + nr_m_cuts + nr_f_cuts),
+            "all_total": all_total_cuts,
         },
+        "tab3_lookup": tab3_lookup,
         "by_gender": by_gender,
         "by_race": by_race,
         "by_age": by_age,
