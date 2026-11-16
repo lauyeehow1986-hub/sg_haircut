@@ -48,7 +48,7 @@ def run_simulation() -> dict:
     asfr_2025 = facts["asfr_2025_per_1000"]
     tot_pop = facts["total_pop_2026"]
 
-    # Audited 102 catalog price statistics
+    # Audited 255 catalog price statistics (tier medians invariant across 102 full vs 255 total)
     cat = list(csv.DictReader(CATALOG_PATH.open(encoding="utf-8")))
     med_all = {
         "men": round(statistics.median(float(r["price_men_sgd"]) for r in cat), 2),
@@ -236,7 +236,13 @@ def run_simulation() -> dict:
                 for ag, rate in asfr_2025.items()
             )),
             "calibration_scalar_k": round(k_5wk, 4),
-            "denominators": {"acra_96021": 3933, "google_retail": 2819, "ssic_9602": 11241},
+            "denominators": {
+                "acra_96021": 3933,
+                "acra_hair_union": 4646,
+                "google_retail": 2819,
+                "gis_mapped_total": 5409,
+                "ssic_9602": 11241,
+            },
         },
         "tickets": {
             "median_express": med_all,
@@ -264,7 +270,10 @@ def run_simulation() -> dict:
         ],
         "ssic_9602_pnl": facts["ssic_9602_pnl"],
         "ssic_9602_formations_cessations": facts["ssic_9602_formations_cessations"],
-        "acra_comparison": facts["acra_comparison"],
+        "acra_comparison": {
+            **facts["acra_comparison"],
+            "ssic_96022_hair_extracted": {"clean_hair_scalp": 713, "pct_of_96022": 10.0, "hdb_count": 407},
+        },
     }
 
     OUT_PATH.write_text(json.dumps(output, indent=2), encoding="utf-8")

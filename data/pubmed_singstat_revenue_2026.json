@@ -10,7 +10,9 @@
     "calibration_scalar_k": 11.3331,
     "denominators": {
       "acra_96021": 3933,
+      "acra_hair_union": 4646,
       "google_retail": 2819,
+      "gis_mapped_total": 5409,
       "ssic_9602": 11241
     }
   },
@@ -556,6 +558,11 @@
       }
     },
     "dual_overlap": 739,
-    "active_union": 10349
+    "active_union": 10349,
+    "ssic_96022_hair_extracted": {
+      "clean_hair_scalp": 713,
+      "pct_of_96022": 10.0,
+      "hdb_count": 407
+    }
   }
 }
