@@ -357,7 +357,8 @@
   ],
   "pubmed_gaps": [
     "No standalone phototrichogram linear velocity (um/day) clinical trial exists on Singapore Malays or Singapore Indians; SE Asian donor-site data (PMID 29543618) and South Asian clinical AGA cohorts (PMID 11063167, 39312769) anchor our proxy parameters.",
-    "Gender haircut frequency divergence (~7.90 vs ~3.57 cuts/yr) is primarily behavioral (style-length tolerance) + higher male AGA/SS16 short-cut norms, because healthy human linear velocity shows zero significant gender difference (PMID 11531795, 37667034, 24185569)."
+    "Gender haircut frequency divergence (~7.90 vs ~3.57 cuts/yr) is primarily behavioral (style-length tolerance) + higher male AGA/SS16 short-cut norms, because healthy human linear velocity shows zero significant gender difference (PMID 11531795, 37667034, 24185569).",
+    "No cross-country haircut-frequency or salon-tier benchmark is available via Google Data Commons (datacommons-mcp verified live across country/SGP, KOR, JPN, MYS, GBR, USA): Data Commons provides official total population denominators (Count_Person: SG 6,208,523 in 2026 from SingStat), but contains zero annual cuts/person variables and stops business establishment granularity at US 2-digit NAICS 81 (no disaggregated NAICS 81211, NACE S96.02, or COICOP 12.1.1 hair salon series)."
   ],
   "ssic_9602_pnl": [
     {
