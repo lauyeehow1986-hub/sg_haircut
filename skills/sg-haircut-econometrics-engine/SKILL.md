@@ -95,3 +95,14 @@ Configured in `mcp_config.json` (`pubmed-ncbi-entrez-mcp` via `@cyanheads/pubmed
 - **`PMC8487794` ([NIH PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8487794/)):** Hospital staff AGA study — male hospital staff exhibit **42.9% AGA prevalence vs. 27.5% in the general male population ($P=0.019$)** due to shift-work stressors.
 - **`PMC13580428` ([NIH PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC13580428/)):** Deterministic radiation-induced epilation requires **$\ge 3.0	ext{ Gy}$ ($3,000	ext{ mSv}$)** local skin dose vs. $<0.0015	ext{ Gy/yr}$ in diagnostic radiographers.
 - **`PMC3162256` ([NIH PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC3162256/)):** Neonatal Occipital Alopecia affects **20.2% of infants** at 8–12 weeks postpartum via synchronized physiological telogen shedding initiated in utero.
+
+
+## 15. Google Data Commons MCP (`datacommons-mcp`) — Global Macro & Supply Benchmarking
+
+Configured in `mcp_config.json` (`datacommons-mcp` via Google's hosted Streamable HTTP endpoint `https://api.datacommons.org/mcp` with `X-API-Key`, or local `uvx datacommons-mcp serve stdio` with `DC_API_KEY` from `https://apikeys.datacommons.org`) to pull standardized cross-country macro denominators and regional comparison context:
+
+- **Supported Statistical Scope (`StatVar`):** Country and subnational population pyramids (`Count_Person`), median age, GDP/income per capita, consumer price indices, and US/OECD/Eurostat macro business counts (`NAICS 81211` Personal Care Services / `NACE S96.02` / `COICOP 12.1.1`) for normalizing Singapore's **`18.1`/10k** combined `SSIC 9602` (`11,241 / 6.21M`) and **`6.3`/10k** pure `ACRA 96021` (`3,933 / 6.21M`) outlet densities against international peers.
+- **Honest Benchmark Caveats:**
+  - Data Commons does **not** contain direct **"haircuts per person per year"** survey counts (`cuts/yr`); international cut-frequency figures in `query_singstat_mcp_and_international_hairstyle_timelag_benchmark` remain directional trade/dermatology references rather than official Data Commons `StatVar` tables.
+  - Industry and expenditure series (`NAICS 8121`, `NACE S96.02`, `COICOP 12.1.1`) bundle hair salons together with barbershops, nail salons, and facial/beauty spas (matching SingStat `SSIC 9602`'s broad scope).
+  - Always pass an authenticated `DC_API_KEY` (`X-API-Key` header or env var in gitignored `mcp_config.json` / `.env` — never commit credentials to the repository).

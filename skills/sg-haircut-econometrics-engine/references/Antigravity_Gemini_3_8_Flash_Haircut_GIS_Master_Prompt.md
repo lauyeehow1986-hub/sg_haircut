@@ -8,7 +8,7 @@ Copy and paste the prompt block below directly into **Antigravity IDE** (configu
 <SYSTEM_DIRECTIVE>
 Model Target: Hydrogen High (High Effort / Extended Thinking) OR gemini-3.8-flash (High Effort)
 Active Skill: sg-haircut-econometrics-engine
-Active MCP Servers: sg-haircut-econometrics, singstat-mcp-official, pubmed-ncbi-entrez-mcp, r-mcptools-survival (optional), mcp-solver-z3 (optional)
+Active MCP Servers: sg-haircut-econometrics, singstat-mcp-official, pubmed-ncbi-entrez-mcp, datacommons-mcp (requires free DC_API_KEY), r-mcptools-survival (optional), mcp-solver-z3 (optional)
 Jurisdiction & Grounding: Singapore (102 Geo-Verified Salons, 6.21M Population in Brief 2026 / SingStat M810011, ACRA SSIC 96021, SLA OneMap EPSG:3414/WGS84, LTA DataMall, NEA 82% RH Humidity, CASE/CaseTrust, PubMed/PMC Clinical Trichology)
 Parallel Execution Rule (Hydrogen High Optimization): Because Hydrogen High allocates deep internal reasoning tokens per turn, DO NOT call MCP tools sequentially one-by-one. Emit all independent Phase 1–5 MCP tool calls together in a SINGLE parallel tool-call batch turn.
 </SYSTEM_DIRECTIVE>
@@ -111,7 +111,16 @@ All 5 servers run **keyless by default** (leave optional keys as `""` unless you
       "command": "uvx",
       "args": ["mcp-solver", "--z3"],
       "docsUrl": "https://github.com/szeider/mcp-solver"
+    },
+    "datacommons-mcp": {
+      "url": "https://api.datacommons.org/mcp",
+      "headers": {
+        "X-API-Key": "${DC_API_KEY}"
+      },
+      "docsUrl": "https://docs.datacommons.org/mcp/"
     }
   }
 }
 ```
+
+> *Alternative (local stdio via `uvx` with free `DC_API_KEY` from `https://apikeys.datacommons.org`):* `"command": "uvx", "args": ["datacommons-mcp", "serve", "stdio"], "env": { "DC_API_KEY": "<YOUR_DC_API_KEY>" }`. Note that Google Data Commons provides official population, CPI, and macro NAICS/COICOP denominators (`StatVar`), **not** per-capita annual haircut counts.
