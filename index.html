@@ -83,6 +83,9 @@
       <button data-tab="pubmed" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
         5. PubMed Growth, Earnings &amp; Specialised Drivers
       </button>
+      <button data-tab="invest" class="tab-btn px-3.5 py-2 rounded-lg font-medium border border-[var(--border,var(--border-fallback))] text-[var(--muted-foreground,var(--muted-fallback))]">
+        6. S$1M Investment, Break-Even &amp; Site/Brand Strategy
+      </button>
     </nav>
 
     <!-- TAB 1: YEARLY TRENDS -->
@@ -708,6 +711,191 @@
         </div>
         <div id="pm-gaps-box" class="bg-[var(--background,var(--bg-fallback))] border border-amber-500/30 rounded-lg p-3 text-amber-200/90 space-y-1"></div>
         <div id="pm-pubmed-wrap" class="overflow-x-auto max-h-[340px] overflow-y-auto scrollbar-thin"></div>
+      </div>
+    </section>
+
+    <!-- TAB 6: S$1M CAPITAL DEPLOYMENT, BREAK-EVEN, PINPOINT MICRO-SITES & BRAND/TALENT STRATEGY -->
+    <section id="tab-invest" class="tab-panel hidden space-y-4">
+      <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-2">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 class="text-base font-semibold">S$1,000,000 Capital Deployment, Break-Even Horizon &amp; Exact Site / Brand Strategy</h2>
+            <p class="text-xs text-[var(--muted-foreground,var(--muted-fallback))]">
+              Grounds S$1M salon CAPEX against <strong>SingStat M601481</strong> (<code>-3.1%</code> sector margin in 2024), <strong>ACRA 96021/96022</strong> (<code>74.7%</code> / <code>72.3%</code> cumulative exit rates; <code>14.65%/yr</code> hazard), <strong>4,673-pin 500m competition audits</strong>, <strong>AI Hair-Wash Pod ROI</strong> (<code>+S$24,694/pod/yr</code>), and <strong>MOM Services DRC</strong> rules.
+            </p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-[11px] font-medium">4-Hub Homegrown Optimal</span>
+        </div>
+      </div>
+
+      <!-- KPI Strip -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Simple Break-Even Horizon</div>
+          <div id="inv-kpi-be" class="text-xl font-bold tabular-nums text-emerald-400 mt-0.5">—</div>
+          <div id="inv-kpi-be-sub" class="text-[11px] text-slate-400 mt-0.5">S$1.0M CAPEX</div>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">Monthly Post-Tax Free Cash Flow</div>
+          <div id="inv-kpi-cf" class="text-xl font-bold tabular-nums text-sky-400 mt-0.5">—</div>
+          <div id="inv-kpi-cf-sub" class="text-[11px] text-slate-400 mt-0.5">EBITDA net of SG tax</div>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">5-Year NPV (@ 8% WACC)</div>
+          <div id="inv-kpi-npv" class="text-xl font-bold tabular-nums text-amber-300 mt-0.5">—</div>
+          <div class="text-[11px] text-slate-400 mt-0.5">After S$1M initial CAPEX</div>
+        </div>
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-3">
+          <div class="text-[var(--muted-foreground,var(--muted-fallback))]">2-Yr Survival Risk &amp; MOM Quota</div>
+          <div id="inv-kpi-risk" class="text-base font-bold tabular-nums text-violet-300 mt-0.5">—</div>
+          <div id="inv-kpi-drc" class="text-[11px] text-slate-400 mt-0.5">35% WP+SP · 10% SP cap</div>
+        </div>
+      </div>
+
+      <!-- Interactive S$1M Unit-Economics Simulator + Comparison Table -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3 text-xs">
+          <h3 class="text-sm font-semibold">Interactive S$1.0M Break-Even Simulator</h3>
+          <div>
+            <label class="block text-slate-400 mb-1">Capital Deployment Architecture</label>
+            <select id="inv-model" class="w-full bg-[var(--background,var(--bg-fallback))] border border-[var(--border,var(--border-fallback))] rounded-lg px-2.5 py-2">
+              <option value="s3_base" selected>S3: 4 Homegrown Scalp-Hybrid Hubs (2 HDB + 2 BTO, S$250k ea)</option>
+              <option value="s3_chair">S3+: 4 Homegrown Hubs + 40% Off-Peak Chair Offset</option>
+              <option value="s2_fran">S2: 7 Express Franchise Mall Kiosks (S$14, 7% royalty)</option>
+              <option value="s4_booth">S4: 3 Co-Working Booth-Rental Studios (30 chairs @ S$2.1k)</option>
+              <option value="s1_orchard">S1: 1 Orchard Luxury Flagship (1,200 sqft @ S$26 psf)</option>
+            </select>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="text-slate-400">Outlet Utilization Rate</label>
+              <span id="inv-util-lbl" class="font-semibold text-sky-300 tabular-nums">85%</span>
+            </div>
+            <input id="inv-util" type="range" min="60" max="115" step="5" value="85" class="w-full accent-[#38bdf8]" />
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="text-slate-400">Blended Ticket (Cuts + Scalp/Care)</label>
+              <span id="inv-ticket-lbl" class="font-semibold text-emerald-300 tabular-nums">S$72</span>
+            </div>
+            <input id="inv-ticket" type="range" min="14" max="230" step="2" value="72" class="w-full accent-[#10b981]" />
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="text-slate-400">Avg Monthly Rent / Outlet</label>
+              <span id="inv-rent-lbl" class="font-semibold text-amber-300 tabular-nums">S$8,000</span>
+            </div>
+            <input id="inv-rent" type="range" min="4500" max="32000" step="500" value="8000" class="w-full accent-[#f59e0b]" />
+          </div>
+          <div>
+            <div class="flex justify-between mb-1">
+              <label class="text-slate-400">Employed Staff / Outlet (MOM DRC Check)</label>
+              <span id="inv-staff-lbl" class="font-semibold text-violet-300 tabular-nums">8 pax</span>
+            </div>
+            <input id="inv-staff" type="range" min="4" max="14" step="1" value="8" class="w-full accent-[#a78bfa]" />
+          </div>
+          <div id="inv-pnl-summary" class="bg-[var(--background,var(--bg-fallback))] border border-slate-800 rounded-lg p-3 space-y-1 text-[11px] text-slate-300"></div>
+        </div>
+
+        <div class="lg:col-span-2 bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3 text-xs">
+          <div>
+            <h3 class="text-sm font-semibold">Head-to-Head S$1,000,000 Quantitative Sensitivity Matrix</h3>
+            <p class="text-[11px] text-slate-400">Shows why basic-cut franchises (<code>80.1 mo</code>) and single-site Orchard flagships (<code>∞</code> / <code>81.0 mo</code>) fail typical 3-year leases, while 4 dispersed HDB/New-Town scalp-first hubs capture the <code>77.5%</code> treatment revenue pool.</p>
+          </div>
+          <div id="inv-compare-wrap" class="overflow-x-auto"></div>
+        </div>
+      </div>
+
+      <!-- Pinpoint Location Matrix + Saturated Traps -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 text-xs">
+        <div class="lg:col-span-2 bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 class="text-sm font-semibold">Recommended 4-Outlet Portfolio: Exact Pinpoint Subzones, HDB vs. Mall &amp; Postal Codes</h3>
+              <p class="text-[11px] text-slate-400">Verified against <strong>4,673 pins</strong> (`500m` competitor radius), Census 2020 cohorts, and 2025–2026 HDB BTO completions. Click any site to jump directly to it on the Tab 4 WebGIS map.</p>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-slate-700 text-slate-400">
+                  <th class="py-1.5 pr-2">Slot &amp; Subzone</th>
+                  <th class="py-1.5 px-2">Exact Postal Code / Building</th>
+                  <th class="py-1.5 px-2">Premises &amp; Rent</th>
+                  <th class="py-1.5 px-2">Verified 500m Competition &amp; Demand Proof</th>
+                  <th class="py-1.5 pl-2 text-right">Map</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-slate-800/80">
+                  <td class="py-2 pr-2 font-semibold text-emerald-300">#1 Matilda<br><span class="text-[11px] font-normal text-slate-400">Punggol</span></td>
+                  <td class="py-2 px-2 font-medium text-white">Blk 224A Sumang Ln <code>S(821224)</code><br><span class="text-[11px] text-slate-400">or Blk 256A <code>S(821256)</code></span></td>
+                  <td class="py-2 px-2"><span class="px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300">HDB Shop</span><br><span class="text-[11px] text-slate-400">~S$6.5k/mo (S$6–8 psf)</span></td>
+                  <td class="py-2 px-2 text-slate-300"><strong>52,200</strong> pop (<strong>15,600</strong> aged 25–39; <strong>5,430</strong> kids 0–4y), only <strong>1.5 pins/10k</strong>, <strong>0</strong> barbers, <strong>0</strong> spec/scalp salons, only <strong>5</strong> pins &le;500m (1 HDB salon <em>Salon Shan</em>).</td>
+                  <td class="py-2 pl-2 text-right"><button type="button" onclick="flyToPinPoint(1.4018, 103.8902, 16, '821224')" class="px-2 py-1 rounded bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px]">Map ↗</button></td>
+                </tr>
+                <tr class="border-b border-slate-800/80">
+                  <td class="py-2 pr-2 font-semibold text-emerald-300">#2 Plantation<br><span class="text-[11px] font-normal text-slate-400">Tengah</span></td>
+                  <td class="py-2 px-2 font-medium text-white">Blk 139 Tengah Gdn Ave <code>S(690139)</code><br><span class="text-[11px] text-slate-400">or Plantation Plaza <code>S(690127)</code></span></td>
+                  <td class="py-2 px-2"><span class="px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300">HDB / BTO Plaza</span><br><span class="text-[11px] text-slate-400">S$6.5k–11k/mo</span></td>
+                  <td class="py-2 px-2 text-slate-300"><strong>14,000+</strong> HDB flats built (<strong>12,000+</strong> keys collected by 2026) scaling to ~30k–42k homes + JRL MRT (2027). Only <strong>3</strong> pins inside subzone (<em>Kcuts</em>, <em>Clippers</em>, <em>T3 Hair</em>); zero kids/postpartum AI scalp hubs.</td>
+                  <td class="py-2 pl-2 text-right"><button type="button" onclick="flyToPinPoint(1.3563, 103.7393, 16, 'Tengah')" class="px-2 py-1 rounded bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px]">Map ↗</button></td>
+                </tr>
+                <tr class="border-b border-slate-800/80">
+                  <td class="py-2 pr-2 font-semibold text-sky-300">#3 Anchorvale<br><span class="text-[11px] font-normal text-slate-400">Sengkang</span></td>
+                  <td class="py-2 px-2 font-medium text-white">Anchorvale Village <code>S(541339)</code><br><span class="text-[11px] text-slate-400">or Blk 315A–338D HDB</span></td>
+                  <td class="py-2 px-2"><span class="px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300">HDB Hub</span><br><span class="text-[11px] text-slate-400">~S$7k–9k/mo</span></td>
+                  <td class="py-2 px-2 text-slate-300"><strong>48,120</strong> pop (<strong>12,400</strong> aged 25–39; <strong>3,790</strong> aged 0–4), <code>3.3/10k</code> pins (<code>yg 58.3</code>), <strong>0</strong> specialist/scalp salons &le;500m (surrounded only by basic cuts: <em>Kcuts</em>, <em>Snip Ave</em>, <em>DJ Cool Cut</em>).</td>
+                  <td class="py-2 pl-2 text-right"><button type="button" onclick="flyToPinPoint(1.3965, 103.8891, 16, 'Anchorvale')" class="px-2 py-1 rounded bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px]">Map ↗</button></td>
+                </tr>
+                <tr>
+                  <td class="py-2 pr-2 font-semibold text-rose-300">#4 Aging Hedge<br><span class="text-[11px] font-normal text-slate-400">Bedok South / Bt Timah</span></td>
+                  <td class="py-2 px-2 font-medium text-white">Bedok South HDB <code>S(46xxxx)</code><br><span class="text-[11px] text-slate-400">or Ulu Pandan <code>S(27xxxx)</code></span></td>
+                  <td class="py-2 px-2"><span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">Aging Hedge</span><br><span class="text-[11px] text-slate-400">~S$7k–9.5k/mo</span></td>
+                  <td class="py-2 px-2 text-slate-300">Hedges Singapore's <code>0.87</code> TFR via high-senior AGA &amp; scalp spend: <strong>Bedok South</strong> (<code>21.8%</code> 65+, 46.7k pop, <code>7.3/10k</code>) &amp; <strong>Bukit Timah</strong> (<code>#1</code> Senior Gap <code>31.4</code>, <code>5.3</code> HDB/10k 65+). <em>Alt:</em> Oasis Terraces <code>S(820681)</code> (<code>2.0/10k</code>).</td>
+                  <td class="py-2 pl-2 text-right"><button type="button" onclick="flyToPinPoint(1.3245, 103.9335, 15, 'Bedok South')" class="px-2 py-1 rounded bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/30 text-[11px]">Map ↗</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-[var(--card,var(--card-fallback))] border border-rose-500/30 rounded-xl p-4 space-y-2.5">
+          <h3 class="text-sm font-semibold text-rose-300">Saturated "False Growth" Malls to Avoid</h3>
+          <p class="text-[11px] text-slate-400">Even inside growing towns, these exact postcodes are already crowded within a <code>500m</code> radius at high mall PSF:</p>
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li>• <strong>One Punggol / Waterway Pt <code>S(828629)</code>:</strong> <strong>8</strong> pins &le;500m (<em>NK Hairworks</em>, <em>Jean Yip</em>, <em>Kcuts</em>, <em>Clippers</em>, <em>QB Kids</em>).</li>
+            <li>• <strong>Punggol Coast Mall <code>S(829913)</code>:</strong> <strong>10</strong> pins &le;500m (<em>Kcuts</em>, <em>Clippers</em>, <em>Salon V</em>, <em>AG Scalp</em>, <em>Splendor</em>).</li>
+            <li>• <strong>The Woodleigh Mall <code>S(367803)</code>:</strong> <strong>7</strong> pins &le;500m (<em>NK Hairworks</em>, <em>EX Style</em>, <em>Clippers</em>, <em>Kcuts</em> — only enter surrounding HDBs <code>S(363201)</code> if &lt;S$8 psf).</li>
+            <li>• <strong>Wisteria Mall <code>S(768698)</code>:</strong> <strong>14</strong> pins &le;500m (high saturation despite low <em>Lower Seletar</em> aggregate score).</li>
+            <li>• <strong>Keat Hong / Blk 475 CCK <code>S(680253)</code>:</strong> <strong>13–17</strong> HDB salons clustered within 500m.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Brand & Stylist Sourcing Quantitative Scorecards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 text-xs">
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-2.5">
+          <h3 class="text-sm font-semibold">Brand Differentiation: Homegrown vs. Franchises (Quantitative Audit)</h3>
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">REJECT</span> <strong>Existing SG Express Franchise (kcuts/EC House):</strong> Fixed <code>S$14</code> price ceiling + <code>5%–10%</code> royalties + mall PSF = <strong>80.1 mo</strong> average payback (<strong>-S$402k</strong> 5-yr NPV) and zero brand exit IP.</li>
+            <li><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">REJECT</span> <strong>Import Overseas Franchise (KR/JP):</strong> Royalties + mandatory product markups <strong>collide with MOM's 35% Services DRC (max 10% S Pass)</strong> — at an 8-staff outlet you can hire at most <code>2</code> WP holders and <code>0</code> S Passes, preventing an all-foreign stylist squad.</li>
+            <li><span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">WINNER</span> <strong>Homegrown Clinical-Biotype &amp; Scalp Brand (0% Royalty):</strong> Capture the <code>77.5%</code> non-cut market by pairing <code>S$24–S$28</code> precision cuts with <strong>AI Hair-Wash Pods</strong> (<code>+S$24,694/pod/yr</code> vs <code>-S$5,380/yr</code> robotic barber loss), postpartum telogen rituals (40%–50% new mums in Matilda/Tengah), AGA 4–6 wk side-taper plans (<code>PMID:11063167</code>), and safe <strong>&le;4-visit / &le;S$180</strong> retainers (avoiding the <code>13.63%</code> 8-visit default hazard).</li>
+          </ul>
+        </div>
+
+        <div class="bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-2.5">
+          <h3 class="text-sm font-semibold">Stylist Sourcing: 60% Core Staff + 40% Off-Peak Chair Offset</h3>
+          <ul class="space-y-1.5 text-[11px] text-slate-300">
+            <li><span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">REJECT</span> <strong>100% Freelance Booth Rental (S$1.5k–S$3.0k/chair):</strong> Caps chair yield (<strong>72.7 mo</strong> payback, <strong>-S$341k</strong> NPV) and surrenders the <code>77.5%</code> treatment/product margin plus client ownership.</li>
+            <li><span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-semibold">CAUTION</span> <strong>Pure Headhunting Directors (45%–55% comm + 17% CPF):</strong> Compresses net margin below <code>8%</code> and leaves 60%–80% of bookings tied to an individual stylist rather than shop CRM.</li>
+            <li><span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold">OPTIMAL</span> <strong>60/40 Hybrid Architecture (19.8 mo Payback):</strong> Headhunt <strong>1 Anchor Lead/hub</strong> on <code>38%–42%</code> tiered commission + <code>15%</code> retail + <code>24-mo</code> cliff retention bonus (shop owns CRM &amp; 4–6 wk Weibull SMS rebooking), supported by <strong>2–3 junior stylists + AI Wash Pod</strong>, and lease <strong>2 idle Mon–Thu chairs @ S$2,000–S$2,200/mo</strong> to vetted freelancers (<code>+S$4.4k/mo</code> rent offset with <strong>0% CPF, 0% MC, and 0 MOM DRC quota used</strong>).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-[var(--background,var(--bg-fallback))] border border-amber-500/30 rounded-xl p-3 text-[11px] text-amber-200/90 space-y-1">
+        <div><strong>Honest Modeling Assumptions vs. Official Inputs:</strong> Sector P&amp;L (<code>S$300.8k</code> rev vs <code>S$323.4k</code> opex), ACRA exits (<code>74.7%</code> / <code>72.3%</code>), 4,673-pin 500m audits, BTO housing counts, AI Wash Pod ROI (<code>+S$24,694/yr</code>), MOM DRC (<code>35%</code>/<code>10%</code>), and <code>17%</code> CPF are official/MCP-verified figures. Outlet CAPEX (<code>S$250k</code>/hub), blended ticket (<code>S$72</code>), commission splits, SME corporate tax (<code>~14%</code>), and utilization rates (<code>65%–100%</code>) are sensitivity-tested financial planning assumptions rather than guaranteed future store P&amp;Ls.</div>
       </div>
     </section>
 
@@ -1640,6 +1828,138 @@
 
     function openGisTab() { openTab("gis"); }
 
+    function flyToPinPoint(lat, lng, zoomLvl, searchText) {
+      openGisTab();
+      const qEl = document.getElementById("g-q");
+      if (qEl) qEl.value = searchText || "";
+      renderGisPins();
+      if (window.__sgMap) {
+        setTimeout(() => {
+          window.__sgMap.invalidateSize();
+          window.__sgMap.setView([lat, lng], zoomLvl || 16);
+        }, 100);
+      }
+    }
+
+    // ==================== TAB 6: S$1M CAPITAL DEPLOYMENT & BREAK-EVEN ENGINE ====================
+    const INV_PRESETS = {
+      s3_base: { units: 4, capex: 1000000, ticket: 72, baseRevAt85: 56160, cogs: 0.11, comm: 0.35, royalty: 0.0, rent: 8000, baseCpf: 8200, ops: 2400, chairOffset: 0, fail2y: "0.046% (all-4)", staffDefault: 8, note: "4 hubs x S$250k (2 HDB + 2 New-Town Plazas); 55% cuts @ S$24 + 45% scalp/care @ S$131 + 1 AI Wash Pod (+S$24.7k/yr net)." },
+      s3_chair: { units: 4, capex: 1000000, ticket: 72, baseRevAt85: 56160, cogs: 0.11, comm: 0.31, royalty: 0.0, rent: 8000, baseCpf: 8200, ops: 2400, chairOffset: 0, fail2y: "0.046% (all-4)", staffDefault: 8, note: "60/40 Talent Hybrid: Mon–Thu freelance chair co-rental lifts blended labor economics by 4% (~S$2,246/hub/mo) with zero extra CPF/DRC quota used." },
+      s2_fran: { units: 7, capex: 1000000, ticket: 14, baseRevAt85: 25200, cogs: 0.04, comm: 0.22, royalty: 0.07, rent: 5500, baseCpf: 7800, ops: 1800, chairOffset: 0, fail2y: "27.15%/unit", staffDefault: 5, note: "7 express mall kiosks (S$143k ea): 7% gross royalty + S$14 ticket ceiling squeezes net margin even at 60 cuts/day/kiosk." },
+      s4_booth: { units: 3, capex: 1000000, ticket: 24, baseRevAt85: 22800, cogs: 0.04, comm: 0.0, royalty: 0.0, rent: 11500, baseCpf: 3600, ops: 2200, chairOffset: 0, fail2y: "20.2% (studio)", staffDefault: 4, note: "3 co-working booth studios (10 chairs ea @ S$2,100/mo fixed rent + retail): low labor risk but capped upside & slow payback." },
+      s1_orchard: { units: 1, capex: 1000000, ticket: 230, baseRevAt85: 115000, cogs: 0.14, comm: 0.45, royalty: 0.0, rent: 31200, baseCpf: 14500, ops: 5500, chairOffset: 0, fail2y: "27.15% (single)", staffDefault: 12, note: "1 prime Orchard flagship (1,200 sqft @ S$26 psf): S$31.2k rent + 45% director commission + single-lease concentration risk." }
+    };
+
+    function calcScenarioMetrics(cfg, utilPct, ticketOverride, rentOverride) {
+      const util = utilPct / 100.0;
+      const ticket = ticketOverride !== null ? ticketOverride : cfg.ticket;
+      const rent = rentOverride !== null ? rentOverride : cfg.rent;
+      const revUnitMo = cfg.modelKey === "s4_booth"
+        ? (cfg.baseRevAt85 * (util / 0.85))
+        : (cfg.baseRevAt85 * (util / 0.85) * (ticket / cfg.ticket));
+      const totRev = cfg.units * revUnitMo;
+      const varCost = totRev * (cfg.cogs + cfg.comm + cfg.royalty);
+      const netRent = Math.max(0, rent - (cfg.chairOffset || 0));
+      const fixedCost = cfg.units * (netRent + cfg.baseCpf + cfg.ops);
+      const ebitdaMo = totRev - varCost - fixedCost;
+      const ebitdaYr = ebitdaMo * 12;
+      const deprYr = cfg.capex / 5.0;
+      const taxYr = Math.max(0, ebitdaYr - deprYr) * 0.14;
+      const netCfMo = (ebitdaYr - taxYr) / 12.0;
+      const beMo = netCfMo > 0 ? (cfg.capex / netCfMo) : Infinity;
+      let npv5 = -cfg.capex;
+      for (let t = 1; t <= 5; t++) npv5 += (netCfMo * 12.0) / Math.pow(1.08, t);
+      return { totRev, revUnitMo, varCost, fixedCost, ebitdaMo, netCfMo, beMo, npv5 };
+    }
+
+    function applyInvPreset() {
+      const key = document.getElementById("inv-model").value;
+      const p = INV_PRESETS[key] || INV_PRESETS.s3_base;
+      document.getElementById("inv-ticket").value = String(p.ticket);
+      document.getElementById("inv-rent").value = String(p.rent);
+      document.getElementById("inv-util").value = "85";
+      document.getElementById("inv-staff").value = String(p.staffDefault);
+      renderInvest();
+    }
+
+    function renderInvest() {
+      const key = document.getElementById("inv-model").value;
+      const p = { ...INV_PRESETS[key] || INV_PRESETS.s3_base, modelKey: key };
+      const utilPct = parseFloat(document.getElementById("inv-util").value);
+      const ticket = parseFloat(document.getElementById("inv-ticket").value);
+      const rent = parseFloat(document.getElementById("inv-rent").value);
+      const staff = parseInt(document.getElementById("inv-staff").value, 10);
+
+      document.getElementById("inv-util-lbl").textContent = `${utilPct}%`;
+      document.getElementById("inv-ticket-lbl").textContent = `S$${ticket}`;
+      document.getElementById("inv-rent-lbl").textContent = `S$${rent.toLocaleString()}`;
+      document.getElementById("inv-staff-lbl").textContent = `${staff} pax`;
+
+      const res = calcScenarioMetrics(p, utilPct, ticket, rent);
+      const beTxt = isFinite(res.beMo) ? `${res.beMo.toFixed(1)} mo (${(res.beMo / 12).toFixed(2)} yrs)` : "Never (Loss)";
+      const marginPct = res.totRev > 0 ? (100 * res.netCfMo / res.totRev) : 0;
+      const maxFw = Math.floor(0.35 * staff);
+      const maxSp = Math.floor(0.10 * staff);
+      const minLoc = staff - maxFw;
+
+      document.getElementById("inv-kpi-be").textContent = beTxt;
+      document.getElementById("inv-kpi-be").className = `text-xl font-bold tabular-nums mt-0.5 ${isFinite(res.beMo) && res.beMo <= 30 ? "text-emerald-400" : (isFinite(res.beMo) && res.beMo <= 48 ? "text-amber-300" : "text-rose-400")}`;
+      document.getElementById("inv-kpi-be-sub").textContent = `${p.units} outlet${p.units > 1 ? "s" : ""} × S$${Math.round(p.capex / p.units).toLocaleString()} CAPEX`;
+
+      document.getElementById("inv-kpi-cf").textContent = `${res.netCfMo < 0 ? "-" : ""}S$${Math.abs(Math.round(res.netCfMo)).toLocaleString()} / mo`;
+      document.getElementById("inv-kpi-cf").className = `text-xl font-bold tabular-nums mt-0.5 ${res.netCfMo >= 0 ? "text-sky-400" : "text-rose-400"}`;
+      document.getElementById("inv-kpi-cf-sub").textContent = `${marginPct.toFixed(1)}% post-tax margin · Rev S$${Math.round(res.totRev).toLocaleString()}/mo`;
+
+      document.getElementById("inv-kpi-npv").textContent = `${res.npv5 < 0 ? "-" : "+"}S$${Math.abs(Math.round(res.npv5)).toLocaleString()}`;
+      document.getElementById("inv-kpi-npv").className = `text-xl font-bold tabular-nums mt-0.5 ${res.npv5 >= 0 ? "text-emerald-300" : "text-rose-400"}`;
+
+      document.getElementById("inv-kpi-risk").textContent = p.fail2y;
+      document.getElementById("inv-kpi-drc").textContent = `MOM DRC (${staff} pax): min ${minLoc} Local · max ${maxFw} WP+SP (${maxSp} S Pass)`;
+
+      document.getElementById("inv-pnl-summary").innerHTML = `
+        <div class="flex justify-between"><span>Portfolio Monthly Revenue:</span><strong class="text-white tabular-nums">S$${Math.round(res.totRev).toLocaleString()}</strong></div>
+        <div class="flex justify-between"><span>Variable Costs (COGS+Comm+Royalty):</span><span class="tabular-nums text-rose-300">-S$${Math.round(res.varCost).toLocaleString()}</span></div>
+        <div class="flex justify-between"><span>Fixed Opex (Net Rent+Base+CPF+Ops):</span><span class="tabular-nums text-rose-300">-S$${Math.round(res.fixedCost).toLocaleString()}</span></div>
+        <div class="flex justify-between border-t border-slate-700 pt-1"><span>Portfolio EBITDA:</span><strong class="tabular-nums ${res.ebitdaMo >= 0 ? "text-emerald-300" : "text-rose-400"}">${res.ebitdaMo < 0 ? "-" : ""}S$${Math.abs(Math.round(res.ebitdaMo)).toLocaleString()} / mo</strong></div>
+        <div class="pt-1 text-slate-400">${p.note}</div>
+      `;
+
+      const rowsCmp = [
+        { k: "s3_chair", u: 85, lbl: "S3+ Homegrown 4-Hub + Off-Peak Chair Offset (Base)" },
+        { k: "s3_base", u: 85, lbl: "S3 Homegrown 4-Hub Base (85% Util, S$72 ticket)" },
+        { k: "s3_base", u: 100, lbl: "S3 Homegrown 4-Hub Bull (100% Util)" },
+        { k: "s3_base", u: 65, lbl: "S3 Homegrown 4-Hub Bear (65% Util)" },
+        { k: "s2_fran", u: 85, lbl: "S2 Express Franchise (7x S$14 kiosks, 7% royalty)" },
+        { k: "s4_booth", u: 85, lbl: "S4 Booth-Rental Co-Working (3 studios / 30 chairs)" },
+        { k: "s1_orchard", u: 85, lbl: "S1 Orchard Luxury Flagship (1,200 sqft @ S$26 psf)" },
+      ];
+      document.getElementById("inv-compare-wrap").innerHTML = `
+        <table class="w-full text-left border-collapse">
+          <thead><tr class="border-b border-slate-700 text-slate-400">
+            <th class="py-1.5 pr-2">Strategy (S$1.0M CAPEX)</th>
+            <th class="py-1.5 px-2 text-right">Rev / mo</th>
+            <th class="py-1.5 px-2 text-right">Net CF / mo</th>
+            <th class="py-1.5 px-2 text-right">Break-Even</th>
+            <th class="py-1.5 pl-2 text-right">5-Yr NPV @8%</th>
+          </tr></thead>
+          <tbody>
+            ${rowsCmp.map(rc => {
+              const cfg = { ...INV_PRESETS[rc.k], modelKey: rc.k };
+              const m = calcScenarioMetrics(cfg, rc.u, null, null);
+              const be = isFinite(m.beMo) ? `${m.beMo.toFixed(1)} mo (${(m.beMo / 12).toFixed(2)}y)` : "Never";
+              const hi = rc.k.startsWith("s3") && rc.u === 85 ? "bg-emerald-500/5" : "";
+              return `<tr class="border-b border-slate-800/80 ${hi}">
+                <td class="py-2 pr-2 font-medium text-slate-100">${rc.lbl}</td>
+                <td class="py-2 px-2 text-right tabular-nums">S$${Math.round(m.totRev).toLocaleString()}</td>
+                <td class="py-2 px-2 text-right tabular-nums ${m.netCfMo >= 0 ? "text-sky-300" : "text-rose-400"}">${m.netCfMo < 0 ? "-" : ""}S$${Math.abs(Math.round(m.netCfMo)).toLocaleString()}</td>
+                <td class="py-2 px-2 text-right tabular-nums font-semibold ${isFinite(m.beMo) && m.beMo <= 30 ? "text-emerald-300" : "text-amber-300"}">${be}</td>
+                <td class="py-2 pl-2 text-right tabular-nums font-semibold ${m.npv5 >= 0 ? "text-emerald-300" : "text-rose-400"}">${m.npv5 < 0 ? "-" : "+"}S$${Math.abs(Math.round(m.npv5)).toLocaleString()}</td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>`;
+    }
+
     function syncTab3ToPubmed() {
       const rRaw = document.getElementById("s-race").value;
       const gender = document.getElementById("s-gender").value;
@@ -1710,12 +2030,17 @@
     renderPlaces();
     renderSpend();
     renderPubmedSim();
+    renderInvest();
     renderGapTables();
     renderChoropleth();
     renderGisPins();
     ["pm-weeks", "pm-ticket", "pm-pop", "pm-denom"].forEach(id => {
       const el = document.getElementById(id);
       el.addEventListener(id === "pm-weeks" ? "input" : "change", renderPubmedSim);
+    });
+    document.getElementById("inv-model").addEventListener("change", applyInvPreset);
+    ["inv-util", "inv-ticket", "inv-rent", "inv-staff"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderInvest);
     });
   </script>
 </body>
