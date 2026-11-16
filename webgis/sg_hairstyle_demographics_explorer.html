@@ -1277,9 +1277,10 @@
       }
 
       const barbers = filtered.filter(p => p.kind === "barber").length;
+      const budgets = filtered.filter(p => p.budget).length;
       const hdbs = filtered.filter(p => p.hdb).length;
       document.getElementById("g-visible-count").textContent = `Showing ${filtered.length.toLocaleString()} / ${POINTS.length.toLocaleString()} pins`;
-      document.getElementById("g-list-barber-count").textContent = `${hdbs.toLocaleString()} HDB · ${barbers.toLocaleString()} barber`;
+      document.getElementById("g-list-barber-count").textContent = `${hdbs.toLocaleString()} HDB · ${budgets.toLocaleString()} budget · ${barbers.toLocaleString()} barber`;
 
       const listEl = document.getElementById("g-results-list");
       const listShownEl = document.getElementById("g-list-shown-count");
