@@ -59,7 +59,7 @@
       <div>
         <strong class="text-white">Coverage &amp; Data Scope Note:</strong>
         Every metric and gap index uses <strong>all 4,673 mapped pins (100% spatial join)</strong> across all 55 Planning Areas and 332 URA Subzones.
-        Multi-outlet express chains sometimes register HQ postcodes on ACRA, while standalone neighbourhood barbers/salons register physical shop postcodes. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited outlets (<strong>255</strong>) split into <strong>102</strong> <em>Outlet Review+Menu</em> rows (verified Google ratings &amp; review counts) and <strong>153</strong> <em>Chain-Standard Menu</em> branches (official chain prices without fabricated reviews); all <strong>4,673</strong> pins include 1-tap Google Maps &amp; Reviews links.
+        Multi-outlet express chains sometimes register HQ postcodes on ACRA, while standalone neighbourhood barbers/salons register physical shop postcodes. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited outlets (<strong>255</strong>) split into <strong>102</strong> <em>Outlet Review+Menu</em> rows (verified Google ratings &amp; review counts) and <strong>153</strong> <em>Chain-Standard Menu</em> branches (official chain prices without fabricated reviews); <strong>Google Places API was not used</strong> to bulk-verify ratings/closures across all 4,673 pins due to API cost, so every pin provides a 1-tap client-side Google Maps &amp; Reviews search link instead.
         <span id="unlocated-note" class="text-slate-400"></span>
       </div>
       <details class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80">
@@ -68,6 +68,7 @@
           <li><strong>Spec./10k Youth (= 10,000 × Spec Pins / Pop 0–14):</strong> Uses Census 2020 residents aged <code>0–14</code> as the denominator (e.g., Punggol: <code>42,900</code>). On un-audited ACRA/OSM pins (which lack service menus), specialist counts use a name-keyword regex (<code>studio</code>, <code>kid</code>, <code>scalp</code>, <code>curl</code>, <code>hijab</code>, <code>korean</code>, etc.), while audited pins use T3/T4/Hijab/Curly attributes. <em>Caveats:</em> generic <code>"Studio"</code> names count toward specialist totals (e.g., 13 in Punggol = <code>3.0/10k</code>), and dual-listed ACRA + OSM storefronts are not geometrically deduplicated — meaning true dedicated pediatric/specialist capacity is often lower than the headline ratio.</li>
           <li><strong>Official HDB vs. Non-HDB (2,181 vs. 2,492):</strong> Matched by block + normalized street in Data.gov.sg HDB Property Info (<code>d_17f5382f...</code>) and SLA OneMap HDB buildings (plus <code>&lt;=25m</code> mall-excluded proximity for OSM). ACRA HDB matches reflect registered block addresses (shophouses or home-based entities), not retail zoning audits.</li>
           <li><strong>Gap Scores &amp; Subzone Vintage:</strong> Aging Gap weights <code>%65+</code> (45%), <code>log10(65+ pop)</code> (30%), and low-income HH <code>&lt;S$4k</code> (25%, defaulted to 34% at subzone level) against all-4,673 and HDB outlet density; Youth Gap weights <code>%0–14</code> (58%) and <code>log10(0–4 pop)</code> (42%) against total and specialist density per 10k youth. Census 2020 subzone demographics predate post-2021 Tengah &amp; Punggol North BTO inflows.</li>
+          <li><strong>Google Places API Cost Constraint (No Bulk Review Verification):</strong> Bulk Google Places API lookups (<code>Text Search Enterprise</code> at US$35/1,000 calls after the 1,000/month free cap, ~US$125–$143 across 4,571 unrated pins) were <strong>not</strong> executed due to cost. Only the original 102 outlets carry stored Google star ratings/review counts; the 153 <em>Chain-Standard Menu</em> branches, 491 OSM storefronts, and 3,927 ACRA pins leave ratings blank (zero fabricated counts) and open direct Google Maps search links on click.</li>
         </ul>
       </details>
     </div>
@@ -166,7 +167,7 @@
     <section class="bg-slate-900 border border-slate-800 rounded-xl p-4 space-y-3">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <div>
-          <h2 class="text-base font-semibold">Identified Service Gaps Across All 4,520 Outlets &amp; SingStat Demographics</h2>
+          <h2 class="text-base font-semibold">Identified Service Gaps Across All 4,673 Outlets &amp; SingStat Demographics</h2>
           <p class="text-xs text-slate-400">Click any row to zoom the map directly to that Planning Area or Subzone polygon.</p>
         </div>
         <div class="flex items-center gap-2 text-xs">
@@ -263,6 +264,7 @@
     window.__gisLayersByKey = {};
 
     function googleReviewsUrl(p) {
+      if (p.g_uri && /^https?:\/\//i.test(p.g_uri)) return p.g_uri;
       const q = [p.name, p.blk ? "Blk " + p.blk : "", p.street || p.area || "", p.pc || "", "Singapore"].filter(Boolean).join(" ");
       return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
     }
@@ -276,9 +278,15 @@
     function makePopup(p) {
       const gUrl = googleReviewsUrl(p);
       const hp = hdbPill(p.hdb);
+      const closedTag = p.biz_status === "CLOSED_PERMANENTLY"
+        ? ` <span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px]">Closed</span>`
+        : "";
+      const extRating = (p.rating !== null && p.rating !== undefined)
+        ? `<div>Google Reviews: <b>★ ${Number(p.rating).toFixed(1)}</b> (${(p.reviews || 0).toLocaleString()} reviews)</div>`
+        : "";
       if (p.src === "audited") {
         return `<div class="text-xs space-y-1">
-          <div class="font-bold text-emerald-300">${p.name} ${hp}</div>
+          <div class="font-bold text-emerald-300">${p.name} ${hp}${closedTag}</div>
           <div><span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">${p.tier} Audited</span> • ${p.area} (${p.region})</div>
           <div>Men: <b>S$${p.pm}</b> • Women: <b>S$${p.pw}</b> • Kid: <b>S$${p.pk}</b></div>
           ${(p.rating !== null && p.rating !== undefined)
@@ -293,20 +301,22 @@
       if (p.src === "osm") {
         const addr = [p.hs, p.street, p.unit, p.pc ? "S(" + p.pc + ")" : ""].filter(Boolean).join(" ");
         return `<div class="text-xs space-y-1">
-          <div class="font-bold text-cyan-300">${p.name} ${hp}</div>
+          <div class="font-bold text-cyan-300">${p.name} ${hp}${closedTag}</div>
           <div><span class="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">OSM ${p.shop}</span> • ${p.kind === "barber" ? "Barber / Gent" : "Hair Salon"}</div>
           ${addr ? `<div>${addr}</div>` : ""}
+          ${extRating}
           <div class="text-slate-400">${p.id}</div>
-          <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">Check Google Rating &amp; Reviews ↗</a>
+          <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">${extRating ? "Open Google Maps Listing ↗" : "Check Google Rating & Reviews ↗"}</a>
         </div>`;
       }
       const addr = [p.blk ? "Blk " + p.blk : "", p.street, p.unit, p.pc ? "Singapore " + p.pc : ""].filter(Boolean).join(" ");
       return `<div class="text-xs space-y-1">
-        <div class="font-bold text-amber-300">${p.name} ${hp}</div>
+        <div class="font-bold text-amber-300">${p.name} ${hp}${closedTag}</div>
         <div><span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">ACRA Live SSIC 96021</span> • ${p.primary ? "Primary" : "Secondary"}</div>
         <div>${addr}</div>
+        ${extRating}
         <div class="text-slate-400">UEN: ${p.uen}</div>
-        <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">Check Google Rating &amp; Reviews ↗</a>
+        <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">${extRating ? "Open Google Maps Listing ↗" : "Check Google Rating & Reviews ↗"}</a>
       </div>`;
     }
 
@@ -471,9 +481,13 @@
 
       function rowHtml(p, idx) {
         const tagCol = p.src === "acra" ? "text-amber-300" : (p.src === "osm" ? "text-cyan-300" : "text-emerald-300");
-        const revTag = p.src === "audited"
-          ? ((p.rating !== null && p.rating !== undefined) ? `★ ${p.rating.toFixed(1)} (${(p.reviews || 0).toLocaleString()})` : "Chain Menu ↗")
-          : "Reviews ↗";
+        const hasR = p.rating !== null && p.rating !== undefined;
+        const revTag = hasR
+          ? `★ ${Number(p.rating).toFixed(1)} (${(p.reviews || 0).toLocaleString()})`
+          : (p.src === "audited" ? "Chain Menu ↗" : "Reviews ↗");
+        const closedBadge = p.biz_status === "CLOSED_PERMANENTLY"
+          ? `<span class="text-[10px] px-1 rounded bg-rose-500/20 text-rose-300 mr-1">Closed</span>`
+          : "";
         const sub = p.src === "audited"
           ? `${p.area} • Men S$${p.pm} / Women S$${p.pw}`
           : (p.src === "osm"
@@ -482,7 +496,7 @@
         const hTag = p.hdb ? `<span class="text-[10px] px-1 rounded bg-teal-500/20 text-teal-300 mr-1">HDB</span>` : "";
         return `<div class="py-2 px-1.5 hover:bg-slate-800/70 rounded transition flex items-start justify-between gap-2">
           <button data-i="${idx}" class="loc-btn text-left flex-1 min-w-0">
-            <div class="flex justify-between gap-2"><span class="font-medium text-white truncate">${hTag}${p.name}</span><span class="uppercase text-[10px] font-semibold shrink-0 ${tagCol}">${p.src}</span></div>
+            <div class="flex justify-between gap-2"><span class="font-medium text-white truncate">${hTag}${closedBadge}${p.name}</span><span class="uppercase text-[10px] font-semibold shrink-0 ${tagCol}">${p.src}</span></div>
             <div class="text-[11px] text-slate-400 truncate">${sub}</div>
           </button>
           <a href="${googleReviewsUrl(p)}" target="_blank" rel="noopener" class="shrink-0 text-[10px] px-1.5 py-1 rounded bg-slate-800 border border-slate-700 text-amber-300 hover:bg-slate-700">${revTag}</a>

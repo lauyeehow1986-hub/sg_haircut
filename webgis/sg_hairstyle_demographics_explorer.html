@@ -231,7 +231,7 @@
         <div class="lg:col-span-2 bg-[var(--card,var(--card-fallback))] border border-[var(--border,var(--border-fallback))] rounded-xl p-4 space-y-3">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <h3 class="text-sm font-semibold">255 Price-Audited Singapore Salons &amp; Barbers (Directory)</h3>
-            <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">102 outlet review+menu · 153 official brand-menu outlets</span>
+            <span class="text-[11px] text-[var(--muted-foreground,var(--muted-fallback))]">102 outlet review+menu · 153 official brand-menu outlets (Google Places API not used due to cost)</span>
           </div>
           <div id="places-table-wrap" class="overflow-x-auto max-h-[460px] overflow-y-auto scrollbar-thin"></div>
         </div>
@@ -412,7 +412,7 @@
           Population baselines use <strong class="text-white">Data.gov.sg / SingStat Census</strong> (<code>d_d95ae740...</code> Age/Sex by Planning Area &amp; Subzone, <code>d_4e150bbd...</code> HH Income) + live <strong class="text-white">SingStat MCP <code>M810771</code></strong> Planning Region updates through <strong class="text-white">End-June 2026</strong> (<strong class="text-white"><code>M810091</code> 2025 TFR: 0.87</strong>).
         </div>
         <div class="text-[11px] text-slate-400">
-          <em>Honest Coverage Notes:</em> Multi-outlet express chains sometimes register HQ postcodes on ACRA; all 4,673 pins are included alongside an OSM/HDB breakdown. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited outlets (<strong>255</strong>) split into <strong>102</strong> <em>Outlet Review+Menu</em> rows (with verified Google star ratings &amp; review counts) and <strong>153</strong> <em>Chain-Standard Menu</em> branches (verified from official brand directories/menus without fabricated outlet review counts); all <strong>4,673</strong> pins include 1-tap Google Maps &amp; Reviews search links.
+          <em>Honest Coverage Notes:</em> Multi-outlet express chains sometimes register HQ postcodes on ACRA; all 4,673 pins are included alongside an OSM/HDB breakdown. Subzone Census 2020 counts predate post-2021 Tengah &amp; Punggol North BTO waves (reflected regionally in 2026 SingStat M810771). Audited outlets (<strong>255</strong>) split into <strong>102</strong> <em>Outlet Review+Menu</em> rows (with verified Google star ratings &amp; review counts) and <strong>153</strong> <em>Chain-Standard Menu</em> branches (verified from official brand directories/menus without fabricated outlet review counts); <strong>Google Places API was not used</strong> to bulk-verify ratings/closures across all 4,673 pins due to API cost, so all 4,673 pins provide 1-tap client-side Google Maps &amp; Reviews search links instead.
         </div>
         <details class="text-[11px] text-slate-400 pt-1 border-t border-slate-800/80">
           <summary class="cursor-pointer font-semibold text-sky-300 hover:underline">Methodological Caveats &amp; Metric Definitions (Click to expand)</summary>
@@ -420,6 +420,7 @@
             <li><strong>Spec./10k Youth (= 10,000 × Spec Pins / Pop 0–14):</strong> Uses Census 2020 residents aged <code>0–14</code> as the denominator (e.g., Punggol: <code>42,900</code>). On un-audited ACRA/OSM pins (which lack service menus), specialist counts use a name-keyword regex (<code>studio</code>, <code>kid</code>, <code>scalp</code>, <code>curl</code>, <code>hijab</code>, <code>korean</code>, etc.), while audited pins use T3/T4/Hijab/Curly attributes. <em>Caveats:</em> generic <code>"Studio"</code> names count toward specialist totals (e.g., 13 in Punggol = <code>3.0/10k</code>), and dual-listed ACRA + OSM storefronts are not geometrically deduplicated — meaning true dedicated pediatric/specialist capacity is often lower than the headline ratio.</li>
             <li><strong>Official HDB vs. Non-HDB (2,181 vs. 2,492):</strong> Matched by block + normalized street in Data.gov.sg HDB Property Info (<code>d_17f5382f...</code>) and SLA OneMap HDB buildings (plus <code>&lt;=25m</code> mall-excluded proximity for OSM). ACRA HDB matches reflect registered block addresses (shophouses or home-based entities), not retail zoning audits.</li>
             <li><strong>Gap Scores &amp; Subzone Vintage:</strong> Aging Gap weights <code>%65+</code> (45%), <code>log10(65+ pop)</code> (30%), and low-income HH <code>&lt;S$4k</code> (25%, defaulted to 34% at subzone level) against all-4,673 and HDB outlet density; Youth Gap weights <code>%0–14</code> (58%) and <code>log10(0–4 pop)</code> (42%) against total and specialist density per 10k youth. Census 2020 subzone demographics predate post-2021 Tengah &amp; Punggol North BTO inflows.</li>
+            <li><strong>Google Places API Cost Constraint (No Bulk Review Verification):</strong> Bulk Google Places API lookups (<code>Text Search Enterprise</code> at US$35/1,000 calls after the 1,000/month free cap, ~US$125–$143 across 4,571 unrated pins) were <strong>not</strong> executed due to cost. Only the original 102 outlets carry stored Google star ratings/review counts; the 153 <em>Chain-Standard Menu</em> branches, 491 OSM storefronts, and 3,927 ACRA pins leave ratings blank (zero fabricated counts) and open direct Google Maps search links on click.</li>
           </ul>
         </details>
       </div>
@@ -1030,6 +1031,7 @@
 
     // ==================== TAB 4: ISLANDWIDE GIS (4,520 PINS) + HDB CLASSIFICATION + POP CHOROPLETH ====================
     function googleReviewsUrl(p) {
+      if (p.g_uri && /^https?:\/\//i.test(p.g_uri)) return p.g_uri;
       const q = [p.name, p.blk ? "Blk " + p.blk : "", p.street || p.area || "", p.pc || "", "Singapore"].filter(Boolean).join(" ");
       return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
     }
@@ -1043,12 +1045,18 @@
     function makePinPopup(p) {
       const gUrl = googleReviewsUrl(p);
       const hp = hdbPill(p.hdb);
+      const closedTag = p.biz_status === "CLOSED_PERMANENTLY"
+        ? ` <span class="px-1.5 py-0.5 rounded bg-rose-500/20 text-rose-300 text-[10px]">Closed</span>`
+        : "";
+      const extRating = (p.rating !== null && p.rating !== undefined)
+        ? `<div>Google Reviews: <b>★ ${Number(p.rating).toFixed(1)}</b> (${(p.reviews || 0).toLocaleString()} reviews)</div>`
+        : "";
       if (p.src === "audited") {
         const revMeta = (p.rating !== null && p.rating !== undefined)
           ? `<div>Google Reviews: <b>★ ${p.rating.toFixed(1)}</b> (${(p.reviews || 0).toLocaleString()} reviews) • ~${(p.q + p.chair).toFixed(0)}m</div>`
           : `<div>Audit Basis: <b class="text-sky-300">${p.conf || "Chain-Standard Menu"}</b> • ~${(p.q + p.chair).toFixed(0)}m</div>`;
         return `<div class="text-xs space-y-1">
-          <div class="font-bold text-emerald-300">${p.name} ${hp}</div>
+          <div class="font-bold text-emerald-300">${p.name} ${hp}${closedTag}</div>
           <div><span class="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">${p.tier} Audited</span> • ${p.area} (${p.region})</div>
           <div>Men: <b>S$${p.pm}</b> • Women: <b>S$${p.pw}</b> • Kid: <b>S$${p.pk}</b></div>
           ${revMeta}
@@ -1061,20 +1069,22 @@
       if (p.src === "osm") {
         const addr = [p.hs, p.street, p.unit, p.pc ? "S(" + p.pc + ")" : ""].filter(Boolean).join(" ");
         return `<div class="text-xs space-y-1">
-          <div class="font-bold text-cyan-300">${p.name} ${hp}</div>
+          <div class="font-bold text-cyan-300">${p.name} ${hp}${closedTag}</div>
           <div><span class="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">OSM ${p.shop}</span> • ${p.kind === "barber" ? "Barber / Gent" : "Hair Salon"}</div>
           ${addr ? `<div>${addr}</div>` : ""}
+          ${extRating}
           <div class="text-slate-400">${p.id}</div>
-          <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">Check Google Rating &amp; Reviews ↗</a>
+          <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">${extRating ? "Open Google Maps Listing ↗" : "Check Google Rating & Reviews ↗"}</a>
         </div>`;
       }
       const addr = [p.blk ? "Blk " + p.blk : "", p.street, p.unit, p.pc ? "Singapore " + p.pc : ""].filter(Boolean).join(" ");
       return `<div class="text-xs space-y-1">
-        <div class="font-bold text-amber-300">${p.name} ${hp}</div>
+        <div class="font-bold text-amber-300">${p.name} ${hp}${closedTag}</div>
         <div><span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">ACRA Live SSIC 96021</span> • ${p.primary ? "Primary" : "Secondary"}</div>
         <div>${addr}</div>
+        ${extRating}
         <div class="text-slate-400">UEN: ${p.uen}</div>
-        <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">Check Google Rating &amp; Reviews ↗</a>
+        <a href="${gUrl}" target="_blank" rel="noopener" class="text-amber-300 underline font-medium inline-block pt-0.5">${extRating ? "Open Google Maps Listing ↗" : "Check Google Rating & Reviews ↗"}</a>
       </div>`;
     }
 
@@ -1291,9 +1301,13 @@
 
       function rowHtml(p, idx) {
         const tagCol = p.src === "acra" ? "text-amber-300" : (p.src === "osm" ? "text-cyan-300" : "text-emerald-300");
-        const revTag = p.src === "audited"
-          ? ((p.rating !== null && p.rating !== undefined) ? `★ ${p.rating.toFixed(1)} (${(p.reviews || 0).toLocaleString()})` : "Chain Menu ↗")
-          : "Reviews ↗";
+        const hasR = p.rating !== null && p.rating !== undefined;
+        const revTag = hasR
+          ? `★ ${Number(p.rating).toFixed(1)} (${(p.reviews || 0).toLocaleString()})`
+          : (p.src === "audited" ? "Chain Menu ↗" : "Reviews ↗");
+        const closedBadge = p.biz_status === "CLOSED_PERMANENTLY"
+          ? `<span class="text-[10px] px-1 rounded bg-rose-500/20 text-rose-300 mr-1">Closed</span>`
+          : "";
         const sub = p.src === "audited"
           ? `${p.area} • Men S$${p.pm} / Women S$${p.pw}`
           : (p.src === "osm"
@@ -1302,7 +1316,7 @@
         const hTag = p.hdb ? `<span class="text-[10px] px-1 rounded bg-teal-500/20 text-teal-300 mr-1">HDB</span>` : "";
         return `<div class="py-2 px-1.5 hover:bg-slate-800/70 rounded transition flex items-start justify-between gap-2">
           <button data-gi="${idx}" class="gis-loc-btn text-left flex-1 min-w-0">
-            <div class="flex justify-between gap-2"><span class="font-medium text-white truncate">${hTag}${p.name}</span><span class="uppercase text-[10px] font-semibold shrink-0 ${tagCol}">${p.src}</span></div>
+            <div class="flex justify-between gap-2"><span class="font-medium text-white truncate">${hTag}${closedBadge}${p.name}</span><span class="uppercase text-[10px] font-semibold shrink-0 ${tagCol}">${p.src}</span></div>
             <div class="text-[11px] text-slate-400 truncate">${sub}</div>
           </button>
           <a href="${googleReviewsUrl(p)}" target="_blank" rel="noopener" class="shrink-0 text-[10px] px-1.5 py-1 rounded bg-slate-800 border border-slate-700 text-amber-300 hover:bg-slate-700">${revTag}</a>
